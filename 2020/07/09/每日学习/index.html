@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="7.9 学习每日一句： 此时不博更待何时正文马尔可夫链，随机动力学建模隐马尔可夫链 参考网址   对马尔可夫链进行了形象的说明http:&#x2F;&#x2F;www.360doc.com&#x2F;content&#x2F;19&#x2F;0226&#x2F;08&#x2F;32196507_817579538.shtml     回顾了马尔可夫链的发展过程。生物过程参照HMM，另外GibbsNet和对抗训练方法来学习转移算子以及MEMM的三种方法特别值得我继续学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日学习">
+<meta property="og:url" content="http://yoursite.com/2020/07/09/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Feilijiang">
+<meta property="og:description" content="7.9 学习每日一句： 此时不博更待何时正文马尔可夫链，随机动力学建模隐马尔可夫链 参考网址   对马尔可夫链进行了形象的说明http:&#x2F;&#x2F;www.360doc.com&#x2F;content&#x2F;19&#x2F;0226&#x2F;08&#x2F;32196507_817579538.shtml     回顾了马尔可夫链的发展过程。生物过程参照HMM，另外GibbsNet和对抗训练方法来学习转移算子以及MEMM的三种方法特别值得我继续学">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20200709130904.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20200709130831.png">
+<meta property="article:published_time" content="2020-07-09T01:50:06.000Z">
+<meta property="article:modified_time" content="2020-07-17T06:25:55.896Z">
+<meta property="article:author" content="Feilijiang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/img/20200709130904.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/07/09/每日学习/"/>
+
+
+
+
+
+  <title>每日学习 | Feilijiang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feilijiang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">New Beginnings</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home //首页"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags //标签"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th //分类"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar //日程表"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">每日学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-09T09:50:06+08:00">
+                2020-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="7-9-学习"><a href="#7-9-学习" class="headerlink" title="7.9 学习"></a>7.9 学习</h3><h4 id="每日一句：-此时不博更待何时"><a href="#每日一句：-此时不博更待何时" class="headerlink" title="每日一句： 此时不博更待何时"></a>每日一句： 此时不博更待何时</h4><h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>马尔可夫链，随机动力学建模<br>隐马尔可夫链</p>
+<p>参考网址</p>
+<ul>
+<li><ol>
+<li>对马尔可夫链进行了形象的说明<br><a href="http://www.360doc.com/content/19/0226/08/32196507_817579538.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/19/0226/08/32196507_817579538.shtml</a> </li>
+</ol>
+</li>
+<li><ol start="2">
+<li>回顾了马尔可夫链的发展过程。生物过程参照HMM，另外GibbsNet和对抗训练方法来学习转移算子以及MEMM的三种方法特别值得我继续学习，看能否适用到生物网络学习中。</li>
+</ol>
+</li>
+</ul>
+<p><a href="https://www.jiqizhixin.com/graph/technologies/fdebe132-cd51-43ba-8bda-a42abc478cbb" target="_blank" rel="noopener">https://www.jiqizhixin.com/graph/technologies/fdebe132-cd51-43ba-8bda-a42abc478cbb</a></p>
+<p>不同时刻的随机变量可连续可离散，具有连续或者离散的状态空间。</p>
+<p>马尔可夫属性：给定当前状态和过去状态的流程，未来状态的条件分布只依赖于当前状态，而完全不依赖于过去状态（<strong><em>无记忆属性</em></strong>）。具有马尔可夫属性的随机过程成为马尔可夫过程。</p>
+<blockquote>
+<p>$P(future| present,past)=P(future|present,markov property)$</p>
+</blockquote>
+<p>马尔可夫链：马尔可夫过程与离散时间和离散状态空间。</p>
+<blockquote>
+<p>$P(X_{n+1}=s_{n+1}| X_n=s_n,X_{n-1}=s_{n-1},X_{n-2}=s_{n-2},…)=p(X_{n+1}=s_{n+1}|X_n=s_n )$</p>
+</blockquote>
+<p>可还原性，周期性，短暂性，复发性</p>
+<p>静态分布，限制行为，遍历性<br>初始概率分布上没有假设，无论初始假设如何设置，链的概率分布都会被限制到平稳分布</p>
+<p>在极限情况下，轨迹的早期行为可以忽略不计，只有长期静止行为在计算均值时才真正重要。</p>
+<p><strong>当且仅当所有的状态都是正向重复时，不可简化的马尔可夫链具有静态概率分布，收敛到静止分布，忽略早期行为。</strong></p>
+<p><strong>如果链式循环正和非周期性的，污染初始概率是多少，当时间步长变为无穷大时，链的概率分布会被限制，改链被认为具有限制分布，而不是静态分布</strong></p>
+<p><strong>初始概率分布没有假设，污染初始设置如何，链的概率分布都会被限制到平稳分布</strong></p>
+<p>网络与矩阵的对应关系，具有方向性的启示</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200709130904.png" alt=""><br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200709130831.png" alt=""></p>
+<h3 id="隐马尔可夫模型（HMM）"><a href="#隐马尔可夫模型（HMM）" class="headerlink" title="隐马尔可夫模型（HMM）"></a>隐马尔可夫模型（HMM）</h3><p><strong>HMM</strong>: 用来描述一个含有隐含未知参数的马尔可夫过程。</p>
+<p><strong>GibbsNet</strong>：通过匹配模型期望的联合分布和数据驱动的联合分布直接定义和学习转换算子，然后使用转换算子训练图模型，成功将马尔可夫链与神经网络结合起来。</p>
+<p><strong>对抗方法训练转移子</strong>：Jiaming Song, Shengjia Zhao和Stefano Ermon研究了生成对抗的训练方法来对马尔可夫链（Markov chain）的转移算子（transition operator）进行学习，目的是将其静态分布（stationary distribution）和目标数据分布相匹配。他们提出了一种新型的训练流程，以避免从静态分布中直接采样，但是仍然有能力逐渐达到目标分布。此模型可以从随机噪声开始，是无似然性的，并且能够在单步运行期间生成多个不同的样本。初步试验结果显示，当它临近其静态时，马尔可夫链可以生成高质量样本，即使是对于传统生成对抗网络相关理念中的较小结构亦是如此。</p>
+<p><strong>MEMM</strong>： 最大熵隐马尔科夫模型（MEMM）可以整个观察序列，不仅和单个词相关，而且与观察序列的长度、单词的上下文等有关。</p>
+<h3 id="20200716"><a href="#20200716" class="headerlink" title="20200716"></a>20200716</h3><p>每日一句：坚定自己的选择</p>
+<h1 id="Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir"><a href="#Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir" class="headerlink" title="Characterization of cell fate probabilities in single-cell data with Palantir"></a>Characterization of cell fate probabilities in single-cell data with Palantir</h1><blockquote>
+<p>利用马尔可夫模型对细胞类型的分化建模</p>
+</blockquote>
+<p><strong>假设</strong></p>
+<ul>
+<li>1.伪时间推测算法中，假定细胞从一个较少分化状态到完全分化状态是单向的。</li>
+<li>2.节点到邻近节点的过程与历史无关，即分化到下一个状态与之前的状态无关。</li>
+</ul>
+<h2 id="具体的模型"><a href="#具体的模型" class="headerlink" title="具体的模型"></a>具体的模型</h2><ul>
+<li><ol>
+<li>首先使用diffusion maps来构建nearest-neighbor graph。使用多个compents</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>从用户定义的起始细胞开始，计算拟时间，即与起始细胞的最短距离</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>利用neighbor graph and pseudo-time来构建一个markov chain来模拟分化作为随机过程，拟时间作为方向，对于每条有向边，我们都指定一步到达相邻单元的转移概率。到达较远单元的概率要经过多步计算，如果有多条路径连接它们，则概率会很高——也就是说，观察到的中间单元状态密度很高</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>马尔可夫链也用于从数据中推断终端状态。Palantir将终端状态定义为边界单元(扩散分量的极值)，它们是平稳分布中的异常值，即随机游动收敛到的状态.一旦确定了终端态，我们就把它们转换成没有传出边的吸收态。在吸收马尔可夫链中，任意状态的随机游走会一直持续下去，直到到达一个终端吸收状态。对于每个细胞，Palantir然后整合所有可能的随机游走从细胞到每个可能的终端状态，以产生一个分支概率的向量.</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>根据上述定义的轨迹,利用一个广义可加模型来计算基因的表达趋势。</li>
+</ol>
+</li>
+</ul>
+<h2 id="具体代码解析"><a href="#具体代码解析" class="headerlink" title="具体代码解析"></a>具体代码解析</h2><h3 id="init-py"><a href="#init-py" class="headerlink" title="init.py"></a><strong>init</strong>.py</h3><p>依赖包的载入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from . import core</span><br><span class="line">from . import presults</span><br><span class="line">from . import io</span><br><span class="line">from . import preprocess</span><br><span class="line">from . import utils</span><br><span class="line">from . import plot</span><br><span class="line">from .version import __version__</span><br></pre></td></tr></table></figure>
+
+<h3 id="core-py"><a href="#core-py" class="headerlink" title="core.py"></a>core.py</h3><p>run_palantir</p>
+<p>_max_min_sampling</p>
+<p>_compute_pseudotime</p>
+<p>identify_terminal_states</p>
+<p>_construct_markov_chain</p>
+<p>_terminal_states_from_markov_chain</p>
+<p>_differentiation_entropy</p>
+<p>_shortest_path_helper</p>
+<p>_connect_graph</p>
+<h3 id="io-py"><a href="#io-py" class="headerlink" title="io.py"></a>io.py</h3><p>_clean_up<br>from_csv<br>from_mtx<br>from_10x<br>from_10x_HDF5<br>from_fcs</p>
+<h3 id="plot-py"><a href="#plot-py" class="headerlink" title="plot.py"></a>plot.py</h3><p>class FigureGrid<br>FigureGrid<br>density_2d<br>plot_molecules_per_cell_and_gene<br>plot_cell_clusters<br>plot_tsne<br>highlight_cells_on_tsne<br>plot_tsne_by_cell_sizes<br>plot_gene_expression<br>plot_diffusion_components<br>plot_palantir_results<br>plot_terminal_state_probs<br>plot_gene_trends<br>plot_gene_trend_heatmaps<br>plot_gene_trend_clusters</p>
+<h3 id="preprocess-py"><a href="#preprocess-py" class="headerlink" title="preprocess.py"></a>preprocess.py</h3><p>filter_counts_data<br>normalize_counts: 使用median normalization的方法<br>log_transform：log2(data + pseudo_count)</p>
+<h3 id="persults-py"><a href="#persults-py" class="headerlink" title="persults.py"></a>persults.py</h3><p>class PResults</p>
+<p>compute_gene_trends<br>_gam_fit_predict<br>cluster_gene_trends</p>
+<h3 id="utils-py"><a href="#utils-py" class="headerlink" title="utils.py"></a>utils.py</h3><p>run_pca<br>run_diffusion_maps<br>run_magic_imputation<br>determine_multiscale_space<br>run_tsne<br>determine_cell_clusters</p>
+<h3 id="version-py"><a href="#version-py" class="headerlink" title="version.py"></a>version.py</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/06/%E7%B3%BB%E7%BB%9F%E7%94%9F%E7%89%A9%E5%AD%A6-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%87%AA%E8%BA%AB%E8%B0%83%E8%8A%82/" rel="next" title="系统生物学 第二章 自身调节">
+                <i class="fa fa-chevron-left"></i> 系统生物学 第二章 自身调节
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/31/octave/" rel="prev" title="octave">
+                octave <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Feilijiang</p>
+              <p class="site-description motion-element" itemprop="description">生物信息 记录 分享 博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-学习"><span class="nav-number">1.</span> <span class="nav-text">7.9 学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每日一句：-此时不博更待何时"><span class="nav-number">1.1.</span> <span class="nav-text">每日一句： 此时不博更待何时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正文"><span class="nav-number">1.2.</span> <span class="nav-text">正文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐马尔可夫模型（HMM）"><span class="nav-number">2.</span> <span class="nav-text">隐马尔可夫模型（HMM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20200716"><span class="nav-number">3.</span> <span class="nav-text">20200716</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir"><span class="nav-number"></span> <span class="nav-text">Characterization of cell fate probabilities in single-cell data with Palantir</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体的模型"><span class="nav-number"></span> <span class="nav-text">具体的模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体代码解析"><span class="nav-number"></span> <span class="nav-text">具体代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#init-py"><span class="nav-number">1.</span> <span class="nav-text">init.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#core-py"><span class="nav-number">2.</span> <span class="nav-text">core.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#io-py"><span class="nav-number">3.</span> <span class="nav-text">io.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-py"><span class="nav-number">4.</span> <span class="nav-text">plot.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#preprocess-py"><span class="nav-number">5.</span> <span class="nav-text">preprocess.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#persults-py"><span class="nav-number">6.</span> <span class="nav-text">persults.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-py"><span class="nav-number">7.</span> <span class="nav-text">utils.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#version-py"><span class="nav-number">8.</span> <span class="nav-text">version.py</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feilijiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>
