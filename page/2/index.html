@@ -251,6 +251,911 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/" itemprop="url">每日学习20200922</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-22T21:43:34+08:00">
+                2020-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基因的跨物种序列比对以及进化树构建"><a href="#基因的跨物种序列比对以及进化树构建" class="headerlink" title="基因的跨物种序列比对以及进化树构建"></a>基因的跨物种序列比对以及进化树构建</h2><blockquote>
+<p>工具：muscle，ggtree</p>
+</blockquote>
+<hr>
+<h3 id="1-序列比对工具"><a href="#1-序列比对工具" class="headerlink" title="1. 序列比对工具"></a>1. 序列比对工具</h3><p><strong>Muscle</strong>：本地版和网页版都有，</p>
+<blockquote>
+<p>本地版：<a href="https://www.drive5.com/muscle/downloads.htm" target="_blank" rel="noopener">https://www.drive5.com/muscle/downloads.htm</a></p>
+</blockquote>
+<blockquote>
+<p>网页版： <a href="https://www.ebi.ac.uk/Tools/msa/muscle/" target="_blank" rel="noopener">https://www.ebi.ac.uk/Tools/msa/muscle/</a></p>
+</blockquote>
+<blockquote>
+<p>参考网站： <a href="https://cloud.tencent.com/developer/article/1625177" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1625177</a></p>
+</blockquote>
+<blockquote>
+<p><strong>ClustalW</strong>：速度较慢</p>
+</blockquote>
+<blockquote>
+<p><strong>MAFFT</strong>：氨基酸的多序列比对 </p>
+</blockquote>
+<blockquote>
+<p><strong>lastZ</strong>:基因组比对，适用于染色质序列比对，对于gap友好</p>
+</blockquote>
+<blockquote>
+<p><strong>T-coffee</strong>：整合多种信息，比如结构和实验，功能比较强大</p>
+</blockquote>
+<blockquote>
+<p><strong>PHAST</strong>: 自荐</p>
+</blockquote>
+<h3 id="2-准备序列"><a href="#2-准备序列" class="headerlink" title="2. 准备序列"></a>2. 准备序列</h3><blockquote>
+<p>在ncbi下载数据，注意是基因组还是转录组的fastq数据。</p>
+</blockquote>
+<blockquote>
+<p>如果要导入snapview提前查看序列及其特征，需要额外下载ncbi genebank 格式的文件。</p>
+</blockquote>
+<blockquote>
+<p>各物种的序列将其整合到一个文件中，需要注意抬头的书写，识别的时候会根据空格进行分割，所以特别注意序列名称的特异性。</p>
+</blockquote>
+<h3 id="3-过程："><a href="#3-过程：" class="headerlink" title="3. 过程："></a>3. 过程：</h3><ul>
+<li><ol>
+<li>首先，使用网页版的muscle<br>INPUT: 上述的fasta序列，在output format参数选择中，选择fasta格式和clustalW格式<br>OUTPUT：jalview launch file可以导入到ebi推荐的桌面app中查看 ，alignment格式文件另存为，简单的进化树直接生成。</li>
+</ol>
+<ul>
+<li><ol start="2">
+<li>在R中绘制进化树，与序列对齐，使用ggtree。</li>
+</ol>
+<p>特别注意</p>
+<blockquote>
+<p>muscle默认输出的ph格式是ntk格式，可以用ggtree的read.newick 读取。</p>
+</blockquote>
+<blockquote>
+<p>fasta的抬头需要和ph文件的抬头一致。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><ol start="3">
+<li>如果进化树的序列知显示一部分，则需要对fasta输出文件进行截取。</li>
+</ol>
+</li>
+</ul>
+<p>代码参考：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">library(ggtree)</span><br><span class="line">library(treeio)</span><br><span class="line">setwd(&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">tree&lt;-read.newick(&quot;muscle-I20200922-083912-0228-12080513-p1m.ph&quot;)</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">x&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">## check the taxa names</span><br><span class="line">setdiff(tree$tip.label,labels(x))</span><br><span class="line">setdiff(labels(x),tree$tip.label)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#p3 &lt;- ggtree(tree,) +geom_tiplab(hjust &#x3D; -0.05,size&#x3D;6,fontface&#x3D;&quot;italic&quot;) + xlim(NA,1.2)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">print(p3)</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; fasta,offset&#x3D;0.05,color &#x3D; col)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############# subset nls and lecine zipper sequence</span><br><span class="line">## mannal select the 600-900bp region</span><br><span class="line">fasta&lt;-&quot;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename_part.fasta&quot;</span><br><span class="line">xx&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">#print(p3)</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; xx,offset&#x3D;0.05,color &#x3D; col)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="20200815-每日学习"><a href="#20200815-每日学习" class="headerlink" title="20200815 每日学习"></a>20200815 每日学习</h2><p> 文件格式： bigWig, bed, bigBed, bed narrowPeak</p>
+<p><a href="http://genome.ucsc.edu/goldenPath/help/wiggle.html" target="_blank" rel="noopener">http://genome.ucsc.edu/goldenPath/help/wiggle.html</a></p>
+<p>bigWig: </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url">基因组中的深度学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-21T11:40:48+08:00">
+                2020-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有监督的学习：使用标签化的数据进行训练，然后推断出输入特征和结果标签之间函数映射关系的机器学习方法，所谓训练就是求解模型参数。</p>
+<p>绝大多数机器学习算法进行模型训练的方式：</p>
+<ul>
+<li><ol>
+<li>分割数据：数据分为三个集合，分别是训练集、验证集和测试集。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>使用训练集数据计算模型参数：初始化随机参数，随机抽取batch代入模型计算，然后和真实结果比较得到函数损失量，反向传播做梯度运算获得损失函数最小化的模型参数，然后再重复，知道损失函数收敛。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>通过验证集调整模型的超参：超参是人为设定的外部参数，无法通过训练集进行训练，只能进行手动调整。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>使用独立数据来综合评估最佳模型的性能。</li>
+</ol>
+</li>
+</ul>
+<p>深度学习网络：<br>隐藏层，将上一次的输入数据做转换，将其映射到一个可以对特征值进行线性分离的空间，然后激活函数将其非线性化，再给到后一层作为输入。当中间隐藏层&gt;2,为深度神经网络模型。模型通过非线性的形式来描述真实世界的生物学问题，因为这些问题本身通常是线性模型无法解答的。</p>
+<p>全连接网络层：网络中主要起分类器作用，本质就是将前面各层训练得到的特征空间线性的变换到另一个特征空间。目标预测就是前面各层结果的加权和。</p>
+<p>深度卷积神经网络</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/29/Tissue-specific-and-Cell-type-specific-Genes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/29/Tissue-specific-and-Cell-type-specific-Genes/" itemprop="url">Tissue-specific and Cell type-specific Genes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-29T16:27:38+08:00">
+                2020-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Paper-1"><a href="#Paper-1" class="headerlink" title="Paper 1"></a>Paper 1</h4><p>A benchmark of gene expression tissue-specificity metrics, 2017年发在Bioinformatics<br>组织特异性基因的定义<br>分为两个类别，一类是直接给一个总值来说明组织特异性与否：Tau, Gini, TSI, Counts and Hg</p>
+<p>;还有一种是每一个组织一个值来说明特异性:z-score,SPM,EE,PEM</p>
+<p>比较时候的方法</p>
+<ul>
+<li><ol>
+<li>score基本都呈现双峰分布</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>考虑在小数据集和大数据集上的情况，1000次的随机抽样</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>基因是否在不同物种中保守，计算correlation</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>利用已知的信息来进行验证，使用了GO term</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>考虑多种方法找的基因的交集。多余的基因做富集分析。</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>quantile normalization和FPKM和RPKM影响不大，log的影响很大。</li>
+</ol>
+</li>
+</ul>
+<p>考虑数据的时候，需要考虑组织的数量，高或者低表达<br>microarray的数据对于组织特异性计算不友好：因为物种保守性不好</p>
+<p>该文章推荐的方法：Tau</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200830140543.png" alt=""></p>
+<p>当需要在每一个组织一个socre的时候，PEM的表现良好（non-log<br>数据除外）</p>
+<p>TissueEnrich：使用超几何分布来计算组织特异性基因的富集，使用HPA,ENCODE,GTEx数据来作为参照，来计算组织特异性基因，同时也可以输入自己的数据集</p>
+<p>超几何分布:不放回的二抽样。<br>$P(X=k)=\frac{C_m^k*C_{N-m}^{m-k}}{C_N^m}$<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200830145518.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200808/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/08/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200808/" itemprop="url">每日学习20200808</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-08T16:27:07+08:00">
+                2020-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Chipseq"><a href="#Chipseq" class="headerlink" title="Chipseq"></a>Chipseq</h2><p>参考：Y叔的公众号文章 </p>
+<p><a href="https://mp.weixin.qq.com/s/tbqgCQ2hPYueloBlokqnoA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/tbqgCQ2hPYueloBlokqnoA</a></p>
+<p>目的:学习chipseq 的基本知识，找Xbp1谱系特异性的结合位点。</p>
+<p><strong>简介</strong>：</p>
+<p>实验原理：</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200808163306.png" alt=""></p>
+<p>数据处理过程</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200808163358.png" alt=""></p>
+<p><a href="https://www.encodeproject.org/chip-seq/transcription_factor/" target="_blank" rel="noopener">https://www.encodeproject.org/chip-seq/transcription_factor/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/31/markdown-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/31/markdown-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" itemprop="url">markdown-数学公式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-31T20:40:03+08:00">
+                2020-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>${16}<em>{8}O{2+}</em>{2}$<br>$$V_{\mbox{初始}}$$</p>
+<p>$\overbrace{a+b+c+d}^{2.0}$<br>$a+\underbrace{b+c}_{1.0}+d$</p>
+<p>$\vec{x}\stackrel{\mathrm{def}}{=}{x_1,\dots,x_n}$</p>
+<p>$\vec{x}$</p>
+<p>$x \qquad y$</p>
+<p>$xy$</p>
+<p>$x \cdot y=z$</p>
+<p>$x \div y=z$</p>
+<p>$\frac{x+y}{y+z}$<br>平均数运算，符号：\overline{算式}，如：$\overline{xyz}$</p>
+<p>开二次方运算，符号：\sqrt，如：$\sqrt x$</p>
+<p>开方运算，符号：\sqrt[开方数]{被开方数}，如：$\sqrt[3]{x+y}$</p>
+<p>对数运算，符号：\log，如：$\log(x)$</p>
+<p>极限运算，符号：\lim，如：$\lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+<p>极限运算，符号：\displaystyle \lim，如：$\displaystyle \lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+<p>求和运算，符号：\sum，如：$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+<p>求和运算，符号：\displaystyle \sum，如：$\displaystyle \sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+<p>积分运算，符号：\int，如：$\int^{\infty}_{0}{xdx}$</p>
+<p>积分运算，符号：\displaystyle \int，如：$\displaystyle \int^{\infty}_{0}{xdx}$</p>
+<p>微分运算，符号：\partial，如：$\frac{\partial x}{\partial y}$</p>
+<p>矩阵表示，符号：\begin{matrix} \end{matrix}，如：$\left[ \begin{matrix} 1 &amp;2 &amp;\cdots &amp;4 \ 5 &amp;6 &amp;\cdots &amp;8\vdots &amp;\vdots &amp;\ddots &amp;\vdots\ 13 &amp;14 &amp;\cdots &amp;16\end{matrix} \right]$</p>
+<table>
+<thead>
+<tr>
+<th>大写字母</th>
+<th>小写字母</th>
+<th>拉丁字符</th>
+<th>Markdown</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>A</td>
+<td>α</td>
+<td>\alhpa</td>
+</tr>
+<tr>
+<td>B</td>
+<td>B</td>
+<td>β</td>
+<td>\beta</td>
+</tr>
+<tr>
+<td>Γ</td>
+<td>\Gamma</td>
+<td>γ</td>
+<td>\gamma</td>
+</tr>
+<tr>
+<td>Δ</td>
+<td>\Delta</td>
+<td>δ</td>
+<td>\delta</td>
+</tr>
+<tr>
+<td>E</td>
+<td>E</td>
+<td>ϵ</td>
+<td>\epsilon</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Z</td>
+<td>ζ</td>
+<td>\zeta</td>
+</tr>
+<tr>
+<td>H</td>
+<td>H</td>
+<td>η</td>
+<td>\eta</td>
+</tr>
+<tr>
+<td>Θ</td>
+<td>\Theta</td>
+<td>θ</td>
+<td>\theta</td>
+</tr>
+<tr>
+<td>I</td>
+<td>I</td>
+<td>ι</td>
+<td>\iota</td>
+</tr>
+<tr>
+<td>K</td>
+<td>K</td>
+<td>κ</td>
+<td>\kappa</td>
+</tr>
+<tr>
+<td>Λ</td>
+<td>\Lambda</td>
+<td>λ</td>
+<td>\lambda</td>
+</tr>
+<tr>
+<td>M</td>
+<td>M</td>
+<td>μ</td>
+<td>\mu</td>
+</tr>
+<tr>
+<td>N</td>
+<td>N</td>
+<td>ν</td>
+<td>\nu</td>
+</tr>
+<tr>
+<td>Ξ</td>
+<td>\Xi</td>
+<td>ξ</td>
+<td>\xi</td>
+</tr>
+<tr>
+<td>O</td>
+<td>O</td>
+<td>ο</td>
+<td>\omicron</td>
+</tr>
+<tr>
+<td>Π</td>
+<td>\Pi</td>
+<td>π</td>
+<td>\pi</td>
+</tr>
+<tr>
+<td>P</td>
+<td>P</td>
+<td>ρ</td>
+<td>\rho</td>
+</tr>
+<tr>
+<td>Σ</td>
+<td>\Sigma</td>
+<td>σ</td>
+<td>\sigma</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>τ</td>
+<td>\tau</td>
+</tr>
+<tr>
+<td>Υ</td>
+<td>\Upsilon</td>
+<td>υ</td>
+<td>\upsilon</td>
+</tr>
+<tr>
+<td>Φ</td>
+<td>\Phi</td>
+<td>ϕ</td>
+<td>\phi</td>
+</tr>
+<tr>
+<td>X</td>
+<td>X</td>
+<td>χ</td>
+<td>\chi</td>
+</tr>
+<tr>
+<td>Ψ</td>
+<td>\Psi</td>
+<td>ψ</td>
+<td>\psi</td>
+</tr>
+<tr>
+<td>Ω</td>
+<td>\v</td>
+<td>ω</td>
+<td>\omega</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/31/octave/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1067,726 +1972,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/16/jupyter-notebook-issues/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/16/jupyter-notebook-issues/" itemprop="url">jupyter notebook issues</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-16T15:56:30+08:00">
-                2020-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%A5%E9%94%99/" itemprop="url" rel="index">
-                    <span itemprop="name">报错</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a><strong>问题</strong></h2><blockquote>
-<p>使用CellOracle的时候，报错“InProgress is not defined”<br><img src="https://raw.githubusercontent.com/Feilijiang/FigshareBed/master/img/20200516160101.png" alt=""></p>
-</blockquote>
-<hr>
-<h2 id="解决方法1"><a href="#解决方法1" class="headerlink" title="解决方法1"></a><strong>解决方法1</strong></h2><blockquote>
-<p>网上给出的解决方式是在base环境（安装jupyter）中安装widgetsnbextension，在使用环境安装ipywidgets，具体可以见网址 <a href="https://ipywidgets.readthedocs.io/en/stable/user_install.html" target="_blank" rel="noopener">https://ipywidgets.readthedocs.io/en/stable/user_install.html</a> ，但是这个方法对我不适应。</p>
-</blockquote>
-<hr>
-<h2 id="解决方法2"><a href="#解决方法2" class="headerlink" title="解决方法2"></a><strong>解决方法2</strong></h2><blockquote>
-<p>实测有效</p>
-</blockquote>
-<blockquote>
-<p>使用jupyter notebook 来跑程序，但是出现kernel keep die的情况，那么需要卸载ipykernel和ipython，然后重新，并且安装nb_conda(为了是jupter识别该conda环境),参考网址：<a href="https://github.com/tqdm/tqdm/issues/872" target="_blank" rel="noopener">https://github.com/tqdm/tqdm/issues/872</a> </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda remove ipykernel</span><br><span class="line">conda remove ipython</span><br><span class="line">conda install ipykernel</span><br><span class="line">conda install ipython</span><br><span class="line">conda install nb_conda</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/CellOracle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/13/CellOracle/" itemprop="url">CellOracle</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-13T19:02:19+08:00">
-                2020-05-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BA%94%E7%94%A8/" itemprop="url" rel="index">
-                    <span itemprop="name">应用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>分析流程</p>
-<h3 id="1-ATAC-seq-data-preprocessing"><a href="#1-ATAC-seq-data-preprocessing" class="headerlink" title="1. ATAC-seq data preprocessing"></a>1. ATAC-seq data preprocessing</h3><p><strong>目的</strong>： identify accessible promoter/enhancer DNA regions</p>
-<p><strong>scATAC-seq</strong>: proximal and distal promoter/enhancer genome sequences(co-accessible socres and TSS infomation)</p>
-<p><strong>bulk ATCC seq</strong>: proximal promoter/enhancer genome sequences</p>
-<p><strong>输入</strong>：ATAC的结果，以bed file的形式</p>
-<p><strong>输出</strong>：peaks,gene_short_name,co-access scores(bulk无)</p>
-<h3 id="2-Transcription-factor-binding-motif-scan"><a href="#2-Transcription-factor-binding-motif-scan" class="headerlink" title="2. Transcription factor binding motif scan"></a>2. Transcription factor binding motif scan</h3><p><strong>目的</strong>： 扫描基因的调控序列，获取TF list<br><strong>输出</strong>：矩阵，行peaks name and target gene name, 列TF names</p>
-<h3 id="3-scRNA-seq-data-preprocessing-with-scanpy-or-seurat"><a href="#3-scRNA-seq-data-preprocessing-with-scanpy-or-seurat" class="headerlink" title="3. scRNA-seq data preprocessing with scanpy or seurat"></a>3. scRNA-seq data preprocessing with scanpy or seurat</h3><h3 id="4-Network-analysis"><a href="#4-Network-analysis" class="headerlink" title="4. Network analysis"></a>4. Network analysis</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/12/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1-21%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/12/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1-21%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83/" itemprop="url">概率论与数理统计-21二维随机变量函数的分布</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-12T18:56:46+08:00">
-                2020-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">数学基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="数学期望的定义："><a href="#数学期望的定义：" class="headerlink" title="数学期望的定义："></a>数学期望的定义：</h4><p>离散型随机变量的数学期望是概率值*取值的绝对值的求和<br><img src="https://raw.githubusercontent.com/Feilijiang/FigshareBed/master/img/20200514214336.png" alt=""><br>连续性随机变量：先决条件：x的绝对值乘以密度函数的积分绝对收敛<br><img src="https://raw.githubusercontent.com/Feilijiang/FigshareBed/master/img/20200514214451.png" alt=""></p>
-<h4 id="不同分布的数学期望"><a href="#不同分布的数学期望" class="headerlink" title="不同分布的数学期望"></a>不同分布的数学期望</h4><p>泊松分布：X~P(\lambda)<br>二项分布:<br>指数分布<br>正态分布：u<br>柯西分布：数学期望不存在</p>
-<h4 id="随机变量函数的数学计算"><a href="#随机变量函数的数学计算" class="headerlink" title="随机变量函数的数学计算"></a>随机变量函数的数学计算</h4><p>实际背景问题：随机变量可测量，密度函数已知，另外一个随机变量有关，但是不可测量。</p>
-<p>计算公式：f(x)乘以g(x)在x取值范围的积分即可<br><img src="https://raw.githubusercontent.com/Feilijiang/FigshareBed/master/img/20200514220642.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/10/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%AE%80%E4%BB%8B/" itemprop="url">复杂网络系统的简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-10T13:34:54+08:00">
-                2020-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
-                    <span itemprop="name">理论知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="参考的网址"><a href="#参考的网址" class="headerlink" title="参考的网址"></a>参考的网址</h2><p>科学网 周涛 2012年关于复杂网络的入门书籍和review 介绍</p>
-<blockquote>
-<p><a href="http://blog.sciencenet.cn/blog-3075-549946.html" target="_blank" rel="noopener">http://blog.sciencenet.cn/blog-3075-549946.html</a></p>
-</blockquote>
-<p>周涛 2017年关于复杂网络的review 推荐</p>
-<blockquote>
-<p><a href="https://blog.csdn.net/An_Wu/article/details/78653044?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-15.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-15.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/An_Wu/article/details/78653044?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-15.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-15.nonecase</a></p>
-</blockquote>
-<p>CSDN 博客 复杂网络入门笔记</p>
-<blockquote>
-<p><a href="https://blog.csdn.net/SHU15121856/article/details/70199009" target="_blank" rel="noopener">https://blog.csdn.net/SHU15121856/article/details/70199009</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/%E7%AC%AC%E4%B8%80%E9%A1%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/26/%E7%AC%AC%E4%B8%80%E9%A1%B5/" itemprop="url">第一页</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-26T09:51:34+08:00">
-                2020-04-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1837,7 +2022,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

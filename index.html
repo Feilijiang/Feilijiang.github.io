@@ -251,6 +251,540 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/25/java%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/25/java%E5%85%A5%E9%97%A8/" itemprop="url">java入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-25T14:34:59+08:00">
+                2020-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JAVA-基本语法"><a href="#JAVA-基本语法" class="headerlink" title="JAVA 基本语法"></a>JAVA 基本语法</h1><p>参考链接：<a href="https://www.jianshu.com/p/472c84347b97" target="_blank" rel="noopener">https://www.jianshu.com/p/472c84347b97</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JVM(java virtual machine)<br>specification, implemenation and instance</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWord&#123;</span><br><span class="line">    public static void main(String []args) &#123;  ## java程序总入口</span><br><span class="line">        System.out.println(&quot;Hello World&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h3><p>类：首字母大写<br>方法：首字母小写<br>源文件：与类名相同，后缀为.java</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;单行注释</span><br><span class="line">&#x2F;*多行注释</span><br><span class="line">*多行注释第二行</span><br><span class="line">&#x2F;*多行注释第三行*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>方法在类中，比如eating是Person的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Person&#123;</span><br><span class="line">String name;</span><br><span class="line">int age;</span><br><span class="line">boolean sex;</span><br><span class="line">void eating()&#123; &#x2F;&#x2F;方法1</span><br><span class="line">    &#125;</span><br><span class="line">void running()&#123; &#x2F;&#x2F;方法2</span><br><span class="line">    &#125;</span><br><span class="line">void sleeping()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类的构造方法"><a href="#类的构造方法" class="headerlink" title="类的构造方法"></a>类的构造方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 指定构造方法</span><br><span class="line">class Name&#123;</span><br><span class="line">public sam(String name)&#123; &#x2F;&#x2F;默认了构造方法</span><br><span class="line">    System.out.println(&quot;Sam&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 构造对象</span><br><span class="line">public class Car&#123;</span><br><span class="line">    public Puppy(String name)&#123;</span><br><span class="line">        &#x2F;&#x2F; 这个构造器仅有一个参数: name</span><br><span class="line">        System.out.println(&quot;My car brand is :&quot;+name);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String []args)&#123;</span><br><span class="line">        &#x2F;&#x2F; 下面的语句将创建一个Car对象</span><br><span class="line">        Puppy myPuppy&#x3D;new Car( &quot;Benz&quot; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#output</span><br><span class="line">My car brand is :Benz</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>对象时根据类创建的，在java中，使用关键字来创建一个新的对象，创建对象的步骤：</p>
+<ul>
+<li><ol>
+<li>声明：声明一个对象，包括对象名称和对象类型</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>实例化：使用关键字new来创建一个对象</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>初始化：使用new创建对象时，会调用构造方法初始化对象</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public class Car &#123;</span><br><span class="line">    String brandname;</span><br><span class="line">    public Car(String name)&#123;</span><br><span class="line">        &#x2F;&#x2F; 这个构造器有且仅有一个参数：name</span><br><span class="line">        System.out.println(&quot;Car&#39;s brand is:&quot; + name);</span><br><span class="line">    &#125;</span><br><span class="line">    public void setbrand(String name)&#123;</span><br><span class="line">        brandname &#x3D; name;</span><br><span class="line">        &#x2F;void(空)方法不需要返回值&#x2F;</span><br><span class="line">    &#125;</span><br><span class="line">    public string getname()&#123;</span><br><span class="line">        System.out.println(&quot;Brand&#39;s name is :&quot;+brandname);</span><br><span class="line">        return brandname;</span><br><span class="line">        &#x2F;*设定为String类型的方法必须返回String类型的值*&#x2F;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        &#x2F;&#x2F; 创建对象</span><br><span class="line">        Car c&#x3D;new Car(&quot;BMW&quot;);</span><br><span class="line">        &#x2F;&#x2F; 通过方法来设定车名</span><br><span class="line">        c.setbrand(&quot;BMW&quot;);</span><br><span class="line">        &#x2F;&#x2F; 调用另外一个方法获取</span><br><span class="line">        c.getname();</span><br><span class="line">        &#x2F;&#x2F;直接访问成员变量</span><br><span class="line">        System.out.println(&quot;String Value :&quot; + c.brandname);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#otutput</span><br><span class="line">Car&#39;s brand is:BMW</span><br><span class="line">Brand&#39;s name is :BMW</span><br><span class="line">String Value :abc</span><br></pre></td></tr></table></figure>
+
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>源文件声明是有规则的。当在一个源文件中定义多个类，并且还有import语句和package语句时，要特别注意这些规则。</p>
+<p><strong>一个源文件中只能有一个public类</strong></p>
+<p><strong>一个源文件可以有多个非public类</strong></p>
+<p>源文件的名称应该和public类的类名保持一致。例如：源文件中public类的类名是Employee，那么源文件应该命名为Employee.java。</p>
+<p>如果一个类定义在某个包中，那么package语句应该在源文件的首行。</p>
+<p>如果源文件包含import语句，那么应该放在package语句和类定义之间。如果没有package语句，那么import语句应该在源文件中最前面。</p>
+<p>import语句和package语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/24/MIT-CompBio/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/24/MIT-CompBio/" itemprop="url">MIT CompBio</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-24T20:07:35+08:00">
+                2020-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/22/shell%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/22/shell%E5%91%BD%E4%BB%A4/" itemprop="url">shell命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-22T16:27:04+08:00">
+                2020-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="统计文件夹中文件的个数"><a href="#统计文件夹中文件的个数" class="headerlink" title="统计文件夹中文件的个数"></a>统计文件夹中文件的个数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l</span><br></pre></td></tr></table></figure>
+
+<h2 id="比较数值"><a href="#比较数值" class="headerlink" title="比较数值"></a>比较数值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;10</span><br><span class="line">b&#x3D;1</span><br><span class="line">[ $a -lt $b ] # 注意括号两边需要留空格</span><br><span class="line"></span><br><span class="line"># 报错:integer expression expected</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125; #需要将字符型或者num型的转化为int型</span><br><span class="line">[ $int -lt $b]</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ ! -d &quot;$outfolder&quot; ];then</span><br><span class="line">    mkdir $outfolder</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B020201122/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B020201122/" itemprop="url">每日一记20201122</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-22T15:34:52+08:00">
+                2020-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="度量两个排序列表的相似性"><a href="#度量两个排序列表的相似性" class="headerlink" title="度量两个排序列表的相似性"></a>度量两个排序列表的相似性</h2><p><a href="https://zhuanlan.zhihu.com/p/63279107" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/63279107</a><br>基于排序之间的相互关系</p>
+<ul>
+<li><ol>
+<li>Kendall Tau</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Spearman’s Footrule: 计算一个列表改为另一个列表最少需要移动各个元素的距离和<br>基于集合的度量<br>不理解</li>
+</ol>
+</li>
+</ul>
+<h2 id="shell-统计"><a href="#shell-统计" class="headerlink" title="shell 统计"></a>shell 统计</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/SampleReadsFromBamFiles/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,6 +861,131 @@
 
 <p>方法2</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function SubSample &#123;</span><br><span class="line">## Calculate the sampling factor based on the intended number of reads:</span><br><span class="line">FACTOR&#x3D;$(samtools idxstats $1 | cut -f3 | awk -v COUNT&#x3D;$2 &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;print COUNT&#x2F;total&#125;&#39;)</span><br><span class="line"></span><br><span class="line">if [[ $FACTOR &gt; 1 ]]</span><br><span class="line">  then </span><br><span class="line">  echo &#39;[ERROR]: Requested number of reads exceeds total read count in&#39; $1 &#39;-- exiting&#39; &amp;&amp; exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sambamba view -s $FACTOR -f bam -l 5 $1</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## Usage example, selecting 100.000 reads:</span><br><span class="line">SubSample in.bam 100000 &gt; subsampled.bam</span><br></pre></td></tr></table></figure>
+
+<h1 id="下采样一定百分比的reads"><a href="#下采样一定百分比的reads" class="headerlink" title="下采样一定百分比的reads"></a>下采样一定百分比的reads</h1><p>samtools view -bs 42.1 in.bam &gt; subsampled.bam</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/samtool%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/19/samtool%E5%91%BD%E4%BB%A4/" itemprop="url">samtool命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-19T16:02:01+08:00">
+                2020-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="下采样一定数量的reads"><a href="#下采样一定数量的reads" class="headerlink" title="下采样一定数量的reads"></a>下采样一定数量的reads</h1><p><a href="http://seqanswers.com/forums/showthread.php?t=41983" target="_blank" rel="noopener">http://seqanswers.com/forums/showthread.php?t=41983</a><br><a href="https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs" target="_blank" rel="noopener">https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs</a></p>
+<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 需要额外下载StreamSampler.jar，并且有bam文件版本限制，不好用</span><br><span class="line">(</span><br><span class="line">samtools view -H [bamfile];</span><br><span class="line">samtools view -F 0x004 [bamfile] |</span><br><span class="line">java -jar StreamSampler.jar [# of reads to sample] [total # reads]</span><br><span class="line">) |</span><br><span class="line">samtools -bS - &gt; [sampled bam file]</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">## 好用</span><br><span class="line">function SubSample &#123;</span><br><span class="line">## Calculate the sampling factor based on the intended number of reads:</span><br><span class="line">FACTOR&#x3D;$(samtools idxstats $1 | cut -f3 | awk -v COUNT&#x3D;$2 &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;print COUNT&#x2F;total&#125;&#39;)</span><br><span class="line"></span><br><span class="line">if [[ $FACTOR &gt; 1 ]]</span><br><span class="line">  then </span><br><span class="line">  echo &#39;[ERROR]: Requested number of reads exceeds total read count in&#39; $1 &#39;-- exiting&#39; &amp;&amp; exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">samtools view -s $FACTOR -f bam -l 5 $1</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## Usage example, selecting 100.000 reads:</span><br><span class="line">SubSample in.bam 100000 &gt; subsampled.bam</span><br><span class="line"></span><br><span class="line">##或者也可以写成这样，存在一个问题就是subsample的不是正好10000。</span><br><span class="line">frac&#x3D;$( samtools flagstat $outbam | cut -f3 | awk &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;frac&#x3D;2000&#x2F;total;&#123;print frac&#125;&#125;&#39;)</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125;</span><br><span class="line">if [ $int -eq 0 ];then</span><br><span class="line">    samtools view -bs $frac $outbam &gt; $outfolder3$samplebam</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
 <h1 id="下采样一定百分比的reads"><a href="#下采样一定百分比的reads" class="headerlink" title="下采样一定百分比的reads"></a>下采样一定百分比的reads</h1><p>samtools view -bs 42.1 in.bam &gt; subsampled.bam</p>
 
@@ -914,911 +1573,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/" itemprop="url">每日学习20200922</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-22T21:43:34+08:00">
-                2020-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="基因的跨物种序列比对以及进化树构建"><a href="#基因的跨物种序列比对以及进化树构建" class="headerlink" title="基因的跨物种序列比对以及进化树构建"></a>基因的跨物种序列比对以及进化树构建</h2><blockquote>
-<p>工具：muscle，ggtree</p>
-</blockquote>
-<hr>
-<h3 id="1-序列比对工具"><a href="#1-序列比对工具" class="headerlink" title="1. 序列比对工具"></a>1. 序列比对工具</h3><p><strong>Muscle</strong>：本地版和网页版都有，</p>
-<blockquote>
-<p>本地版：<a href="https://www.drive5.com/muscle/downloads.htm" target="_blank" rel="noopener">https://www.drive5.com/muscle/downloads.htm</a></p>
-</blockquote>
-<blockquote>
-<p>网页版： <a href="https://www.ebi.ac.uk/Tools/msa/muscle/" target="_blank" rel="noopener">https://www.ebi.ac.uk/Tools/msa/muscle/</a></p>
-</blockquote>
-<blockquote>
-<p>参考网站： <a href="https://cloud.tencent.com/developer/article/1625177" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1625177</a></p>
-</blockquote>
-<blockquote>
-<p><strong>ClustalW</strong>：速度较慢</p>
-</blockquote>
-<blockquote>
-<p><strong>MAFFT</strong>：氨基酸的多序列比对 </p>
-</blockquote>
-<blockquote>
-<p><strong>lastZ</strong>:基因组比对，适用于染色质序列比对，对于gap友好</p>
-</blockquote>
-<blockquote>
-<p><strong>T-coffee</strong>：整合多种信息，比如结构和实验，功能比较强大</p>
-</blockquote>
-<blockquote>
-<p><strong>PHAST</strong>: 自荐</p>
-</blockquote>
-<h3 id="2-准备序列"><a href="#2-准备序列" class="headerlink" title="2. 准备序列"></a>2. 准备序列</h3><blockquote>
-<p>在ncbi下载数据，注意是基因组还是转录组的fastq数据。</p>
-</blockquote>
-<blockquote>
-<p>如果要导入snapview提前查看序列及其特征，需要额外下载ncbi genebank 格式的文件。</p>
-</blockquote>
-<blockquote>
-<p>各物种的序列将其整合到一个文件中，需要注意抬头的书写，识别的时候会根据空格进行分割，所以特别注意序列名称的特异性。</p>
-</blockquote>
-<h3 id="3-过程："><a href="#3-过程：" class="headerlink" title="3. 过程："></a>3. 过程：</h3><ul>
-<li><ol>
-<li>首先，使用网页版的muscle<br>INPUT: 上述的fasta序列，在output format参数选择中，选择fasta格式和clustalW格式<br>OUTPUT：jalview launch file可以导入到ebi推荐的桌面app中查看 ，alignment格式文件另存为，简单的进化树直接生成。</li>
-</ol>
-<ul>
-<li><ol start="2">
-<li>在R中绘制进化树，与序列对齐，使用ggtree。</li>
-</ol>
-<p>特别注意</p>
-<blockquote>
-<p>muscle默认输出的ph格式是ntk格式，可以用ggtree的read.newick 读取。</p>
-</blockquote>
-<blockquote>
-<p>fasta的抬头需要和ph文件的抬头一致。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><ol start="3">
-<li>如果进化树的序列知显示一部分，则需要对fasta输出文件进行截取。</li>
-</ol>
-</li>
-</ul>
-<p>代码参考：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">library(ggtree)</span><br><span class="line">library(treeio)</span><br><span class="line">setwd(&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">tree&lt;-read.newick(&quot;muscle-I20200922-083912-0228-12080513-p1m.ph&quot;)</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">x&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">## check the taxa names</span><br><span class="line">setdiff(tree$tip.label,labels(x))</span><br><span class="line">setdiff(labels(x),tree$tip.label)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#p3 &lt;- ggtree(tree,) +geom_tiplab(hjust &#x3D; -0.05,size&#x3D;6,fontface&#x3D;&quot;italic&quot;) + xlim(NA,1.2)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">print(p3)</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; fasta,offset&#x3D;0.05,color &#x3D; col)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############# subset nls and lecine zipper sequence</span><br><span class="line">## mannal select the 600-900bp region</span><br><span class="line">fasta&lt;-&quot;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename_part.fasta&quot;</span><br><span class="line">xx&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">#print(p3)</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; xx,offset&#x3D;0.05,color &#x3D; col)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="20200815-每日学习"><a href="#20200815-每日学习" class="headerlink" title="20200815 每日学习"></a>20200815 每日学习</h2><p> 文件格式： bigWig, bed, bigBed, bed narrowPeak</p>
-<p><a href="http://genome.ucsc.edu/goldenPath/help/wiggle.html" target="_blank" rel="noopener">http://genome.ucsc.edu/goldenPath/help/wiggle.html</a></p>
-<p>bigWig: </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url">基因组中的深度学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-21T11:40:48+08:00">
-                2020-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有监督的学习：使用标签化的数据进行训练，然后推断出输入特征和结果标签之间函数映射关系的机器学习方法，所谓训练就是求解模型参数。</p>
-<p>绝大多数机器学习算法进行模型训练的方式：</p>
-<ul>
-<li><ol>
-<li>分割数据：数据分为三个集合，分别是训练集、验证集和测试集。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>使用训练集数据计算模型参数：初始化随机参数，随机抽取batch代入模型计算，然后和真实结果比较得到函数损失量，反向传播做梯度运算获得损失函数最小化的模型参数，然后再重复，知道损失函数收敛。</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>通过验证集调整模型的超参：超参是人为设定的外部参数，无法通过训练集进行训练，只能进行手动调整。</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>使用独立数据来综合评估最佳模型的性能。</li>
-</ol>
-</li>
-</ul>
-<p>深度学习网络：<br>隐藏层，将上一次的输入数据做转换，将其映射到一个可以对特征值进行线性分离的空间，然后激活函数将其非线性化，再给到后一层作为输入。当中间隐藏层&gt;2,为深度神经网络模型。模型通过非线性的形式来描述真实世界的生物学问题，因为这些问题本身通常是线性模型无法解答的。</p>
-<p>全连接网络层：网络中主要起分类器作用，本质就是将前面各层训练得到的特征空间线性的变换到另一个特征空间。目标预测就是前面各层结果的加权和。</p>
-<p>深度卷积神经网络</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/29/Tissue-specific-and-Cell-type-specific-Genes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/29/Tissue-specific-and-Cell-type-specific-Genes/" itemprop="url">Tissue-specific and Cell type-specific Genes</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-29T16:27:38+08:00">
-                2020-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Paper-1"><a href="#Paper-1" class="headerlink" title="Paper 1"></a>Paper 1</h4><p>A benchmark of gene expression tissue-specificity metrics, 2017年发在Bioinformatics<br>组织特异性基因的定义<br>分为两个类别，一类是直接给一个总值来说明组织特异性与否：Tau, Gini, TSI, Counts and Hg</p>
-<p>;还有一种是每一个组织一个值来说明特异性:z-score,SPM,EE,PEM</p>
-<p>比较时候的方法</p>
-<ul>
-<li><ol>
-<li>score基本都呈现双峰分布</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>考虑在小数据集和大数据集上的情况，1000次的随机抽样</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>基因是否在不同物种中保守，计算correlation</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>利用已知的信息来进行验证，使用了GO term</li>
-</ol>
-</li>
-<li><ol start="5">
-<li>考虑多种方法找的基因的交集。多余的基因做富集分析。</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>quantile normalization和FPKM和RPKM影响不大，log的影响很大。</li>
-</ol>
-</li>
-</ul>
-<p>考虑数据的时候，需要考虑组织的数量，高或者低表达<br>microarray的数据对于组织特异性计算不友好：因为物种保守性不好</p>
-<p>该文章推荐的方法：Tau</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200830140543.png" alt=""></p>
-<p>当需要在每一个组织一个socre的时候，PEM的表现良好（non-log<br>数据除外）</p>
-<p>TissueEnrich：使用超几何分布来计算组织特异性基因的富集，使用HPA,ENCODE,GTEx数据来作为参照，来计算组织特异性基因，同时也可以输入自己的数据集</p>
-<p>超几何分布:不放回的二抽样。<br>$P(X=k)=\frac{C_m^k*C_{N-m}^{m-k}}{C_N^m}$<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200830145518.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200808/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/08/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200808/" itemprop="url">每日学习20200808</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-08T16:27:07+08:00">
-                2020-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Chipseq"><a href="#Chipseq" class="headerlink" title="Chipseq"></a>Chipseq</h2><p>参考：Y叔的公众号文章 </p>
-<p><a href="https://mp.weixin.qq.com/s/tbqgCQ2hPYueloBlokqnoA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/tbqgCQ2hPYueloBlokqnoA</a></p>
-<p>目的:学习chipseq 的基本知识，找Xbp1谱系特异性的结合位点。</p>
-<p><strong>简介</strong>：</p>
-<p>实验原理：</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200808163306.png" alt=""></p>
-<p>数据处理过程</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200808163358.png" alt=""></p>
-<p><a href="https://www.encodeproject.org/chip-seq/transcription_factor/" target="_blank" rel="noopener">https://www.encodeproject.org/chip-seq/transcription_factor/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/31/markdown-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/31/markdown-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" itemprop="url">markdown-数学公式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-31T20:40:03+08:00">
-                2020-07-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>${16}<em>{8}O{2+}</em>{2}$<br>$$V_{\mbox{初始}}$$</p>
-<p>$\overbrace{a+b+c+d}^{2.0}$<br>$a+\underbrace{b+c}_{1.0}+d$</p>
-<p>$\vec{x}\stackrel{\mathrm{def}}{=}{x_1,\dots,x_n}$</p>
-<p>$\vec{x}$</p>
-<p>$x \qquad y$</p>
-<p>$xy$</p>
-<p>$x \cdot y=z$</p>
-<p>$x \div y=z$</p>
-<p>$\frac{x+y}{y+z}$<br>平均数运算，符号：\overline{算式}，如：$\overline{xyz}$</p>
-<p>开二次方运算，符号：\sqrt，如：$\sqrt x$</p>
-<p>开方运算，符号：\sqrt[开方数]{被开方数}，如：$\sqrt[3]{x+y}$</p>
-<p>对数运算，符号：\log，如：$\log(x)$</p>
-<p>极限运算，符号：\lim，如：$\lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>极限运算，符号：\displaystyle \lim，如：$\displaystyle \lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>求和运算，符号：\sum，如：$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>求和运算，符号：\displaystyle \sum，如：$\displaystyle \sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>积分运算，符号：\int，如：$\int^{\infty}_{0}{xdx}$</p>
-<p>积分运算，符号：\displaystyle \int，如：$\displaystyle \int^{\infty}_{0}{xdx}$</p>
-<p>微分运算，符号：\partial，如：$\frac{\partial x}{\partial y}$</p>
-<p>矩阵表示，符号：\begin{matrix} \end{matrix}，如：$\left[ \begin{matrix} 1 &amp;2 &amp;\cdots &amp;4 \ 5 &amp;6 &amp;\cdots &amp;8\vdots &amp;\vdots &amp;\ddots &amp;\vdots\ 13 &amp;14 &amp;\cdots &amp;16\end{matrix} \right]$</p>
-<table>
-<thead>
-<tr>
-<th>大写字母</th>
-<th>小写字母</th>
-<th>拉丁字符</th>
-<th>Markdown</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A</td>
-<td>A</td>
-<td>α</td>
-<td>\alhpa</td>
-</tr>
-<tr>
-<td>B</td>
-<td>B</td>
-<td>β</td>
-<td>\beta</td>
-</tr>
-<tr>
-<td>Γ</td>
-<td>\Gamma</td>
-<td>γ</td>
-<td>\gamma</td>
-</tr>
-<tr>
-<td>Δ</td>
-<td>\Delta</td>
-<td>δ</td>
-<td>\delta</td>
-</tr>
-<tr>
-<td>E</td>
-<td>E</td>
-<td>ϵ</td>
-<td>\epsilon</td>
-</tr>
-<tr>
-<td>Z</td>
-<td>Z</td>
-<td>ζ</td>
-<td>\zeta</td>
-</tr>
-<tr>
-<td>H</td>
-<td>H</td>
-<td>η</td>
-<td>\eta</td>
-</tr>
-<tr>
-<td>Θ</td>
-<td>\Theta</td>
-<td>θ</td>
-<td>\theta</td>
-</tr>
-<tr>
-<td>I</td>
-<td>I</td>
-<td>ι</td>
-<td>\iota</td>
-</tr>
-<tr>
-<td>K</td>
-<td>K</td>
-<td>κ</td>
-<td>\kappa</td>
-</tr>
-<tr>
-<td>Λ</td>
-<td>\Lambda</td>
-<td>λ</td>
-<td>\lambda</td>
-</tr>
-<tr>
-<td>M</td>
-<td>M</td>
-<td>μ</td>
-<td>\mu</td>
-</tr>
-<tr>
-<td>N</td>
-<td>N</td>
-<td>ν</td>
-<td>\nu</td>
-</tr>
-<tr>
-<td>Ξ</td>
-<td>\Xi</td>
-<td>ξ</td>
-<td>\xi</td>
-</tr>
-<tr>
-<td>O</td>
-<td>O</td>
-<td>ο</td>
-<td>\omicron</td>
-</tr>
-<tr>
-<td>Π</td>
-<td>\Pi</td>
-<td>π</td>
-<td>\pi</td>
-</tr>
-<tr>
-<td>P</td>
-<td>P</td>
-<td>ρ</td>
-<td>\rho</td>
-</tr>
-<tr>
-<td>Σ</td>
-<td>\Sigma</td>
-<td>σ</td>
-<td>\sigma</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>τ</td>
-<td>\tau</td>
-</tr>
-<tr>
-<td>Υ</td>
-<td>\Upsilon</td>
-<td>υ</td>
-<td>\upsilon</td>
-</tr>
-<tr>
-<td>Φ</td>
-<td>\Phi</td>
-<td>ϕ</td>
-<td>\phi</td>
-</tr>
-<tr>
-<td>X</td>
-<td>X</td>
-<td>χ</td>
-<td>\chi</td>
-</tr>
-<tr>
-<td>Ψ</td>
-<td>\Psi</td>
-<td>ψ</td>
-<td>\psi</td>
-</tr>
-<tr>
-<td>Ω</td>
-<td>\v</td>
-<td>ω</td>
-<td>\omega</td>
-</tr>
-</tbody></table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1869,7 +1623,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

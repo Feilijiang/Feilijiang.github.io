@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="下采样一定数量的readshttp:&#x2F;&#x2F;seqanswers.com&#x2F;forums&#x2F;showthread.php?t&#x3D;41983https:&#x2F;&#x2F;bioinformatics.stackexchange.com&#x2F;questions&#x2F;402&#x2F;how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs 方法11234567## 需要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/04/26/hello-world/index.html">
+<meta property="og:title" content="samtool命令">
+<meta property="og:url" content="http://yoursite.com/2020/11/19/samtool%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Feilijiang">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="下采样一定数量的readshttp:&#x2F;&#x2F;seqanswers.com&#x2F;forums&#x2F;showthread.php?t&#x3D;41983https:&#x2F;&#x2F;bioinformatics.stackexchange.com&#x2F;questions&#x2F;402&#x2F;how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs 方法11234567## 需要">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-26T01:21:59.790Z">
-<meta property="article:modified_time" content="2020-04-26T01:21:59.790Z">
+<meta property="article:published_time" content="2020-11-19T08:02:01.000Z">
+<meta property="article:modified_time" content="2020-11-25T12:12:29.930Z">
 <meta property="article:author" content="Feilijiang">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/26/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/11/19/samtool命令/"/>
 
 
 
 
 
-  <title>Hello World | Feilijiang</title>
+  <title>samtool命令 | Feilijiang</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/samtool%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">samtool命令</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-26T09:21:59+08:00">
-                2020-04-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-19T16:02:01+08:00">
+                2020-11-19
               </time>
             
 
@@ -319,19 +319,12 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="下采样一定数量的reads"><a href="#下采样一定数量的reads" class="headerlink" title="下采样一定数量的reads"></a>下采样一定数量的reads</h1><p><a href="http://seqanswers.com/forums/showthread.php?t=41983" target="_blank" rel="noopener">http://seqanswers.com/forums/showthread.php?t=41983</a><br><a href="https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs" target="_blank" rel="noopener">https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs</a></p>
+<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 需要额外下载StreamSampler.jar，并且有bam文件版本限制，不好用</span><br><span class="line">(</span><br><span class="line">samtools view -H [bamfile];</span><br><span class="line">samtools view -F 0x004 [bamfile] |</span><br><span class="line">java -jar StreamSampler.jar [# of reads to sample] [total # reads]</span><br><span class="line">) |</span><br><span class="line">samtools -bS - &gt; [sampled bam file]</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">## 好用</span><br><span class="line">function SubSample &#123;</span><br><span class="line">## Calculate the sampling factor based on the intended number of reads:</span><br><span class="line">FACTOR&#x3D;$(samtools idxstats $1 | cut -f3 | awk -v COUNT&#x3D;$2 &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;print COUNT&#x2F;total&#125;&#39;)</span><br><span class="line"></span><br><span class="line">if [[ $FACTOR &gt; 1 ]]</span><br><span class="line">  then </span><br><span class="line">  echo &#39;[ERROR]: Requested number of reads exceeds total read count in&#39; $1 &#39;-- exiting&#39; &amp;&amp; exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">samtools view -s $FACTOR -f bam -l 5 $1</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## Usage example, selecting 100.000 reads:</span><br><span class="line">SubSample in.bam 100000 &gt; subsampled.bam</span><br><span class="line"></span><br><span class="line">##或者也可以写成这样，存在一个问题就是subsample的不是正好10000。</span><br><span class="line">frac&#x3D;$( samtools flagstat $outbam | cut -f3 | awk &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;frac&#x3D;2000&#x2F;total;&#123;print frac&#125;&#125;&#39;)</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125;</span><br><span class="line">if [ $int -eq 0 ];then</span><br><span class="line">    samtools view -bs $frac $outbam &gt; $outfolder3$samplebam</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h1 id="下采样一定百分比的reads"><a href="#下采样一定百分比的reads" class="headerlink" title="下采样一定百分比的reads"></a>下采样一定百分比的reads</h1><p>samtools view -bs 42.1 in.bam &gt; subsampled.bam</p>
 
       
     </div>
@@ -356,14 +349,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/11/16/%E6%AF%8F%E6%97%A5%E6%96%87%E7%8C%AE/" rel="next" title="每日文献">
+                <i class="fa fa-chevron-left"></i> 每日文献
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/26/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="prev" title="搭建自己的博客">
-                搭建自己的博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/11/19/SampleReadsFromBamFiles/" rel="prev" title="SampleReadsFromBamFiles">
+                SampleReadsFromBamFiles <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -495,7 +492,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下采样一定数量的reads"><span class="nav-number">1.</span> <span class="nav-text">下采样一定数量的reads</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法2"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">方法2</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下采样一定百分比的reads"><span class="nav-number">2.</span> <span class="nav-text">下采样一定百分比的reads</span></a></li></ol></div>
             
 
           </div>
