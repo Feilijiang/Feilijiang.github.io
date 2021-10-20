@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="读取dataframe的指定行或列http:&#x2F;&#x2F;shichangshun.cn&#x2F;2015&#x2F;11&#x2F;09&#x2F;%E6%8A%80%E6%9C%AF&#x2F;2015-11-09-Read-rows-col&#x2F; 1234567if(!file.exists(&quot;read&quot;))&amp;#123;  dir.create(&quot;read&quot;)&amp;#125;# 创建工作路径文件夹setwd(&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R命令实录">
+<meta property="og:url" content="http://yoursite.com/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/index.html">
+<meta property="og:site_name" content="Feilijiang">
+<meta property="og:description" content="读取dataframe的指定行或列http:&#x2F;&#x2F;shichangshun.cn&#x2F;2015&#x2F;11&#x2F;09&#x2F;%E6%8A%80%E6%9C%AF&#x2F;2015-11-09-Read-rows-col&#x2F; 1234567if(!file.exists(&quot;read&quot;))&amp;#123;  dir.create(&quot;read&quot;)&amp;#125;# 创建工作路径文件夹setwd(&amp;quo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-10T10:53:26.000Z">
+<meta property="article:modified_time" content="2021-08-23T05:56:58.329Z">
+<meta property="article:author" content="Feilijiang">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/03/10/R命令实录/"/>
+
+
+
+
+
+  <title>R命令实录 | Feilijiang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feilijiang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">New Beginnings</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home //首页"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags //标签"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th //分类"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar //日程表"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">R命令实录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-10T18:53:26+08:00">
+                2021-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="读取dataframe的指定行或列"><a href="#读取dataframe的指定行或列" class="headerlink" title="读取dataframe的指定行或列"></a>读取dataframe的指定行或列</h3><p><a href="http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/" target="_blank" rel="noopener">http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(!file.exists(&quot;read&quot;))&#123;</span><br><span class="line">  dir.create(&quot;read&quot;)</span><br><span class="line">&#125;# 创建工作路径文件夹</span><br><span class="line">setwd(&quot;.&#x2F;read&quot;) # 设置工作路径</span><br><span class="line">if(!file.exists(&quot;data&quot;))&#123;</span><br><span class="line">  dir.create(&quot;data&quot;)</span><br><span class="line">&#125; # 新建data文件夹</span><br></pre></td></tr></table></figure>
+
+<h3 id="命令的重复"><a href="#命令的重复" class="headerlink" title="命令的重复"></a>命令的重复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var.genes&#x3D;Reduce(intersect, var.genes1)</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速计算cor"><a href="#快速计算cor" class="headerlink" title="快速计算cor"></a>快速计算cor</h3><p>library(HiClimR)<br>fastCor</p>
+<h3 id="数据框替换值"><a href="#数据框替换值" class="headerlink" title="数据框替换值"></a>数据框替换值</h3><h5 id="method1-使用封装函数"><a href="#method1-使用封装函数" class="headerlink" title="method1: 使用封装函数"></a>method1: 使用封装函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">currentid</span><br><span class="line">newid</span><br><span class="line">pbmc$ident&lt;- plyr::mapvalues(pbmc$ident，from&#x3D;currentid,to&#x3D;newid)</span><br><span class="line">##### method2: 使用gsub</span><br><span class="line">anno$celltype &lt;- anno$cluster_new</span><br><span class="line">anno$celltype &lt;- paste0(&quot;_&quot;,paste0(anno$celltype,&#39;_&#39;))</span><br><span class="line">ma$cluster &lt;- paste0(&quot;_&quot;,paste0(ma$cluster,&quot;_&quot;))</span><br><span class="line">for (i in unique(ma$cluster)) &#123;</span><br><span class="line">  anno$celltype &lt;- gsub(anno$celltype,pattern &#x3D; i,replacement &#x3D; ma$V2[i])</span><br><span class="line">  print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="method3-使用-gt"><a href="#method3-使用-gt" class="headerlink" title="method3:  使用%&gt;%"></a>method3:  使用%&gt;%</h5><h3 id="trimws"><a href="#trimws" class="headerlink" title="trimws"></a>trimws</h3><blockquote>
+<p>替换开头或结尾的空格、换行符、制表符、回车。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trimws(gene,which&#x3D;c(&quot;both&quot;), whitespace&#x3D;&quot;[ \t\r\n]&quot;)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(scales)</span><br><span class="line">rss_ct_scale&lt;-apply(rss_ct, 1, rescale,to&#x3D;c(-2,2))</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="ggplot-多个画板一个图"><a href="#ggplot-多个画板一个图" class="headerlink" title="ggplot 多个画板一个图"></a>ggplot 多个画板一个图</h3><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">######################################  same mouse</span><br><span class="line">library(gridExtra)</span><br><span class="line">library(ggplot2)</span><br><span class="line">plot_correlation &lt;- function(i)&#123;</span><br><span class="line">  name1 &lt;- paste0(&#39;T&#39;,paste0(i,&quot;human&quot;))</span><br><span class="line">  name2 &lt;- paste0(&#39;T&#39;,paste0(i+1,&quot;human&quot;))</span><br><span class="line">  p&lt;-ggplot(ave_teratoma, aes(x&#x3D;get(name1), y&#x3D;get(name2))) +</span><br><span class="line">    geom_point(alpha&#x3D;1, size&#x3D;1) +</span><br><span class="line">    geom_smooth(method&#x3D;&quot;lm&quot;) +</span><br><span class="line">    theme_bw() +</span><br><span class="line">    xlab(name1)+ylab(name2)+</span><br><span class="line">    ggtitle(paste0(&quot;Mouse&quot;,i&#x2F;2-3))+</span><br><span class="line">    theme(text &#x3D; element_text(size&#x3D;10), legend.title&#x3D;element_blank(),plot.title &#x3D; element_text(hjust &#x3D; 0.5))+</span><br><span class="line">    stat_fit_glance(method &#x3D; &#39;lm&#39;,</span><br><span class="line">                    </span><br><span class="line">                    method.args &#x3D; list(formula &#x3D; y ~ x),</span><br><span class="line">                    </span><br><span class="line">                    mapping &#x3D; aes(label &#x3D; sprintf(&#39;R^2~&quot;&#x3D;&quot;~%.3f~~italic(P)~&quot;&#x3D;&quot;~%.2g&#39;, stat(r.squared), stat(p.value))),</span><br><span class="line">                    </span><br><span class="line">                    parse &#x3D; TRUE,label.x &#x3D; 0.95,label.y &#x3D; 0.95)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">plot_list &lt;- lapply(seq(8,18,2), plot_correlation)</span><br><span class="line">n &lt;- length(plot_list)</span><br><span class="line">nCol &lt;- floor(sqrt(n))</span><br><span class="line">grid.arrange(grobs &#x3D; plot_list, ncol &#x3D; nCol) ## display plot</span><br><span class="line">ggsave(file &#x3D; &quot;same_mouse_correlation.png&quot;, arrangeGrob(grobs &#x3D; plot_list, ncol &#x3D; 2),height &#x3D; 9,width &#x3D; 6)  ## save plot</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/08/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9F%A5%E8%AF%86/" rel="next" title="基因组知识">
+                <i class="fa fa-chevron-left"></i> 基因组知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/28/Single-Cell-Genomics-Day2021/" rel="prev" title="Single Cell Genomics Day2021">
+                Single Cell Genomics Day2021 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Feilijiang</p>
+              <p class="site-description motion-element" itemprop="description">生物信息 记录 分享 博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取dataframe的指定行或列"><span class="nav-number">1.</span> <span class="nav-text">读取dataframe的指定行或列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令的重复"><span class="nav-number">2.</span> <span class="nav-text">命令的重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速计算cor"><span class="nav-number">3.</span> <span class="nav-text">快速计算cor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据框替换值"><span class="nav-number">4.</span> <span class="nav-text">数据框替换值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#method1-使用封装函数"><span class="nav-number">4.0.1.</span> <span class="nav-text">method1: 使用封装函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#method3-使用-gt"><span class="nav-number">4.0.2.</span> <span class="nav-text">method3:  使用%&gt;%</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trimws"><span class="nav-number">5.</span> <span class="nav-text">trimws</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scale"><span class="nav-number">6.</span> <span class="nav-text">scale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ggplot-多个画板一个图"><span class="nav-number">7.</span> <span class="nav-text">ggplot 多个画板一个图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">7.1.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feilijiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>

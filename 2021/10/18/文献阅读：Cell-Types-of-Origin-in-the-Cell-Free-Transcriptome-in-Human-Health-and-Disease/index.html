@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.理解什么叫做cell-free RNA目的：确定cell-free RNA的组织来源方法：1.使用TM的整体转录组来做反卷积；2.使用TM的单组织转录组图谱和人类蛋白图谱RNA共识来构建cell type signature scores.Cell-free RNA (cfRNA) 文章思路:  使用图谱反卷积cell-free的RNA发现来自全身各个组织利用支持向量对细胞型特异RNA进行反卷">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读：Cell Types of Origin in the Cell Free Transcriptome in Human Health and Disease">
+<meta property="og:url" content="http://yoursite.com/2021/10/18/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ACell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/index.html">
+<meta property="og:site_name" content="Feilijiang">
+<meta property="og:description" content="1.理解什么叫做cell-free RNA目的：确定cell-free RNA的组织来源方法：1.使用TM的整体转录组来做反卷积；2.使用TM的单组织转录组图谱和人类蛋白图谱RNA共识来构建cell type signature scores.Cell-free RNA (cfRNA) 文章思路:  使用图谱反卷积cell-free的RNA发现来自全身各个组织利用支持向量对细胞型特异RNA进行反卷">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-18T01:30:31.000Z">
+<meta property="article:modified_time" content="2021-10-18T03:01:13.370Z">
+<meta property="article:author" content="Feilijiang">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/10/18/文献阅读：Cell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/"/>
+
+
+
+
+
+  <title>文献阅读：Cell Types of Origin in the Cell Free Transcriptome in Human Health and Disease | Feilijiang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feilijiang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">New Beginnings</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home //首页"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags //标签"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th //分类"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar //日程表"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/18/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ACell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">文献阅读：Cell Types of Origin in the Cell Free Transcriptome in Human Health and Disease</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-18T09:30:31+08:00">
+                2021-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.理解什么叫做cell-free RNA<br>目的：确定cell-free RNA的组织来源<br>方法：1.使用TM的整体转录组来做反卷积；2.使用TM的单组织转录组图谱和人类蛋白图谱RNA共识来构建cell type signature scores.<br>Cell-free RNA (cfRNA)</p>
+<p>文章思路:</p>
+<ol>
+<li><p>使用图谱反卷积cell-free的RNA发现来自全身各个组织<br>利用支持向量对细胞型特异RNA进行反卷积回归，一种反褶积方法，以前应用于分解大量组织转录组部分细胞类型贡献。利用基因空间定义基矩阵使细胞类型的线性独立性最大化</p>
+</li>
+<li><p>对于在TM中缺乏的细胞类型，那就是要利用HFP图谱来做一个补充</p>
+</li>
+<li><p>计算了各种细胞类型和病变细胞类型的差异基因</p>
+</li>
+</ol>
+<p>1.<br>同时检测核内的蛋白质水平和转录组水平，<br>量级：上千的核</p>
+<p>确定组织中核蛋白的基因调控靶点是一项挑战。在这里，我们描述了转录组和表位的核内细胞标度(inCITE-seq)，这是一种可扩展的方法，可在数千个细胞核平行测量<strong>多重核内蛋白水平和转录组</strong>，从而实现转录因子(TF)水平和基因表达的体内联合分析。我们应用inCITE-seq来描述小鼠大脑中神经元活性在药理学诱导下的细胞状态相关变化。将<strong>基因表达建模为定量蛋白水平的线性组合，揭示了每个TF和已知基因靶标的全基因组关联</strong>。<strong>TF相关基因作为不同的模块共同表达，每个模块都反映了TF的阳性或阴性水平</strong>，这表明我们的方法可以解开相对推定的贡献。转录因子增加基因表达，增加推断基因网络的可解释性。inCITE-seq可以阐明核蛋白组合如何在天然组织环境中塑造基因表达，直接应用于固体或冷冻组织和临床。</p>
+<p>核内检测的方式不受到细胞消化的影响。<br>使用dna偶联抗体在单细胞分辨率下联合测量表面蛋白水平和RNA的方法，如通过测序对转录组和表位进行细胞索引(CITE-seq)13和RNA表达及蛋白测序分析<br>(REAP-seq)14，最近适应细胞质蛋白靶点15 -19，已应用于循环免疫细胞20,21。然而，这些方法不太适合非免疫细胞和固体组织，因为解离破坏了细胞膜的完整性。</p>
+<p>由于无所不在的非特异性结合，dna偶联抗体在细胞核内具有“粘性”。</p>
+<p>这些研究表明，由于反应的异步性和动态穿梭，核定位在一起刺激的单个细胞之间可能会有所不同</p>
+<h3 id="inCITE-seq-detects-nuclear-translocation-of-a-TF-induced-by-an-extracellular-signal"><a href="#inCITE-seq-detects-nuclear-translocation-of-a-TF-induced-by-an-extracellular-signal" class="headerlink" title="inCITE-seq detects nuclear translocation of a TF induced by an extracellular signal."></a>inCITE-seq detects nuclear translocation of a TF induced by an extracellular signal.</h3><h3 id="Relating-genome-wide-expression-to-p65-protein-levels"><a href="#Relating-genome-wide-expression-to-p65-protein-levels" class="headerlink" title="Relating genome-wide expression to p65 protein levels."></a>Relating genome-wide expression to p65 protein levels.</h3><h3 id="inCITE-seq-profiling-of-the-mouse-brain-after-in-vivo-induction-of-seizure"><a href="#inCITE-seq-profiling-of-the-mouse-brain-after-in-vivo-induction-of-seizure" class="headerlink" title="inCITE-seq profiling of the mouse brain after in vivo induction of seizure"></a>inCITE-seq profiling of the mouse brain after in vivo induction of seizure</h3><h3 id="RNA-profiles-from-inCITE-seq-reveal-key-cell-subsets-of-the-mouse-hippocampus"><a href="#RNA-profiles-from-inCITE-seq-reveal-key-cell-subsets-of-the-mouse-hippocampus" class="headerlink" title="RNA profiles from inCITE-seq reveal key cell subsets of the mouse hippocampus."></a>RNA profiles from inCITE-seq reveal key cell subsets of the mouse hippocampus.</h3><h3 id="Protein-levels-match-cell-type-specific-and-condition-specific-expression-in-RNA-based-clusters"><a href="#Protein-levels-match-cell-type-specific-and-condition-specific-expression-in-RNA-based-clusters" class="headerlink" title="Protein levels match cell type-specific and condition-specific expression in RNA-based clusters."></a>Protein levels match cell type-specific and condition-specific expression in RNA-based clusters.</h3><h3 id="Relating-protein-and-mRNA-levels-of-inCITE-target-genes"><a href="#Relating-protein-and-mRNA-levels-of-inCITE-target-genes" class="headerlink" title="Relating protein and mRNA levels of inCITE target genes."></a>Relating protein and mRNA levels of inCITE target genes.</h3><h3 id="Modeling-genome-wide-association-with-each-protein-recovers-known-TF-targets"><a href="#Modeling-genome-wide-association-with-each-protein-recovers-known-TF-targets" class="headerlink" title="Modeling genome-wide association with each protein recovers known TF targets."></a>Modeling genome-wide association with each protein recovers known TF targets.</h3><h3 id="TF-associated-genes-are-coexpressed-as-distinct-modules-in-excitatory-neurons"><a href="#TF-associated-genes-are-coexpressed-as-distinct-modules-in-excitatory-neurons" class="headerlink" title="TF-associated genes are coexpressed as distinct modules in excitatory neurons."></a>TF-associated genes are coexpressed as distinct modules in excitatory neurons.</h3><h3 id="Inferred-TF-impact-on-genes-depends-on-treatment-context-and-cell-type"><a href="#Inferred-TF-impact-on-genes-depends-on-treatment-context-and-cell-type" class="headerlink" title="Inferred TF impact on genes depends on treatment context and cell type."></a>Inferred TF impact on genes depends on treatment context and cell type.</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/10/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALineage-tracing-meets-single-cell-omics-opportunities-and-challenges/" rel="next" title="文献阅读：Lineage tracing meets single- cell omics: opportunities and challenges">
+                <i class="fa fa-chevron-left"></i> 文献阅读：Lineage tracing meets single- cell omics: opportunities and challenges
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/19/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211019/" rel="prev" title="文献阅读20211019">
+                文献阅读20211019 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Feilijiang</p>
+              <p class="site-description motion-element" itemprop="description">生物信息 记录 分享 博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#inCITE-seq-detects-nuclear-translocation-of-a-TF-induced-by-an-extracellular-signal"><span class="nav-number">1.</span> <span class="nav-text">inCITE-seq detects nuclear translocation of a TF induced by an extracellular signal.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relating-genome-wide-expression-to-p65-protein-levels"><span class="nav-number">2.</span> <span class="nav-text">Relating genome-wide expression to p65 protein levels.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inCITE-seq-profiling-of-the-mouse-brain-after-in-vivo-induction-of-seizure"><span class="nav-number">3.</span> <span class="nav-text">inCITE-seq profiling of the mouse brain after in vivo induction of seizure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNA-profiles-from-inCITE-seq-reveal-key-cell-subsets-of-the-mouse-hippocampus"><span class="nav-number">4.</span> <span class="nav-text">RNA profiles from inCITE-seq reveal key cell subsets of the mouse hippocampus.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Protein-levels-match-cell-type-specific-and-condition-specific-expression-in-RNA-based-clusters"><span class="nav-number">5.</span> <span class="nav-text">Protein levels match cell type-specific and condition-specific expression in RNA-based clusters.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relating-protein-and-mRNA-levels-of-inCITE-target-genes"><span class="nav-number">6.</span> <span class="nav-text">Relating protein and mRNA levels of inCITE target genes.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modeling-genome-wide-association-with-each-protein-recovers-known-TF-targets"><span class="nav-number">7.</span> <span class="nav-text">Modeling genome-wide association with each protein recovers known TF targets.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TF-associated-genes-are-coexpressed-as-distinct-modules-in-excitatory-neurons"><span class="nav-number">8.</span> <span class="nav-text">TF-associated genes are coexpressed as distinct modules in excitatory neurons.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inferred-TF-impact-on-genes-depends-on-treatment-context-and-cell-type"><span class="nav-number">9.</span> <span class="nav-text">Inferred TF impact on genes depends on treatment context and cell type.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feilijiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>

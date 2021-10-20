@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/25/java%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/20/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211020%EF%BC%9AGene-expression-across-mammalian-organ-development/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -270,7 +270,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/25/java%E5%85%A5%E9%97%A8/" itemprop="url">java入门</a></h1>
+                <a class="post-title-link" href="/2021/10/20/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211020%EF%BC%9AGene-expression-across-mammalian-organ-development/" itemprop="url">文献阅读20211020：Gene expression across mammalian organ development</a></h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-25T14:34:59+08:00">
-                2020-11-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-20T09:45:34+08:00">
+                2021-10-20
               </time>
             
 
@@ -322,45 +322,678 @@
       
         
           
-            <h1 id="JAVA-基本语法"><a href="#JAVA-基本语法" class="headerlink" title="JAVA 基本语法"></a>JAVA 基本语法</h1><p>参考链接：<a href="https://www.jianshu.com/p/472c84347b97" target="_blank" rel="noopener">https://www.jianshu.com/p/472c84347b97</a></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JVM(java virtual machine)<br>specification, implemenation and instance</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWord&#123;</span><br><span class="line">    public static void main(String []args) &#123;  ## java程序总入口</span><br><span class="line">        System.out.println(&quot;Hello World&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            
+          
+        
+      
+    </div>
+    
+    
+    
 
-<h3 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h3><p>类：首字母大写<br>方法：首字母小写<br>源文件：与类名相同，后缀为.java</p>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;单行注释</span><br><span class="line">&#x2F;*多行注释</span><br><span class="line">*多行注释第二行</span><br><span class="line">&#x2F;*多行注释第三行*&#x2F;</span><br></pre></td></tr></table></figure>
+    
 
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>方法在类中，比如eating是Person的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Person&#123;</span><br><span class="line">String name;</span><br><span class="line">int age;</span><br><span class="line">boolean sex;</span><br><span class="line">void eating()&#123; &#x2F;&#x2F;方法1</span><br><span class="line">    &#125;</span><br><span class="line">void running()&#123; &#x2F;&#x2F;方法2</span><br><span class="line">    &#125;</span><br><span class="line">void sleeping()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
 
-<h3 id="类的构造方法"><a href="#类的构造方法" class="headerlink" title="类的构造方法"></a>类的构造方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 指定构造方法</span><br><span class="line">class Name&#123;</span><br><span class="line">public sam(String name)&#123; &#x2F;&#x2F;默认了构造方法</span><br><span class="line">    System.out.println(&quot;Sam&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 构造对象</span><br><span class="line">public class Car&#123;</span><br><span class="line">    public Puppy(String name)&#123;</span><br><span class="line">        &#x2F;&#x2F; 这个构造器仅有一个参数: name</span><br><span class="line">        System.out.println(&quot;My car brand is :&quot;+name);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String []args)&#123;</span><br><span class="line">        &#x2F;&#x2F; 下面的语句将创建一个Car对象</span><br><span class="line">        Puppy myPuppy&#x3D;new Car( &quot;Benz&quot; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#output</span><br><span class="line">My car brand is :Benz</span><br></pre></td></tr></table></figure>
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/19/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211019/" itemprop="url">文献阅读20211019</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-19T10:42:34+08:00">
+                2021-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="文献：-Genetic-and-epigenetic-coordination-of-cortical-interneuron-development"><a href="#文献：-Genetic-and-epigenetic-coordination-of-cortical-interneuron-development" class="headerlink" title="文献： Genetic and epigenetic coordination of cortical interneuron development"></a>文献： Genetic and epigenetic coordination of cortical interneuron development</h2><p>为了研究细小蛋白(PV)和生长抑素(SST)神经元间同源性的建立，我们首先试图确定它们可以与投射神经元区分的最早时间点，投射神经元是内侧神经节隆起(MGE)的另一种主要衍生物。我们之前的研究表明，在转录水平上，这种区别首次在<strong>有丝分裂后的群体</strong>中被发现，当细胞分化成三个分支，分别对应特定的命运:神经元间前体(分支1)和投射神经元前体(分支2和3)。为了探究是否有更早的染色质特征表明神经元间的一致性，我们比较了胚(E) 13，即MGE神经元间神经发生的高峰期，这些前体群体的<strong>RNA表达和染色质可及性</strong>。</p>
+<h3 id="Transcription-and-chromatin-in-the-MGE"><a href="#Transcription-and-chromatin-in-the-MGE" class="headerlink" title="Transcription and chromatin in the MGE"></a>Transcription and chromatin in the MGE</h3><p><strong>远端元件早于转录因子的表达，晚于细胞分裂的结束。</strong><br>流式方法分选MGE相关细胞，然后分出三个枝丫。<br>早期组细胞：与基因表达相比，发育相关基因的启动子可及性通常提前增加，持续时间更长来识别最早的特征。<br>分裂后期细胞：三个枝丫（两种方法），接下来，我们进行差异表达分析，以确定最早的分支基因在有丝分裂后的细胞中表达。为了识别与这些基因相关的远端染色质元件，我们整理了它们周围的ATAC-seq峰，并训练了一个分类器来识别那些对区分分支身份最有帮助的元素。<br>聚焦到转录因子：基因表达开始之前，远端位点变得可及。<br>远端元件和细胞周期的关系：未能在细胞周期结束前检测到分支1中间神经元的相关远端元件。<br>目前没有证据表明中间神经元在细胞周期结束前从投射细胞分化。</p>
+<h3 id="Remodelling-upon-cortical-settling"><a href="#Remodelling-upon-cortical-settling" class="headerlink" title="Remodelling upon cortical settling"></a>Remodelling upon cortical settling</h3><p>在成人皮质中间神经元中，scRNA-seq和scacc -seq谱密切相关。然而，我们对这些在E13位点的群体的研究显示，在发育中的细胞中，转录和染色质标记之间存在不一致。（使用CCA来说明。）</p>
+<p>通过RNA和ATAC的整合分析，发现RNA和ATAC的overlap程度随发育上升的。<br>然后看ATAC的分析，发现P2前后 jaccard分析成两个模块，同时查看元件的peak，也是P2开始和成年的类似。</p>
+<p>所以中间神经元位于皮层层的发育窗口期是染色质结构发生实质性重塑的时期。</p>
+<p>分析both migratory (E14–E18) and post-settling (P2–P28) timepoints之间的差异motif</p>
+<p>我们的scATAC-seq分析表明，某些转录因子以细胞类型特异性的方式利用，尽管不是选择性表达的。所以使用CUT&amp;RUN sequencing进行验证。</p>
+<h3 id="Divergence-of-gene-regulatory-networks"><a href="#Divergence-of-gene-regulatory-networks" class="headerlink" title="Divergence of gene regulatory networks"></a>Divergence of gene regulatory networks</h3><p>构建了调控网络，从网络的整体性和edge的方面，查看了common和specific的network的变化情况，shared network变少，specific的网络增强。</p>
+<p>这一观察表明染色质景观已经被塑造成这样，细胞类型特异性的基因表达可以被介导，而不需要选择性转录因子表达。（不懂这个结论是如何得到的？）</p>
+<h3 id="Loss-of-Mef2c-perturbs-development"><a href="#Loss-of-Mef2c-perturbs-development" class="headerlink" title="Loss of Mef2c perturbs development"></a>Loss of Mef2c perturbs development</h3><p>检测了敲除前后几个方面的变化。分析还是很有趣的，没有看分析过程。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>对象时根据类创建的，在java中，使用关键字来创建一个新的对象，创建对象的步骤：</p>
-<ul>
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/18/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ACell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/18/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ACell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/" itemprop="url">文献阅读：Cell Types of Origin in the Cell Free Transcriptome in Human Health and Disease</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-18T09:30:31+08:00">
+                2021-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.理解什么叫做cell-free RNA<br>目的：确定cell-free RNA的组织来源<br>方法：1.使用TM的整体转录组来做反卷积；2.使用TM的单组织转录组图谱和人类蛋白图谱RNA共识来构建cell type signature scores.<br>Cell-free RNA (cfRNA)</p>
+<p>文章思路:</p>
+<ol>
+<li><p>使用图谱反卷积cell-free的RNA发现来自全身各个组织<br>利用支持向量对细胞型特异RNA进行反卷积回归，一种反褶积方法，以前应用于分解大量组织转录组部分细胞类型贡献。利用基因空间定义基矩阵使细胞类型的线性独立性最大化</p>
+</li>
+<li><p>对于在TM中缺乏的细胞类型，那就是要利用HFP图谱来做一个补充</p>
+</li>
+<li><p>计算了各种细胞类型和病变细胞类型的差异基因</p>
+</li>
+</ol>
+<p>1.<br>同时检测核内的蛋白质水平和转录组水平，<br>量级：上千的核</p>
+<p>确定组织中核蛋白的基因调控靶点是一项挑战。在这里，我们描述了转录组和表位的核内细胞标度(inCITE-seq)，这是一种可扩展的方法，可在数千个细胞核平行测量<strong>多重核内蛋白水平和转录组</strong>，从而实现转录因子(TF)水平和基因表达的体内联合分析。我们应用inCITE-seq来描述小鼠大脑中神经元活性在药理学诱导下的细胞状态相关变化。将<strong>基因表达建模为定量蛋白水平的线性组合，揭示了每个TF和已知基因靶标的全基因组关联</strong>。<strong>TF相关基因作为不同的模块共同表达，每个模块都反映了TF的阳性或阴性水平</strong>，这表明我们的方法可以解开相对推定的贡献。转录因子增加基因表达，增加推断基因网络的可解释性。inCITE-seq可以阐明核蛋白组合如何在天然组织环境中塑造基因表达，直接应用于固体或冷冻组织和临床。</p>
+<p>核内检测的方式不受到细胞消化的影响。<br>使用dna偶联抗体在单细胞分辨率下联合测量表面蛋白水平和RNA的方法，如通过测序对转录组和表位进行细胞索引(CITE-seq)13和RNA表达及蛋白测序分析<br>(REAP-seq)14，最近适应细胞质蛋白靶点15 -19，已应用于循环免疫细胞20,21。然而，这些方法不太适合非免疫细胞和固体组织，因为解离破坏了细胞膜的完整性。</p>
+<p>由于无所不在的非特异性结合，dna偶联抗体在细胞核内具有“粘性”。</p>
+<p>这些研究表明，由于反应的异步性和动态穿梭，核定位在一起刺激的单个细胞之间可能会有所不同</p>
+<h3 id="inCITE-seq-detects-nuclear-translocation-of-a-TF-induced-by-an-extracellular-signal"><a href="#inCITE-seq-detects-nuclear-translocation-of-a-TF-induced-by-an-extracellular-signal" class="headerlink" title="inCITE-seq detects nuclear translocation of a TF induced by an extracellular signal."></a>inCITE-seq detects nuclear translocation of a TF induced by an extracellular signal.</h3><h3 id="Relating-genome-wide-expression-to-p65-protein-levels"><a href="#Relating-genome-wide-expression-to-p65-protein-levels" class="headerlink" title="Relating genome-wide expression to p65 protein levels."></a>Relating genome-wide expression to p65 protein levels.</h3><h3 id="inCITE-seq-profiling-of-the-mouse-brain-after-in-vivo-induction-of-seizure"><a href="#inCITE-seq-profiling-of-the-mouse-brain-after-in-vivo-induction-of-seizure" class="headerlink" title="inCITE-seq profiling of the mouse brain after in vivo induction of seizure"></a>inCITE-seq profiling of the mouse brain after in vivo induction of seizure</h3><h3 id="RNA-profiles-from-inCITE-seq-reveal-key-cell-subsets-of-the-mouse-hippocampus"><a href="#RNA-profiles-from-inCITE-seq-reveal-key-cell-subsets-of-the-mouse-hippocampus" class="headerlink" title="RNA profiles from inCITE-seq reveal key cell subsets of the mouse hippocampus."></a>RNA profiles from inCITE-seq reveal key cell subsets of the mouse hippocampus.</h3><h3 id="Protein-levels-match-cell-type-specific-and-condition-specific-expression-in-RNA-based-clusters"><a href="#Protein-levels-match-cell-type-specific-and-condition-specific-expression-in-RNA-based-clusters" class="headerlink" title="Protein levels match cell type-specific and condition-specific expression in RNA-based clusters."></a>Protein levels match cell type-specific and condition-specific expression in RNA-based clusters.</h3><h3 id="Relating-protein-and-mRNA-levels-of-inCITE-target-genes"><a href="#Relating-protein-and-mRNA-levels-of-inCITE-target-genes" class="headerlink" title="Relating protein and mRNA levels of inCITE target genes."></a>Relating protein and mRNA levels of inCITE target genes.</h3><h3 id="Modeling-genome-wide-association-with-each-protein-recovers-known-TF-targets"><a href="#Modeling-genome-wide-association-with-each-protein-recovers-known-TF-targets" class="headerlink" title="Modeling genome-wide association with each protein recovers known TF targets."></a>Modeling genome-wide association with each protein recovers known TF targets.</h3><h3 id="TF-associated-genes-are-coexpressed-as-distinct-modules-in-excitatory-neurons"><a href="#TF-associated-genes-are-coexpressed-as-distinct-modules-in-excitatory-neurons" class="headerlink" title="TF-associated genes are coexpressed as distinct modules in excitatory neurons."></a>TF-associated genes are coexpressed as distinct modules in excitatory neurons.</h3><h3 id="Inferred-TF-impact-on-genes-depends-on-treatment-context-and-cell-type"><a href="#Inferred-TF-impact-on-genes-depends-on-treatment-context-and-cell-type" class="headerlink" title="Inferred TF impact on genes depends on treatment context and cell type."></a>Inferred TF impact on genes depends on treatment context and cell type.</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALineage-tracing-meets-single-cell-omics-opportunities-and-challenges/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALineage-tracing-meets-single-cell-omics-opportunities-and-challenges/" itemprop="url">文献阅读：Lineage tracing meets single- cell omics: opportunities and challenges</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-10T15:25:31+08:00">
+                2021-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="文献阅读Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges"><a href="#文献阅读Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges" class="headerlink" title="文献阅读Lineage tracing meets single- cell omics: opportunities and challenges"></a>文献阅读Lineage tracing meets single- cell omics: opportunities and challenges</h2><p>以反映它们潜在的高维性质和它们的常规表示为低维欧几里得曲面或图<br>state manifolds； to reflect both their underlying high-dimensional nature and their routine representation as low- dimensional Euclidean surfaces or graphs.</p>
+<p>在细胞分化过程中，状态流形可以提供高分辨率的细胞轨迹描述。</p>
+<h3 id="1-Inferring-cell-histories-from-state-manifolds"><a href="#1-Inferring-cell-histories-from-state-manifolds" class="headerlink" title="1. Inferring cell histories from state manifolds"></a>1. Inferring cell histories from state manifolds</h3><h4 id="1-Defining-cell-states"><a href="#1-Defining-cell-states" class="headerlink" title="1. Defining cell states"></a>1. Defining cell states</h4><p>定义细胞类型的信息越来约丰富。</p>
+<h4 id="2-Mapping-state-manifolds"><a href="#2-Mapping-state-manifolds" class="headerlink" title="2. Mapping state manifolds"></a>2. Mapping state manifolds</h4><p>基于图的分析是有用的，因为它们转换了一组孤立的测量值(单细胞转录组)变成一个连接的结构(图表)，然后可以使用一套丰富的已有的数学方法进行分析。<br>任何2D和3D可视化都只能作为表示更强大的数据分析形式的结果的辅助工具。<br>另外一类方法根据manifold来推测出细胞的动力学和分化等级。<br>为了改进这些在动态推断方面的努力，最近的一些研究已经成功地推断了状态的瞬时动态，其基础是新生mRNA丰度的测量、剪接与未剪接mRNA的比率(例如，RNA速度)、蛋白质翻译或由代谢物标记的mRNA周转率。还有时序性的信息。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200136.png" alt=""></p>
+<h4 id="3-Limitations-of-state-manifolds-for-dynamic-inference"><a href="#3-Limitations-of-state-manifolds-for-dynamic-inference" class="headerlink" title="3. Limitations of state manifolds for dynamic inference"></a>3. Limitations of state manifolds for dynamic inference</h4><p>在这方面，树状细胞状态层次结构与真正的谱系分析得到的细胞状态层次结构形成了鲜明的对比。在一个状态流形上，分支点可能是假设的:细胞分裂可能发生在一个分支点上，也可能不发生在一个分支点上，来自每个分支的两种细胞都可能沿着流形的一个分支前进，而不是探索所有的分支。相反，在谱系树中，每个分支点都严格对应于一个分支事件。状态轨迹甚至不需要是严格的树状结构，而谱系层次结构总是严格的分支树。因此，尽管种群水平结构可以追踪单个细胞经历的分子状态的动态序列(图2a,b)，但一些特定的原因可能会模糊或误导研究人员对潜在的动态和/或命运关系的理解。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200220.png" alt=""></p>
+<h3 id="2-Inferring-cell-histories-in-lineage-tracing"><a href="#2-Inferring-cell-histories-in-lineage-tracing" class="headerlink" title="2. Inferring cell histories in lineage tracing"></a>2. Inferring cell histories in lineage tracing</h3><h4 id="1-Lineage-tracing-paradigms"><a href="#1-Lineage-tracing-paradigms" class="headerlink" title="1. Lineage-tracing paradigms"></a>1. Lineage-tracing paradigms</h4><h4 id="2-Clonal-versus-population-tracing"><a href="#2-Clonal-versus-population-tracing" class="headerlink" title="2. Clonal versus population tracing"></a>2. Clonal versus population tracing</h4><h4 id="3-Imaging-based-methods-for-lineage-tracing"><a href="#3-Imaging-based-methods-for-lineage-tracing" class="headerlink" title="3. Imaging-based methods for lineage tracing"></a>3. Imaging-based methods for lineage tracing</h4><h4 id="4-Lineage-tracing-by-barcode-sequencing"><a href="#4-Lineage-tracing-by-barcode-sequencing" class="headerlink" title="4. Lineage tracing by barcode-sequencing"></a>4. Lineage tracing by barcode-sequencing</h4><h4 id="5-Performance-trade-offs-and-further-innovations"><a href="#5-Performance-trade-offs-and-further-innovations" class="headerlink" title="5. Performance, trade-offs and further innovations"></a>5. Performance, trade-offs and further innovations</h4><h4 id="6-Prospective-lineage-tracing-on-state-manifolds"><a href="#6-Prospective-lineage-tracing-on-state-manifolds" class="headerlink" title="6. Prospective lineage tracing on state manifolds"></a>6. Prospective lineage tracing on state manifolds</h4><h3 id="3-Applications-of-lineage-tracing-on-state-manifolds"><a href="#3-Applications-of-lineage-tracing-on-state-manifolds" class="headerlink" title="3. Applications of lineage tracing on state manifolds"></a>3. Applications of lineage tracing on state manifolds</h3><h4 id="1-Lineage-phylogenies-on-state-manifolds"><a href="#1-Lineage-phylogenies-on-state-manifolds" class="headerlink" title="1. Lineage phylogenies on state manifolds"></a>1. Lineage phylogenies on state manifolds</h4><h4 id="2-Clonal-resampling-on-a-state-manifold"><a href="#2-Clonal-resampling-on-a-state-manifold" class="headerlink" title="2. Clonal resampling on a state manifold"></a>2. Clonal resampling on a state manifold</h4><h4 id="3-Computational-tools-for-state–lineage-mapping"><a href="#3-Computational-tools-for-state–lineage-mapping" class="headerlink" title="3. Computational tools for state–lineage mapping"></a>3. Computational tools for state–lineage mapping</h4><h4 id="4-Pitfalls-in-lineage-barcoding-on-a-state-manifold"><a href="#4-Pitfalls-in-lineage-barcoding-on-a-state-manifold" class="headerlink" title="4. Pitfalls in lineage barcoding on a state manifold"></a>4. Pitfalls in lineage barcoding on a state manifold</h4><p>阅读重点</p>
+<h3 id="4-Emerging-concepts"><a href="#4-Emerging-concepts" class="headerlink" title="4. Emerging concepts"></a>4. Emerging concepts</h3><h4 id="1-State-manifolds-as-models"><a href="#1-State-manifolds-as-models" class="headerlink" title="1. State manifolds as models"></a>1. State manifolds as models</h4><p>状态轨迹和谱系编纂了细胞发育历史中两个不同但互补的方面，每一种类型的分析都可以为个体发生和基因调控提供见解。在这篇综述中，我们概述了状态流形的一些重要局限性，并描述了将真实谱系测量与单细胞组学相结合的动机和工具。从这些方法的早期应用，我们提出了三个新兴的概念:<strong>第一，状态流形作为模型;第二，细胞状态分岔与细胞分裂的耦合模式;第三，树描述细胞分化层次的有效性</strong></p>
+<p>在这篇综述中，我们提出了lineage和state representations之间可能出现的矛盾(图2)并讨论了如何利用克隆信息来阐明这些发育关系。这些矛盾证明了<strong>状态流形(state trajectory)不是绝对可靠的。相反，它们是数据驱动的模型，遵循特定的假设集和数据处理标准。</strong></p>
+<p>目前，大多数状态流形是由原始状态测量中最主要的covariation以无偏方式构造的。在这种做法下，scRNA-seq manifold的定义特征将反映<strong>健壮的、可变的转录特征，因此不能保证强调细胞命运的决定</strong>，这可能与命运决定发生时<strong>低水平表达的调控基因相关</strong>。</p>
+<p>到目前为止，状态流形的构建都没有包含来自克隆数据的信息。然而，状态和谱系关系不需要保持冲突:一旦谱系的信息被建立，它可以用来改进我们表示状态流形的方法。例如，谱系信息的直接和简单的使用是在鉴定偏向谱系的祖细胞状态的分子标记。事实上，新的命运标记已经从结合的谱系和状态系统发育实验和克隆-重采样研究中推断出来。</p>
+<p>谱系信息也可以用来训练构建状态流形的算法，以避免如图2所示的错误。这样的行为需要一个概念上的转变，<strong>即把state manifolds作为一组特定的高维基因表达特征的模型，而不是作为覆盖细胞分化轨迹的绝对或普遍参考。</strong></p>
+<h4 id="2-Variability-of-individual-lineage-trees"><a href="#2-Variability-of-individual-lineage-trees" class="headerlink" title="2. Variability of individual lineage trees"></a>2. Variability of individual lineage trees</h4><p>state manifolds和mitotic lineage trees都可以定义层次结构。这两个等级之间关系的本质是什么?提出两种可能的关系：一种是<strong>mitotic coupling 和population coupling</strong>. mitotic coupling 是确定的，当细胞state manifolds的分支点与细胞分裂事件紧密对应时，就会发生有丝分裂偶联(图6a，左)。海鞘87和秀丽隐杆88的确定谱系树就是很好的例子。<br>相比之下，population coupling将发生在克隆和分裂历史不影响任何单个细胞的前进或其命运选择。相反，细胞行为是不确定的，可以用一组<strong>沿特定轨迹移动的转移概率</strong>来描述。<br>因此，种群耦合可能导致高度可变的谱系树，类似于那些随机分支过程，不会在生物体内部或生物体之间精确复制。在这种情况下，对命运等级结构进行高分辨率重建的努力可能无法产生一个单一的具有代表性的谱系发展树，但<strong>状态-谱系耦合在多个观察到的谱系树上的分布应该被证明具有很高的信息量</strong>。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200928.png" alt=""></p>
+<p>分化的层次的结构是什么?<br>这个问题的答案首先取决于一个人考虑的是state manifolds和mitotic lineage trees。</p>
+<p>在没有细胞融合的情况下，谱系通常可以看作是一个分支树，每个分支点代表一个有丝分裂事件。状态流形可以是树状的，但根据系统的生物学特性，它们不一定是树状的。因此，状态流形代表了发现细胞分化过程的结构(即拓扑)的机会。当状态流形与谱系测量相结合时，人们就有机会独立地拒绝或确认关于这些结构的特定假设。正如我们上面所描述的，几个最近的研究已经证明了<strong>状态收敛（state convergence）</strong>的证据，在状态流形上，两个或更多不同的命运轨迹收敛到相同的最终位置。因此，这种端点状态由起源不同的细胞组成，这些细胞可能保留也可能不保留不同的功能或电位。我们回顾了免疫细胞、神经嵴谱系和内胚层群体状态收敛的例子。相反的情况，<strong>状态分化（state divergence）</strong>也被观察到，有丝分裂的姐妹细胞(谱系高度相关)迅速进入不连续状态。state manifolds可以发生作为不对称细胞分裂的结果，特别是在分裂的细胞质组分只传递到两个有丝分裂子细胞之一的情况下。这种情况下可能会产生<strong>缺乏中间状态的状态转换</strong>，因此在任何采样深度上都不会以分岔事件的形式出现在状态流形上。<strong>这两种情况——收敛和发散——将导致状态流形偏离严格的树状结构</strong>，并可能由描述良好的生物情况产生。</p>
+<p>谱系和流形的关系，强调谱系的重要性，以及流形结构的局限性，需要结合两者来看。</p>
+<h2 id="文献阅读-Statistical-mechanics-meets-single-cell-biology"><a href="#文献阅读-Statistical-mechanics-meets-single-cell-biology" class="headerlink" title="文献阅读 Statistical mechanics meets single-cell biology"></a>文献阅读 Statistical mechanics meets single-cell biology</h2><p>疑问：waddington state manifolds的概念及应用</p>
+<p>统计力学来帮助我们从单细胞特性(微观状态)的角度来加深对组织功能(宏观状态)的理解。</p>
+<p>沃尔顿图谱的三个重要基本概念：</p>
+<ol>
+<li>首先,有机体的细胞可以杰出的发展可能产生广泛的不同数量的其他细胞,表明分化效力层次的存在,传统上被描绘为高度的景观,这暗示着一个势能函数的存在。</li>
+<li>第二，细胞优先占据特定的稳定区域，Waddington称之为“局部吸引子”，与观察到的细胞类型相对应。</li>
+<li>景观是“渠化”成特定的吸引盆地，定义了连接吸引子状态彼此的低能量路径。</li>
+</ol>
+<h3 id="GRN-based-Waddington-landscapes"><a href="#GRN-based-Waddington-landscapes" class="headerlink" title="GRN- based Waddington landscapes"></a>GRN- based Waddington landscapes</h3><p>从scRNA- seq数据建模的状态流形对于深入理解细胞生物学和实现分子和再生医学的目标是至关重要的。它需要对三个主要的景观特征进行推断:代表功能相关细胞类型的局部吸引子状态，它们在歧管中的海拔高度，影响它们的分化潜能，以及通常称为的低能量路径<br>“沿袭轨迹”，将这些吸引子状态连接在一起</p>
+<p>为什么随机过程是单细胞动力学的恰当描述，主要有两个原因。</p>
+<ol>
+<li>首先，在同一细胞中，在流形的的不同位置测量转录组是不可能的，因为测量的行为本身就会破坏细胞。</li>
+<li>其次，细胞内的分子经历了真正的随机变化，而不是连续变化28,31,45，这意味着在最基本的层面上，单细胞动力学是概率的。然而，值得注意的是，确定性连续型单细胞动力学可能仍然来自潜在的概率过程</li>
+</ol>
+<h3 id="State-manifolds-from-scRNA-seq-data"><a href="#State-manifolds-from-scRNA-seq-data" class="headerlink" title="State manifolds from scRNA-seq data"></a>State manifolds from scRNA-seq data</h3><h3 id="Solving-the-drift–diffusion-equations-inference-of-the-state-manifold"><a href="#Solving-the-drift–diffusion-equations-inference-of-the-state-manifold" class="headerlink" title="Solving the drift–diffusion equations: inference of the state manifold."></a>Solving the drift–diffusion equations: inference of the state manifold.</h3><h3 id="Modelling-cell-types-as-local-attractors"><a href="#Modelling-cell-types-as-local-attractors" class="headerlink" title="Modelling cell types as local attractors."></a>Modelling cell types as local attractors.</h3><h3 id="Bottom-up-modelling-of-potency"><a href="#Bottom-up-modelling-of-potency" class="headerlink" title="Bottom-up modelling of potency"></a>Bottom-up modelling of potency</h3><h3 id="Modelling-cell-fate-transitions"><a href="#Modelling-cell-fate-transitions" class="headerlink" title="Modelling cell-fate transitions"></a>Modelling cell-fate transitions</h3><h3 id="Future-outlook-and-perspectives"><a href="#Future-outlook-and-perspectives" class="headerlink" title="Future outlook and perspectives"></a>Future outlook and perspectives</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/02/%E5%90%8C%E6%BA%90%E5%9F%BA%E5%9B%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/02/%E5%90%8C%E6%BA%90%E5%9F%BA%E5%9B%A0/" itemprop="url">同源基因</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-02T13:18:57+08:00">
+                2021-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="TransDecoder-fa"><a href="#TransDecoder-fa" class="headerlink" title="TransDecoder:fa"></a>TransDecoder:fa</h2><h3 id="作用：从FASTA序列预测编码区（cds）"><a href="#作用：从FASTA序列预测编码区（cds）" class="headerlink" title="作用：从FASTA序列预测编码区（cds）"></a>作用：从FASTA序列预测编码区（cds）</h3><h3 id="使用教程：-https-github-com-TransDecoder-TransDecoder-wiki"><a href="#使用教程：-https-github-com-TransDecoder-TransDecoder-wiki" class="headerlink" title="使用教程： https://github.com/TransDecoder/TransDecoder/wiki"></a>使用教程： <a href="https://github.com/TransDecoder/TransDecoder/wiki" target="_blank" rel="noopener">https://github.com/TransDecoder/TransDecoder/wiki</a></h3><h3 id="参考教程；-https-www-bioinfo-scrounger-com-archives-106"><a href="#参考教程；-https-www-bioinfo-scrounger-com-archives-106" class="headerlink" title="参考教程； https://www.bioinfo-scrounger.com/archives/106/"></a>参考教程； <a href="https://www.bioinfo-scrounger.com/archives/106/" target="_blank" rel="noopener">https://www.bioinfo-scrounger.com/archives/106/</a></h3><h3 id="输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件"><a href="#输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件" class="headerlink" title="输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件"></a>输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件</h3><p>输入：<br>输出：cds的fasta文件<br><img src="https://gitee.com/feilijiang/img/raw/master/20211002133627.png" alt=""></p>
+<p>cds的pep文件：<br><img src="https://gitee.com/feilijiang/img/raw/master/20211002133530.png" alt=""></p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## transfer transcriptome to coding sequence using transdecoder</span><br><span class="line">TransDecoder.LongOrfs -t dd_Smed_v6.pcf.contigs.fasta</span><br><span class="line">TransDecoder.Predict -t dd_Smed_v6.pcf.contigs.fasta</span><br></pre></td></tr></table></figure>
+
+
+<p>orthoFinder</p>
+<h3 id="同源基因预测"><a href="#同源基因预测" class="headerlink" title="同源基因预测"></a>同源基因预测</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;Documents&#x2F;data&#x2F;fei&#x2F;Rpackage&#x2F;OrthoFinder_source&#x2F;orthofinder.py -f &#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;orth&#x2F;human_smed&#x2F;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/27/%E6%8A%A5%E9%94%99RuntimeError-Could-not-find-a-llvm-config-binary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/27/%E6%8A%A5%E9%94%99RuntimeError-Could-not-find-a-llvm-config-binary/" itemprop="url">报错RuntimeError: Could not find a llvm config binary</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-27T15:58:39+08:00">
+                2021-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装sam-algorithm的时候报错"><a href="#安装sam-algorithm的时候报错" class="headerlink" title="安装sam-algorithm的时候报错"></a>安装sam-algorithm的时候报错</h4><blockquote>
+<p>RuntimeError: Could not find a llvm config binary</p>
+</blockquote>
+<h4 id="原因：llvmlite安装失败"><a href="#原因：llvmlite安装失败" class="headerlink" title="原因：llvmlite安装失败"></a>原因：llvmlite安装失败</h4><h4 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h4><ul>
 <li><ol>
-<li>声明：声明一个对象，包括对象名称和对象类型</li>
+<li>参考官方教程: <a href="https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip。" target="_blank" rel="noopener">https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip。</a> </li>
 </ol>
 </li>
 <li><ol start="2">
-<li>实例化：使用关键字new来创建一个对象</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>初始化：使用new创建对象时，会调用构造方法初始化对象</li>
+<li>llvmlite的安装需要先行安装LLVM环境，因此先通过conda安装LLVM，再安装llvmlite，注意系统带的LLVM需要说明位置。</li>
 </ol>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public class Car &#123;</span><br><span class="line">    String brandname;</span><br><span class="line">    public Car(String name)&#123;</span><br><span class="line">        &#x2F;&#x2F; 这个构造器有且仅有一个参数：name</span><br><span class="line">        System.out.println(&quot;Car&#39;s brand is:&quot; + name);</span><br><span class="line">    &#125;</span><br><span class="line">    public void setbrand(String name)&#123;</span><br><span class="line">        brandname &#x3D; name;</span><br><span class="line">        &#x2F;void(空)方法不需要返回值&#x2F;</span><br><span class="line">    &#125;</span><br><span class="line">    public string getname()&#123;</span><br><span class="line">        System.out.println(&quot;Brand&#39;s name is :&quot;+brandname);</span><br><span class="line">        return brandname;</span><br><span class="line">        &#x2F;*设定为String类型的方法必须返回String类型的值*&#x2F;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        &#x2F;&#x2F; 创建对象</span><br><span class="line">        Car c&#x3D;new Car(&quot;BMW&quot;);</span><br><span class="line">        &#x2F;&#x2F; 通过方法来设定车名</span><br><span class="line">        c.setbrand(&quot;BMW&quot;);</span><br><span class="line">        &#x2F;&#x2F; 调用另外一个方法获取</span><br><span class="line">        c.getname();</span><br><span class="line">        &#x2F;&#x2F;直接访问成员变量</span><br><span class="line">        System.out.println(&quot;String Value :&quot; + c.brandname);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#otutput</span><br><span class="line">Car&#39;s brand is:BMW</span><br><span class="line">Brand&#39;s name is :BMW</span><br><span class="line">String Value :abc</span><br></pre></td></tr></table></figure>
-
-<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>源文件声明是有规则的。当在一个源文件中定义多个类，并且还有import语句和package语句时，要特别注意这些规则。</p>
-<p><strong>一个源文件中只能有一个public类</strong></p>
-<p><strong>一个源文件可以有多个非public类</strong></p>
-<p>源文件的名称应该和public类的类名保持一致。例如：源文件中public类的类名是Employee，那么源文件应该命名为Employee.java。</p>
-<p>如果一个类定义在某个包中，那么package语句应该在源文件的首行。</p>
-<p>如果源文件包含import语句，那么应该放在package语句和类定义之间。如果没有package语句，那么import语句应该在源文件中最前面。</p>
-<p>import语句和package语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install -c numba llvmdev</span><br><span class="line"></span><br><span class="line">pip install llvmlite -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
 
           
         
@@ -409,7 +1042,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/24/MIT-CompBio/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/22/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -428,7 +1061,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/24/MIT-CompBio/" itemprop="url">MIT CompBio</a></h1>
+                <a class="post-title-link" href="/2021/09/22/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95/" itemprop="url">每日记录</a></h1>
         
 
         <div class="post-meta">
@@ -440,8 +1073,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-24T20:07:35+08:00">
-                2020-11-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-22T11:51:15+08:00">
+                2021-09-22
               </time>
             
 
@@ -480,133 +1113,8 @@
       
         
           
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/22/shell%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/22/shell%E5%91%BD%E4%BB%A4/" itemprop="url">shell命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-22T16:27:04+08:00">
-                2020-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="统计文件夹中文件的个数"><a href="#统计文件夹中文件的个数" class="headerlink" title="统计文件夹中文件的个数"></a>统计文件夹中文件的个数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l</span><br></pre></td></tr></table></figure>
-
-<h2 id="比较数值"><a href="#比较数值" class="headerlink" title="比较数值"></a>比较数值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;10</span><br><span class="line">b&#x3D;1</span><br><span class="line">[ $a -lt $b ] # 注意括号两边需要留空格</span><br><span class="line"></span><br><span class="line"># 报错:integer expression expected</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125; #需要将字符型或者num型的转化为int型</span><br><span class="line">[ $int -lt $b]</span><br></pre></td></tr></table></figure>
-
-<h2 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ ! -d &quot;$outfolder&quot; ];then</span><br><span class="line">    mkdir $outfolder</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-
-
+            <h2 id="Fuzzy-c-means"><a href="#Fuzzy-c-means" class="headerlink" title="Fuzzy c-means"></a>Fuzzy c-means</h2><p>c-means就是fuzzy c-means，一般简称是FCM。<br>FCM和K-means一样，在开始聚类前，要先确定cluster的个数。<br>与K-Means不同的是，FCM最后返回的是每个样本点属于某个聚类的概率。所以FCM是一种软聚类算法。有时候FCM也被叫做软K-Means。</p>
+<p>##</p>
 
           
         
@@ -655,7 +1163,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B020201122/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/ubuntu%E6%8A%A5%E9%94%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -674,7 +1182,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B020201122/" itemprop="url">每日一记20201122</a></h1>
+                <a class="post-title-link" href="/2021/09/12/ubuntu%E6%8A%A5%E9%94%99/" itemprop="url">ubuntu报错</a></h1>
         
 
         <div class="post-meta">
@@ -686,8 +1194,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-22T15:34:52+08:00">
-                2020-11-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-12T15:19:11+08:00">
+                2021-09-12
               </time>
             
 
@@ -726,819 +1234,283 @@
       
         
           
-            <h2 id="度量两个排序列表的相似性"><a href="#度量两个排序列表的相似性" class="headerlink" title="度量两个排序列表的相似性"></a>度量两个排序列表的相似性</h2><p><a href="https://zhuanlan.zhihu.com/p/63279107" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/63279107</a><br>基于排序之间的相互关系</p>
-<ul>
+            <h3 id="libreoffice-卡顿导致Ubuntu18桌面无响应"><a href="#libreoffice-卡顿导致Ubuntu18桌面无响应" class="headerlink" title="libreoffice 卡顿导致Ubuntu18桌面无响应"></a>libreoffice 卡顿导致Ubuntu18桌面无响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#找到相关进程并且杀死进程，桌面即能回复正常。</span><br><span class="line">ps -ef | grep libre </span><br><span class="line">kill -9 PID</span><br></pre></td></tr></table></figure>
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/28/seurat-command/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/28/seurat-command/" itemprop="url">seurat_command</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-28T15:21:27+08:00">
+                2021-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="瘦身seurat-object-scale-data巨大。"><a href="#瘦身seurat-object-scale-data巨大。" class="headerlink" title="瘦身seurat object, scale.data巨大。"></a>瘦身seurat object, scale.data巨大。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbmc@assays$RNA@scale.data&lt;-new(Class &#x3D; &quot;matrix&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="求sparse-matrix的colSums"><a href="#求sparse-matrix的colSums" class="headerlink" title="求sparse matrix的colSums"></a>求sparse matrix的colSums</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(Matrix::colSums(pbmc@assays$RNA@counts&gt;0))</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/18/%E5%8D%95%E7%BB%86%E8%83%9E%E7%A9%BA%E9%97%B4%E7%BB%84%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/18/%E5%8D%95%E7%BB%86%E8%83%9E%E7%A9%BA%E9%97%B4%E7%BB%84%E5%AD%A6/" itemprop="url">单细胞空间组学</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-18T21:42:27+08:00">
+                2021-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
 <li><ol>
-<li>Kendall Tau</li>
+<li>单细胞空间组学目前的发展概况</li>
 </ol>
 </li>
 <li><ol start="2">
-<li>Spearman’s Footrule: 计算一个列表改为另一个列表最少需要移动各个元素的距离和<br>基于集合的度量<br>不理解</li>
-</ol>
-</li>
-</ul>
-<h2 id="shell-统计"><a href="#shell-统计" class="headerlink" title="shell 统计"></a>shell 统计</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/SampleReadsFromBamFiles/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/19/SampleReadsFromBamFiles/" itemprop="url">SampleReadsFromBamFiles</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-19T16:02:01+08:00">
-                2020-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="下采样一定数量的reads"><a href="#下采样一定数量的reads" class="headerlink" title="下采样一定数量的reads"></a>下采样一定数量的reads</h1><p><a href="http://seqanswers.com/forums/showthread.php?t=41983" target="_blank" rel="noopener">http://seqanswers.com/forums/showthread.php?t=41983</a><br><a href="https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs" target="_blank" rel="noopener">https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs</a><br>方法1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">samtools view -H [bamfile];</span><br><span class="line">samtools view -F 0x004 [bamfile] |</span><br><span class="line">java -jar StreamSampler.jar [# of reads to sample] [total # reads]</span><br><span class="line">) |</span><br><span class="line">samtools -bS - &gt; [sampled bam file]</span><br></pre></td></tr></table></figure>
-
-<p>方法2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function SubSample &#123;</span><br><span class="line">## Calculate the sampling factor based on the intended number of reads:</span><br><span class="line">FACTOR&#x3D;$(samtools idxstats $1 | cut -f3 | awk -v COUNT&#x3D;$2 &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;print COUNT&#x2F;total&#125;&#39;)</span><br><span class="line"></span><br><span class="line">if [[ $FACTOR &gt; 1 ]]</span><br><span class="line">  then </span><br><span class="line">  echo &#39;[ERROR]: Requested number of reads exceeds total read count in&#39; $1 &#39;-- exiting&#39; &amp;&amp; exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sambamba view -s $FACTOR -f bam -l 5 $1</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## Usage example, selecting 100.000 reads:</span><br><span class="line">SubSample in.bam 100000 &gt; subsampled.bam</span><br></pre></td></tr></table></figure>
-
-<h1 id="下采样一定百分比的reads"><a href="#下采样一定百分比的reads" class="headerlink" title="下采样一定百分比的reads"></a>下采样一定百分比的reads</h1><p>samtools view -bs 42.1 in.bam &gt; subsampled.bam</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/samtool%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/19/samtool%E5%91%BD%E4%BB%A4/" itemprop="url">samtool命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-19T16:02:01+08:00">
-                2020-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="下采样一定数量的reads"><a href="#下采样一定数量的reads" class="headerlink" title="下采样一定数量的reads"></a>下采样一定数量的reads</h1><p><a href="http://seqanswers.com/forums/showthread.php?t=41983" target="_blank" rel="noopener">http://seqanswers.com/forums/showthread.php?t=41983</a><br><a href="https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs" target="_blank" rel="noopener">https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs</a></p>
-<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 需要额外下载StreamSampler.jar，并且有bam文件版本限制，不好用</span><br><span class="line">(</span><br><span class="line">samtools view -H [bamfile];</span><br><span class="line">samtools view -F 0x004 [bamfile] |</span><br><span class="line">java -jar StreamSampler.jar [# of reads to sample] [total # reads]</span><br><span class="line">) |</span><br><span class="line">samtools -bS - &gt; [sampled bam file]</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">## 好用</span><br><span class="line">function SubSample &#123;</span><br><span class="line">## Calculate the sampling factor based on the intended number of reads:</span><br><span class="line">FACTOR&#x3D;$(samtools idxstats $1 | cut -f3 | awk -v COUNT&#x3D;$2 &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;print COUNT&#x2F;total&#125;&#39;)</span><br><span class="line"></span><br><span class="line">if [[ $FACTOR &gt; 1 ]]</span><br><span class="line">  then </span><br><span class="line">  echo &#39;[ERROR]: Requested number of reads exceeds total read count in&#39; $1 &#39;-- exiting&#39; &amp;&amp; exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">samtools view -s $FACTOR -f bam -l 5 $1</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## Usage example, selecting 100.000 reads:</span><br><span class="line">SubSample in.bam 100000 &gt; subsampled.bam</span><br><span class="line"></span><br><span class="line">##或者也可以写成这样，存在一个问题就是subsample的不是正好10000。</span><br><span class="line">frac&#x3D;$( samtools flagstat $outbam | cut -f3 | awk &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;frac&#x3D;2000&#x2F;total;&#123;print frac&#125;&#125;&#39;)</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125;</span><br><span class="line">if [ $int -eq 0 ];then</span><br><span class="line">    samtools view -bs $frac $outbam &gt; $outfolder3$samplebam</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<h1 id="下采样一定百分比的reads"><a href="#下采样一定百分比的reads" class="headerlink" title="下采样一定百分比的reads"></a>下采样一定百分比的reads</h1><p>samtools view -bs 42.1 in.bam &gt; subsampled.bam</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/16/%E6%AF%8F%E6%97%A5%E6%96%87%E7%8C%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/16/%E6%AF%8F%E6%97%A5%E6%96%87%E7%8C%AE/" itemprop="url">每日文献</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-16T14:30:13+08:00">
-                2020-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/10/cytoscape%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/10/cytoscape%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" itemprop="url">cytoscape的使用教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-10T09:59:06+08:00">
-                2020-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/06/%E5%86%99%E4%BD%9C%E8%AE%AD%E7%BB%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/06/%E5%86%99%E4%BD%9C%E8%AE%AD%E7%BB%83/" itemprop="url">写作训练</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-06T10:12:45+08:00">
-                2020-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="写作重要性（对于读者最困扰的事情，由小到大）"><a href="#写作重要性（对于读者最困扰的事情，由小到大）" class="headerlink" title="写作重要性（对于读者最困扰的事情，由小到大）"></a>写作重要性（对于读者最困扰的事情，由小到大）</h2><blockquote>
-<p>word choice</p>
-</blockquote>
-<blockquote>
-<p>word location</p>
-</blockquote>
-<blockquote>
-<p>sentence choice</p>
-</blockquote>
-<blockquote>
-<p>sentence location</p>
-</blockquote>
-<blockquote>
-<p>paragraph choice</p>
-</blockquote>
-<blockquote>
-<p>paragraph location</p>
-</blockquote>
-<h2 id="写作常犯错误（由小到大）"><a href="#写作常犯错误（由小到大）" class="headerlink" title="写作常犯错误（由小到大）"></a>写作常犯错误（由小到大）</h2><ul>
-<li><ol>
-<li>faulty comparison: 比较含糊且非具体的，比如说Our finding is similar to Frater et al.</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>noun cluster：多个名词堆砌，比如说： water bath temperature variability results.</li>
+<li>几种重点技术的分析流程</li>
 </ol>
 </li>
 <li><ol start="3">
-<li>undefined abbreviation: 非标准的缩写没有定义</li>
+<li>目前实验室原位的分析方法</li>
 </ol>
 </li>
 <li><ol start="4">
-<li>inconsistent key term: 关键词前后不一致，nematode，worm，C.elegans</li>
+<li>空间组学未来的方向</li>
 </ol>
 </li>
 <li><ol start="5">
-<li>long sentence</li>
+<li>下游数据整合方式</li>
 </ol>
 </li>
 <li><ol start="6">
-<li>nominalization: use of noun instead f more activate and omre interesting werb</li>
-</ol>
-</li>
-<li><ol start="7">
-<li>redundancy: the same thing is said repeatedly in different ways, or unnecessarily long ohrases are used instead of shorter versions.(the majority of instead of most)</li>
-</ol>
-</li>
-<li><ol start="8">
-<li>faulty verb tense: 时态错误 present tense instead of past tense.</li>
-</ol>
-</li>
-<li><ol start="9">
-<li>unspecific word choice: 用词模糊 words are imprecise or unclear(The sample was incubated for several hours)</li>
-</ol>
-</li>
-<li><ol start="10">
-<li>faulty reference: 错误引用</li>
-</ol>
-</li>
-<li><ol start="11">
-<li>faulty structural element: 结构性要素缺失。 necessary component of a paper is missing, misplaced, or obscured (purpose of experimanet is not stated, data are not interpreted, or concluson is missing) </li>
+<li>优秀细节方法 </li>
 </ol>
 </li>
 </ul>
-<h2 id="写作的要点"><a href="#写作的要点" class="headerlink" title="写作的要点"></a>写作的要点</h2><p>掌握基础的英语写作能力</p>
-<p>始终牢记文章是给reader阅读的，才能有广泛的阅读。</p>
+<h1 id="从最新的方法看起：-illumnia"><a href="#从最新的方法看起：-illumnia" class="headerlink" title="从最新的方法看起： illumnia"></a>从最新的方法看起： illumnia</h1><h1 id="starmap"><a href="#starmap" class="headerlink" title="starmap"></a>starmap</h1><h1 id="原理和数据分析方式"><a href="#原理和数据分析方式" class="headerlink" title="原理和数据分析方式"></a>原理和数据分析方式</h1><p>i-</p>
+<h1 id="Hi-C-原理"><a href="#Hi-C-原理" class="headerlink" title="Hi-C 原理"></a>Hi-C 原理</h1><p>应用<br><a href="https://zhuanlan.zhihu.com/p/140795830" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/140795830</a></p>
+<p><a href="https://blog.csdn.net/u011262253/article/details/113725316" target="_blank" rel="noopener">https://blog.csdn.net/u011262253/article/details/113725316</a></p>
+<p>详细原理步骤<br><img src="https://gitee.com/feilijiang/img/raw/master/20210818233535.png" alt=""></p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20210818232551.png" alt=""></p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20210818232700.png" alt=""></p>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/04/python%E5%92%8CR%E8%AF%BB%E5%8F%96%E5%86%99%E5%85%A5csv%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/04/python%E5%92%8CR%E8%AF%BB%E5%8F%96%E5%86%99%E5%85%A5csv%E6%96%87%E4%BB%B6/" itemprop="url">python和R读取写入csv文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-04T17:54:28+08:00">
-                2020-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="python-读取csv文件"><a href="#python-读取csv文件" class="headerlink" title="python 读取csv文件"></a>python 读取csv文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import dask.dataframe</span><br><span class="line">data &#x3D; dask.dataframe.read_csv(“random.csv”)</span><br><span class="line"></span><br><span class="line">import datatable</span><br><span class="line">datatable.fread()</span><br></pre></td></tr></table></figure>
-
-<h2 id="python-写出文件"><a href="#python-写出文件" class="headerlink" title="python 写出文件"></a>python 写出文件</h2><p>使用df2csv，需要输出基因和细胞名字以防万一，细胞名字在用R读取的时候会丢失。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">def df2csv(df,fname,myformats&#x3D;[],sep&#x3D;&#39;,&#39;):</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">    # function is faster than to_csv</span><br><span class="line">    # 7 times faster for numbers if formats are specified, </span><br><span class="line">    # 2 times faster for strings.</span><br><span class="line">    # Note - be careful. It doesn&#39;t add quotes and doesn&#39;t check</span><br><span class="line">    # for quotes or separators inside elements</span><br><span class="line">    # We&#39;ve seen output time going down from 45 min to 6 min </span><br><span class="line">    # on a simple numeric 4-col dataframe with 45 million rows.</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">  if len(df.columns) &lt;&#x3D; 0:</span><br><span class="line">    return</span><br><span class="line">  Nd &#x3D; len(df.columns)</span><br><span class="line">  Nd_1 &#x3D; Nd - 1</span><br><span class="line">  formats &#x3D; myformats[:] # take a copy to modify it</span><br><span class="line">  Nf &#x3D; len(formats)</span><br><span class="line">  # make sure we have formats for all columns</span><br><span class="line">  if Nf &lt; Nd:</span><br><span class="line">    for ii in range(Nf,Nd):</span><br><span class="line">      coltype &#x3D; df[df.columns[ii]].dtype</span><br><span class="line">      ff &#x3D; &#39;%s&#39;</span><br><span class="line">      if coltype &#x3D;&#x3D; np.int64:</span><br><span class="line">        ff &#x3D; &#39;%d&#39;</span><br><span class="line">      elif coltype &#x3D;&#x3D; np.float64:</span><br><span class="line">        ff &#x3D; &#39;%f&#39;</span><br><span class="line">      formats.append(ff)</span><br><span class="line">  fh&#x3D;open(fname,&#39;w&#39;)</span><br><span class="line">  fh.write(&#39;,&#39;.join(df.columns) + &#39;\n&#39;)</span><br><span class="line">  for row in df.itertuples(index&#x3D;False):</span><br><span class="line">    ss &#x3D; &#39;&#39;</span><br><span class="line">    for ii in xrange(Nd):</span><br><span class="line">      ss +&#x3D; formats[ii] % row[ii]</span><br><span class="line">      if ii &lt; Nd_1:</span><br><span class="line">        ss +&#x3D; sep</span><br><span class="line">    fh.write(ss+&#39;\n&#39;)</span><br><span class="line">  fh.close()</span><br><span class="line"></span><br><span class="line">df2csv(dt,&quot;random.csv&quot;)</span><br><span class="line">pd.DataFrame(dt.index).to_csv(&quot;gene.csv&quot;)</span><br><span class="line">pd.DataFrame(dt.column).to_csv(&quot;gene.csv&quot;)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="R-读取csv"><a href="#R-读取csv" class="headerlink" title="R 读取csv"></a>R 读取csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">dt&lt;-fread(&quot;random.csv&quot;)</span><br><span class="line">dt&lt;-data.frame(t(dt)) # 转化为行是基因，列为细胞</span><br></pre></td></tr></table></figure>
-
-<h2 id="R-写出csv"><a href="#R-写出csv" class="headerlink" title="R 写出csv"></a>R 写出csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">fwrite(df,&quot;random.csv&quot;)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1577,7 +1549,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1623,7 +1595,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1645,7 +1617,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1688,7 +1660,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

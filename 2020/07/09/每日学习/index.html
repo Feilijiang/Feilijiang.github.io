@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20200709130904.png">
 <meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20200709130831.png">
 <meta property="article:published_time" content="2020-07-09T01:50:06.000Z">
-<meta property="article:modified_time" content="2020-08-29T08:25:31.185Z">
+<meta property="article:modified_time" content="2020-12-22T05:43:20.856Z">
 <meta property="article:author" content="Feilijiang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/img/20200709130904.png">
@@ -357,7 +357,8 @@
 <p><strong>对抗方法训练转移子</strong>：Jiaming Song, Shengjia Zhao和Stefano Ermon研究了生成对抗的训练方法来对马尔可夫链（Markov chain）的转移算子（transition operator）进行学习，目的是将其静态分布（stationary distribution）和目标数据分布相匹配。他们提出了一种新型的训练流程，以避免从静态分布中直接采样，但是仍然有能力逐渐达到目标分布。此模型可以从随机噪声开始，是无似然性的，并且能够在单步运行期间生成多个不同的样本。初步试验结果显示，当它临近其静态时，马尔可夫链可以生成高质量样本，即使是对于传统生成对抗网络相关理念中的较小结构亦是如此。</p>
 <p><strong>MEMM</strong>： 最大熵隐马尔科夫模型（MEMM）可以整个观察序列，不仅和单个词相关，而且与观察序列的长度、单词的上下文等有关。</p>
 <h3 id="20200716"><a href="#20200716" class="headerlink" title="20200716"></a>20200716</h3><p>每日一句：坚定自己的选择</p>
-<h1 id="Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir"><a href="#Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir" class="headerlink" title="Characterization of cell fate probabilities in single-cell data with Palantir"></a>Characterization of cell fate probabilities in single-cell data with Palantir</h1><blockquote>
+<h1 id="Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir"><a href="#Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir" class="headerlink" title="Characterization of cell fate probabilities in single-cell data with Palantir"></a>Characterization of cell fate probabilities in single-cell data with Palantir</h1><p>code ocean: <a href="https://codeocean.com/capsule/2535144/tree/v1" target="_blank" rel="noopener">https://codeocean.com/capsule/2535144/tree/v1</a></p>
+<blockquote>
 <p>利用马尔可夫模型对细胞类型的分化建模</p>
 </blockquote>
 <p><strong>假设</strong></p>
@@ -386,6 +387,12 @@
 <li>根据上述定义的轨迹,利用一个广义可加模型来计算基因的表达趋势。</li>
 </ol>
 </li>
+</ul>
+<h2 id="模型的二次理解"><a href="#模型的二次理解" class="headerlink" title="模型的二次理解"></a>模型的二次理解</h2><p>参数: </p>
+<ul>
+<li>k: number of neighbors of knn</li>
+<li>waypoints: 抽样的个数</li>
+<li>number of diffusion components.</li>
 </ul>
 <h2 id="具体代码解析"><a href="#具体代码解析" class="headerlink" title="具体代码解析"></a>具体代码解析</h2><h3 id="init-py"><a href="#init-py" class="headerlink" title="init.py"></a><strong>init</strong>.py</h3><p>依赖包的载入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from . import core</span><br><span class="line">from . import presults</span><br><span class="line">from . import io</span><br><span class="line">from . import preprocess</span><br><span class="line">from . import utils</span><br><span class="line">from . import plot</span><br><span class="line">from .version import __version__</span><br></pre></td></tr></table></figure>
@@ -519,7 +526,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -541,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -573,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-学习"><span class="nav-number">1.</span> <span class="nav-text">7.9 学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每日一句：-此时不博更待何时"><span class="nav-number">1.1.</span> <span class="nav-text">每日一句： 此时不博更待何时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正文"><span class="nav-number">1.2.</span> <span class="nav-text">正文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐马尔可夫模型（HMM）"><span class="nav-number">2.</span> <span class="nav-text">隐马尔可夫模型（HMM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20200716"><span class="nav-number">3.</span> <span class="nav-text">20200716</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir"><span class="nav-number"></span> <span class="nav-text">Characterization of cell fate probabilities in single-cell data with Palantir</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体的模型"><span class="nav-number"></span> <span class="nav-text">具体的模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体代码解析"><span class="nav-number"></span> <span class="nav-text">具体代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#init-py"><span class="nav-number">1.</span> <span class="nav-text">init.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#core-py"><span class="nav-number">2.</span> <span class="nav-text">core.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#io-py"><span class="nav-number">3.</span> <span class="nav-text">io.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-py"><span class="nav-number">4.</span> <span class="nav-text">plot.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#preprocess-py"><span class="nav-number">5.</span> <span class="nav-text">preprocess.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#persults-py"><span class="nav-number">6.</span> <span class="nav-text">persults.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-py"><span class="nav-number">7.</span> <span class="nav-text">utils.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#version-py"><span class="nav-number">8.</span> <span class="nav-text">version.py</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-学习"><span class="nav-number">1.</span> <span class="nav-text">7.9 学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每日一句：-此时不博更待何时"><span class="nav-number">1.1.</span> <span class="nav-text">每日一句： 此时不博更待何时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正文"><span class="nav-number">1.2.</span> <span class="nav-text">正文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐马尔可夫模型（HMM）"><span class="nav-number">2.</span> <span class="nav-text">隐马尔可夫模型（HMM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20200716"><span class="nav-number">3.</span> <span class="nav-text">20200716</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir"><span class="nav-number"></span> <span class="nav-text">Characterization of cell fate probabilities in single-cell data with Palantir</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体的模型"><span class="nav-number"></span> <span class="nav-text">具体的模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的二次理解"><span class="nav-number"></span> <span class="nav-text">模型的二次理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体代码解析"><span class="nav-number"></span> <span class="nav-text">具体代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#init-py"><span class="nav-number">1.</span> <span class="nav-text">init.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#core-py"><span class="nav-number">2.</span> <span class="nav-text">core.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#io-py"><span class="nav-number">3.</span> <span class="nav-text">io.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-py"><span class="nav-number">4.</span> <span class="nav-text">plot.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#preprocess-py"><span class="nav-number">5.</span> <span class="nav-text">preprocess.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#persults-py"><span class="nav-number">6.</span> <span class="nav-text">persults.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-py"><span class="nav-number">7.</span> <span class="nav-text">utils.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#version-py"><span class="nav-number">8.</span> <span class="nav-text">version.py</span></a></li></ol></div>
             
 
           </div>
@@ -600,7 +607,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

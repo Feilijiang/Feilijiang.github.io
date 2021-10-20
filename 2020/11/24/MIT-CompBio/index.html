@@ -79,17 +79,22 @@
 
 
 
-<meta name="description" content="生物信息 记录 分享 博客">
+<meta name="description" content="Lecture 1 Introduction Lecture 2 Dynamic Programming(动态规划)Module 1: Aligning and modeling genomes人的基因组1.5%编码20000多个基因，与其他物种高度保守，剩余序列不保守。 Introduction to sequence alignmentgenomes change over time.  oc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MIT CompBio">
 <meta property="og:url" content="http://yoursite.com/2020/11/24/MIT-CompBio/index.html">
 <meta property="og:site_name" content="Feilijiang">
-<meta property="og:description" content="生物信息 记录 分享 博客">
+<meta property="og:description" content="Lecture 1 Introduction Lecture 2 Dynamic Programming(动态规划)Module 1: Aligning and modeling genomes人的基因组1.5%编码20000多个基因，与其他物种高度保守，剩余序列不保守。 Introduction to sequence alignmentgenomes change over time.  oc">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20201127195559.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20201127202552.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20201128185441.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/img/20201128190636.png">
 <meta property="article:published_time" content="2020-11-24T12:07:35.000Z">
-<meta property="article:modified_time" content="2020-11-24T12:07:35.724Z">
+<meta property="article:modified_time" content="2020-11-28T13:04:57.778Z">
 <meta property="article:author" content="Feilijiang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/img/20201127195559.png">
 
 
 
@@ -319,7 +324,47 @@
       
 
       
-        
+        <h2 id="Lecture-1-Introduction"><a href="#Lecture-1-Introduction" class="headerlink" title="Lecture 1 Introduction"></a>Lecture 1 Introduction</h2><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20201127195559.png" alt=""></p>
+<h2 id="Lecture-2-Dynamic-Programming-动态规划"><a href="#Lecture-2-Dynamic-Programming-动态规划" class="headerlink" title="Lecture 2 Dynamic Programming(动态规划)"></a>Lecture 2 Dynamic Programming(动态规划)</h2><h3 id="Module-1-Aligning-and-modeling-genomes"><a href="#Module-1-Aligning-and-modeling-genomes" class="headerlink" title="Module 1: Aligning and modeling genomes"></a>Module 1: Aligning and modeling genomes</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20201127202552.png" alt=""><br>人的基因组1.5%编码20000多个基因，与其他物种高度保守，剩余序列不保守。</p>
+<h3 id="Introduction-to-sequence-alignment"><a href="#Introduction-to-sequence-alignment" class="headerlink" title="Introduction to sequence alignment"></a>Introduction to sequence alignment</h3><p>genomes change over time.</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20201128185441.png" alt=""></p>
+<p>occam’s razor:找最短路径</p>
+<p>比对的本质就是两个字符串相似性的比较，是否gaps allow, 找到longest common subsequence.</p>
+<blockquote>
+<h3 id="Formualation1-longest-common-substring-no-gap"><a href="#Formualation1-longest-common-substring-no-gap" class="headerlink" title="Formualation1. longest common substring(no gap)"></a>Formualation1. longest common substring(no gap)</h3><h3 id="Formualation2-longest-common-subsequnece-gaps-allowed"><a href="#Formualation2-longest-common-subsequnece-gaps-allowed" class="headerlink" title="Formualation2. longest common subsequnece( gaps allowed)"></a>Formualation2. longest common subsequnece( gaps allowed)</h3><p>edit distance: number of change needed for S1-S2,uniform scoring function</p>
+<h3 id="Formualtion-3-Sequence-alignment"><a href="#Formualtion-3-Sequence-alignment" class="headerlink" title="Formualtion 3. Sequence alignment"></a>Formualtion 3. Sequence alignment</h3><p>碱基替换的方式有两种，一种allow gaps(fixed penalty)，所有替换打分类似。另一种varing penalties for edit operations.包含transition（嘌呤和嘌呤，嘧啶和嘧啶），tranversion（嘌呤嘧啶随意转换） ，polymerase（不懂）。<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20201128190636.png" alt=""></p>
+</blockquote>
+<blockquote>
+<h3 id="Formulation-4-varing-gap-cost-models"><a href="#Formulation-4-varing-gap-cost-models" class="headerlink" title="Formulation 4. varing gap cost models"></a>Formulation 4. varing gap cost models</h3><p>linear gap penality(用时短), affine gap penalty,general gap penalty,frame-aware gap penalty(蛋白比对，multiples of 3 disrupt coding regions), seek sulicated regions, rearrangements</p>
+</blockquote>
+<h3 id="Introduction-to-principles-of-dynical-programming"><a href="#Introduction-to-principles-of-dynical-programming" class="headerlink" title="Introduction to principles of dynical programming"></a>Introduction to principles of dynical programming</h3><p>由于找到最优序列比对是一个指数级的运算，所以省时省力，需要使用动态规划。(指数型到多项式)</p>
+<h4 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列:"></a>斐波那契数列:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># top down</span><br><span class="line">def fibonacci(n):</span><br><span class="line"> if n&#x3D;&#x3D;1 or n&#x3D;&#x3D;2: return 1</span><br><span class="line"> return fibonacci(n-1)+fibonacci(n-2)</span><br><span class="line"></span><br><span class="line"> # bottom up</span><br><span class="line"> def fibonacci(n):</span><br><span class="line"> fib_table[1]&#x3D;1</span><br><span class="line"> fib_table[2]&#x3D;1</span><br><span class="line"> for i in range(3,n+1):</span><br><span class="line"> fib_table[i]&#x3D;fib_table[i-1]+fib_table[i-2]</span><br><span class="line"> return fib_table[n]</span><br></pre></td></tr></table></figure>
+
+<h4 id="DP-for-sequence-alignment"><a href="#DP-for-sequence-alignment" class="headerlink" title="DP for sequence alignment"></a>DP for sequence alignment</h4><ul>
+<li><ol>
+<li>Parameterization 参数化</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>sub-problem space 划分亚空间</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>traversal order 遍历的顺序</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>recursion formula 递归公式</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>trace-back</li>
+</ol>
+</li>
+</ul>
+<h4 id="Apply-dynamic-programming-to-sequence-alignment"><a href="#Apply-dynamic-programming-to-sequence-alignment" class="headerlink" title="Apply dynamic programming to sequence alignment?"></a>Apply dynamic programming to sequence alignment?</h4><p>key: score is additive, smaller to larger</p>
+<p>calculate maximun alignment score of longer sequences based on previously-computed to scores of shorter sequences.</p>
+
       
     </div>
     
@@ -407,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -423,7 +477,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -445,7 +499,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -468,6 +522,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1 Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-2-Dynamic-Programming-动态规划"><span class="nav-number">2.</span> <span class="nav-text">Lecture 2 Dynamic Programming(动态规划)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Module-1-Aligning-and-modeling-genomes"><span class="nav-number">2.1.</span> <span class="nav-text">Module 1: Aligning and modeling genomes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-to-sequence-alignment"><span class="nav-number">2.2.</span> <span class="nav-text">Introduction to sequence alignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formualation1-longest-common-substring-no-gap"><span class="nav-number">2.3.</span> <span class="nav-text">Formualation1. longest common substring(no gap)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formualation2-longest-common-subsequnece-gaps-allowed"><span class="nav-number">2.4.</span> <span class="nav-text">Formualation2. longest common subsequnece( gaps allowed)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formualtion-3-Sequence-alignment"><span class="nav-number">2.5.</span> <span class="nav-text">Formualtion 3. Sequence alignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formulation-4-varing-gap-cost-models"><span class="nav-number">2.6.</span> <span class="nav-text">Formulation 4. varing gap cost models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-to-principles-of-dynical-programming"><span class="nav-number">2.7.</span> <span class="nav-text">Introduction to principles of dynical programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">2.7.1.</span> <span class="nav-text">斐波那契数列:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DP-for-sequence-alignment"><span class="nav-number">2.7.2.</span> <span class="nav-text">DP for sequence alignment</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Apply-dynamic-programming-to-sequence-alignment"><span class="nav-number">2.7.3.</span> <span class="nav-text">Apply dynamic programming to sequence alignment?</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -488,7 +558,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

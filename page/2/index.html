@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/04/%E7%A7%91%E7%A0%94%E5%B8%B8%E8%AF%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -270,7 +270,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/" itemprop="url">每日学习20200922</a></h1>
+                <a class="post-title-link" href="/2021/08/04/%E7%A7%91%E7%A0%94%E5%B8%B8%E8%AF%86/" itemprop="url">科研常识</a></h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-22T21:43:34+08:00">
-                2020-09-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-04T10:36:44+08:00">
+                2021-08-04
               </time>
             
 
@@ -322,75 +322,9 @@
       
         
           
-            <h2 id="基因的跨物种序列比对以及进化树构建"><a href="#基因的跨物种序列比对以及进化树构建" class="headerlink" title="基因的跨物种序列比对以及进化树构建"></a>基因的跨物种序列比对以及进化树构建</h2><blockquote>
-<p>工具：muscle，ggtree</p>
-</blockquote>
-<hr>
-<h3 id="1-序列比对工具"><a href="#1-序列比对工具" class="headerlink" title="1. 序列比对工具"></a>1. 序列比对工具</h3><p><strong>Muscle</strong>：本地版和网页版都有，</p>
-<blockquote>
-<p>本地版：<a href="https://www.drive5.com/muscle/downloads.htm" target="_blank" rel="noopener">https://www.drive5.com/muscle/downloads.htm</a></p>
-</blockquote>
-<blockquote>
-<p>网页版： <a href="https://www.ebi.ac.uk/Tools/msa/muscle/" target="_blank" rel="noopener">https://www.ebi.ac.uk/Tools/msa/muscle/</a></p>
-</blockquote>
-<blockquote>
-<p>参考网站： <a href="https://cloud.tencent.com/developer/article/1625177" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1625177</a></p>
-</blockquote>
-<blockquote>
-<p><strong>ClustalW</strong>：速度较慢</p>
-</blockquote>
-<blockquote>
-<p><strong>MAFFT</strong>：氨基酸的多序列比对 </p>
-</blockquote>
-<blockquote>
-<p><strong>lastZ</strong>:基因组比对，适用于染色质序列比对，对于gap友好</p>
-</blockquote>
-<blockquote>
-<p><strong>T-coffee</strong>：整合多种信息，比如结构和实验，功能比较强大</p>
-</blockquote>
-<blockquote>
-<p><strong>PHAST</strong>: 自荐</p>
-</blockquote>
-<h3 id="2-准备序列"><a href="#2-准备序列" class="headerlink" title="2. 准备序列"></a>2. 准备序列</h3><blockquote>
-<p>在ncbi下载数据，注意是基因组还是转录组的fastq数据。</p>
-</blockquote>
-<blockquote>
-<p>如果要导入snapview提前查看序列及其特征，需要额外下载ncbi genebank 格式的文件。</p>
-</blockquote>
-<blockquote>
-<p>各物种的序列将其整合到一个文件中，需要注意抬头的书写，识别的时候会根据空格进行分割，所以特别注意序列名称的特异性。</p>
-</blockquote>
-<h3 id="3-过程："><a href="#3-过程：" class="headerlink" title="3. 过程："></a>3. 过程：</h3><ul>
-<li><ol>
-<li>首先，使用网页版的muscle<br>INPUT: 上述的fasta序列，在output format参数选择中，选择fasta格式和clustalW格式<br>OUTPUT：jalview launch file可以导入到ebi推荐的桌面app中查看 ，alignment格式文件另存为，简单的进化树直接生成。</li>
-</ol>
-<ul>
-<li><ol start="2">
-<li>在R中绘制进化树，与序列对齐，使用ggtree。</li>
-</ol>
-<p>特别注意</p>
-<blockquote>
-<p>muscle默认输出的ph格式是ntk格式，可以用ggtree的read.newick 读取。</p>
-</blockquote>
-<blockquote>
-<p>fasta的抬头需要和ph文件的抬头一致。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><ol start="3">
-<li>如果进化树的序列知显示一部分，则需要对fasta输出文件进行截取。</li>
-</ol>
-</li>
-</ul>
-<p>代码参考：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">library(ggtree)</span><br><span class="line">library(treeio)</span><br><span class="line">setwd(&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">tree&lt;-read.newick(&quot;muscle-I20200922-083912-0228-12080513-p1m.ph&quot;)</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">x&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">## check the taxa names</span><br><span class="line">setdiff(tree$tip.label,labels(x))</span><br><span class="line">setdiff(labels(x),tree$tip.label)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#p3 &lt;- ggtree(tree,) +geom_tiplab(hjust &#x3D; -0.05,size&#x3D;6,fontface&#x3D;&quot;italic&quot;) + xlim(NA,1.2)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">print(p3)</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; fasta,offset&#x3D;0.05,color &#x3D; col)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############# subset nls and lecine zipper sequence</span><br><span class="line">## mannal select the 600-900bp region</span><br><span class="line">fasta&lt;-&quot;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename_part.fasta&quot;</span><br><span class="line">xx&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">#print(p3)</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; xx,offset&#x3D;0.05,color &#x3D; col)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="20200815-每日学习"><a href="#20200815-每日学习" class="headerlink" title="20200815 每日学习"></a>20200815 每日学习</h2><p> 文件格式： bigWig, bed, bigBed, bed narrowPeak</p>
-<p><a href="http://genome.ucsc.edu/goldenPath/help/wiggle.html" target="_blank" rel="noopener">http://genome.ucsc.edu/goldenPath/help/wiggle.html</a></p>
-<p>bigWig: </p>
+            <h2 id="GWAS-和disease-相关"><a href="#GWAS-和disease-相关" class="headerlink" title="GWAS 和disease 相关"></a>GWAS 和disease 相关</h2><p>大部分疾病的GWAS位点位于基因组的non-coding区域，假设nocoding variants是通过在特异性细胞类型中改变转录调控元件来影响疾病的。<br>关于疾病研究的热点：Whereas innovative approaches to distinguish causal variants 69 from local variants in linkage disequilibrium (LD) using fine mapping (Wakefield, 2009), and to link 70 variants to target genes using co-accessibility of open chromatin regions in single cells (Pliner et al., 2018) or 3-dimensional chromosomal contact-based linkage scores (Nasser et al., 2020),  have made important strides toward the prioritization of causal variants and the prediction of their 73 target genes, the annotation of candidate cis-regulatory elements (cCREs) in discrete human cell 74 types has posed a longstanding technical challenge.</p>
+<p>关键词解析<br>causal variants<br>linkeage disequilibrium<br>fine mapping</p>
+<p>Stromal cells frequently amplified a region containing cell-cycle<br>inhibitors Cdkn2a, Cdkn2b, and Cdkn2c, and frequently lost a<br>region contained Cdk13, which promotes cell cycling, and<br>Mapk9, loss of which promotes apoptosis. These genomic alterations<br>may reflect and contribute to stromal cell function.</p>
 
           
         
@@ -439,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/09/%E6%9C%89%E8%B6%A3%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -458,7 +392,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url">基因组中的深度学习</a></h1>
+                <a class="post-title-link" href="/2021/07/09/%E6%9C%89%E8%B6%A3%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/" itemprop="url">有趣网站合集</a></h1>
         
 
         <div class="post-meta">
@@ -470,8 +404,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-21T11:40:48+08:00">
-                2020-09-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-09T13:29:26+08:00">
+                2021-07-09
               </time>
             
 
@@ -510,29 +444,40 @@
       
         
           
-            <p>有监督的学习：使用标签化的数据进行训练，然后推断出输入特征和结果标签之间函数映射关系的机器学习方法，所谓训练就是求解模型参数。</p>
-<p>绝大多数机器学习算法进行模型训练的方式：</p>
-<ul>
-<li><ol>
-<li>分割数据：数据分为三个集合，分别是训练集、验证集和测试集。</li>
-</ol>
+            <h2 id="R的community-website"><a href="#R的community-website" class="headerlink" title="R的community website"></a>R的community website</h2><blockquote>
+<p><a href="https://rweekly.org/" target="_blank" rel="noopener">https://rweekly.org/</a> # 可以获取R的一些更新信息<br><a href="https://rladies.org/" target="_blank" rel="noopener">https://rladies.org/</a>  # 使用R的女性工作者网站</p>
+</blockquote>
+<h2 id="MIT-的公开课网站以及youtube的channel"><a href="#MIT-的公开课网站以及youtube的channel" class="headerlink" title="MIT 的公开课网站以及youtube的channel"></a>MIT 的公开课网站以及youtube的channel</h2><p><a href="https://ocw.mit.edu/courses/new-courses/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/new-courses/</a><br><a href="https://www.youtube.com/channel/UCEBb1b_L6zDS3xTUrIALZOw" target="_blank" rel="noopener">https://www.youtube.com/channel/UCEBb1b_L6zDS3xTUrIALZOw</a><br><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/mathematics/</a></p>
+<h2 id="线代和概率论的学习课程"><a href="#线代和概率论的学习课程" class="headerlink" title="线代和概率论的学习课程"></a>线代和概率论的学习课程</h2><p>线代：18.06<br><a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/</a><br>线代的升级课程：18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning<br><a href="https://ocw.mit.edu/courses/mathematics/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/video-lectures/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/mathematics/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/video-lectures/</a></p>
+<p>概率论：课程6.041SC<br><a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP60A3XMwZ5sep719_nh95qOe" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP60A3XMwZ5sep719_nh95qOe</a><br><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/</a></p>
+<h1 id="Mathematics-for-Computer-Science"><a href="#Mathematics-for-Computer-Science" class="headerlink" title="Mathematics for Computer Science"></a>Mathematics for Computer Science</h1><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/</a></p>
+<h2 id="线性代数的教程网站，总结的很好。"><a href="#线性代数的教程网站，总结的很好。" class="headerlink" title="线性代数的教程网站，总结的很好。"></a>线性代数的教程网站，总结的很好。</h2><p><a href="https://blog.csdn.net/MyArrow/article/details/53365048" target="_blank" rel="noopener">https://blog.csdn.net/MyArrow/article/details/53365048</a></p>
+<h2 id="小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。"><a href="#小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。" class="headerlink" title="小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。"></a>小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。</h2><p><a href="https://www.emouseatlas.org/" target="_blank" rel="noopener">https://www.emouseatlas.org/</a></p>
+<h2 id="工具网站"><a href="#工具网站" class="headerlink" title="工具网站"></a>工具网站</h2><p>查看latex公式语法&amp;图片识别公式：<a href="https://www.latexlive.com/##" target="_blank" rel="noopener">https://www.latexlive.com/##</a><br>Mathpix图片识别公式 <a href="https://mathpix.com/ocr" target="_blank" rel="noopener">https://mathpix.com/ocr</a></p>
+<ol>
+<li><p>Artstation.com 艺术作品集网站<br>Behance.com<br>Deviantart.com<br>Dribbble.com<br>Pixiv.com<br>CGSociety.com<br>ZbrushCentral.com</p>
 </li>
-<li><ol start="2">
-<li>使用训练集数据计算模型参数：初始化随机参数，随机抽取batch代入模型计算，然后和真实结果比较得到函数损失量，反向传播做梯度运算获得损失函数最小化的模型参数，然后再重复，知道损失函数收敛。</li>
-</ol>
+<li><p>Couchsurfing.com 成年壮汉使用的国内外寄宿旅行（单身女士和未成年慎重）</p>
 </li>
-<li><ol start="3">
-<li>通过验证集调整模型的超参：超参是人为设定的外部参数，无法通过训练集进行训练，只能进行手动调整。</li>
-</ol>
+<li><p>Meetup.com 周末拓展网站</p>
 </li>
-<li><ol start="4">
-<li>使用独立数据来综合评估最佳模型的性能。</li>
-</ol>
+<li><p>Github.com/search?q=awesome 程序员网站+清单</p>
 </li>
-</ul>
-<p>深度学习网络：<br>隐藏层，将上一次的输入数据做转换，将其映射到一个可以对特征值进行线性分离的空间，然后激活函数将其非线性化，再给到后一层作为输入。当中间隐藏层&gt;2,为深度神经网络模型。模型通过非线性的形式来描述真实世界的生物学问题，因为这些问题本身通常是线性模型无法解答的。</p>
-<p>全连接网络层：网络中主要起分类器作用，本质就是将前面各层训练得到的特征空间线性的变换到另一个特征空间。目标预测就是前面各层结果的加权和。</p>
-<p>深度卷积神经网络</p>
+<li><p>Pexels.com ；Pixabay.com； Unsplash.com 免费高清下载网站</p>
+</li>
+<li><p>Colorhunt.com 寻找色彩网站</p>
+</li>
+<li><p>Pinterest.com 图片分享网站</p>
+</li>
+<li><p>中国哲学电子化计划 ctext.org 中国古典元典书籍电子化网站<br>类似网站： zdic.net 汉典</p>
+</li>
+<li><p>Sci-hub.se (域名经常变动) 数以万记论文分享网站</p>
+</li>
+<li><p>aisixiang.com 爱思想 喜欢阅读的朋友</p>
+</li>
+</ol>
+<p>整理一下，喜欢点个赞好到前排去（ps:重新排序）​</p>
+<p>[置顶]对效率工具感兴趣的可以看一看我的往期视频~<br>10个良心网站推荐第一期 ​10个良心网站推荐<br>10个良心网站推荐第二期 av76255938<br>10个良心网站推荐第三期 ​10个良心网站推荐<br>13个逆天网站工具 av70359966<br>10个改变生活的网站 ​10个改变生活的网站<br>本期内容提纲：<br>全网商品比价+历史价格查询manmanbuy.com<br>10万恒星stars.chromeexperiments.com<br>英文智能改错 grammarly.com<br>中文智能改错+翻译 xiezuocat.com<br>160+个软件打包订阅 setapp.com<br>地图搜租房 house-map.cn<br>天空之城 skypixel.com<br>远程文件传输 wenshushu.cn<br>架空世界地图 <a href="http://www.makeamap.cn" target="_blank" rel="noopener">www.makeamap.cn</a> (一定要加www)<br>全球顶级摄影作品 500px.com<br>最优工具搜索大杀器 Slant.co<br>求点个赞就行了~ ​</p>
 
           
         
@@ -581,7 +526,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/29/Tissue-specific-and-Cell-type-specific-Genes/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/09/advanced-R/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -600,7 +545,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/08/29/Tissue-specific-and-Cell-type-specific-Genes/" itemprop="url">Tissue-specific and Cell type-specific Genes</a></h1>
+                <a class="post-title-link" href="/2021/07/09/advanced-R/" itemprop="url">advanced R</a></h1>
         
 
         <div class="post-meta">
@@ -612,8 +557,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-29T16:27:38+08:00">
-                2020-08-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-09T13:15:27+08:00">
+                2021-07-09
               </time>
             
 
@@ -652,785 +597,871 @@
       
         
           
-            <h4 id="Paper-1"><a href="#Paper-1" class="headerlink" title="Paper 1"></a>Paper 1</h4><p>A benchmark of gene expression tissue-specificity metrics, 2017年发在Bioinformatics<br>组织特异性基因的定义<br>分为两个类别，一类是直接给一个总值来说明组织特异性与否：Tau, Gini, TSI, Counts and Hg</p>
-<p>;还有一种是每一个组织一个值来说明特异性:z-score,SPM,EE,PEM</p>
-<p>比较时候的方法</p>
-<ul>
+            <h3 id="names-and-values"><a href="#names-and-values" class="headerlink" title="names and values"></a>names and values</h3><p>“&lt;-“<br>a&lt;-c(1,2,3) # 建立一个value，并将name a指向它。</p>
+<h4 id="2-2-1-Non-syntactic-names"><a href="#2-2-1-Non-syntactic-names" class="headerlink" title="2.2.1 Non-syntactic names"></a>2.2.1 Non-syntactic names</h4><h3 id="2-3-Copy-on-modify"><a href="#2-3-Copy-on-modify" class="headerlink" title="2.3 Copy-on-modify"></a>2.3 Copy-on-modify</h3><h4 id="2-3-1-tracemem"><a href="#2-3-1-tracemem" class="headerlink" title="2.3.1 tracemem()"></a>2.3.1 tracemem()</h4><p>可以追踪vectors是否被复制，在循环的时候应该很好用。</p>
+<h4 id="2-3-2-Function-calls"><a href="#2-3-2-Function-calls" class="headerlink" title="2.3.2 Function calls"></a>2.3.2 Function calls</h4><p>copy与否，取决于运算前后是否改变自变量。</p>
+<h4 id="2-3-3-Lists"><a href="#2-3-3-Lists" class="headerlink" title="2.3.3 Lists"></a>2.3.3 Lists</h4><p>list只是存储索引与object的元件，改变值，局部copy</p>
+<h4 id="2-3-4-Data-frames"><a href="#2-3-4-Data-frames" class="headerlink" title="2.3.4 Data frames"></a>2.3.4 Data frames</h4><p>列：改变列值，只是部分列改变，局部copy<br>行：改变所有列值，全部copy</p>
+<h4 id="2-3-5-Character-vectors"><a href="#2-3-5-Character-vectors" class="headerlink" title="2.3.5 Character vectors"></a>2.3.5 Character vectors</h4><p>建立一个character pool，然后指向特定值。如果两个值一样，则存储位置一样。</p>
+<h3 id="2-4-Object-size"><a href="#2-4-Object-size" class="headerlink" title="2.4 Object size"></a>2.4 Object size</h3><p>使用 lobstr::obj_size() 来查看使用的memory，只看names<br>object_size也可以查看内存，values+ names</p>
+<blockquote>
+<p>list 由于只是存储reference to values, 所以大小会比预期小。</p>
+</blockquote>
+<blockquote>
+<p>对于1：10， 只存储首尾两个元素。</p>
+</blockquote>
+<h3 id="2-5-Modify-in-place"><a href="#2-5-Modify-in-place" class="headerlink" title="2.5 Modify-in-place"></a>2.5 Modify-in-place</h3><p>循环尽量使用list，避免使用dataframe，会导致每一次新复制都会复制values。</p>
+<h4 id="2-5-2-Environments"><a href="#2-5-2-Environments" class="headerlink" title="2.5.2 Environments"></a>2.5.2 Environments</h4><h3 id="2-6-Unbinding-and-the-garbage-collector"><a href="#2-6-Unbinding-and-the-garbage-collector" class="headerlink" title="2.6 Unbinding and the garbage collector"></a>2.6 Unbinding and the garbage collector</h3><p>使用gc()删除内存碎片，释放内存。</p>
+<h2 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h2><h3 id="3-2-Atomic-vectors"><a href="#3-2-Atomic-vectors" class="headerlink" title="3.2 Atomic vectors"></a>3.2 Atomic vectors</h3><p>原子向量：逻辑向量、整数向量、双精度向量和字符向量。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20210713102643.png" alt=""></p>
+<h4 id="3-2-1-Scalars-标量"><a href="#3-2-1-Scalars-标量" class="headerlink" title="3.2.1 Scalars 标量"></a>3.2.1 Scalars 标量</h4><h4 id="3-2-2-Making-longer-vectors-with-c"><a href="#3-2-2-Making-longer-vectors-with-c" class="headerlink" title="3.2.2 Making longer vectors with c()"></a>3.2.2 Making longer vectors with c()</h4><h4 id="3-2-3-Missing-values"><a href="#3-2-3-Missing-values" class="headerlink" title="3.2.3 Missing values"></a>3.2.3 Missing values</h4><p>使用is.na()来代替==做判断</p>
+<h4 id="3-2-4-Testing-and-coercion"><a href="#3-2-4-Testing-and-coercion" class="headerlink" title="3.2.4 Testing and coercion"></a>3.2.4 Testing and coercion</h4><blockquote>
+<p>检验手段：is.logical(), is.integer(), is.double(), and is.character()</p>
+</blockquote>
+<blockquote>
+<p>强迫顺序：character → double → integer → logical.</p>
+</blockquote>
+<p>大部分的数学运算会强制为numeric</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(FALSE, FALSE, TRUE)</span><br><span class="line">as.numeric(x)</span><br><span class="line">#&gt; [1] 0 0 1</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-3-Attributes"><a href="#3-3-Attributes" class="headerlink" title="3.3 Attributes"></a>3.3 Attributes</h3><h4 id="3-3-1-Getting-and-setting"><a href="#3-3-1-Getting-and-setting" class="headerlink" title="3.3.1 Getting and setting"></a>3.3.1 Getting and setting</h4><p>attr(): 单独设置meta<br>attributes() ：批量查看meta<br>structure()：批量设置meta</p>
+<h4 id="3-3-2-Names"><a href="#3-3-2-Names" class="headerlink" title="3.3.2 Names"></a>3.3.2 Names</h4><p>names(x) &lt;- c(“a”, “b”, “c”)<br>setNames(1:3, c(“a”, “b”, “c”))</p>
+<h3 id="3-4-S3-atomic-vectors"><a href="#3-4-S3-atomic-vectors" class="headerlink" title="3.4 S3 atomic vectors"></a>3.4 S3 atomic vectors</h3><h4 id="3-4-1-Factors"><a href="#3-4-1-Factors" class="headerlink" title="3.4.1 Factors"></a>3.4.1 Factors</h4><p><img src="https://gitee.com/feilijiang/img/raw/master/20210713121511.png" alt=""></p>
+<p>factor是一个integer变量，注意字符型操作的不适用</p>
+<h4 id="3-4-2-Dates"><a href="#3-4-2-Dates" class="headerlink" title="3.4.2 Dates"></a>3.4.2 Dates</h4><h4 id="3-4-3-Date-times"><a href="#3-4-3-Date-times" class="headerlink" title="3.4.3 Date-times"></a>3.4.3 Date-times</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/03/network-parameters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/06/03/network-parameters/" itemprop="url">network_parameters</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-03T12:44:31+08:00">
+                2021-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/20/%E5%A4%9A%E7%89%A9%E7%A7%8Did%E8%BD%AC%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/05/20/%E5%A4%9A%E7%89%A9%E7%A7%8Did%E8%BD%AC%E5%8C%96/" itemprop="url">多物种id转化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-20T14:40:55+08:00">
+                2021-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="uniprot-swiss-id-转化为同源的人的id"><a href="#uniprot-swiss-id-转化为同源的人的id" class="headerlink" title="uniprot/swiss id  转化为同源的人的id"></a>uniprot/swiss id  转化为同源的人的id</h2><h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h3><p>最后一列多物种的uniprot id</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20210520145242.png" alt=""> </p>
+<h3 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h3><ul>
 <li><ol>
-<li>score基本都呈现双峰分布</li>
+<li>首先利用uniprot自带的id转化工具将基因都转化成gene id得到列表1， <a href="https://www.uniprot.org/uploadlists/" target="_blank" rel="noopener">https://www.uniprot.org/uploadlists/</a></li>
 </ol>
 </li>
 <li><ol start="2">
-<li>考虑在小数据集和大数据集上的情况，1000次的随机抽样</li>
+<li>将列表1输入网站：<a href="https://www.genenames.org/tools/multi-symbol-checker/" target="_blank" rel="noopener">https://www.genenames.org/tools/multi-symbol-checker/</a> 转化为列表2</li>
 </ol>
 </li>
+</ul>
+<h3 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h3><p>列表2即为多物种uniport id 转为人同源id的列表</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/30/matlab%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/30/matlab%E5%AE%89%E8%A3%85/" itemprop="url">matlab安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-30T19:48:47+08:00">
+                2021-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>校内下载地址<br><a href="http://ms.zju.edu.cn/matlab/download.html" target="_blank" rel="noopener">http://ms.zju.edu.cn/matlab/download.html</a></p>
+<p>校内官网认证方法<br><a href="http://itc.zju.edu.cn/14742/list.htm" target="_blank" rel="noopener">http://itc.zju.edu.cn/14742/list.htm</a></p>
+<p>官网下载地址<br><a href="https://ww2.mathworks.cn/downloads/?s_cid=doc_ftr" target="_blank" rel="noopener">https://ww2.mathworks.cn/downloads/?s_cid=doc_ftr</a></p>
+<p>不联网安装及激活matlab的方法<br><a href="https://ww2.mathworks.cn/matlabcentral/answers/309607-internet-matlab" target="_blank" rel="noopener">https://ww2.mathworks.cn/matlabcentral/answers/309607-internet-matlab</a></p>
+<p>主机号码获取<br><a href="https://ww2.mathworks.cn/matlabcentral/answers/131749-id-id-id-id" target="_blank" rel="noopener">https://ww2.mathworks.cn/matlabcentral/answers/131749-id-id-id-id</a></p>
+<p>注意：<br>学校版本20G左右，官网压缩版本226M,目前没有发现这者的差别。linux 系统容易网络连接有问题，所以建议使用不联网安装方法，登录官方账户，下载licience.loc及密钥。</p>
+<p>matlab具有比较完备的社区，大部分的问题可以在上面得到解答。</p>
+<p>修改当前目录<br>cd NEWfolder</p>
+<p>读取csv<br>csvread() csvwrite()</p>
+<p>安装gephi 方法<br><a href="https://www.jianshu.com/p/73e5d81ddee7" target="_blank" rel="noopener">https://www.jianshu.com/p/73e5d81ddee7</a></p>
+<p>matlab 添加add-on的方法</p>
+<ol>
+<li>通过软件直接搜索得到。APP- get more apps</li>
+<li>下载插件包，解压后添加路径 addpath() </li>
+</ol>
+<h2 id="gephi-使用教程"><a href="#gephi-使用教程" class="headerlink" title="gephi 使用教程"></a>gephi 使用教程</h2><p>注意导入的dot file 有多几行。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/28/Single-Cell-Genomics-Day2021/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/28/Single-Cell-Genomics-Day2021/" itemprop="url">Single Cell Genomics Day2021</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-28T20:07:31+08:00">
+                2021-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Rahul-satijia-single-cell-gemomics-recent-advances-and-future-directions"><a href="#Rahul-satijia-single-cell-gemomics-recent-advances-and-future-directions" class="headerlink" title="Rahul satijia single cell gemomics recent advances and future directions"></a>Rahul satijia single cell gemomics recent advances and future directions</h2><ul>
+<li><ol>
+<li>Multimodality spanning the central dogma<br>RNA+ surface protein(CITE-seq)<br>RNA+ATAC(10X multiome)<br>缺点：都是利用做单细胞核的ATAC，所以无法针对surface proteins.</li>
+</ol>
+</li>
+</ul>
+<p>mtscATAC/ICICLE/ASAP-seq: optimized permeabilization enables ATAC-seq on whole cells</p>
+<p>TEA-seq：scATAC+RNA+protein</p>
+<p>Dogma-seq:scATAC+RNA+protein: surface  protein, transcriptome, accessible chromatin, mtDNA mutations</p>
+<p>inCITE-seq: intracellualr protein + RNA</p>
+<ul>
+<li><ol start="2">
+<li>Reference mapping to single-cell atlas<br>symphony<br>scArches<br>Seurat V4<br>azimuth.hubmapconsortium.org:  a web application that uses an annotated reference dataset to automate the processing, analysis, and interpretation of a new single-cell RNA-seq experiment. </li>
+</ol>
+</li>
+</ul>
+<ul>
 <li><ol start="3">
-<li>基因是否在不同物种中保守，计算correlation</li>
+<li>Comparative analysis of scRNA-seq datasets</li>
 </ol>
 </li>
+</ul>
+<ol>
+<li>changes in cell-type abundance</li>
+<li>changes in expression within a cell type</li>
+<li>how about datasets without discrete clusters</li>
+</ol>
+<p>三个方法推荐<br>MILO<br>muscat<br>Quantifying the effect of experimental perturbations at single-cell resolution</p>
+<ul>
 <li><ol start="4">
-<li>利用已知的信息来进行验证，使用了GO term</li>
+<li>Hi-resolution spatial transcriptomics</li>
 </ol>
 </li>
+</ul>
+<ol>
+<li>10x Visium: low resolution</li>
+<li>SLIDE-seq: high resolution, low size</li>
+<li>SLIDE-seq2: higher sensitive</li>
+<li>DBit-seq(10um), seq-scope(&lt; 1um),PIXEL-SEQ(&lt; 1um), Stereo-seq( &lt;1um)</li>
+</ol>
+<ul>
 <li><ol start="5">
-<li>考虑多种方法找的基因的交集。多余的基因做富集分析。</li>
+<li>Spatial deconvolution based on scRNAseq<br>核心问题<br>deconvolution approaches must handle batch/platform effects</li>
 </ol>
 </li>
+</ul>
+<p>方法推荐：<br>cell2location （Visium）<br>RCDT （SLIDE-seq2）</p>
+<ul>
 <li><ol start="6">
-<li>quantile normalization和FPKM和RPKM影响不大，log的影响很大。</li>
+<li>Next-generation single cell screens (Perturb-seq+)</li>
 </ol>
 </li>
 </ul>
-<p>考虑数据的时候，需要考虑组织的数量，高或者低表达<br>microarray的数据对于组织特异性计算不友好：因为物种保守性不好</p>
-<p>该文章推荐的方法：Tau</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200830140543.png" alt=""></p>
-<p>当需要在每一个组织一个socre的时候，PEM的表现良好（non-log<br>数据除外）</p>
-<p>TissueEnrich：使用超几何分布来计算组织特异性基因的富集，使用HPA,ENCODE,GTEx数据来作为参照，来计算组织特异性基因，同时也可以输入自己的数据集</p>
-<p>超几何分布:不放回的二抽样。<br>$P(X=k)=\frac{C_m^k*C_{N-m}^{m-k}}{C_N^m}$<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200830145518.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200808/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/08/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200808/" itemprop="url">每日学习20200808</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-08T16:27:07+08:00">
-                2020-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Chipseq"><a href="#Chipseq" class="headerlink" title="Chipseq"></a>Chipseq</h2><p>参考：Y叔的公众号文章 </p>
-<p><a href="https://mp.weixin.qq.com/s/tbqgCQ2hPYueloBlokqnoA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/tbqgCQ2hPYueloBlokqnoA</a></p>
-<p>目的:学习chipseq 的基本知识，找Xbp1谱系特异性的结合位点。</p>
-<p><strong>简介</strong>：</p>
-<p>实验原理：</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200808163306.png" alt=""></p>
-<p>数据处理过程</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200808163358.png" alt=""></p>
-<p><a href="https://www.encodeproject.org/chip-seq/transcription_factor/" target="_blank" rel="noopener">https://www.encodeproject.org/chip-seq/transcription_factor/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/31/markdown-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/31/markdown-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" itemprop="url">markdown-数学公式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-31T20:40:03+08:00">
-                2020-07-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>${16}<em>{8}O{2+}</em>{2}$<br>$$V_{\mbox{初始}}$$</p>
-<p>$\overbrace{a+b+c+d}^{2.0}$<br>$a+\underbrace{b+c}_{1.0}+d$</p>
-<p>$\vec{x}\stackrel{\mathrm{def}}{=}{x_1,\dots,x_n}$</p>
-<p>$\vec{x}$</p>
-<p>$x \qquad y$</p>
-<p>$xy$</p>
-<p>$x \cdot y=z$</p>
-<p>$x \div y=z$</p>
-<p>$\frac{x+y}{y+z}$<br>平均数运算，符号：\overline{算式}，如：$\overline{xyz}$</p>
-<p>开二次方运算，符号：\sqrt，如：$\sqrt x$</p>
-<p>开方运算，符号：\sqrt[开方数]{被开方数}，如：$\sqrt[3]{x+y}$</p>
-<p>对数运算，符号：\log，如：$\log(x)$</p>
-<p>极限运算，符号：\lim，如：$\lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>极限运算，符号：\displaystyle \lim，如：$\displaystyle \lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>求和运算，符号：\sum，如：$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>求和运算，符号：\displaystyle \sum，如：$\displaystyle \sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
-<p>积分运算，符号：\int，如：$\int^{\infty}_{0}{xdx}$</p>
-<p>积分运算，符号：\displaystyle \int，如：$\displaystyle \int^{\infty}_{0}{xdx}$</p>
-<p>微分运算，符号：\partial，如：$\frac{\partial x}{\partial y}$</p>
-<p>矩阵表示，符号：\begin{matrix} \end{matrix}，如：$\left[ \begin{matrix} 1 &amp;2 &amp;\cdots &amp;4 \ 5 &amp;6 &amp;\cdots &amp;8\vdots &amp;\vdots &amp;\ddots &amp;\vdots\ 13 &amp;14 &amp;\cdots &amp;16\end{matrix} \right]$</p>
-<table>
-<thead>
-<tr>
-<th>大写字母</th>
-<th>小写字母</th>
-<th>拉丁字符</th>
-<th>Markdown</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A</td>
-<td>A</td>
-<td>α</td>
-<td>\alhpa</td>
-</tr>
-<tr>
-<td>B</td>
-<td>B</td>
-<td>β</td>
-<td>\beta</td>
-</tr>
-<tr>
-<td>Γ</td>
-<td>\Gamma</td>
-<td>γ</td>
-<td>\gamma</td>
-</tr>
-<tr>
-<td>Δ</td>
-<td>\Delta</td>
-<td>δ</td>
-<td>\delta</td>
-</tr>
-<tr>
-<td>E</td>
-<td>E</td>
-<td>ϵ</td>
-<td>\epsilon</td>
-</tr>
-<tr>
-<td>Z</td>
-<td>Z</td>
-<td>ζ</td>
-<td>\zeta</td>
-</tr>
-<tr>
-<td>H</td>
-<td>H</td>
-<td>η</td>
-<td>\eta</td>
-</tr>
-<tr>
-<td>Θ</td>
-<td>\Theta</td>
-<td>θ</td>
-<td>\theta</td>
-</tr>
-<tr>
-<td>I</td>
-<td>I</td>
-<td>ι</td>
-<td>\iota</td>
-</tr>
-<tr>
-<td>K</td>
-<td>K</td>
-<td>κ</td>
-<td>\kappa</td>
-</tr>
-<tr>
-<td>Λ</td>
-<td>\Lambda</td>
-<td>λ</td>
-<td>\lambda</td>
-</tr>
-<tr>
-<td>M</td>
-<td>M</td>
-<td>μ</td>
-<td>\mu</td>
-</tr>
-<tr>
-<td>N</td>
-<td>N</td>
-<td>ν</td>
-<td>\nu</td>
-</tr>
-<tr>
-<td>Ξ</td>
-<td>\Xi</td>
-<td>ξ</td>
-<td>\xi</td>
-</tr>
-<tr>
-<td>O</td>
-<td>O</td>
-<td>ο</td>
-<td>\omicron</td>
-</tr>
-<tr>
-<td>Π</td>
-<td>\Pi</td>
-<td>π</td>
-<td>\pi</td>
-</tr>
-<tr>
-<td>P</td>
-<td>P</td>
-<td>ρ</td>
-<td>\rho</td>
-</tr>
-<tr>
-<td>Σ</td>
-<td>\Sigma</td>
-<td>σ</td>
-<td>\sigma</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>τ</td>
-<td>\tau</td>
-</tr>
-<tr>
-<td>Υ</td>
-<td>\Upsilon</td>
-<td>υ</td>
-<td>\upsilon</td>
-</tr>
-<tr>
-<td>Φ</td>
-<td>\Phi</td>
-<td>ϕ</td>
-<td>\phi</td>
-</tr>
-<tr>
-<td>X</td>
-<td>X</td>
-<td>χ</td>
-<td>\chi</td>
-</tr>
-<tr>
-<td>Ψ</td>
-<td>\Psi</td>
-<td>ψ</td>
-<td>\psi</td>
-</tr>
-<tr>
-<td>Ω</td>
-<td>\v</td>
-<td>ω</td>
-<td>\omega</td>
-</tr>
-</tbody></table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/31/octave/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/31/octave/" itemprop="url">octave</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-31T20:39:21+08:00">
-                2020-07-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="octave"><a href="#octave" class="headerlink" title="octave"></a>octave</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">#保存文件</span><br><span class="line">save hello.mat v</span><br><span class="line">save hello.txt v -ascii % save as text (ASCII)</span><br><span class="line"># 切片</span><br><span class="line">A&#x3D;[1 2; 3 4 ;5 6]</span><br><span class="line">A(3,2) </span><br><span class="line">A(2,:) % &quot;:&quot; means every element along that row&#x2F;column</span><br><span class="line">A(:,2)</span><br><span class="line">A([1 3],:)# 第1和3列</span><br><span class="line">A(:,2)&#x3D;[10;11;12]</span><br><span class="line">A &#x3D; [A,[100; 101; 102]]; % append another column vector to right</span><br><span class="line">A &#x3D; [A,[COLUMN VECTOR]];</span><br><span class="line"></span><br><span class="line">size(A)</span><br><span class="line">A(;) % put all element of A into a single vector</span><br><span class="line"></span><br><span class="line">## form matrix</span><br><span class="line">A&#x3D;[1 2; 3 4 ;5 6]</span><br><span class="line">B&#x3D;[11 12; 13 14; 15 16]</span><br><span class="line">C&#x3D;[A B] % right and left</span><br><span class="line">C&#x3D;[A;B] % top and bottom</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############## moving data around</span><br><span class="line">A&#x3D;[1 2; 3 4 ;5 6]</span><br><span class="line"></span><br><span class="line">size(A)</span><br><span class="line">size(A,1)</span><br><span class="line">size(A,2)</span><br><span class="line">length(v)</span><br><span class="line">length(A)</span><br><span class="line">length([1;2;3;4;5])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## directory</span><br><span class="line">pwd</span><br><span class="line">cd directory</span><br><span class="line">ls</span><br><span class="line"></span><br><span class="line">load featuresX.data</span><br><span class="line">load(&#39;featuresX.data&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############ computing on data</span><br><span class="line">A&#x3D;[1 2; 3 4 ;5 6]</span><br><span class="line">B&#x3D;[11 12; 13 14; 15 16]</span><br><span class="line">C&#x3D;[1 1; 2 2]</span><br><span class="line">A*C</span><br><span class="line">A.*B   % 每个数据点分别操作。</span><br><span class="line">A.^2</span><br><span class="line">A.&#x2F;V</span><br><span class="line">1 .&#x2F;A</span><br><span class="line"></span><br><span class="line">log(v)</span><br><span class="line">exp(v)</span><br><span class="line">abs(v)</span><br><span class="line">-v  % -1 *v</span><br><span class="line">v+ones(length(v),1)</span><br><span class="line">A&#39;</span><br><span class="line">[val,ind]&#x3D;max(a)</span><br><span class="line">a&lt;3</span><br><span class="line">find(a&lt;3)</span><br><span class="line">A&#x3D;magic(3)  ## generate 3*3 matirx</span><br><span class="line">[r c]&#x3D;find(A&gt;7)  # return column and row</span><br><span class="line"></span><br><span class="line">sum(a)</span><br><span class="line">prob(a)</span><br><span class="line">floor(a)</span><br><span class="line">ceil(a)</span><br><span class="line">rand(3)  # 产生一个3*3的随机矩阵</span><br><span class="line">max(rand(3),rand(3))</span><br><span class="line">max(A,[],1)</span><br><span class="line">max(A,[],2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">A(:)</span><br><span class="line">max(max(A))</span><br><span class="line"></span><br><span class="line">A&#x3D;magic(9)</span><br><span class="line">sum(A,1)</span><br><span class="line">sum(A,2)</span><br><span class="line"></span><br><span class="line">A.*eye(9)</span><br><span class="line">sum(A.*eye(9))</span><br><span class="line">sum(sum(A.*eye(9)))</span><br><span class="line"></span><br><span class="line">sum(sum(A.*flipud(eye(9)))) %flipud: 反向对角线</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 画图</span><br><span class="line">t&#x3D;[0:0.01:0.98];</span><br><span class="line">y1&#x3D;sin(2*pi*4*t);</span><br><span class="line">y2&#x3D;cos(2*pi*4*t);</span><br><span class="line">plot(t,y1);</span><br><span class="line">hold on;</span><br><span class="line">plot(t,y2,&#39;r&#39;);</span><br><span class="line">xlabel(&quot;time&quot;)</span><br><span class="line">ylabel(&quot;value&quot;)</span><br><span class="line">title(&quot;myplot&quot;)</span><br><span class="line">legend(&#39;sin&#39;,&#39;cos&#39;)</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/09/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A0/" itemprop="url">每日学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-09T09:50:06+08:00">
-                2020-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="7-9-学习"><a href="#7-9-学习" class="headerlink" title="7.9 学习"></a>7.9 学习</h3><h4 id="每日一句：-此时不博更待何时"><a href="#每日一句：-此时不博更待何时" class="headerlink" title="每日一句： 此时不博更待何时"></a>每日一句： 此时不博更待何时</h4><h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>马尔可夫链，随机动力学建模<br>隐马尔可夫链</p>
-<p>参考网址</p>
+<p>multimodal perturb-seq: ECCITE-seq, Perturb-CITE-seq</p>
 <ul>
-<li><ol>
-<li>对马尔可夫链进行了形象的说明<br><a href="http://www.360doc.com/content/19/0226/08/32196507_817579538.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/19/0226/08/32196507_817579538.shtml</a> </li>
+<li><ol start="7">
+<li>Understanding the cellualr origins of COVID-19<br>ACE2/TMPRSS2 expression<br>Dysfunctional myeloid cells</li>
 </ol>
 </li>
-<li><ol start="2">
-<li>回顾了马尔可夫链的发展过程。生物过程参照HMM，另外GibbsNet和对抗训练方法来学习转移算子以及MEMM的三种方法特别值得我继续学习，看能否适用到生物网络学习中。</li>
-</ol>
-</li>
-</ul>
-<p><a href="https://www.jiqizhixin.com/graph/technologies/fdebe132-cd51-43ba-8bda-a42abc478cbb" target="_blank" rel="noopener">https://www.jiqizhixin.com/graph/technologies/fdebe132-cd51-43ba-8bda-a42abc478cbb</a></p>
-<p>不同时刻的随机变量可连续可离散，具有连续或者离散的状态空间。</p>
-<p>马尔可夫属性：给定当前状态和过去状态的流程，未来状态的条件分布只依赖于当前状态，而完全不依赖于过去状态（<strong><em>无记忆属性</em></strong>）。具有马尔可夫属性的随机过程成为马尔可夫过程。</p>
-<blockquote>
-<p>$P(future| present,past)=P(future|present,markov property)$</p>
-</blockquote>
-<p>马尔可夫链：马尔可夫过程与离散时间和离散状态空间。</p>
-<blockquote>
-<p>$P(X_{n+1}=s_{n+1}| X_n=s_n,X_{n-1}=s_{n-1},X_{n-2}=s_{n-2},…)=p(X_{n+1}=s_{n+1}|X_n=s_n )$</p>
-</blockquote>
-<p>可还原性，周期性，短暂性，复发性</p>
-<p>静态分布，限制行为，遍历性<br>初始概率分布上没有假设，无论初始假设如何设置，链的概率分布都会被限制到平稳分布</p>
-<p>在极限情况下，轨迹的早期行为可以忽略不计，只有长期静止行为在计算均值时才真正重要。</p>
-<p><strong>当且仅当所有的状态都是正向重复时，不可简化的马尔可夫链具有静态概率分布，收敛到静止分布，忽略早期行为。</strong></p>
-<p><strong>如果链式循环正和非周期性的，污染初始概率是多少，当时间步长变为无穷大时，链的概率分布会被限制，改链被认为具有限制分布，而不是静态分布</strong></p>
-<p><strong>初始概率分布没有假设，污染初始设置如何，链的概率分布都会被限制到平稳分布</strong></p>
-<p>网络与矩阵的对应关系，具有方向性的启示</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200709130904.png" alt=""><br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200709130831.png" alt=""></p>
-<h3 id="隐马尔可夫模型（HMM）"><a href="#隐马尔可夫模型（HMM）" class="headerlink" title="隐马尔可夫模型（HMM）"></a>隐马尔可夫模型（HMM）</h3><p><strong>HMM</strong>: 用来描述一个含有隐含未知参数的马尔可夫过程。</p>
-<p><strong>GibbsNet</strong>：通过匹配模型期望的联合分布和数据驱动的联合分布直接定义和学习转换算子，然后使用转换算子训练图模型，成功将马尔可夫链与神经网络结合起来。</p>
-<p><strong>对抗方法训练转移子</strong>：Jiaming Song, Shengjia Zhao和Stefano Ermon研究了生成对抗的训练方法来对马尔可夫链（Markov chain）的转移算子（transition operator）进行学习，目的是将其静态分布（stationary distribution）和目标数据分布相匹配。他们提出了一种新型的训练流程，以避免从静态分布中直接采样，但是仍然有能力逐渐达到目标分布。此模型可以从随机噪声开始，是无似然性的，并且能够在单步运行期间生成多个不同的样本。初步试验结果显示，当它临近其静态时，马尔可夫链可以生成高质量样本，即使是对于传统生成对抗网络相关理念中的较小结构亦是如此。</p>
-<p><strong>MEMM</strong>： 最大熵隐马尔科夫模型（MEMM）可以整个观察序列，不仅和单个词相关，而且与观察序列的长度、单词的上下文等有关。</p>
-<h3 id="20200716"><a href="#20200716" class="headerlink" title="20200716"></a>20200716</h3><p>每日一句：坚定自己的选择</p>
-<h1 id="Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir"><a href="#Characterization-of-cell-fate-probabilities-in-single-cell-data-with-Palantir" class="headerlink" title="Characterization of cell fate probabilities in single-cell data with Palantir"></a>Characterization of cell fate probabilities in single-cell data with Palantir</h1><blockquote>
-<p>利用马尔可夫模型对细胞类型的分化建模</p>
-</blockquote>
-<p><strong>假设</strong></p>
-<ul>
-<li>1.伪时间推测算法中，假定细胞从一个较少分化状态到完全分化状态是单向的。</li>
-<li>2.节点到邻近节点的过程与历史无关，即分化到下一个状态与之前的状态无关。</li>
-</ul>
-<h2 id="具体的模型"><a href="#具体的模型" class="headerlink" title="具体的模型"></a>具体的模型</h2><ul>
-<li><ol>
-<li>首先使用diffusion maps来构建nearest-neighbor graph。使用多个compents</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>从用户定义的起始细胞开始，计算拟时间，即与起始细胞的最短距离</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>利用neighbor graph and pseudo-time来构建一个markov chain来模拟分化作为随机过程，拟时间作为方向，对于每条有向边，我们都指定一步到达相邻单元的转移概率。到达较远单元的概率要经过多步计算，如果有多条路径连接它们，则概率会很高——也就是说，观察到的中间单元状态密度很高</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>马尔可夫链也用于从数据中推断终端状态。Palantir将终端状态定义为边界单元(扩散分量的极值)，它们是平稳分布中的异常值，即随机游动收敛到的状态.一旦确定了终端态，我们就把它们转换成没有传出边的吸收态。在吸收马尔可夫链中，任意状态的随机游走会一直持续下去，直到到达一个终端吸收状态。对于每个细胞，Palantir然后整合所有可能的随机游走从细胞到每个可能的终端状态，以产生一个分支概率的向量.</li>
-</ol>
-</li>
-<li><ol start="5">
-<li>根据上述定义的轨迹,利用一个广义可加模型来计算基因的表达趋势。</li>
+<li><ol start="8">
+<li>总结<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20210328205300.png" alt=""></li>
 </ol>
 </li>
 </ul>
-<h2 id="具体代码解析"><a href="#具体代码解析" class="headerlink" title="具体代码解析"></a>具体代码解析</h2><h3 id="init-py"><a href="#init-py" class="headerlink" title="init.py"></a><strong>init</strong>.py</h3><p>依赖包的载入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from . import core</span><br><span class="line">from . import presults</span><br><span class="line">from . import io</span><br><span class="line">from . import preprocess</span><br><span class="line">from . import utils</span><br><span class="line">from . import plot</span><br><span class="line">from .version import __version__</span><br></pre></td></tr></table></figure>
+<p>问题：<br>Can we use cellrank or rna velocity to infer directions across conditions?<br>有变化就能映射到</p>
+<h2 id="Cole-Trapnell-Studying-development-robustnewss-at-the-whole-scale-embryo-scale-and-sin"><a href="#Cole-Trapnell-Studying-development-robustnewss-at-the-whole-scale-embryo-scale-and-sin" class="headerlink" title="Cole Trapnell: Studying development robustnewss at the whole-scale embryo scale and sin"></a>Cole Trapnell: Studying development robustnewss at the whole-scale embryo scale and sin</h2><p>sci-Plex: profiles cells from thousands of specimens</p>
+<p>斑马鱼图谱： 0-96hpf， 90万细胞， 859 embryos, 85 cell types,15 time points<br>genetic perturbations during zebrafish development: 3.1 million cells, 812 embryos 5 timepoints, 22 perturbations18-72hpf<br>科学问题： how do gene circuits stabilize the developmental program?</p>
+<p>neural crest cells to divergence cell types<br>tfap2a and foxd3 敲除影响神经细胞发育</p>
+<p>用指标来衡量， % increase in CV obs/exp<br>mean and variable in count data are often correlated: a generalized linear model to captures the trend in mean vs variance改成a b-binomial distrubution models fits the recovered cell type count data(Gamma GLM fit).</p>
+<p>perturbations can change the observed variance: cell number/ cell and std.dev/mean<br>两个基因的敲除不仅影响细胞类型的细胞数，而且还影响细胞类型的variance.</p>
+<p>how temperature stress destablize embryonic development?</p>
+<p>升高温度<br>develop faster<br>staging embryo using variablity in cell type frequencies</p>
+<h2 id="exploring-variability-in-gene-regulation-across-developing-embryonic-tisstis"><a href="#exploring-variability-in-gene-regulation-across-developing-embryonic-tisstis" class="headerlink" title="exploring variability in gene regulation across developing embryonic tisstis"></a>exploring variability in gene regulation across developing embryonic tisstis</h2>
+          
+        
+      
+    </div>
+    
+    
+    
 
-<h3 id="core-py"><a href="#core-py" class="headerlink" title="core.py"></a>core.py</h3><p>run_palantir</p>
-<p>_max_min_sampling</p>
-<p>_compute_pseudotime</p>
-<p>identify_terminal_states</p>
-<p>_construct_markov_chain</p>
-<p>_terminal_states_from_markov_chain</p>
-<p>_differentiation_entropy</p>
-<p>_shortest_path_helper</p>
-<p>_connect_graph</p>
-<h3 id="io-py"><a href="#io-py" class="headerlink" title="io.py"></a>io.py</h3><p>_clean_up<br>from_csv<br>from_mtx<br>from_10x<br>from_10x_HDF5<br>from_fcs</p>
-<h3 id="plot-py"><a href="#plot-py" class="headerlink" title="plot.py"></a>plot.py</h3><p>class FigureGrid<br>FigureGrid<br>density_2d<br>plot_molecules_per_cell_and_gene<br>plot_cell_clusters<br>plot_tsne<br>highlight_cells_on_tsne<br>plot_tsne_by_cell_sizes<br>plot_gene_expression<br>plot_diffusion_components<br>plot_palantir_results<br>plot_terminal_state_probs<br>plot_gene_trends<br>plot_gene_trend_heatmaps<br>plot_gene_trend_clusters</p>
-<h3 id="preprocess-py"><a href="#preprocess-py" class="headerlink" title="preprocess.py"></a>preprocess.py</h3><p>filter_counts_data<br>normalize_counts: 使用median normalization的方法<br>log_transform：log2(data + pseudo_count)</p>
-<h3 id="persults-py"><a href="#persults-py" class="headerlink" title="persults.py"></a>persults.py</h3><p>class PResults</p>
-<p>compute_gene_trends<br>_gam_fit_predict<br>cluster_gene_trends</p>
-<h3 id="utils-py"><a href="#utils-py" class="headerlink" title="utils.py"></a>utils.py</h3><p>run_pca<br>run_diffusion_maps<br>run_magic_imputation<br>determine_multiscale_space<br>run_tsne<br>determine_cell_clusters</p>
-<h3 id="version-py"><a href="#version-py" class="headerlink" title="version.py"></a>version.py</h3><p>###############################################################</p>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/" itemprop="url">R命令实录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-10T18:53:26+08:00">
+                2021-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="读取dataframe的指定行或列"><a href="#读取dataframe的指定行或列" class="headerlink" title="读取dataframe的指定行或列"></a>读取dataframe的指定行或列</h3><p><a href="http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/" target="_blank" rel="noopener">http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(!file.exists(&quot;read&quot;))&#123;</span><br><span class="line">  dir.create(&quot;read&quot;)</span><br><span class="line">&#125;# 创建工作路径文件夹</span><br><span class="line">setwd(&quot;.&#x2F;read&quot;) # 设置工作路径</span><br><span class="line">if(!file.exists(&quot;data&quot;))&#123;</span><br><span class="line">  dir.create(&quot;data&quot;)</span><br><span class="line">&#125; # 新建data文件夹</span><br></pre></td></tr></table></figure>
+
+<h3 id="命令的重复"><a href="#命令的重复" class="headerlink" title="命令的重复"></a>命令的重复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var.genes&#x3D;Reduce(intersect, var.genes1)</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速计算cor"><a href="#快速计算cor" class="headerlink" title="快速计算cor"></a>快速计算cor</h3><p>library(HiClimR)<br>fastCor</p>
+<h3 id="数据框替换值"><a href="#数据框替换值" class="headerlink" title="数据框替换值"></a>数据框替换值</h3><h5 id="method1-使用封装函数"><a href="#method1-使用封装函数" class="headerlink" title="method1: 使用封装函数"></a>method1: 使用封装函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">currentid</span><br><span class="line">newid</span><br><span class="line">pbmc$ident&lt;- plyr::mapvalues(pbmc$ident，from&#x3D;currentid,to&#x3D;newid)</span><br><span class="line">##### method2: 使用gsub</span><br><span class="line">anno$celltype &lt;- anno$cluster_new</span><br><span class="line">anno$celltype &lt;- paste0(&quot;_&quot;,paste0(anno$celltype,&#39;_&#39;))</span><br><span class="line">ma$cluster &lt;- paste0(&quot;_&quot;,paste0(ma$cluster,&quot;_&quot;))</span><br><span class="line">for (i in unique(ma$cluster)) &#123;</span><br><span class="line">  anno$celltype &lt;- gsub(anno$celltype,pattern &#x3D; i,replacement &#x3D; ma$V2[i])</span><br><span class="line">  print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="method3-使用-gt"><a href="#method3-使用-gt" class="headerlink" title="method3:  使用%&gt;%"></a>method3:  使用%&gt;%</h5><h3 id="trimws"><a href="#trimws" class="headerlink" title="trimws"></a>trimws</h3><blockquote>
+<p>替换开头或结尾的空格、换行符、制表符、回车。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trimws(gene,which&#x3D;c(&quot;both&quot;), whitespace&#x3D;&quot;[ \t\r\n]&quot;)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(scales)</span><br><span class="line">rss_ct_scale&lt;-apply(rss_ct, 1, rescale,to&#x3D;c(-2,2))</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="ggplot-多个画板一个图"><a href="#ggplot-多个画板一个图" class="headerlink" title="ggplot 多个画板一个图"></a>ggplot 多个画板一个图</h3><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">######################################  same mouse</span><br><span class="line">library(gridExtra)</span><br><span class="line">library(ggplot2)</span><br><span class="line">plot_correlation &lt;- function(i)&#123;</span><br><span class="line">  name1 &lt;- paste0(&#39;T&#39;,paste0(i,&quot;human&quot;))</span><br><span class="line">  name2 &lt;- paste0(&#39;T&#39;,paste0(i+1,&quot;human&quot;))</span><br><span class="line">  p&lt;-ggplot(ave_teratoma, aes(x&#x3D;get(name1), y&#x3D;get(name2))) +</span><br><span class="line">    geom_point(alpha&#x3D;1, size&#x3D;1) +</span><br><span class="line">    geom_smooth(method&#x3D;&quot;lm&quot;) +</span><br><span class="line">    theme_bw() +</span><br><span class="line">    xlab(name1)+ylab(name2)+</span><br><span class="line">    ggtitle(paste0(&quot;Mouse&quot;,i&#x2F;2-3))+</span><br><span class="line">    theme(text &#x3D; element_text(size&#x3D;10), legend.title&#x3D;element_blank(),plot.title &#x3D; element_text(hjust &#x3D; 0.5))+</span><br><span class="line">    stat_fit_glance(method &#x3D; &#39;lm&#39;,</span><br><span class="line">                    </span><br><span class="line">                    method.args &#x3D; list(formula &#x3D; y ~ x),</span><br><span class="line">                    </span><br><span class="line">                    mapping &#x3D; aes(label &#x3D; sprintf(&#39;R^2~&quot;&#x3D;&quot;~%.3f~~italic(P)~&quot;&#x3D;&quot;~%.2g&#39;, stat(r.squared), stat(p.value))),</span><br><span class="line">                    </span><br><span class="line">                    parse &#x3D; TRUE,label.x &#x3D; 0.95,label.y &#x3D; 0.95)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">plot_list &lt;- lapply(seq(8,18,2), plot_correlation)</span><br><span class="line">n &lt;- length(plot_list)</span><br><span class="line">nCol &lt;- floor(sqrt(n))</span><br><span class="line">grid.arrange(grobs &#x3D; plot_list, ncol &#x3D; nCol) ## display plot</span><br><span class="line">ggsave(file &#x3D; &quot;same_mouse_correlation.png&quot;, arrangeGrob(grobs &#x3D; plot_list, ncol &#x3D; 2),height &#x3D; 9,width &#x3D; 6)  ## save plot</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/08/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/08/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9F%A5%E8%AF%86/" itemprop="url">基因组知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-08T15:10:59+08:00">
+                2021-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="MEME-网站使用的总结："><a href="#MEME-网站使用的总结：" class="headerlink" title="MEME 网站使用的总结："></a>MEME 网站使用的总结：</h2><p>原文链接：<a href="https://blog.csdn.net/weixin_43569478/article/details/108079461" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43569478/article/details/108079461</a></p>
+<p>适用于分析数据量较大的序列上的motif信息。首先通过MEME和DREME两款软件预测de novo motif, 然后利用CentriMo识别在序列的中心区域显著富集的motif, 同时采用Tomtom软件将预测到的de novo motif与指定数据库的已知motif进行比对，确定二者的相似度。最后利用FIMO软件预测motif在输入序列上的结合位点。</p>
 
           
         
@@ -1479,7 +1510,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/%E7%B3%BB%E7%BB%9F%E7%94%9F%E7%89%A9%E5%AD%A6-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%87%AA%E8%BA%AB%E8%B0%83%E8%8A%82/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/07/python%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -1498,7 +1529,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/07/06/%E7%B3%BB%E7%BB%9F%E7%94%9F%E7%89%A9%E5%AD%A6-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%87%AA%E8%BA%AB%E8%B0%83%E8%8A%82/" itemprop="url">系统生物学 第二章 自身调节</a></h1>
+                <a class="post-title-link" href="/2021/03/07/python%E5%91%BD%E4%BB%A4/" itemprop="url">python命令</a></h1>
         
 
         <div class="post-meta">
@@ -1510,8 +1541,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-06T09:06:33+08:00">
-                2020-07-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-07T12:39:14+08:00">
+                2021-03-07
               </time>
             
 
@@ -1550,393 +1581,26 @@
       
         
           
-            <p>转录相互作用</p>
-<ul>
-<li>1 网络模体（结构单元模式）</li>
-<li>2 最简单的网络模体：负自身调节模块</li>
-<li>3 模体的作用及稳定</li>
-</ul>
-<p>第一部分</p>
-<blockquote>
-<p>随机化网络和调控网络比较，找出统计学显著性有意义的模式，即为网络模体。</p>
-</blockquote>
-<blockquote>
-<p>生物体碱基序列的突变会为网络增添或者减少边的个数。</p>
-</blockquote>
-<blockquote>
-<p>经典的随机网络模型为 Erdos-Renyi（ER）模型，与调控网络的边E和节点数N相同，每一个可能的边的位置被占用的概率为$p=\frac{E}{N(N-1)+N}$,即$\frac{E}{N^2}$。</p>
-</blockquote>
-<blockquote>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
+            <h3 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h3><p>print(ss.replace(‘\n’, ‘’))</p>
+<h3 id="python-运行shell-命令"><a href="#python-运行shell-命令" class="headerlink" title="python 运行shell 命令"></a>python 运行shell 命令</h3><p>import subprocess<br>subprocess.call(command, shell=True)</p>
+<h3 id="python判断字符串（string）是否包含（contains）子字符串的方法"><a href="#python判断字符串（string）是否包含（contains）子字符串的方法" class="headerlink" title="python判断字符串（string）是否包含（contains）子字符串的方法"></a>python判断字符串（string）是否包含（contains）子字符串的方法</h3><p>string in list<br>isin()</p>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>data[[x,xx,x]] # 取某几行<br>data.loc # 具体的行列名字<br>data.iloc[:,1:2]</p>
+<h3 id="python-paste-命令"><a href="#python-paste-命令" class="headerlink" title="python paste 命令"></a>python paste 命令</h3><h4 id="paste-strings"><a href="#paste-strings" class="headerlink" title="paste strings"></a>paste strings</h4><p>datause.columns=[“COL01.” + str(i) for i in datause.columns]</p>
+<p>[“s” + str(i) for i in xrange(1,11)]</p>
+<p>list(map(‘s{}’.format, range(1, 11)))</p>
+<p>map(lambda x:”s”+str(x), range(1,11))</p>
+<h2 id="paste-two-columns"><a href="#paste-two-columns" class="headerlink" title="paste two columns"></a>paste two columns</h2><p>anno[‘day’]=anno[‘day’].astype(“str”)<br>anno[‘louvain13’]=anno[‘louvain13’].astype(“str”)<br>anno[‘day_cluster’]=anno[‘day’].astype(str)+”_”<br>anno[‘day_cluster’]=anno[‘day_cluster’].astype(str)+anno[‘louvain13’]</p>
+<h2 id="paste-two-columns-1"><a href="#paste-two-columns-1" class="headerlink" title="paste two columns"></a>paste two columns</h2><p><img src="https://gitee.com/feilijiang/img/raw/master/20210811160322.png" alt=""></p>
+<h3 id="求相关性"><a href="#求相关性" class="headerlink" title="求相关性"></a>求相关性</h3><h1 id="数据库直接求皮尔斯相关性"><a href="#数据库直接求皮尔斯相关性" class="headerlink" title="数据库直接求皮尔斯相关性"></a>数据库直接求皮尔斯相关性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">datause1&#x3D;datause_gene.to_numpy()</span><br><span class="line">pcc_gene&#x3D;np.corrcoef(datause1)</span><br><span class="line">pcc_gene&#x3D;pd.DataFrame(pcc_gene)</span><br><span class="line">pcc_gene.index&#x3D;datause_gene.index.values</span><br><span class="line">pcc_gene.columns &#x3D;datause_gene.index.values</span><br></pre></td></tr></table></figure>
 
 
-    
-      
+<h3 id="按组求平均"><a href="#按组求平均" class="headerlink" title="按组求平均"></a>按组求平均</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df &#x3D; pd.DataFrame([[&#39;a&#39;, &#39;man&#39;, 120, 90],</span><br><span class="line">                   [&#39;b&#39;, &#39;woman&#39;, 130, 100],</span><br><span class="line">                   [&#39;a&#39;, &#39;man&#39;, 110, 108],</span><br><span class="line">                   [&#39;a&#39;, &#39;woman&#39;, 120, 118]], columns&#x3D;[&#39;level&#39;, &#39;gender&#39;, &#39;math&#39;,&#39;chinese&#39;])</span><br><span class="line">group &#x3D; df.groupby(&#39;gender&#39;).mean()</span><br></pre></td></tr></table></figure>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/04/pytorch%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/04/pytorch%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" itemprop="url">pytorch入门学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-04T15:33:01+08:00">
-                2020-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>%matplotlib inline<br>对于上述命令行的疑问解答<br>ipython中有一类型的magic function，属于内嵌函数,用于绘图，pycharm不支持，但是在ipython（jupyter notebook）中使用，可以省略plt.show()步骤，在当前行一下使用。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
+<h2 id="列和"><a href="#列和" class="headerlink" title="列和"></a>列和</h2><p>colsum=mtx_tf.apply(lambda x:x.sum())<br>rowsum=mtx_tf.apply(lambda x:x.sum(),axis=1)</p>
+<h2 id="unique-命令必须是pd-Series才能使用。"><a href="#unique-命令必须是pd-Series才能使用。" class="headerlink" title="unique 命令必须是pd.Series才能使用。"></a>unique 命令必须是pd.Series才能使用。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zz&#x3D;barcode_list3.values()</span><br><span class="line">zz&#x3D;list(zz)</span><br><span class="line">df &#x3D; pd.Series( (v for v in zz) )</span><br><span class="line">len(df.unique())</span><br><span class="line">uu&#x3D;df.unique()</span><br><span class="line">pd.DataFrame(uu).to_csv(&quot;barcode3_96.csv&quot;)</span><br></pre></td></tr></table></figure>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/" itemprop="url">机器学习-吴恩达</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-16T20:48:55+08:00">
-                2020-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="P3-监督学习"><a href="#P3-监督学习" class="headerlink" title="P3 监督学习"></a>P3 监督学习</h4><p>correct answers</p>
-<blockquote>
-<p>in every example in our data set, we are told what is the “correct answer” that we would have quite liked the algorithms have predicted on that example, such as the prices of the house or whether the tumor is malignant or benign.</p>
-</blockquote>
-<blockquote>
-<p>Regression：预测连续性变量的输出，predict continuous valued output(price)<br>eg: sell house，breast cancer</p>
-</blockquote>
-<blockquote>
-<p>Classification: discrete valued output(0 or 1)  eg：breast cancer: use tumor size and age to predict malignant or benign</p>
-</blockquote>
-<blockquote>
-<p>inifinite number of features<br>SVM: allow computer to deal with an infinite number of features to aviode memory error.</p>
-</blockquote>
-<h4 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h4><p>不知道分类或者聚类的结果<br>clustering<br>cocktail party problem</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200516212401.png" alt=""></p>
-<p>使用octave的优势。</p>
-<h3 id="模型描述"><a href="#模型描述" class="headerlink" title="模型描述"></a>模型描述</h3><p>m: number of training examples</p>
-<p>$x^s$: “input” variable/feature</p>
-<p>$y^s$: “output” variable/“target” variable</p>
-<p>cost function（代价函数）<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200517171514.png" alt=""></p>
-<p>Hypothesis: $h^{\theta}(x)=\theta_0+\theta_1x$</p>
-<p>Cost function: $J({\theta}<em>0,{\theta}_1)={\frac{1}{2m}}{\times}{\sum(h</em>{\theta_0}(X^{(i)})-y^{(i)})^2}$</p>
-<p>contour plot</p>
-<p>找到$\theta0$,$\theta1$，使得J最小。</p>
-<h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>目的：找到$\theta_0$,$\theta_1$，使得J最小。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200519213005.png" alt=""></p>
-<p>从不同的角度出发，会获得不同的局部最优解。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200519221758.png" alt=""></p>
-<p>梯度下降时要求同时更新$\theta_0$,$\theta_1$，其中$\alpha$后面的一项是J($\theta_0$,$\theta_1$),在$\theta_0$,$\theta_1$切线的斜率。learninng rate $\alpha$:越大表示梯度下降越快。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200519215453.png" alt=""></p>
-<p>当接近局部最小值的时候，梯度下降会自动减小步幅，所以不用一直减小$\alpha$。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200519221300.png" alt=""></p>
-<p>梯度下降算法的推导</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200519224230.png" alt=""></p>
-<p>将线性回归的J 函数带入梯度下降的公式，可以推导出$\theta_0$,$\theta_1$，这时候平方和求导抵消，因此没有平方。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200519224120.png" alt=""></p>
-<p>凸函数只有全局最优解，没有局部最优解</p>
-<p>Batch gradient descent algorithm</p>
-<p>batch: each step of gradient descent uses all the training examples</p>
-<h3 id="3-1-Linear-Algebra-review-matrices-and-vectors"><a href="#3-1-Linear-Algebra-review-matrices-and-vectors" class="headerlink" title="3-1 Linear Algebra review: matrices and vectors"></a>3-1 Linear Algebra review: matrices and vectors</h3><p>matrix: rectangular array of numbers</p>
-<p>dimension of matrix: number of rows X number of columns</p>
-<p>vector: An nX1 matrix</p>
-<h3 id="3-2-Linear-Algebra-review-Addition-and-scalar-multiplication"><a href="#3-2-Linear-Algebra-review-Addition-and-scalar-multiplication" class="headerlink" title="3-2 Linear Algebra review: Addition and scalar multiplication"></a>3-2 Linear Algebra review: Addition and scalar multiplication</h3><p>矩阵加减以及和一个常量乘除，和数字的运算一致，逐个元素相加相减。</p>
-<h3 id="3-3-Linear-Algebra-review-matrix-vector-multiplication"><a href="#3-3-Linear-Algebra-review-matrix-vector-multiplication" class="headerlink" title="3-3 Linear Algebra review: matrix-vector multiplication"></a>3-3 Linear Algebra review: matrix-vector multiplication</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200521195927.png" alt=""></p>
-<p>解方程的矩阵代入</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200521200109.png" alt=""></p>
-<h3 id="3-3-Linear-Algebra-review-matrix-matrix-multiplication"><a href="#3-3-Linear-Algebra-review-matrix-matrix-multiplication" class="headerlink" title="3-3 Linear Algebra review: matrix-matrix multiplication"></a>3-3 Linear Algebra review: matrix-matrix multiplication</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200521200811.png" alt=""></p>
-<p>解方程的矩阵代入</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200521201108.png" alt=""></p>
-<h3 id="3-4-Linear-Algebra-review-matrix-multiplication-properties"><a href="#3-4-Linear-Algebra-review-matrix-multiplication-properties" class="headerlink" title="3-4 Linear Algebra review: matrix multiplication properties"></a>3-4 Linear Algebra review: matrix multiplication properties</h3><p>矩阵相乘没有交换率(communitive)</p>
-<p>矩阵相乘符合结合律（asscociation)</p>
-<p>identify matrix: $A I =I A =A$,I即为 单位矩阵，维数通常隐藏的。</p>
-<p>倒数矩阵</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200523123927.png" alt=""></p>
-<h3 id="3-4-Linear-Algebra-review-Inverse-and-transpose"><a href="#3-4-Linear-Algebra-review-Inverse-and-transpose" class="headerlink" title="3-4 Linear Algebra review: Inverse and transpose"></a>3-4 Linear Algebra review: Inverse and transpose</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200523093721.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200523125058.png" alt=""></p>
-<h3 id="4-1-Linear-Regression-with-multiple-variables-Multiple-variables"><a href="#4-1-Linear-Regression-with-multiple-variables-Multiple-variables" class="headerlink" title="4-1 Linear Regression with multiple variables: Multiple variables"></a>4-1 Linear Regression with multiple variables: Multiple variables</h3><p>多元回归的函数</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200524195825.png" alt=""></p>
-<h3 id="4-2-Linear-Regression-with-multiple-variables-Gradient-descent-for-multiple-variables"><a href="#4-2-Linear-Regression-with-multiple-variables-Gradient-descent-for-multiple-variables" class="headerlink" title="4-2 Linear Regression with multiple variables: Gradient descent for multiple variables"></a>4-2 Linear Regression with multiple variables: Gradient descent for multiple variables</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200524195941.png" alt=""></p>
-<h3 id="4-2-Linear-Regression-with-multiple-variables-Gradient-descent-in-practice-I-Feature-Scaling"><a href="#4-2-Linear-Regression-with-multiple-variables-Gradient-descent-in-practice-I-Feature-Scaling" class="headerlink" title="4-2 Linear Regression with multiple variables: Gradient descent in practice I: Feature Scaling"></a>4-2 Linear Regression with multiple variables: Gradient descent in practice I: Feature Scaling</h3><p>Feature scaling<br>idea: make sure features are on a similar scale<br>如果两个变量的范围量级差异很大，会造成梯度函数的等高图变成椭圆形，学习时，振荡范围很小，导致学习时间巨长。一般性控制全部变量的取值范围在-3~3区间即可</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200524201005.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200524201414.png" alt=""></p>
-<p>mean normalization：X=(x-u)/(max-min)<br>特征缩放不用非常精确，因为目的只是让梯度下降更快一点。</p>
-<h3 id="4-3-Linear-Regression-with-multiple-variables-Gradient-descent-in-practice-II-Leanring-rate"><a href="#4-3-Linear-Regression-with-multiple-variables-Gradient-descent-in-practice-II-Leanring-rate" class="headerlink" title="4-3 Linear Regression with multiple variables: Gradient descent in practice II: Leanring rate"></a>4-3 Linear Regression with multiple variables: Gradient descent in practice II: Leanring rate</h3><p>对于线性回归，当学习率足够小，每一次迭代后J($\theta$)会一直递减，、。<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200525190219.png" alt=""></p>
-<p>学习率过大：J($\theta$)上升或者波动，不收敛。<br>学习率过小：收敛速度很慢。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200525190304.png" alt=""></p>
-<p>在选择学习率的时候，需要打印J($\theta$)函数。tricky：可以以3倍的速度进行选择，尝试最大值和最小值后，在最大值附近选取一个合适的学习率。（…0.001，0.003，0.01，0.03，0.1，0.3，1…）<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200525190400.png" alt=""></p>
-<h3 id="4-4-Linear-regression-with-multiple-variables-Features-and-polynomial-regression"><a href="#4-4-Linear-regression-with-multiple-variables-Features-and-polynomial-regression" class="headerlink" title="4-4 Linear regression with multiple variables:Features and polynomial regression"></a>4-4 Linear regression with multiple variables:Features and polynomial regression</h3><p>可以选择多种函数来fit the curve</p>
-<h3 id="4-5-Linear-regression-with-multiple-variables-Normal-equation-正规方程，区别于迭代方法的直接解法"><a href="#4-5-Linear-regression-with-multiple-variables-Normal-equation-正规方程，区别于迭代方法的直接解法" class="headerlink" title="4-5 Linear regression with multiple variables: Normal equation(正规方程，区别于迭代方法的直接解法)"></a>4-5 Linear regression with multiple variables: Normal equation(正规方程，区别于迭代方法的直接解法)</h3><p>J($\theta$)在$\theta$的导数=0<br>$\theta$=pinv(X’X)<em>X’</em>y  X’倒置。pinv求倒数<br>对于正规方程，不用feature scaling.</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200525190112.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200525185931.png" alt=""></p>
-<h3 id="4-5-Linear-regression-with-multiple-variables-Normal-equation-and-non-invertibility"><a href="#4-5-Linear-regression-with-multiple-variables-Normal-equation-and-non-invertibility" class="headerlink" title="4-5 Linear regression with multiple variables: Normal equation and non-invertibility"></a>4-5 Linear regression with multiple variables: Normal equation and non-invertibility</h3><p>$\theta$=pinv(X’X)<em>X’</em>y 如果X’X不能求倒数，即为singular/degenerate 矩阵。<br>Octave：pinv()和inv()都是求倒数，但是pinv能够求解奇异矩阵的倒数，是pseudo inv.</p>
-<p>X’X不能求倒数的可能原因：<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200530163341.png" alt=""></p>
-<h3 id="Logistic-regression：-Classfication"><a href="#Logistic-regression：-Classfication" class="headerlink" title="Logistic regression： Classfication"></a>Logistic regression： Classfication</h3><p>回归不适合分类。<br>Classfication: y=0 or y=1<br>h(x) can be &gt;1 or &lt;1<br>logistic regression: 0&lt;=h(x)&lt;=1   用于classification。</p>
-<h3 id="Logistic-regression-Hypothesis-representation"><a href="#Logistic-regression-Hypothesis-representation" class="headerlink" title="Logistic regression: Hypothesis representation"></a>Logistic regression: Hypothesis representation</h3><p>want 0&lt;=h(x)&lt;=1 </p>
-<p>sigmoid function = logistic function</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200602084741.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200602085241.png" alt=""></p>
-<p>hθ(x)=g(θTx)<br>z=θTx<br>g(z)=1/(1+e−z)</p>
-<p>hθ(x)=P(y=1|x;θ)=1−P(y=0|x;θ)P(y=0|x;θ)+P(y=1|x;θ)=1</p>
-<h3 id="Logistic-regression-Decision-boundary"><a href="#Logistic-regression-Decision-boundary" class="headerlink" title="Logistic regression: Decision boundary"></a>Logistic regression: Decision boundary</h3><p>y=1, θTx&gt;=0;<br>y=0, θTx&lt;0<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200610191131.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200610194003.png" alt=""></p>
-<p>Non-linear decision boundaries</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200610193929.png" alt=""></p>
-<h3 id="Logistic-regression-simplified-cost-function-and-gradient-descent"><a href="#Logistic-regression-simplified-cost-function-and-gradient-descent" class="headerlink" title="Logistic regression: simplified cost function and gradient descent"></a>Logistic regression: simplified cost function and gradient descent</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200618215902.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200618220841.png" alt=""></p>
-<h3 id="Logistic-regression-Advanced-optimization"><a href="#Logistic-regression-Advanced-optimization" class="headerlink" title="Logistic regression: Advanced optimization"></a>Logistic regression: Advanced optimization</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200618225403.png" alt=""></p>
-<h3 id="The-probekm-of-overfitting"><a href="#The-probekm-of-overfitting" class="headerlink" title="The probekm of overfitting"></a>The probekm of overfitting</h3><blockquote>
-<p>Unfit, high bias: too sample or use too few features</p>
-</blockquote>
-<blockquote>
-<p>Overfiting, high variance: a compllicated function that creates alot of unnecessary curves and angles unrelated to the data<br>多幂函数的产生，用力拟合，cost function 很小，但是不具备广泛的拟合。</p>
-</blockquote>
-<blockquote>
-<p>adressing overfiting,feature 太多，并且训练集太少会导致overfiting</p>
-</blockquote>
-<ul>
-<li><ol>
-<li>reduce number of features</li>
-</ol>
-</li>
-<li>manually select which features to keep)</li>
-<li>model selection algorithm(later in course)</li>
-<li><ol start="2">
-<li>regularization </li>
-</ol>
-</li>
-<li>keep all the features,but reduce magnitude/values of parameters theta</li>
-<li>works well when we have a lot of features,each of which contributes a bit to predicting y.</li>
-</ul>
-<h3 id="Regularization-cost-function"><a href="#Regularization-cost-function" class="headerlink" title="Regularization: cost function"></a>Regularization: cost function</h3><p>为了避免过度拟合（往往由高阶幂造成），在cost function上加一个参数项$\lambda$ $\theta$，如果参数项越大，训练的目的是使cost function 小，所以会设置$\lambda$非常大，$\theta$约等于0，就能减少cost function。<br>$\theta0$，$\theta1$，$\theta2$…$\theta$n越小，拟合的曲线越光滑。</p>
-<p>正则化的项，是为了平衡拟合训练的目的以及近可能保持低的$\theta$值</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200620163423.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200620164827.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200620163328.png" alt=""></p>
-<h3 id="Regularization-Linear-Regression"><a href="#Regularization-Linear-Regression" class="headerlink" title="Regularization Linear Regression"></a>Regularization Linear Regression</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200623213204.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200623213246.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200623213333.png" alt=""></p>
-<h3 id="Week-4-model-representation-I"><a href="#Week-4-model-representation-I" class="headerlink" title="Week 4 model representation I"></a>Week 4 model representation I</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200707211219.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200707211459.png" alt=""></p>
-<p>$a^{(j)i}$=”activation” of unit i in layer</p>
-<p>$Θ^{(j)}$=matrix of weights controlling function mapping from layer j to layer j+1</p>
-<p>dim($Θ^{(j)}$)=$S_{j+1}$ *$S_{j}+1$</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200707213306.png" alt=""></p>
-<h3 id="Week-5-Neural-Network-Learning-Unrolling-Parameters"><a href="#Week-5-Neural-Network-Learning-Unrolling-Parameters" class="headerlink" title="Week 5 Neural Network Learning: Unrolling Parameters"></a>Week 5 Neural Network Learning: Unrolling Parameters</h3><p>为了使用优化函数，要求变量是向量，而神经网络中$\theta$是矩阵而非向量，因此可以卷开为thetaVec，梯度也需要卷开。<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20200731212428.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200731212508.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200731212545.png" alt=""></p>
-<h3 id="Week-5-Neural-Network-Learning-Gradient-checking"><a href="#Week-5-Neural-Network-Learning-Gradient-checking" class="headerlink" title="Week 5 Neural Network Learning: Gradient checking"></a>Week 5 Neural Network Learning: Gradient checking</h3><p>目的：减少代码错误</p>
-<h3 id="Week-5-Random-Initialization"><a href="#Week-5-Random-Initialization" class="headerlink" title="Week 5  Random Initialization"></a>Week 5  Random Initialization</h3><p>初始化theta参数，需要随机取值，否则如果theta1=theta 2 ,会造成symmetry breaking。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20200808203810.png" alt=""></p>
+<h2 id="read-pickle文件"><a href="#read-pickle文件" class="headerlink" title="read pickle文件"></a>read pickle文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RT_bc3 &#x3D; open(&quot;&#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;Documents&#x2F;data&#x2F;fei&#x2F;Rscripts&#x2F;MW_script&#x2F;barcode3_96_bc.pickle2&quot;,&quot;rb&quot;)</span><br><span class="line">barcode_list3 &#x3D; pickle.load(RT_bc3)</span><br><span class="line">RT_bc3.close()</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1976,7 +1640,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2022,7 +1686,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2044,7 +1708,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2087,7 +1751,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

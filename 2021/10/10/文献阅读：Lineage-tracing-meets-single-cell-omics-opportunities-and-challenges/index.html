@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="paper," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="文献阅读Lineage tracing meets single- cell omics: opportunities and challenges以反映它们潜在的高维性质和它们的常规表示为低维欧几里得曲面或图state manifolds； to reflect both their underlying high-dimensional nature and their routine rep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读：Lineage tracing meets single- cell omics: opportunities and challenges">
+<meta property="og:url" content="http://yoursite.com/2021/10/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALineage-tracing-meets-single-cell-omics-opportunities-and-challenges/index.html">
+<meta property="og:site_name" content="Feilijiang">
+<meta property="og:description" content="文献阅读Lineage tracing meets single- cell omics: opportunities and challenges以反映它们潜在的高维性质和它们的常规表示为低维欧几里得曲面或图state manifolds； to reflect both their underlying high-dimensional nature and their routine rep">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211010200136.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211010200220.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211010200928.png">
+<meta property="article:published_time" content="2021-10-10T07:25:31.000Z">
+<meta property="article:modified_time" content="2021-10-10T13:11:38.010Z">
+<meta property="article:author" content="Feilijiang">
+<meta property="article:tag" content="paper">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/20211010200136.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/10/10/文献阅读：Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges/"/>
+
+
+
+
+
+  <title>文献阅读：Lineage tracing meets single- cell omics: opportunities and challenges | Feilijiang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feilijiang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">New Beginnings</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home //首页"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags //标签"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th //分类"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar //日程表"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALineage-tracing-meets-single-cell-omics-opportunities-and-challenges/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">文献阅读：Lineage tracing meets single- cell omics: opportunities and challenges</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-10T15:25:31+08:00">
+                2021-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="文献阅读Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges"><a href="#文献阅读Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges" class="headerlink" title="文献阅读Lineage tracing meets single- cell omics: opportunities and challenges"></a>文献阅读Lineage tracing meets single- cell omics: opportunities and challenges</h2><p>以反映它们潜在的高维性质和它们的常规表示为低维欧几里得曲面或图<br>state manifolds； to reflect both their underlying high-dimensional nature and their routine representation as low- dimensional Euclidean surfaces or graphs.</p>
+<p>在细胞分化过程中，状态流形可以提供高分辨率的细胞轨迹描述。</p>
+<h3 id="1-Inferring-cell-histories-from-state-manifolds"><a href="#1-Inferring-cell-histories-from-state-manifolds" class="headerlink" title="1. Inferring cell histories from state manifolds"></a>1. Inferring cell histories from state manifolds</h3><h4 id="1-Defining-cell-states"><a href="#1-Defining-cell-states" class="headerlink" title="1. Defining cell states"></a>1. Defining cell states</h4><p>定义细胞类型的信息越来约丰富。</p>
+<h4 id="2-Mapping-state-manifolds"><a href="#2-Mapping-state-manifolds" class="headerlink" title="2. Mapping state manifolds"></a>2. Mapping state manifolds</h4><p>基于图的分析是有用的，因为它们转换了一组孤立的测量值(单细胞转录组)变成一个连接的结构(图表)，然后可以使用一套丰富的已有的数学方法进行分析。<br>任何2D和3D可视化都只能作为表示更强大的数据分析形式的结果的辅助工具。<br>另外一类方法根据manifold来推测出细胞的动力学和分化等级。<br>为了改进这些在动态推断方面的努力，最近的一些研究已经成功地推断了状态的瞬时动态，其基础是新生mRNA丰度的测量、剪接与未剪接mRNA的比率(例如，RNA速度)、蛋白质翻译或由代谢物标记的mRNA周转率。还有时序性的信息。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200136.png" alt=""></p>
+<h4 id="3-Limitations-of-state-manifolds-for-dynamic-inference"><a href="#3-Limitations-of-state-manifolds-for-dynamic-inference" class="headerlink" title="3. Limitations of state manifolds for dynamic inference"></a>3. Limitations of state manifolds for dynamic inference</h4><p>在这方面，树状细胞状态层次结构与真正的谱系分析得到的细胞状态层次结构形成了鲜明的对比。在一个状态流形上，分支点可能是假设的:细胞分裂可能发生在一个分支点上，也可能不发生在一个分支点上，来自每个分支的两种细胞都可能沿着流形的一个分支前进，而不是探索所有的分支。相反，在谱系树中，每个分支点都严格对应于一个分支事件。状态轨迹甚至不需要是严格的树状结构，而谱系层次结构总是严格的分支树。因此，尽管种群水平结构可以追踪单个细胞经历的分子状态的动态序列(图2a,b)，但一些特定的原因可能会模糊或误导研究人员对潜在的动态和/或命运关系的理解。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200220.png" alt=""></p>
+<h3 id="2-Inferring-cell-histories-in-lineage-tracing"><a href="#2-Inferring-cell-histories-in-lineage-tracing" class="headerlink" title="2. Inferring cell histories in lineage tracing"></a>2. Inferring cell histories in lineage tracing</h3><h4 id="1-Lineage-tracing-paradigms"><a href="#1-Lineage-tracing-paradigms" class="headerlink" title="1. Lineage-tracing paradigms"></a>1. Lineage-tracing paradigms</h4><h4 id="2-Clonal-versus-population-tracing"><a href="#2-Clonal-versus-population-tracing" class="headerlink" title="2. Clonal versus population tracing"></a>2. Clonal versus population tracing</h4><h4 id="3-Imaging-based-methods-for-lineage-tracing"><a href="#3-Imaging-based-methods-for-lineage-tracing" class="headerlink" title="3. Imaging-based methods for lineage tracing"></a>3. Imaging-based methods for lineage tracing</h4><h4 id="4-Lineage-tracing-by-barcode-sequencing"><a href="#4-Lineage-tracing-by-barcode-sequencing" class="headerlink" title="4. Lineage tracing by barcode-sequencing"></a>4. Lineage tracing by barcode-sequencing</h4><h4 id="5-Performance-trade-offs-and-further-innovations"><a href="#5-Performance-trade-offs-and-further-innovations" class="headerlink" title="5. Performance, trade-offs and further innovations"></a>5. Performance, trade-offs and further innovations</h4><h4 id="6-Prospective-lineage-tracing-on-state-manifolds"><a href="#6-Prospective-lineage-tracing-on-state-manifolds" class="headerlink" title="6. Prospective lineage tracing on state manifolds"></a>6. Prospective lineage tracing on state manifolds</h4><h3 id="3-Applications-of-lineage-tracing-on-state-manifolds"><a href="#3-Applications-of-lineage-tracing-on-state-manifolds" class="headerlink" title="3. Applications of lineage tracing on state manifolds"></a>3. Applications of lineage tracing on state manifolds</h3><h4 id="1-Lineage-phylogenies-on-state-manifolds"><a href="#1-Lineage-phylogenies-on-state-manifolds" class="headerlink" title="1. Lineage phylogenies on state manifolds"></a>1. Lineage phylogenies on state manifolds</h4><h4 id="2-Clonal-resampling-on-a-state-manifold"><a href="#2-Clonal-resampling-on-a-state-manifold" class="headerlink" title="2. Clonal resampling on a state manifold"></a>2. Clonal resampling on a state manifold</h4><h4 id="3-Computational-tools-for-state–lineage-mapping"><a href="#3-Computational-tools-for-state–lineage-mapping" class="headerlink" title="3. Computational tools for state–lineage mapping"></a>3. Computational tools for state–lineage mapping</h4><h4 id="4-Pitfalls-in-lineage-barcoding-on-a-state-manifold"><a href="#4-Pitfalls-in-lineage-barcoding-on-a-state-manifold" class="headerlink" title="4. Pitfalls in lineage barcoding on a state manifold"></a>4. Pitfalls in lineage barcoding on a state manifold</h4><p>阅读重点</p>
+<h3 id="4-Emerging-concepts"><a href="#4-Emerging-concepts" class="headerlink" title="4. Emerging concepts"></a>4. Emerging concepts</h3><h4 id="1-State-manifolds-as-models"><a href="#1-State-manifolds-as-models" class="headerlink" title="1. State manifolds as models"></a>1. State manifolds as models</h4><p>状态轨迹和谱系编纂了细胞发育历史中两个不同但互补的方面，每一种类型的分析都可以为个体发生和基因调控提供见解。在这篇综述中，我们概述了状态流形的一些重要局限性，并描述了将真实谱系测量与单细胞组学相结合的动机和工具。从这些方法的早期应用，我们提出了三个新兴的概念:<strong>第一，状态流形作为模型;第二，细胞状态分岔与细胞分裂的耦合模式;第三，树描述细胞分化层次的有效性</strong></p>
+<p>在这篇综述中，我们提出了lineage和state representations之间可能出现的矛盾(图2)并讨论了如何利用克隆信息来阐明这些发育关系。这些矛盾证明了<strong>状态流形(state trajectory)不是绝对可靠的。相反，它们是数据驱动的模型，遵循特定的假设集和数据处理标准。</strong></p>
+<p>目前，大多数状态流形是由原始状态测量中最主要的covariation以无偏方式构造的。在这种做法下，scRNA-seq manifold的定义特征将反映<strong>健壮的、可变的转录特征，因此不能保证强调细胞命运的决定</strong>，这可能与命运决定发生时<strong>低水平表达的调控基因相关</strong>。</p>
+<p>到目前为止，状态流形的构建都没有包含来自克隆数据的信息。然而，状态和谱系关系不需要保持冲突:一旦谱系的信息被建立，它可以用来改进我们表示状态流形的方法。例如，谱系信息的直接和简单的使用是在鉴定偏向谱系的祖细胞状态的分子标记。事实上，新的命运标记已经从结合的谱系和状态系统发育实验和克隆-重采样研究中推断出来。</p>
+<p>谱系信息也可以用来训练构建状态流形的算法，以避免如图2所示的错误。这样的行为需要一个概念上的转变，<strong>即把state manifolds作为一组特定的高维基因表达特征的模型，而不是作为覆盖细胞分化轨迹的绝对或普遍参考。</strong></p>
+<h4 id="2-Variability-of-individual-lineage-trees"><a href="#2-Variability-of-individual-lineage-trees" class="headerlink" title="2. Variability of individual lineage trees"></a>2. Variability of individual lineage trees</h4><p>state manifolds和mitotic lineage trees都可以定义层次结构。这两个等级之间关系的本质是什么?提出两种可能的关系：一种是<strong>mitotic coupling 和population coupling</strong>. mitotic coupling 是确定的，当细胞state manifolds的分支点与细胞分裂事件紧密对应时，就会发生有丝分裂偶联(图6a，左)。海鞘87和秀丽隐杆88的确定谱系树就是很好的例子。<br>相比之下，population coupling将发生在克隆和分裂历史不影响任何单个细胞的前进或其命运选择。相反，细胞行为是不确定的，可以用一组<strong>沿特定轨迹移动的转移概率</strong>来描述。<br>因此，种群耦合可能导致高度可变的谱系树，类似于那些随机分支过程，不会在生物体内部或生物体之间精确复制。在这种情况下，对命运等级结构进行高分辨率重建的努力可能无法产生一个单一的具有代表性的谱系发展树，但<strong>状态-谱系耦合在多个观察到的谱系树上的分布应该被证明具有很高的信息量</strong>。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200928.png" alt=""></p>
+<p>分化的层次的结构是什么?<br>这个问题的答案首先取决于一个人考虑的是state manifolds和mitotic lineage trees。</p>
+<p>在没有细胞融合的情况下，谱系通常可以看作是一个分支树，每个分支点代表一个有丝分裂事件。状态流形可以是树状的，但根据系统的生物学特性，它们不一定是树状的。因此，状态流形代表了发现细胞分化过程的结构(即拓扑)的机会。当状态流形与谱系测量相结合时，人们就有机会独立地拒绝或确认关于这些结构的特定假设。正如我们上面所描述的，几个最近的研究已经证明了<strong>状态收敛（state convergence）</strong>的证据，在状态流形上，两个或更多不同的命运轨迹收敛到相同的最终位置。因此，这种端点状态由起源不同的细胞组成，这些细胞可能保留也可能不保留不同的功能或电位。我们回顾了免疫细胞、神经嵴谱系和内胚层群体状态收敛的例子。相反的情况，<strong>状态分化（state divergence）</strong>也被观察到，有丝分裂的姐妹细胞(谱系高度相关)迅速进入不连续状态。state manifolds可以发生作为不对称细胞分裂的结果，特别是在分裂的细胞质组分只传递到两个有丝分裂子细胞之一的情况下。这种情况下可能会产生<strong>缺乏中间状态的状态转换</strong>，因此在任何采样深度上都不会以分岔事件的形式出现在状态流形上。<strong>这两种情况——收敛和发散——将导致状态流形偏离严格的树状结构</strong>，并可能由描述良好的生物情况产生。</p>
+<p>谱系和流形的关系，强调谱系的重要性，以及流形结构的局限性，需要结合两者来看。</p>
+<h2 id="文献阅读-Statistical-mechanics-meets-single-cell-biology"><a href="#文献阅读-Statistical-mechanics-meets-single-cell-biology" class="headerlink" title="文献阅读 Statistical mechanics meets single-cell biology"></a>文献阅读 Statistical mechanics meets single-cell biology</h2><p>疑问：waddington state manifolds的概念及应用</p>
+<p>统计力学来帮助我们从单细胞特性(微观状态)的角度来加深对组织功能(宏观状态)的理解。</p>
+<p>沃尔顿图谱的三个重要基本概念：</p>
+<ol>
+<li>首先,有机体的细胞可以杰出的发展可能产生广泛的不同数量的其他细胞,表明分化效力层次的存在,传统上被描绘为高度的景观,这暗示着一个势能函数的存在。</li>
+<li>第二，细胞优先占据特定的稳定区域，Waddington称之为“局部吸引子”，与观察到的细胞类型相对应。</li>
+<li>景观是“渠化”成特定的吸引盆地，定义了连接吸引子状态彼此的低能量路径。</li>
+</ol>
+<h3 id="GRN-based-Waddington-landscapes"><a href="#GRN-based-Waddington-landscapes" class="headerlink" title="GRN- based Waddington landscapes"></a>GRN- based Waddington landscapes</h3><p>从scRNA- seq数据建模的状态流形对于深入理解细胞生物学和实现分子和再生医学的目标是至关重要的。它需要对三个主要的景观特征进行推断:代表功能相关细胞类型的局部吸引子状态，它们在歧管中的海拔高度，影响它们的分化潜能，以及通常称为的低能量路径<br>“沿袭轨迹”，将这些吸引子状态连接在一起</p>
+<p>为什么随机过程是单细胞动力学的恰当描述，主要有两个原因。</p>
+<ol>
+<li>首先，在同一细胞中，在流形的的不同位置测量转录组是不可能的，因为测量的行为本身就会破坏细胞。</li>
+<li>其次，细胞内的分子经历了真正的随机变化，而不是连续变化28,31,45，这意味着在最基本的层面上，单细胞动力学是概率的。然而，值得注意的是，确定性连续型单细胞动力学可能仍然来自潜在的概率过程</li>
+</ol>
+<h3 id="State-manifolds-from-scRNA-seq-data"><a href="#State-manifolds-from-scRNA-seq-data" class="headerlink" title="State manifolds from scRNA-seq data"></a>State manifolds from scRNA-seq data</h3><h3 id="Solving-the-drift–diffusion-equations-inference-of-the-state-manifold"><a href="#Solving-the-drift–diffusion-equations-inference-of-the-state-manifold" class="headerlink" title="Solving the drift–diffusion equations: inference of the state manifold."></a>Solving the drift–diffusion equations: inference of the state manifold.</h3><h3 id="Modelling-cell-types-as-local-attractors"><a href="#Modelling-cell-types-as-local-attractors" class="headerlink" title="Modelling cell types as local attractors."></a>Modelling cell types as local attractors.</h3><h3 id="Bottom-up-modelling-of-potency"><a href="#Bottom-up-modelling-of-potency" class="headerlink" title="Bottom-up modelling of potency"></a>Bottom-up modelling of potency</h3><h3 id="Modelling-cell-fate-transitions"><a href="#Modelling-cell-fate-transitions" class="headerlink" title="Modelling cell-fate transitions"></a>Modelling cell-fate transitions</h3><h3 id="Future-outlook-and-perspectives"><a href="#Future-outlook-and-perspectives" class="headerlink" title="Future outlook and perspectives"></a>Future outlook and perspectives</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/paper/" rel="tag"># paper</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/10/02/%E5%90%8C%E6%BA%90%E5%9F%BA%E5%9B%A0/" rel="next" title="同源基因">
+                <i class="fa fa-chevron-left"></i> 同源基因
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/18/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ACell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/" rel="prev" title="文献阅读：Cell Types of Origin in the Cell Free Transcriptome in Human Health and Disease">
+                文献阅读：Cell Types of Origin in the Cell Free Transcriptome in Human Health and Disease <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Feilijiang</p>
+              <p class="site-description motion-element" itemprop="description">生物信息 记录 分享 博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文献阅读Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges"><span class="nav-number">1.</span> <span class="nav-text">文献阅读Lineage tracing meets single- cell omics: opportunities and challenges</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Inferring-cell-histories-from-state-manifolds"><span class="nav-number">1.1.</span> <span class="nav-text">1. Inferring cell histories from state manifolds</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Defining-cell-states"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Defining cell states</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Mapping-state-manifolds"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Mapping state manifolds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Limitations-of-state-manifolds-for-dynamic-inference"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. Limitations of state manifolds for dynamic inference</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Inferring-cell-histories-in-lineage-tracing"><span class="nav-number">1.2.</span> <span class="nav-text">2. Inferring cell histories in lineage tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Lineage-tracing-paradigms"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. Lineage-tracing paradigms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Clonal-versus-population-tracing"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. Clonal versus population tracing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Imaging-based-methods-for-lineage-tracing"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. Imaging-based methods for lineage tracing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Lineage-tracing-by-barcode-sequencing"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. Lineage tracing by barcode-sequencing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Performance-trade-offs-and-further-innovations"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. Performance, trade-offs and further innovations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Prospective-lineage-tracing-on-state-manifolds"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. Prospective lineage tracing on state manifolds</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Applications-of-lineage-tracing-on-state-manifolds"><span class="nav-number">1.3.</span> <span class="nav-text">3. Applications of lineage tracing on state manifolds</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Lineage-phylogenies-on-state-manifolds"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. Lineage phylogenies on state manifolds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Clonal-resampling-on-a-state-manifold"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. Clonal resampling on a state manifold</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Computational-tools-for-state–lineage-mapping"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. Computational tools for state–lineage mapping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Pitfalls-in-lineage-barcoding-on-a-state-manifold"><span class="nav-number">1.3.4.</span> <span class="nav-text">4. Pitfalls in lineage barcoding on a state manifold</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Emerging-concepts"><span class="nav-number">1.4.</span> <span class="nav-text">4. Emerging concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-State-manifolds-as-models"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. State manifolds as models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Variability-of-individual-lineage-trees"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. Variability of individual lineage trees</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文献阅读-Statistical-mechanics-meets-single-cell-biology"><span class="nav-number">2.</span> <span class="nav-text">文献阅读 Statistical mechanics meets single-cell biology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GRN-based-Waddington-landscapes"><span class="nav-number">2.1.</span> <span class="nav-text">GRN- based Waddington landscapes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-manifolds-from-scRNA-seq-data"><span class="nav-number">2.2.</span> <span class="nav-text">State manifolds from scRNA-seq data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solving-the-drift–diffusion-equations-inference-of-the-state-manifold"><span class="nav-number">2.3.</span> <span class="nav-text">Solving the drift–diffusion equations: inference of the state manifold.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modelling-cell-types-as-local-attractors"><span class="nav-number">2.4.</span> <span class="nav-text">Modelling cell types as local attractors.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bottom-up-modelling-of-potency"><span class="nav-number">2.5.</span> <span class="nav-text">Bottom-up modelling of potency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modelling-cell-fate-transitions"><span class="nav-number">2.6.</span> <span class="nav-text">Modelling cell-fate transitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Future-outlook-and-perspectives"><span class="nav-number">2.7.</span> <span class="nav-text">Future outlook and perspectives</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feilijiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>

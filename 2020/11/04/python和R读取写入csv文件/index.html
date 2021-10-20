@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="python 读取csv文件12345import dask.dataframedata &#x3D; dask.dataframe.read_csv(“random.csv”)import datatabledatatable.fread()  python 写出文件使用df2csv，需要输出基因和细胞名字以防万一，细胞名字在用R读取的时候会丢失。 12345678910111213141516">
+<meta name="description" content="python 读取csv文件12345678910111213import dask.dataframedata &#x3D; dask.dataframe.read_csv(“random.csv”)import datatabledatatable.fread()dd&#x3D;datatable.fread(&quot;&#x2F;media&#x2F;ggj&#x2F;BACKUP21&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python和R读取写入csv文件">
 <meta property="og:url" content="http://yoursite.com/2020/11/04/python%E5%92%8CR%E8%AF%BB%E5%8F%96%E5%86%99%E5%85%A5csv%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Feilijiang">
-<meta property="og:description" content="python 读取csv文件12345import dask.dataframedata &#x3D; dask.dataframe.read_csv(“random.csv”)import datatabledatatable.fread()  python 写出文件使用df2csv，需要输出基因和细胞名字以防万一，细胞名字在用R读取的时候会丢失。 12345678910111213141516">
+<meta property="og:description" content="python 读取csv文件12345678910111213import dask.dataframedata &#x3D; dask.dataframe.read_csv(“random.csv”)import datatabledatatable.fread()dd&#x3D;datatable.fread(&quot;&#x2F;media&#x2F;ggj&#x2F;BACKUP21&amp;#">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-04T09:54:28.000Z">
-<meta property="article:modified_time" content="2020-11-05T04:54:31.642Z">
+<meta property="article:modified_time" content="2021-07-07T11:17:32.775Z">
 <meta property="article:author" content="Feilijiang">
 <meta name="twitter:card" content="summary">
 
@@ -319,15 +319,15 @@
       
 
       
-        <h2 id="python-读取csv文件"><a href="#python-读取csv文件" class="headerlink" title="python 读取csv文件"></a>python 读取csv文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import dask.dataframe</span><br><span class="line">data &#x3D; dask.dataframe.read_csv(“random.csv”)</span><br><span class="line"></span><br><span class="line">import datatable</span><br><span class="line">datatable.fread()</span><br></pre></td></tr></table></figure>
+        <h2 id="python-读取csv文件"><a href="#python-读取csv文件" class="headerlink" title="python 读取csv文件"></a>python 读取csv文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import dask.dataframe</span><br><span class="line">data &#x3D; dask.dataframe.read_csv(“random.csv”)</span><br><span class="line"></span><br><span class="line">import datatable</span><br><span class="line">datatable.fread()</span><br><span class="line"></span><br><span class="line">dd&#x3D;datatable.fread(&quot;&#x2F;media&#x2F;ggj&#x2F;BACKUP21&#x2F;Chordoma&#x2F;NEW&#x2F;S1.3_rmDoublets_matrix.csv&quot;)</span><br><span class="line"></span><br><span class="line">X&#x3D;dd.to_pandas()</span><br><span class="line"></span><br><span class="line">X.index&#x3D;X[&#39;C0&#39;]</span><br><span class="line">X.index&#x3D;X[&#39;C0&#39;].values</span><br><span class="line">X&#x3D;X.drop([&#39;C0&#39;],axis&#x3D;1)</span><br></pre></td></tr></table></figure>
 
 <h2 id="python-写出文件"><a href="#python-写出文件" class="headerlink" title="python 写出文件"></a>python 写出文件</h2><p>使用df2csv，需要输出基因和细胞名字以防万一，细胞名字在用R读取的时候会丢失。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">def df2csv(df,fname,myformats&#x3D;[],sep&#x3D;&#39;,&#39;):</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">    # function is faster than to_csv</span><br><span class="line">    # 7 times faster for numbers if formats are specified, </span><br><span class="line">    # 2 times faster for strings.</span><br><span class="line">    # Note - be careful. It doesn&#39;t add quotes and doesn&#39;t check</span><br><span class="line">    # for quotes or separators inside elements</span><br><span class="line">    # We&#39;ve seen output time going down from 45 min to 6 min </span><br><span class="line">    # on a simple numeric 4-col dataframe with 45 million rows.</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">  if len(df.columns) &lt;&#x3D; 0:</span><br><span class="line">    return</span><br><span class="line">  Nd &#x3D; len(df.columns)</span><br><span class="line">  Nd_1 &#x3D; Nd - 1</span><br><span class="line">  formats &#x3D; myformats[:] # take a copy to modify it</span><br><span class="line">  Nf &#x3D; len(formats)</span><br><span class="line">  # make sure we have formats for all columns</span><br><span class="line">  if Nf &lt; Nd:</span><br><span class="line">    for ii in range(Nf,Nd):</span><br><span class="line">      coltype &#x3D; df[df.columns[ii]].dtype</span><br><span class="line">      ff &#x3D; &#39;%s&#39;</span><br><span class="line">      if coltype &#x3D;&#x3D; np.int64:</span><br><span class="line">        ff &#x3D; &#39;%d&#39;</span><br><span class="line">      elif coltype &#x3D;&#x3D; np.float64:</span><br><span class="line">        ff &#x3D; &#39;%f&#39;</span><br><span class="line">      formats.append(ff)</span><br><span class="line">  fh&#x3D;open(fname,&#39;w&#39;)</span><br><span class="line">  fh.write(&#39;,&#39;.join(df.columns) + &#39;\n&#39;)</span><br><span class="line">  for row in df.itertuples(index&#x3D;False):</span><br><span class="line">    ss &#x3D; &#39;&#39;</span><br><span class="line">    for ii in xrange(Nd):</span><br><span class="line">      ss +&#x3D; formats[ii] % row[ii]</span><br><span class="line">      if ii &lt; Nd_1:</span><br><span class="line">        ss +&#x3D; sep</span><br><span class="line">    fh.write(ss+&#39;\n&#39;)</span><br><span class="line">  fh.close()</span><br><span class="line"></span><br><span class="line">df2csv(dt,&quot;random.csv&quot;)</span><br><span class="line">pd.DataFrame(dt.index).to_csv(&quot;gene.csv&quot;)</span><br><span class="line">pd.DataFrame(dt.column).to_csv(&quot;gene.csv&quot;)</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="R-读取csv"><a href="#R-读取csv" class="headerlink" title="R 读取csv"></a>R 读取csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">dt&lt;-fread(&quot;random.csv&quot;)</span><br><span class="line">dt&lt;-data.frame(t(dt)) # 转化为行是基因，列为细胞</span><br></pre></td></tr></table></figure>
+<h2 id="R-读取csv"><a href="#R-读取csv" class="headerlink" title="R 读取csv"></a>R 读取csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">dt&lt;-fread(&quot;random.csv&quot;)</span><br><span class="line">dt&lt;-data.frame(t(dt)) # 转化为行是基因，列为细胞</span><br><span class="line"></span><br><span class="line">dt&lt;-fread(&quot;S1.3_rmDoublets_matrix.csv&quot;,index &#x3D;&quot;V1&quot;)</span><br><span class="line">dt &lt;- as.data.frame(dt)</span><br><span class="line">dt &lt;- data.frame(dt[,-1],row.names &#x3D; dt$V1)</span><br><span class="line">dt[1:5,1:5]</span><br><span class="line">dt&lt;-data.frame(t(dt)) # 转化为行是基因，列为细胞</span><br><span class="line">dt[1:5,1:5]</span><br></pre></td></tr></table></figure>
 
-<h2 id="R-写出csv"><a href="#R-写出csv" class="headerlink" title="R 写出csv"></a>R 写出csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">fwrite(df,&quot;random.csv&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="R-写出csv"><a href="#R-写出csv" class="headerlink" title="R 写出csv"></a>R 写出csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">fwrite(df,&quot;random.csv&quot;)</span><br><span class="line"></span><br><span class="line">fwrite(dge,paste0(name,&quot;_rmDoublets_matrix.csv&quot;),quote &#x3D; F,row.names &#x3D; T)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -440,7 +440,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -462,7 +462,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -521,7 +521,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

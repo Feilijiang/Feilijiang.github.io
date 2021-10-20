@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="统计文件夹中文件的个数1ls -l | grep &quot;^-&quot; | wc -l  比较数值1234567a&#x3D;10b&#x3D;1[ $a -lt $b ] # 注意括号两边需要留空格# 报错:integer expression expectedint&#x3D;$&amp;#123;frac%.*&amp;#125; #需要将字符型或者num型的转化为int型[ $int -lt $b">
+<meta name="description" content="统计文件夹中文件的个数1ls -l | grep &quot;^-&quot; | wc -l  统计文件的行数和字数12wc -l log.txtwc -w log.txt  比较数值1234567a&#x3D;10b&#x3D;1[ $a -lt $b ] # 注意括号两边需要留空格# 报错:integer expression expectedint&#x3D;$&amp;#123;frac%.*&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell命令">
 <meta property="og:url" content="http://yoursite.com/2020/11/22/shell%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Feilijiang">
-<meta property="og:description" content="统计文件夹中文件的个数1ls -l | grep &quot;^-&quot; | wc -l  比较数值1234567a&#x3D;10b&#x3D;1[ $a -lt $b ] # 注意括号两边需要留空格# 报错:integer expression expectedint&#x3D;$&amp;#123;frac%.*&amp;#125; #需要将字符型或者num型的转化为int型[ $int -lt $b">
+<meta property="og:description" content="统计文件夹中文件的个数1ls -l | grep &quot;^-&quot; | wc -l  统计文件的行数和字数12wc -l log.txtwc -w log.txt  比较数值1234567a&#x3D;10b&#x3D;1[ $a -lt $b ] # 注意括号两边需要留空格# 报错:integer expression expectedint&#x3D;$&amp;#123;frac%.*&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-22T08:27:04.000Z">
-<meta property="article:modified_time" content="2020-11-22T12:36:35.881Z">
+<meta property="article:modified_time" content="2021-09-09T06:03:17.247Z">
 <meta property="article:author" content="Feilijiang">
 <meta name="twitter:card" content="summary">
 
@@ -321,9 +321,29 @@
       
         <h2 id="统计文件夹中文件的个数"><a href="#统计文件夹中文件的个数" class="headerlink" title="统计文件夹中文件的个数"></a>统计文件夹中文件的个数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l</span><br></pre></td></tr></table></figure>
 
+<h2 id="统计文件的行数和字数"><a href="#统计文件的行数和字数" class="headerlink" title="统计文件的行数和字数"></a>统计文件的行数和字数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wc -l log.txt</span><br><span class="line">wc -w log.txt</span><br></pre></td></tr></table></figure>
+
 <h2 id="比较数值"><a href="#比较数值" class="headerlink" title="比较数值"></a>比较数值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;10</span><br><span class="line">b&#x3D;1</span><br><span class="line">[ $a -lt $b ] # 注意括号两边需要留空格</span><br><span class="line"></span><br><span class="line"># 报错:integer expression expected</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125; #需要将字符型或者num型的转化为int型</span><br><span class="line">[ $int -lt $b]</span><br></pre></td></tr></table></figure>
 
 <h2 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ ! -d &quot;$outfolder&quot; ];then</span><br><span class="line">    mkdir $outfolder</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="shell命令的理论学习"><a href="#shell命令的理论学习" class="headerlink" title="shell命令的理论学习"></a>shell命令的理论学习</h3><h2 id="查看当前目录下一级文件夹的大小，不展示所有文件"><a href="#查看当前目录下一级文件夹的大小，不展示所有文件" class="headerlink" title="查看当前目录下一级文件夹的大小，不展示所有文件"></a>查看当前目录下一级文件夹的大小，不展示所有文件</h2><p>du -lh –max-depth=1</p>
+<h2 id="删除带有特定字符文件"><a href="#删除带有特定字符文件" class="headerlink" title="删除带有特定字符文件"></a>删除带有特定字符文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find .&#x2F; -name unaligned_mc_tagged_polyA_filtered* | xargs rm</span><br></pre></td></tr></table></figure>
+
+<h2 id="fastq及bam文件的操作"><a href="#fastq及bam文件的操作" class="headerlink" title="fastq及bam文件的操作"></a>fastq及bam文件的操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 查看第九列为88的内容</span><br><span class="line">samtools view human19.bam |awk -F&#39;\t&#39; &#39;function abs(x)&#123;return((x&lt;0.0)? -x:x)&#125; abs($9)&#x3D;&#x3D;88&#123;print $0&#125;&#39;</span><br><span class="line"></span><br><span class="line"># 打印2-4行</span><br><span class="line">sed -n &#39;2~4p&#39; human19_19bp_R1.fastq</span><br><span class="line"></span><br><span class="line"># 打印具有固定字符的行</span><br><span class="line">cat ..&#x2F;unaligned_human_R1.fastq| grep -A 3  &#39;CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303179234|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303179234|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02400179922|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02400179922&#39; #-A：显示匹配到字符那行的后面n行 </span><br><span class="line"></span><br><span class="line">cat ..&#x2F;unaligned_human_R1.fastq| egrep -A 3  &#39;CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097‘ # 相当于grep -E,匹配比grep更多。</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="桌面卡死的操作，重新登陆。"><a href="#桌面卡死的操作，重新登陆。" class="headerlink" title="桌面卡死的操作，重新登陆。"></a>桌面卡死的操作，重新登陆。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill Xorg #但是之前的进展看不多了</span><br></pre></td></tr></table></figure>
+
+
+<p>less human.sorted_peaks.narrowPeak |sed ‘s/“  “/\t/g’|awk {p’rint $1”\t”$2”\t”$3”\t”$4”\t”$5}’&gt;MW_human.bed</p>
+<h2 id="统计fastq的reads-数量"><a href="#统计fastq的reads-数量" class="headerlink" title="统计fastq的reads 数量"></a>统计fastq的reads 数量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcat H_R1.fq.gz | echo $((&#96;wc -l&#96;&#x2F;4))</span><br></pre></td></tr></table></figure>
+
+
+
 
 
 
@@ -440,7 +460,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -462,7 +482,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -494,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计文件夹中文件的个数"><span class="nav-number">1.</span> <span class="nav-text">统计文件夹中文件的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较数值"><span class="nav-number">2.</span> <span class="nav-text">比较数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文件夹"><span class="nav-number">3.</span> <span class="nav-text">新建文件夹</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计文件夹中文件的个数"><span class="nav-number">1.</span> <span class="nav-text">统计文件夹中文件的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计文件的行数和字数"><span class="nav-number">2.</span> <span class="nav-text">统计文件的行数和字数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较数值"><span class="nav-number">3.</span> <span class="nav-text">比较数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文件夹"><span class="nav-number">4.</span> <span class="nav-text">新建文件夹</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell命令的理论学习"><span class="nav-number">4.1.</span> <span class="nav-text">shell命令的理论学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前目录下一级文件夹的大小，不展示所有文件"><span class="nav-number">5.</span> <span class="nav-text">查看当前目录下一级文件夹的大小，不展示所有文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除带有特定字符文件"><span class="nav-number">6.</span> <span class="nav-text">删除带有特定字符文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fastq及bam文件的操作"><span class="nav-number">7.</span> <span class="nav-text">fastq及bam文件的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#桌面卡死的操作，重新登陆。"><span class="nav-number"></span> <span class="nav-text">桌面卡死的操作，重新登陆。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计fastq的reads-数量"><span class="nav-number">1.</span> <span class="nav-text">统计fastq的reads 数量</span></a></li></ol></div>
             
 
           </div>
@@ -521,7 +541,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
