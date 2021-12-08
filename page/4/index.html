@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/22/shell%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/08/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9F%A5%E8%AF%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -270,7 +270,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/22/shell%E5%91%BD%E4%BB%A4/" itemprop="url">shell命令</a></h1>
+                <a class="post-title-link" href="/2021/03/08/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9F%A5%E8%AF%86/" itemprop="url">基因组知识</a></h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-22T16:27:04+08:00">
-                2020-11-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-08T15:10:59+08:00">
+                2021-03-08
               </time>
             
 
@@ -322,34 +322,8 @@
       
         
           
-            <h2 id="统计文件夹中文件的个数"><a href="#统计文件夹中文件的个数" class="headerlink" title="统计文件夹中文件的个数"></a>统计文件夹中文件的个数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l</span><br></pre></td></tr></table></figure>
-
-<h2 id="统计文件的行数和字数"><a href="#统计文件的行数和字数" class="headerlink" title="统计文件的行数和字数"></a>统计文件的行数和字数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wc -l log.txt</span><br><span class="line">wc -w log.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="比较数值"><a href="#比较数值" class="headerlink" title="比较数值"></a>比较数值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;10</span><br><span class="line">b&#x3D;1</span><br><span class="line">[ $a -lt $b ] # 注意括号两边需要留空格</span><br><span class="line"></span><br><span class="line"># 报错:integer expression expected</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125; #需要将字符型或者num型的转化为int型</span><br><span class="line">[ $int -lt $b]</span><br></pre></td></tr></table></figure>
-
-<h2 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ ! -d &quot;$outfolder&quot; ];then</span><br><span class="line">    mkdir $outfolder</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="shell命令的理论学习"><a href="#shell命令的理论学习" class="headerlink" title="shell命令的理论学习"></a>shell命令的理论学习</h3><h2 id="查看当前目录下一级文件夹的大小，不展示所有文件"><a href="#查看当前目录下一级文件夹的大小，不展示所有文件" class="headerlink" title="查看当前目录下一级文件夹的大小，不展示所有文件"></a>查看当前目录下一级文件夹的大小，不展示所有文件</h2><p>du -lh –max-depth=1</p>
-<h2 id="删除带有特定字符文件"><a href="#删除带有特定字符文件" class="headerlink" title="删除带有特定字符文件"></a>删除带有特定字符文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find .&#x2F; -name unaligned_mc_tagged_polyA_filtered* | xargs rm</span><br></pre></td></tr></table></figure>
-
-<h2 id="fastq及bam文件的操作"><a href="#fastq及bam文件的操作" class="headerlink" title="fastq及bam文件的操作"></a>fastq及bam文件的操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 查看第九列为88的内容</span><br><span class="line">samtools view human19.bam |awk -F&#39;\t&#39; &#39;function abs(x)&#123;return((x&lt;0.0)? -x:x)&#125; abs($9)&#x3D;&#x3D;88&#123;print $0&#125;&#39;</span><br><span class="line"></span><br><span class="line"># 打印2-4行</span><br><span class="line">sed -n &#39;2~4p&#39; human19_19bp_R1.fastq</span><br><span class="line"></span><br><span class="line"># 打印具有固定字符的行</span><br><span class="line">cat ..&#x2F;unaligned_human_R1.fastq| grep -A 3  &#39;CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303179234|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303179234|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02400179922|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02400179922&#39; #-A：显示匹配到字符那行的后面n行 </span><br><span class="line"></span><br><span class="line">cat ..&#x2F;unaligned_human_R1.fastq| egrep -A 3  &#39;CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097|CAAGGCGACGAACTAGGCGC:E100019795L1C032R02303048097‘ # 相当于grep -E,匹配比grep更多。</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="桌面卡死的操作，重新登陆。"><a href="#桌面卡死的操作，重新登陆。" class="headerlink" title="桌面卡死的操作，重新登陆。"></a>桌面卡死的操作，重新登陆。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill Xorg #但是之前的进展看不多了</span><br></pre></td></tr></table></figure>
-
-
-<p>less human.sorted_peaks.narrowPeak |sed ‘s/“  “/\t/g’|awk {p’rint $1”\t”$2”\t”$3”\t”$4”\t”$5}’&gt;MW_human.bed</p>
-<h2 id="统计fastq的reads-数量"><a href="#统计fastq的reads-数量" class="headerlink" title="统计fastq的reads 数量"></a>统计fastq的reads 数量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcat H_R1.fq.gz | echo $((&#96;wc -l&#96;&#x2F;4))</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+            <h2 id="MEME-网站使用的总结："><a href="#MEME-网站使用的总结：" class="headerlink" title="MEME 网站使用的总结："></a>MEME 网站使用的总结：</h2><p>原文链接：<a href="https://blog.csdn.net/weixin_43569478/article/details/108079461" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43569478/article/details/108079461</a></p>
+<p>适用于分析数据量较大的序列上的motif信息。首先通过MEME和DREME两款软件预测de novo motif, 然后利用CentriMo识别在序列的中心区域显著富集的motif, 同时采用Tomtom软件将预测到的de novo motif与指定数据库的已知motif进行比对，确定二者的相似度。最后利用FIMO软件预测motif在输入序列上的结合位点。</p>
 
           
         
@@ -398,7 +372,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B020201122/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/07/python%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -417,7 +391,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B020201122/" itemprop="url">每日一记20201122</a></h1>
+                <a class="post-title-link" href="/2021/03/07/python%E5%91%BD%E4%BB%A4/" itemprop="url">python命令</a></h1>
         
 
         <div class="post-meta">
@@ -429,8 +403,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-22T15:34:52+08:00">
-                2020-11-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-07T12:39:14+08:00">
+                2021-03-07
               </time>
             
 
@@ -469,926 +443,770 @@
       
         
           
-            <h2 id="度量两个排序列表的相似性"><a href="#度量两个排序列表的相似性" class="headerlink" title="度量两个排序列表的相似性"></a>度量两个排序列表的相似性</h2><p><a href="https://zhuanlan.zhihu.com/p/63279107" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/63279107</a><br>基于排序之间的相互关系</p>
-<ul>
+            <h3 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h3><p>print(ss.replace(‘\n’, ‘’))</p>
+<h3 id="python-运行shell-命令"><a href="#python-运行shell-命令" class="headerlink" title="python 运行shell 命令"></a>python 运行shell 命令</h3><p>import subprocess<br>subprocess.call(command, shell=True)</p>
+<h3 id="python判断字符串（string）是否包含（contains）子字符串的方法"><a href="#python判断字符串（string）是否包含（contains）子字符串的方法" class="headerlink" title="python判断字符串（string）是否包含（contains）子字符串的方法"></a>python判断字符串（string）是否包含（contains）子字符串的方法</h3><p>string in list<br>isin()</p>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>data[[x,xx,x]] # 取某几行<br>data.loc # 具体的行列名字<br>data.iloc[:,1:2]</p>
+<h3 id="python-paste-命令"><a href="#python-paste-命令" class="headerlink" title="python paste 命令"></a>python paste 命令</h3><h4 id="paste-strings"><a href="#paste-strings" class="headerlink" title="paste strings"></a>paste strings</h4><p>datause.columns=[“COL01.” + str(i) for i in datause.columns]</p>
+<p>[“s” + str(i) for i in xrange(1,11)]</p>
+<p>list(map(‘s{}’.format, range(1, 11)))</p>
+<p>map(lambda x:”s”+str(x), range(1,11))</p>
+<h2 id="paste-two-columns"><a href="#paste-two-columns" class="headerlink" title="paste two columns"></a>paste two columns</h2><p>anno[‘day’]=anno[‘day’].astype(“str”)<br>anno[‘louvain13’]=anno[‘louvain13’].astype(“str”)<br>anno[‘day_cluster’]=anno[‘day’].astype(str)+”_”<br>anno[‘day_cluster’]=anno[‘day_cluster’].astype(str)+anno[‘louvain13’]</p>
+<h2 id="paste-two-columns-1"><a href="#paste-two-columns-1" class="headerlink" title="paste two columns"></a>paste two columns</h2><p><img src="https://gitee.com/feilijiang/img/raw/master/20210811160322.png" alt=""></p>
+<h3 id="求相关性"><a href="#求相关性" class="headerlink" title="求相关性"></a>求相关性</h3><h1 id="数据库直接求皮尔斯相关性"><a href="#数据库直接求皮尔斯相关性" class="headerlink" title="数据库直接求皮尔斯相关性"></a>数据库直接求皮尔斯相关性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">datause1&#x3D;datause_gene.to_numpy()</span><br><span class="line">pcc_gene&#x3D;np.corrcoef(datause1)</span><br><span class="line">pcc_gene&#x3D;pd.DataFrame(pcc_gene)</span><br><span class="line">pcc_gene.index&#x3D;datause_gene.index.values</span><br><span class="line">pcc_gene.columns &#x3D;datause_gene.index.values</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="按组求平均"><a href="#按组求平均" class="headerlink" title="按组求平均"></a>按组求平均</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df &#x3D; pd.DataFrame([[&#39;a&#39;, &#39;man&#39;, 120, 90],</span><br><span class="line">                   [&#39;b&#39;, &#39;woman&#39;, 130, 100],</span><br><span class="line">                   [&#39;a&#39;, &#39;man&#39;, 110, 108],</span><br><span class="line">                   [&#39;a&#39;, &#39;woman&#39;, 120, 118]], columns&#x3D;[&#39;level&#39;, &#39;gender&#39;, &#39;math&#39;,&#39;chinese&#39;])</span><br><span class="line">group &#x3D; df.groupby(&#39;gender&#39;).mean()</span><br></pre></td></tr></table></figure>
+
+<h2 id="列和"><a href="#列和" class="headerlink" title="列和"></a>列和</h2><p>colsum=mtx_tf.apply(lambda x:x.sum())<br>rowsum=mtx_tf.apply(lambda x:x.sum(),axis=1)</p>
+<h2 id="unique-命令必须是pd-Series才能使用。"><a href="#unique-命令必须是pd-Series才能使用。" class="headerlink" title="unique 命令必须是pd.Series才能使用。"></a>unique 命令必须是pd.Series才能使用。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zz&#x3D;barcode_list3.values()</span><br><span class="line">zz&#x3D;list(zz)</span><br><span class="line">df &#x3D; pd.Series( (v for v in zz) )</span><br><span class="line">len(df.unique())</span><br><span class="line">uu&#x3D;df.unique()</span><br><span class="line">pd.DataFrame(uu).to_csv(&quot;barcode3_96.csv&quot;)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="read-pickle文件"><a href="#read-pickle文件" class="headerlink" title="read pickle文件"></a>read pickle文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RT_bc3 &#x3D; open(&quot;&#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;Documents&#x2F;data&#x2F;fei&#x2F;Rscripts&#x2F;MW_script&#x2F;barcode3_96_bc.pickle2&quot;,&quot;rb&quot;)</span><br><span class="line">barcode_list3 &#x3D; pickle.load(RT_bc3)</span><br><span class="line">RT_bc3.close()</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/18/Waddington-OT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/02/18/Waddington-OT/" itemprop="url">Waddington-OT</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-18T19:49:20+08:00">
+                2021-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/02/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/" itemprop="url">机器学习实战</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-12T10:38:28+08:00">
+                2021-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="第一章-机器学习概览"><a href="#第一章-机器学习概览" class="headerlink" title="第一章 机器学习概览"></a>第一章 机器学习概览</h2><ul>
 <li><ol>
-<li>Kendall Tau</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>Spearman’s Footrule: 计算一个列表改为另一个列表最少需要移动各个元素的距离和<br>基于集合的度量<br>不理解</li>
+<li>机器学习系统的分类</li>
 </ol>
 </li>
 </ul>
-<h2 id="shell-统计"><a href="#shell-统计" class="headerlink" title="shell 统计"></a>shell 统计</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/SampleReadsFromBamFiles/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/19/SampleReadsFromBamFiles/" itemprop="url">SampleReadsFromBamFiles</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-19T16:02:01+08:00">
-                2020-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="下采样一定数量的reads"><a href="#下采样一定数量的reads" class="headerlink" title="下采样一定数量的reads"></a>下采样一定数量的reads</h1><p><a href="http://seqanswers.com/forums/showthread.php?t=41983" target="_blank" rel="noopener">http://seqanswers.com/forums/showthread.php?t=41983</a><br><a href="https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs" target="_blank" rel="noopener">https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs</a><br>方法1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">samtools view -H [bamfile];</span><br><span class="line">samtools view -F 0x004 [bamfile] |</span><br><span class="line">java -jar StreamSampler.jar [# of reads to sample] [total # reads]</span><br><span class="line">) |</span><br><span class="line">samtools -bS - &gt; [sampled bam file]</span><br></pre></td></tr></table></figure>
-
-<p>方法2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function SubSample &#123;</span><br><span class="line">## Calculate the sampling factor based on the intended number of reads:</span><br><span class="line">FACTOR&#x3D;$(samtools idxstats $1 | cut -f3 | awk -v COUNT&#x3D;$2 &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;print COUNT&#x2F;total&#125;&#39;)</span><br><span class="line"></span><br><span class="line">if [[ $FACTOR &gt; 1 ]]</span><br><span class="line">  then </span><br><span class="line">  echo &#39;[ERROR]: Requested number of reads exceeds total read count in&#39; $1 &#39;-- exiting&#39; &amp;&amp; exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sambamba view -s $FACTOR -f bam -l 5 $1</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## Usage example, selecting 100.000 reads:</span><br><span class="line">SubSample in.bam 100000 &gt; subsampled.bam</span><br></pre></td></tr></table></figure>
-
-<h1 id="下采样一定百分比的reads"><a href="#下采样一定百分比的reads" class="headerlink" title="下采样一定百分比的reads"></a>下采样一定百分比的reads</h1><p>samtools view -bs 42.1 in.bam &gt; subsampled.bam</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/19/samtool%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/19/samtool%E5%91%BD%E4%BB%A4/" itemprop="url">samtool命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-19T16:02:01+08:00">
-                2020-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考<a href="https://blog.csdn.net/sunchengquan/article/details/85176940" target="_blank" rel="noopener">https://blog.csdn.net/sunchengquan/article/details/85176940</a></p>
-<h2 id="下采样一定数量的reads"><a href="#下采样一定数量的reads" class="headerlink" title="下采样一定数量的reads"></a>下采样一定数量的reads</h2><p><a href="http://seqanswers.com/forums/showthread.php?t=41983" target="_blank" rel="noopener">http://seqanswers.com/forums/showthread.php?t=41983</a><br><a href="https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs" target="_blank" rel="noopener">https://bioinformatics.stackexchange.com/questions/402/how-can-i-downsample-a-bam-file-while-keeping-both-reads-in-pairs</a></p>
-<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 需要额外下载StreamSampler.jar，并且有bam文件版本限制，不好用</span><br><span class="line">(</span><br><span class="line">samtools view -H [bamfile];</span><br><span class="line">samtools view -F 0x004 [bamfile] |</span><br><span class="line">java -jar StreamSampler.jar [# of reads to sample] [total # reads]</span><br><span class="line">) |</span><br><span class="line">samtools -bS - &gt; [sampled bam file]</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法2-sample-1000-reads-cell，可用"><a href="#方法2-sample-1000-reads-cell，可用" class="headerlink" title="方法2 sample 1000 reads/cell，可用"></a>方法2 sample 1000 reads/cell，可用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">##在shell直接执行，存在一个问题就是subsample的不是正好1000，可能是999。因为flagstat里面有两个reads相加，所以需要double number。</span><br><span class="line"></span><br><span class="line">frac&#x3D;$( samtools flagstat $outbam | cut -f3 | awk &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;frac&#x3D;2000&#x2F;total;&#123;print frac&#125;&#125;&#39;)</span><br><span class="line">int&#x3D;$&#123;frac%.*&#125;</span><br><span class="line">if [ $int -eq 0 ];then</span><br><span class="line">    samtools view -bs $frac $outbam &gt; $outfolder3$samplebam</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 原始网页写法，但是运行terminal会闪退。</span><br><span class="line"></span><br><span class="line">function SubSample &#123;</span><br><span class="line">## Calculate the sampling factor based on the intended number of reads:</span><br><span class="line">FACTOR&#x3D;$(samtools idxstats $1 | cut -f3 | awk -v COUNT&#x3D;$2 &#39;BEGIN &#123;total&#x3D;0&#125; &#123;total +&#x3D; $1&#125; END &#123;print COUNT&#x2F;total&#125;&#39;)</span><br><span class="line"></span><br><span class="line">if [[ $FACTOR &gt; 1 ]]</span><br><span class="line">  then </span><br><span class="line">  echo &#39;[ERROR]: Requested number of reads exceeds total read count in&#39; $1 &#39;-- exiting&#39; &amp;&amp; exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">samtools view -s $FACTOR -f bam -l 5 $1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">## Usage example, selecting 100.000 reads:</span><br><span class="line">SubSample in.bam 100000 &gt; subsampled.bam</span><br></pre></td></tr></table></figure>
-
-<h2 id="下采样一定百分比的reads"><a href="#下采样一定百分比的reads" class="headerlink" title="下采样一定百分比的reads"></a>下采样一定百分比的reads</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">samtools view -bs 42.1 in.bam &gt; subsampled.bam</span><br></pre></td></tr></table></figure>
-
-<h2 id="过滤低mapping质量的reads-并且sam转bam"><a href="#过滤低mapping质量的reads-并且sam转bam" class="headerlink" title="过滤低mapping质量的reads,并且sam转bam"></a>过滤低mapping质量的reads,并且sam转bam</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">samfile&#x3D;out.sam</span><br><span class="line">outbam&#x3D;filtered.bam</span><br><span class="line">samtools view -h -q 10 $samfile | samtools view -bS &gt; $outbam</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="过滤PCR-duplication"><a href="#过滤PCR-duplication" class="headerlink" title="过滤PCR duplication"></a>过滤PCR duplication</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">samtools rmdup in.bam -o rmdup.bam</span><br></pre></td></tr></table></figure>
-
-<h2 id="bam-sam的相互转化"><a href="#bam-sam的相互转化" class="headerlink" title="bam, sam的相互转化"></a>bam, sam的相互转化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">samtools view -bS in.sam&gt; out.bam</span><br><span class="line">samtools view -h -o out.sam in.bam</span><br></pre></td></tr></table></figure>
-
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;samtools view -h -f 0x002 file.bam |\</span><br><span class="line">egrep &quot;(^@|XT\:A\:U)&quot;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="从bam-file中提取固定标签的文件"><a href="#从bam-file中提取固定标签的文件" class="headerlink" title="从bam file中提取固定标签的文件"></a>从bam file中提取固定标签的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;tmp&#x2F;DarkReaction&#x2F;barcode&#x2F;nofilter</span><br><span class="line">BAM_FILE&#x3D;&quot;&#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;tmp&#x2F;DarkReaction&#x2F;barcode&#x2F;nofilter&#x2F;unaligned_tagged_filtered.bam&quot;</span><br><span class="line">filter_file&#x3D;&quot;&#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;tmp&#x2F;DarkReaction&#x2F;barcode&#x2F;barcode_88K_tag.txt&quot;</span><br><span class="line"># Save the header lines</span><br><span class="line">samtools view -H $BAM_FILE &gt; SAM_header</span><br><span class="line"></span><br><span class="line"># Filter alignments using filter.txt. Use LC_ALL&#x3D;C to set C locale instead of UTF-8</span><br><span class="line">samtools view $BAM_FILE | LC_ALL&#x3D;C grep -F -f $filter_file &gt; filtered_SAM_body</span><br><span class="line"></span><br><span class="line"># Combine header and body</span><br><span class="line">cat SAM_header filtered_SAM_body &gt; filtered.sam</span><br><span class="line"></span><br><span class="line"># Convert filtered.sam to BAM format</span><br><span class="line">samtools view -b filtered.sam &gt; filtered.bam</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/16/%E6%AF%8F%E6%97%A5%E6%96%87%E7%8C%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/16/%E6%AF%8F%E6%97%A5%E6%96%87%E7%8C%AE/" itemprop="url">每日文献</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-16T14:30:13+08:00">
-                2020-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/10/cytoscape%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/10/cytoscape%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" itemprop="url">cytoscape的使用教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-10T09:59:06+08:00">
-                2020-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/06/%E5%86%99%E4%BD%9C%E8%AE%AD%E7%BB%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/11/06/%E5%86%99%E4%BD%9C%E8%AE%AD%E7%BB%83/" itemprop="url">写作训练</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-06T10:12:45+08:00">
-                2020-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="写作重要性（对于读者最困扰的事情，由小到大）"><a href="#写作重要性（对于读者最困扰的事情，由小到大）" class="headerlink" title="写作重要性（对于读者最困扰的事情，由小到大）"></a>写作重要性（对于读者最困扰的事情，由小到大）</h2><blockquote>
-<p>word choice</p>
-</blockquote>
 <blockquote>
-<p>word location</p>
+<p>是否在人类监督下学习</p>
 </blockquote>
+<p>监督式学习，分类和预测变量，eg，K-Nearest Neighbors, linear regression,logistic regression, SVM, decision trees and random forest, neural network</p>
+<p>无监督学习，聚类：K-means, Hierarchical cluster tree, expectation maximization，降维和可视化 pca, kernek pca, LLE, t-SNE, 关联规则学习Apriori, Elcat，检测异常值</p>
+<p>半监督学习，eg. 深度信念网络中的受限玻尔兹曼机（RBM）<br>强化学习，</p>
 <blockquote>
-<p>sentence choice</p>
+<p>是否动态进行增量学习</p>
 </blockquote>
+<p>批量学习：全批量<br>在线学习：小批量</p>
 <blockquote>
-<p>sentence location</p>
+<p>基于实例的学习和基于模型的学习</p>
 </blockquote>
-<blockquote>
-<p>paragraph choice</p>
-</blockquote>
-<blockquote>
-<p>paragraph location</p>
-</blockquote>
-<h2 id="写作常犯错误（由小到大）"><a href="#写作常犯错误（由小到大）" class="headerlink" title="写作常犯错误（由小到大）"></a>写作常犯错误（由小到大）</h2><ul>
-<li><ol>
-<li>faulty comparison: 比较含糊且非具体的，比如说Our finding is similar to Frater et al.</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>noun cluster：多个名词堆砌，比如说： water bath temperature variability results.</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>undefined abbreviation: 非标准的缩写没有定义</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>inconsistent key term: 关键词前后不一致，nematode，worm，C.elegans</li>
-</ol>
-</li>
-<li><ol start="5">
-<li>long sentence</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>nominalization: use of noun instead f more activate and omre interesting werb</li>
-</ol>
-</li>
-<li><ol start="7">
-<li>redundancy: the same thing is said repeatedly in different ways, or unnecessarily long ohrases are used instead of shorter versions.(the majority of instead of most)</li>
-</ol>
-</li>
-<li><ol start="8">
-<li>faulty verb tense: 时态错误 present tense instead of past tense.</li>
-</ol>
-</li>
-<li><ol start="9">
-<li>unspecific word choice: 用词模糊 words are imprecise or unclear(The sample was incubated for several hours)</li>
-</ol>
-</li>
-<li><ol start="10">
-<li>faulty reference: 错误引用</li>
-</ol>
-</li>
-<li><ol start="11">
-<li>faulty structural element: 结构性要素缺失。 necessary component of a paper is missing, misplaced, or obscured (purpose of experimanet is not stated, data are not interpreted, or concluson is missing) </li>
-</ol>
-</li>
-</ul>
-<h2 id="写作的要点"><a href="#写作的要点" class="headerlink" title="写作的要点"></a>写作的要点</h2><p>掌握基础的英语写作能力</p>
-<p>始终牢记文章是给reader阅读的，才能有广泛的阅读。</p>
-<h4 id="Introdution-部分"><a href="#Introdution-部分" class="headerlink" title="Introdution 部分"></a>Introdution 部分</h4><ul>
-<li><ol>
-<li>Interest your audience and provide context</li>
-</ol>
-</li>
-</ul>
-<p>目的是提供背景信息，激发阅读者的兴趣，使阅读者能够脱离之前的研究来读懂。</p>
+<p>基于实例：记住样例，根据相似度对新的实例进行泛化。<br>基于模型：调整参数，适配训练集</p>
 <ul>
 <li><ol start="2">
-<li>Follow a funnel structure</li>
-</ol>
-</li>
-</ul>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/20210805110708.png" alt=""></p>
-<p>Background<br>Unknown/Problem<br>Question/Purpose of study<br>Experimental approach<br>Potional: results/conclusion/significance<br><img src="https://gitee.com/feilijiang/img/raw/master/20210812145532.png" alt=""></p>
-<ul>
-<li><ol start="3">
-<li>Keep the introduction short</li>
-</ol>
-</li>
-</ul>
-<p>字数控制在250-600个字</p>
-<ul>
-<li><ol start="4">
-<li>Provide pertinent background information, but do not review the literature</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><ol start="5">
-<li>State the unknown or problem</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>state the central point (question/purpose or discovery statement precisely)</li>
-</ol>
-</li>
-<li><ol start="7">
-<li>state the experimental approach briefly</li>
-</ol>
-</li>
-<li><ol start="8">
-<li>ensure good cohesion and coherence</li>
-</ol>
-</li>
-<li><ol start="9">
-<li>signaling all the element of the introduction</li>
-</ol>
-</li>
-</ul>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/20210805111518.png" alt=""><br><img src="https://gitee.com/feilijiang/img/raw/master/20210812145407.png" alt=""></p>
-<h4 id="result-部分"><a href="#result-部分" class="headerlink" title="result 部分"></a>result 部分</h4><ul>
-<li><ol>
-<li>Report your main findings as well as other important findings</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>point the reader to the data shown in figures and tables.</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>include control results</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>Interpret your data for the readers<blockquote>
-<p>呈现数据，解释数据，而不是仅仅展示数据。Heart rate increased from 60 to 100 beats per minutes after digitails was added.</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>区分data和result，</p>
-</blockquote>
-<ul>
-<li><ol start="5">
-<li>place statistical information with data. do not use it instead of results.<br>using number and frequency instead of probabilities or sensitivities. 放在table 或者figure legend或者句尾。</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>place results that answer the question of your paper at the beginning of the result section</li>
-</ol>
-</li>
-<li><ol start="7">
-<li>organize the results section chronologically or from most to least important</li>
-</ol>
-</li>
-<li><ol start="8">
-<li>emphasize and signal your results. subordinate secondary information</li>
-</ol>
-</li>
-</ul>
-<p>top sentence :emphasize results and then details of results</p>
-<ul>
-<li><ol start="9">
-<li>organize your result into different segments<blockquote>
-<p>分为非描述性的和描述性的</p>
-</blockquote>
-</li>
-</ol>
-<p>非描述性的<br>purpose or background of expriment<br>exprimental approach<br>result<br>interpretation of result(对于描述性的文中则可以省略)</p>
-</li>
-</ul>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20210628100931.png" alt=""></p>
-<p>例句截图</p>
-<ul>
-<li><ol start="10">
-<li>word choise</li>
+<li>主要挑战</li>
 </ol>
 </li>
 </ul>
 <ol>
-<li>选择precise and descriptive wording, keep wording simple.</li>
-<li>使用did not 等中性词，而非could not, failed </li>
-<li>不要使用clearly, it is clear/obvious 过于主观和傲慢</li>
-<li>当不使用统计学参数时，使用markedly, substantially 代替significantly。最好用括号“量化”说明，否则适合放在discusssion。</li>
+<li>训练数据不足</li>
+<li>训练数据不具代表性</li>
+<li>数据质量差：无关特征</li>
+<li>训练数据过拟合（简化模型（减少参数，减少属性变量，约束模型），收集更多数据，减少数据中的噪音）</li>
+<li>训练数据拟合不足（选择更多参数的模型，给学习算法更好的特征集（特征工程），减少模型中的约束）</li>
 </ol>
 <ul>
-<li><ol start="11">
-<li>use past tense for your result, but plesent tense for descriptive papers.<br>signaling for paper<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20210628100838.png" alt=""></li>
-</ol>
-</li>
-<li><ol start="12">
-<li>omit peripheral information and irelevant general statements</li>
-</ol>
-</li>
-<li><ol start="13">
-<li>avoid exprimental details</li>
-</ol>
-</li>
-<li><ol start="14">
-<li>avoid general conclusions, speculations or compasions with other studies</li>
+<li><ol start="3">
+<li>测试与验证<br>测试集和训练集</li>
 </ol>
 </li>
 </ul>
-<h4 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h4><ul>
+<p>交叉验证</p>
+<h2 id="第二章-端到端的机器学习项目"><a href="#第二章-端到端的机器学习项目" class="headerlink" title="第二章 端到端的机器学习项目"></a>第二章 端到端的机器学习项目</h2><ul>
 <li><ol>
-<li>state and interpret your key findings,provide the answer to the research question</li>
+<li>使用真实数据</li>
 </ol>
 </li>
+</ul>
+<blockquote>
+<p>观察大局</p>
+</blockquote>
+<blockquote>
+<p>框架问题：回答机器学习分类的问题</p>
+</blockquote>
+<blockquote>
+<p>选择性能指标: 均方根误差RESM L2，平均绝对误差MAE L1</p>
+</blockquote>
+<blockquote>
+<p>检查假设</p>
+</blockquote>
+<ul>
 <li><ol start="2">
-<li>summarize and generalize</li>
+<li>获取数据</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>下载数据</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import os </span><br><span class="line">import tarfile</span><br><span class="line">from six.moves import urlib</span><br><span class="line"></span><br><span class="line">DOWNLOAD_ROOT &#x3D; &quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ageron&#x2F;handson-ml&#x2F;master&#x2F;&quot;</span><br><span class="line">HOUSING_PATH &#x3D; &quot;datasets&#x2F;housing&quot;</span><br><span class="line">HOUSING_URL &#x3D; DOWNLOAD_ROOT + HOUSING_PATH + &quot;&#x2F;housing.tgz&quot;</span><br><span class="line"></span><br><span class="line">def fetch_housing_data(housing_url&#x3D;HOUSING_URL,housing_path&#x3D;HOUSING_PATH):</span><br><span class="line">    if not os.path.isdir(housing_path):</span><br><span class="line">        os.makedirs(housing_path)</span><br><span class="line">    tgz_path&#x3D;os.path.join(housing_url,&quot;housing.tgz&quot;)</span><br><span class="line">    urlib.request.urlretrieve(housing_url,tgz_path)</span><br><span class="line">    housing_tgz&#x3D;tarfile.open(tgz_path)</span><br><span class="line">    housing_tgz.extractall(path&#x3D;housing_path)</span><br><span class="line">    housing_tgz.close()</span><br><span class="line"></span><br><span class="line">## 加载数据</span><br><span class="line">import pandas</span><br><span class="line">def load_housing_data(housing_path&#x3D;HOUSING_PATH):</span><br><span class="line">    csv_path &#x3D; os.path.join(housing_path,&quot;housing.csv&quot;)</span><br><span class="line">    return pd.read_csv(csv_path)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<blockquote>
+<p>查看数据</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dataframe.head()</span><br><span class="line">dataframe.info()</span><br><span class="line">dataframe.describe()</span><br><span class="line"></span><br><span class="line">## 注意标签的最值，以及数据的分布。</span><br><span class="line">%matplotlib inline</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">housing.hist(bins&#x3D;50,figsize&#x3D;(20,15))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建数据集</p>
+</blockquote>
+<p>创建抽样数据集的时候考虑分层抽样，而非纯随机抽样。<br>分层抽样需要包含每一层具有足够的数据，不至于重要信息被遗漏。</p>
+<ul>
+<li><ol start="3">
+<li>从数据探索和可视化中获得洞见</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>将地理数据可视化</p>
+</blockquote>
+<p>可视化数据，可以将alpha设置为0.1，从而看密度情况，也可以将简单聚类来看。</p>
+<blockquote>
+<p>寻找相关性</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/22/%E6%95%B0%E5%AD%A6o%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/22/%E6%95%B0%E5%AD%A6o%E6%A8%A1%E5%9E%8B/" itemprop="url">数学o模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-22T12:55:24+08:00">
+                2021-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="二项分布和负二项分布"><a href="#二项分布和负二项分布" class="headerlink" title="二项分布和负二项分布"></a>二项分布和负二项分布</h2><p><img src="https://gitee.com/feilijiang/img/raw/master/img/20210122130554.png" alt=""></p>
+<p><a href="https://www.zhihu.com/question/24253978?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/24253978?sort=created</a></p>
+<h2 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h2><h2 id="负二项广义线性模型"><a href="#负二项广义线性模型" class="headerlink" title="负二项广义线性模型"></a>负二项广义线性模型</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/20/%E4%BF%9D%E5%AE%88%E4%BD%8D%E7%82%B9%E8%AE%A1%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/20/%E4%BF%9D%E5%AE%88%E4%BD%8D%E7%82%B9%E8%AE%A1%E7%AE%97/" itemprop="url">保守位点计算</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-20T21:21:12+08:00">
+                2021-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><ol>
+<li>佳琦推荐PAML，计算ds/da的值，必须同源直系基因，不清楚输出的是针对一个碱基的，还是针对一个基因的值，需要再看看。引用5284</li>
+</ol>
+</li>
+</ul>
+<p>查找保守基因<br><a href="https://www.researchgate.net/post/What_is_the_best_way_to_see_how_conserved_a_gene_is_across_different_species" target="_blank" rel="noopener">https://www.researchgate.net/post/What_is_the_best_way_to_see_how_conserved_a_gene_is_across_different_species</a></p>
+<ul>
+<li><ol start="2">
+<li>phast（冷泉港），可以计算每一个碱基的保守性得分<br>2011年发表（PHAST and RPHAST: phylogenetic analysis with space/time models），引用262</li>
 </ol>
 </li>
 <li><ol start="3">
-<li>keep in mind who your potential readsrs will be.</li>
+<li>GERP 北大的，具体做什么我还是没有很清楚。<br><a href="https://m.ensembl.org/info/genome/compara/conservation_and_constrained.html" target="_blank" rel="noopener">https://m.ensembl.org/info/genome/compara/conservation_and_constrained.html</a></li>
 </ol>
 </li>
+</ul>
+<p>CellOracle 可以不使用对应的ATACseq数据（sc或者bulk），可以使用sci-ATAC的数据（成年小鼠的多个组织）来做为参照。</p>
+<p>scan motif<br><a href="https://www.bbsmax.com/A/pRdBgqL2zn/" target="_blank" rel="noopener">https://www.bbsmax.com/A/pRdBgqL2zn/</a></p>
+<p><a href="https://www.cnblogs.com/leezx/p/11995314.html" target="_blank" rel="noopener">https://www.cnblogs.com/leezx/p/11995314.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/25/%E8%BF%9B%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/12/25/%E8%BF%9B%E5%8C%96/" itemprop="url">进化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-25T09:41:29+08:00">
+                2020-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="二、如何构建系统发生树"><a href="#二、如何构建系统发生树" class="headerlink" title="二、如何构建系统发生树"></a>二、如何构建系统发生树</h4><p>化石<br>形态<br>行为<br>生态<br>地理位置，一般来说地理距离与遗传距离成正比。</p>
+<h4 id="三、极性的确定"><a href="#三、极性的确定" class="headerlink" title="三、极性的确定"></a>三、极性的确定</h4><p>特征的一些状态，谁先谁后，即祖征还是衍征</p>
+<ul>
+<li><ol>
+<li>纵向对比法：化石资料</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>横向对比法：外类群（out-group，比你研究的类群更加古老的类群）分析法<br>假设外类群的特征状态较为古老</li>
+</ol>
+</li>
+</ul>
+<h4 id="四、如何对待不同结果的树"><a href="#四、如何对待不同结果的树" class="headerlink" title="四、如何对待不同结果的树"></a>四、如何对待不同结果的树</h4><p>质疑是驱动科学进步的动力，当发现不一样的结论的时候，应该去寻找证据，证明自己！</p>
+<h4 id="五、如何评价最简约树"><a href="#五、如何评价最简约树" class="headerlink" title="五、如何评价最简约树"></a>五、如何评价最简约树</h4><p>1.用统计学方法检查<br>用的最多的是bootstrap方法，若70%以上的树都支持一种分支，则相对可靠，小于50%不可靠。<br>随机取矩阵，然后做树，计算</p>
+<p>2.用多种方法构建系统发生树：<br>距离法，用聚类算法从数据中获得一棵树<br>简约法（parsimony）：路径越短，可能性越大<br>最大似然法<br>贝斯法</p>
+<p>用一个最优标准（目标函数）来激素那和测量树与数据的配合，具有最优分值的树才是真实树的估计。</p>
+<h4 id="六、有根系统发生树告诉我们什么？"><a href="#六、有根系统发生树告诉我们什么？" class="headerlink" title="六、有根系统发生树告诉我们什么？"></a>六、有根系统发生树告诉我们什么？</h4><ul>
+<li><ol>
+<li>所研究的生物类群是否来源于同一个祖先或是同一个祖先的所有的后代。<br>单系类群：来自于同一祖先的后代<br>并系类群：来自于同一最近祖先的后代，但不是全部后代（一般来说含有一个完整的支）<br>多系类群：来自于不同最近祖先的后代</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>物种形成的顺序</li>
+</ol>
+</li>
+</ul>
+<p>bar：<br>差异程度（距离）<br>分歧时间（时间）</p>
+<ul>
 <li><ol start="4">
-<li>Organize the Discussion in a pyramid structure :</li>
-</ol>
-<blockquote>
-<p>First paragraph:   Answer based on key findings </p>
-<pre><code>Supporting evidence</code></pre></blockquote>
-<blockquote>
-<p>Subsequent paragraphs: Compasions/ contrast to previous studies</p>
-<pre><code>Limitations of your study 
-Unexpected findings
-Hypotheses or models</code></pre></blockquote>
-<blockquote>
-<p>Last paragraph:        Summary</p>
-<pre><code>Significance/Implication</code></pre></blockquote>
-</li>
-<li><ol start="5">
-<li>Organize the topics according to the science or from most to least important in the middle of the discussion</li>
-</ol>
-</li>
-<li><ol start="6">
-<li>Compare and contrast your findings with those of other published results</li>
-</ol>
-</li>
-<li><ol start="7">
-<li>explain any discrepances, unexpected findings, and limitations.</li>
-</ol>
-</li>
-<li><ol start="8">
-<li>Provide generalizations where possible: tone 自信， person and voice 第一人称 we， tense注意finding 和result， continuity 连续</li>
-</ol>
-</li>
-<li><ol start="9">
-<li>Signal the elements of the discussion.</li>
+<li>特征的起源及其生物学意义</li>
 </ol>
 </li>
 </ul>
-<h4 id="Revision"><a href="#Revision" class="headerlink" title="Revision"></a>Revision</h4><ol>
-<li><strong>检查content and content location</strong></li>
-</ol>
-<blockquote>
-<p>步骤1. 罗列观点，以及观点相关的所有内容.</p>
-</blockquote>
-<blockquote>
-<p>步骤2. 文章的逻辑是最重要的。检查先检查paper，然后是paragraphs，然后再是句子。主要根据下图，重点位置检查内容。</p>
-</blockquote>
-<p>文章的整体结构：</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010145658.png" alt=""></p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010145723.png" alt=""></p>
-<ol start="2">
-<li><strong>检查每一部分，每一小部分的逻辑顺序。</strong></li>
-</ol>
-<blockquote>
-<p>回答观点是什么，论据是什么的问题</p>
-</blockquote>
-<ol start="3">
-<li><strong>风格方面的revision</strong></li>
-</ol>
-<blockquote>
-<p>整体上，注重段落和section的过渡是否顺滑，</p>
-</blockquote>
-<blockquote>
-<p>细节上，关注段落结果，句子结果和单词结构。</p>
-</blockquote>
-<blockquote>
-<p>尽可能地去浓缩文章，去除不必要地细节以及重复句子等等。</p>
-</blockquote>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010152003.png" alt=""></p>
-<ol start="4">
-<li><strong>在尽可能完善之后，等待几天再继续revision。书面性地给别人看，并且让别人提供纸质地反馈。</strong></li>
-</ol>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010151932.png" alt=""></p>
-<p>总结<br><img src="https://gitee.com/feilijiang/img/raw/master/20211010152101.png" alt=""></p>
 
           
         
@@ -1437,7 +1255,7 @@ Hypotheses or models</code></pre></blockquote>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/04/python%E5%92%8CR%E8%AF%BB%E5%8F%96%E5%86%99%E5%85%A5csv%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/23/%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -1456,7 +1274,7 @@ Hypotheses or models</code></pre></blockquote>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/04/python%E5%92%8CR%E8%AF%BB%E5%8F%96%E5%86%99%E5%85%A5csv%E6%96%87%E4%BB%B6/" itemprop="url">python和R读取写入csv文件</a></h1>
+                <a class="post-title-link" href="/2020/12/23/%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" itemprop="url">富集分析</a></h1>
         
 
         <div class="post-meta">
@@ -1468,8 +1286,8 @@ Hypotheses or models</code></pre></blockquote>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-04T17:54:28+08:00">
-                2020-11-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-23T15:48:23+08:00">
+                2020-12-23
               </time>
             
 
@@ -1508,202 +1326,15 @@ Hypotheses or models</code></pre></blockquote>
       
         
           
-            <h2 id="python-读取csv文件"><a href="#python-读取csv文件" class="headerlink" title="python 读取csv文件"></a>python 读取csv文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import dask.dataframe</span><br><span class="line">data &#x3D; dask.dataframe.read_csv(“random.csv”)</span><br><span class="line"></span><br><span class="line">import datatable</span><br><span class="line">datatable.fread()</span><br><span class="line"></span><br><span class="line">dd&#x3D;datatable.fread(&quot;&#x2F;media&#x2F;ggj&#x2F;BACKUP21&#x2F;Chordoma&#x2F;NEW&#x2F;S1.3_rmDoublets_matrix.csv&quot;)</span><br><span class="line"></span><br><span class="line">X&#x3D;dd.to_pandas()</span><br><span class="line"></span><br><span class="line">X.index&#x3D;X[&#39;C0&#39;]</span><br><span class="line">X.index&#x3D;X[&#39;C0&#39;].values</span><br><span class="line">X&#x3D;X.drop([&#39;C0&#39;],axis&#x3D;1)</span><br></pre></td></tr></table></figure>
-
-<h2 id="python-写出文件"><a href="#python-写出文件" class="headerlink" title="python 写出文件"></a>python 写出文件</h2><p>使用df2csv，需要输出基因和细胞名字以防万一，细胞名字在用R读取的时候会丢失。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">def df2csv(df,fname,myformats&#x3D;[],sep&#x3D;&#39;,&#39;):</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">    # function is faster than to_csv</span><br><span class="line">    # 7 times faster for numbers if formats are specified, </span><br><span class="line">    # 2 times faster for strings.</span><br><span class="line">    # Note - be careful. It doesn&#39;t add quotes and doesn&#39;t check</span><br><span class="line">    # for quotes or separators inside elements</span><br><span class="line">    # We&#39;ve seen output time going down from 45 min to 6 min </span><br><span class="line">    # on a simple numeric 4-col dataframe with 45 million rows.</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">  if len(df.columns) &lt;&#x3D; 0:</span><br><span class="line">    return</span><br><span class="line">  Nd &#x3D; len(df.columns)</span><br><span class="line">  Nd_1 &#x3D; Nd - 1</span><br><span class="line">  formats &#x3D; myformats[:] # take a copy to modify it</span><br><span class="line">  Nf &#x3D; len(formats)</span><br><span class="line">  # make sure we have formats for all columns</span><br><span class="line">  if Nf &lt; Nd:</span><br><span class="line">    for ii in range(Nf,Nd):</span><br><span class="line">      coltype &#x3D; df[df.columns[ii]].dtype</span><br><span class="line">      ff &#x3D; &#39;%s&#39;</span><br><span class="line">      if coltype &#x3D;&#x3D; np.int64:</span><br><span class="line">        ff &#x3D; &#39;%d&#39;</span><br><span class="line">      elif coltype &#x3D;&#x3D; np.float64:</span><br><span class="line">        ff &#x3D; &#39;%f&#39;</span><br><span class="line">      formats.append(ff)</span><br><span class="line">  fh&#x3D;open(fname,&#39;w&#39;)</span><br><span class="line">  fh.write(&#39;,&#39;.join(df.columns) + &#39;\n&#39;)</span><br><span class="line">  for row in df.itertuples(index&#x3D;False):</span><br><span class="line">    ss &#x3D; &#39;&#39;</span><br><span class="line">    for ii in xrange(Nd):</span><br><span class="line">      ss +&#x3D; formats[ii] % row[ii]</span><br><span class="line">      if ii &lt; Nd_1:</span><br><span class="line">        ss +&#x3D; sep</span><br><span class="line">    fh.write(ss+&#39;\n&#39;)</span><br><span class="line">  fh.close()</span><br><span class="line"></span><br><span class="line">df2csv(dt,&quot;random.csv&quot;)</span><br><span class="line">pd.DataFrame(dt.index).to_csv(&quot;gene.csv&quot;)</span><br><span class="line">pd.DataFrame(dt.column).to_csv(&quot;gene.csv&quot;)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="R-读取csv"><a href="#R-读取csv" class="headerlink" title="R 读取csv"></a>R 读取csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">dt&lt;-fread(&quot;random.csv&quot;)</span><br><span class="line">dt&lt;-data.frame(t(dt)) # 转化为行是基因，列为细胞</span><br><span class="line"></span><br><span class="line">dt&lt;-fread(&quot;S1.3_rmDoublets_matrix.csv&quot;,index &#x3D;&quot;V1&quot;)</span><br><span class="line">dt &lt;- as.data.frame(dt)</span><br><span class="line">dt &lt;- data.frame(dt[,-1],row.names &#x3D; dt$V1)</span><br><span class="line">dt[1:5,1:5]</span><br><span class="line">dt&lt;-data.frame(t(dt)) # 转化为行是基因，列为细胞</span><br><span class="line">dt[1:5,1:5]</span><br></pre></td></tr></table></figure>
-
-<h2 id="R-写出csv"><a href="#R-写出csv" class="headerlink" title="R 写出csv"></a>R 写出csv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library(data.table)</span><br><span class="line">fwrite(df,&quot;random.csv&quot;)</span><br><span class="line"></span><br><span class="line">fwrite(dge,paste0(name,&quot;_rmDoublets_matrix.csv&quot;),quote &#x3D; F,row.names &#x3D; T)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/22/%E6%AF%8F%E6%97%A5%E5%AD%A6%E4%B9%A020200922/" itemprop="url">每日学习20200922</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-22T21:43:34+08:00">
-                2020-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="基因的跨物种序列比对以及进化树构建"><a href="#基因的跨物种序列比对以及进化树构建" class="headerlink" title="基因的跨物种序列比对以及进化树构建"></a>基因的跨物种序列比对以及进化树构建</h2><blockquote>
-<p>工具：muscle，ggtree</p>
-</blockquote>
-<hr>
-<h3 id="1-序列比对工具"><a href="#1-序列比对工具" class="headerlink" title="1. 序列比对工具"></a>1. 序列比对工具</h3><p><strong>Muscle</strong>：本地版和网页版都有，</p>
+            <p><img src="https://gitee.com/feilijiang/img/raw/master/img/20201223155139.png" alt=""></p>
+<p>前景基因： 差异基因<br>背景基因：对于有参的物种来说，一般建议用参考基因组上的全部基因，对于无参的物种来说，选择组装出来的全部unigenes作为背景基因。</p>
 <blockquote>
-<p>本地版：<a href="https://www.drive5.com/muscle/downloads.htm" target="_blank" rel="noopener">https://www.drive5.com/muscle/downloads.htm</a></p>
+<p><a href="https://www.sohu.com/a/393592549_278730" target="_blank" rel="noopener">https://www.sohu.com/a/393592549_278730</a></p>
 </blockquote>
+<p>可以对GO分析的go term 进行汇总并且制图。</p>
 <blockquote>
-<p>网页版： <a href="https://www.ebi.ac.uk/Tools/msa/muscle/" target="_blank" rel="noopener">https://www.ebi.ac.uk/Tools/msa/muscle/</a></p>
+<p><a href="http://revigo.irb.hr/" target="_blank" rel="noopener">http://revigo.irb.hr/</a></p>
 </blockquote>
-<blockquote>
-<p>参考网站： <a href="https://cloud.tencent.com/developer/article/1625177" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1625177</a></p>
-</blockquote>
-<blockquote>
-<p><strong>ClustalW</strong>：速度较慢</p>
-</blockquote>
-<blockquote>
-<p><strong>MAFFT</strong>：氨基酸的多序列比对 </p>
-</blockquote>
-<blockquote>
-<p><strong>lastZ</strong>:基因组比对，适用于染色质序列比对，对于gap友好</p>
-</blockquote>
-<blockquote>
-<p><strong>T-coffee</strong>：整合多种信息，比如结构和实验，功能比较强大</p>
-</blockquote>
-<blockquote>
-<p><strong>PHAST</strong>: 自荐</p>
-</blockquote>
-<h3 id="2-准备序列"><a href="#2-准备序列" class="headerlink" title="2. 准备序列"></a>2. 准备序列</h3><blockquote>
-<p>在ncbi下载数据，注意是基因组还是转录组的fastq数据。</p>
-</blockquote>
-<blockquote>
-<p>如果要导入snapview提前查看序列及其特征，需要额外下载ncbi genebank 格式的文件。</p>
-</blockquote>
-<blockquote>
-<p>各物种的序列将其整合到一个文件中，需要注意抬头的书写，识别的时候会根据空格进行分割，所以特别注意序列名称的特异性。</p>
-</blockquote>
-<h3 id="3-过程："><a href="#3-过程：" class="headerlink" title="3. 过程："></a>3. 过程：</h3><ul>
-<li><ol>
-<li>首先，使用网页版的muscle<br>INPUT: 上述的fasta序列，在output format参数选择中，选择fasta格式和clustalW格式<br>OUTPUT：jalview launch file可以导入到ebi推荐的桌面app中查看 ，alignment格式文件另存为，简单的进化树直接生成。</li>
-</ol>
-<ul>
-<li><ol start="2">
-<li>在R中绘制进化树，与序列对齐，使用ggtree。</li>
-</ol>
-<p>特别注意</p>
-<blockquote>
-<p>muscle默认输出的ph格式是ntk格式，可以用ggtree的read.newick 读取。</p>
-</blockquote>
-<blockquote>
-<p>fasta的抬头需要和ph文件的抬头一致。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><ol start="3">
-<li>如果进化树的序列知显示一部分，则需要对fasta输出文件进行截取。</li>
-</ol>
-</li>
-</ul>
-<p>代码参考：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">library(ggtree)</span><br><span class="line">library(treeio)</span><br><span class="line">setwd(&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;&quot;)</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">tree&lt;-read.newick(&quot;muscle-I20200922-083912-0228-12080513-p1m.ph&quot;)</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">## from muscle website file</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">x&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">## check the taxa names</span><br><span class="line">setdiff(tree$tip.label,labels(x))</span><br><span class="line">setdiff(labels(x),tree$tip.label)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#p3 &lt;- ggtree(tree,) +geom_tiplab(hjust &#x3D; -0.05,size&#x3D;6,fontface&#x3D;&quot;italic&quot;) + xlim(NA,1.2)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">print(p3)</span><br><span class="line">fasta&lt;-&quot;&#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-sequnece&#x2F;species&#x2F;muscle-mRNA-result&#x2F;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename.fasta&quot;</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; fasta,offset&#x3D;0.05,color &#x3D; col)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############# subset nls and lecine zipper sequence</span><br><span class="line">## mannal select the 600-900bp region</span><br><span class="line">fasta&lt;-&quot;aln-fasta-muscle-I20200922-074229-0213-98387757-p1m_rename_part.fasta&quot;</span><br><span class="line">xx&lt;-read.fasta(fasta)</span><br><span class="line"></span><br><span class="line">p3 &lt;- ggtree(tree)+geom_tiplab(hjust &#x3D; -0.05,size&#x3D;3,fontface&#x3D;&quot;italic&quot;)</span><br><span class="line">#print(p3)</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">col&lt;-brewer.pal(5,&quot;Paired&quot;)</span><br><span class="line">msaplot(p3,fasta &#x3D; xx,offset&#x3D;0.05,color &#x3D; col)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="20200815-每日学习"><a href="#20200815-每日学习" class="headerlink" title="20200815 每日学习"></a>20200815 每日学习</h2><p> 文件格式： bigWig, bed, bigBed, bed narrowPeak</p>
-<p><a href="http://genome.ucsc.edu/goldenPath/help/wiggle.html" target="_blank" rel="noopener">http://genome.ucsc.edu/goldenPath/help/wiggle.html</a></p>
-<p>bigWig: </p>
 
           
         
@@ -1752,7 +1383,7 @@ Hypotheses or models</code></pre></blockquote>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%99%BD%E6%9D%BF%E5%AD%A6%E4%B9%A0-shuhuai008/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -1771,7 +1402,7 @@ Hypotheses or models</code></pre></blockquote>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/09/21/%E5%9F%BA%E5%9B%A0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url">基因组中的深度学习</a></h1>
+                <a class="post-title-link" href="/2020/12/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%99%BD%E6%9D%BF%E5%AD%A6%E4%B9%A0-shuhuai008/" itemprop="url">机器学习白板学习-shuhuai008</a></h1>
         
 
         <div class="post-meta">
@@ -1783,8 +1414,8 @@ Hypotheses or models</code></pre></blockquote>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-21T11:40:48+08:00">
-                2020-09-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-03T09:49:54+08:00">
+                2020-12-03
               </time>
             
 
@@ -1823,29 +1454,136 @@ Hypotheses or models</code></pre></blockquote>
       
         
           
-            <p>有监督的学习：使用标签化的数据进行训练，然后推断出输入特征和结果标签之间函数映射关系的机器学习方法，所谓训练就是求解模型参数。</p>
-<p>绝大多数机器学习算法进行模型训练的方式：</p>
-<ul>
-<li><ol>
-<li>分割数据：数据分为三个集合，分别是训练集、验证集和测试集。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>使用训练集数据计算模型参数：初始化随机参数，随机抽取batch代入模型计算，然后和真实结果比较得到函数损失量，反向传播做梯度运算获得损失函数最小化的模型参数，然后再重复，知道损失函数收敛。</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>通过验证集调整模型的超参：超参是人为设定的外部参数，无法通过训练集进行训练，只能进行手动调整。</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>使用独立数据来综合评估最佳模型的性能。</li>
-</ol>
-</li>
-</ul>
-<p>深度学习网络：<br>隐藏层，将上一次的输入数据做转换，将其映射到一个可以对特征值进行线性分离的空间，然后激活函数将其非线性化，再给到后一层作为输入。当中间隐藏层&gt;2,为深度神经网络模型。模型通过非线性的形式来描述真实世界的生物学问题，因为这些问题本身通常是线性模型无法解答的。</p>
-<p>全连接网络层：网络中主要起分类器作用，本质就是将前面各层训练得到的特征空间线性的变换到另一个特征空间。目标预测就是前面各层结果的加权和。</p>
-<p>深度卷积神经网络</p>
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/26/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/26/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5/" itemprop="url">数学概念</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-26T10:42:17+08:00">
+                2020-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="广义线性模型GLM及负二项回归"><a href="#广义线性模型GLM及负二项回归" class="headerlink" title="广义线性模型GLM及负二项回归"></a>广义线性模型GLM及负二项回归</h2><p>参考，小白鱼的生统笔记写的非常棒：</p>
+<p><a href="https://cloud.tencent.com/developer/article/1667175" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1667175</a></p>
+<p>一般线性模型:假设应变量Y呈正态分布</p>
+<blockquote>
+<p>$u_y=\beta_0+\sum_{j+=1}^p\beta_jX_j$</p>
+</blockquote>
+<p>广义线性模型：$g(u_y)$代表了条件均值的函数（指数、泊松、二项式、负二项式等），因此应变量Y服从指数分布的某一种，因此广义线性模型也涵盖了许多非线性模型的存在。</p>
+<blockquote>
+<p>$g(u_y)=\beta_0+\sum_{j+=1}^p\beta_jX_j$</p>
+</blockquote>
+<p>生物数据常见计数型数据，常常偏离正态性，之前常用泊松回归，现在更多被负二项回归取代，可解决过大离差问题，广泛用于计数型因变量的生物统计领域。基于二、三代测序获得的基因表达值通常以reads count值等表示，就是典型的计数型数据。要计算基因表达值这类计数型数值在组间的差异，常规的t检验等方法的统计功效会降低，这时负二项回归就是很好的选择。这也是那些总所周知的基因表达分析R包如edgeR、DESeq2等广为流行的原因，它们的原理就是负二项回归。<br>负二项回归</p>
 
           
         
@@ -1885,7 +1623,7 @@ Hypotheses or models</code></pre></blockquote>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1931,7 +1669,7 @@ Hypotheses or models</code></pre></blockquote>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

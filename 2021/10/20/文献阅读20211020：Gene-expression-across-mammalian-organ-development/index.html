@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="生物信息 记录 分享 博客">
+<meta name="description" content="Organ developmental transcriptomes先整体分析：聚类，差异性的来源。后转到动态变化的基因，研究了动态基因的种类，功能上的约束。转录因子和基因的占比等等。 数据: 群体转录组，6个哺乳动物和1个鸟类(人、恒河猴、小鼠、大鼠、兔、负鼠、鸡)，7个组织，包含：三个胚层的七个器官:脑(前脑&#x2F;大脑)和小脑(后脑&#x2F;小脑)(外胚层);心、肾、卵巢和睾丸(中胚层);肝(内胚层)(图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文献阅读20211020：Gene expression across mammalian organ development">
 <meta property="og:url" content="http://yoursite.com/2021/10/20/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211020%EF%BC%9AGene-expression-across-mammalian-organ-development/index.html">
 <meta property="og:site_name" content="Feilijiang">
-<meta property="og:description" content="生物信息 记录 分享 博客">
+<meta property="og:description" content="Organ developmental transcriptomes先整体分析：聚类，差异性的来源。后转到动态变化的基因，研究了动态基因的种类，功能上的约束。转录因子和基因的占比等等。 数据: 群体转录组，6个哺乳动物和1个鸟类(人、恒河猴、小鼠、大鼠、兔、负鼠、鸡)，7个组织，包含：三个胚层的七个器官:脑(前脑&#x2F;大脑)和小脑(后脑&#x2F;小脑)(外胚层);心、肾、卵巢和睾丸(中胚层);肝(内胚层)(图">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211020100045.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211020102904.png">
 <meta property="article:published_time" content="2021-10-20T01:45:34.000Z">
-<meta property="article:modified_time" content="2021-10-20T01:45:34.211Z">
+<meta property="article:modified_time" content="2021-10-20T05:45:14.269Z">
 <meta property="article:author" content="Feilijiang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/20211020100045.png">
 
 
 
@@ -319,7 +322,19 @@
       
 
       
-        
+        <h6 id="Organ-developmental-transcriptomes"><a href="#Organ-developmental-transcriptomes" class="headerlink" title="Organ developmental transcriptomes"></a>Organ developmental transcriptomes</h6><p>先整体分析：聚类，差异性的来源。后转到动态变化的基因，研究了动态基因的种类，功能上的约束。转录因子和基因的占比等等。</p>
+<p>数据: 群体转录组，6个哺乳动物和1个鸟类(人、恒河猴、小鼠、大鼠、兔、负鼠、鸡)，7个组织，包含：三个胚层的七个器官:脑(前脑/大脑)和小脑(后脑/小脑)(外胚层);心、肾、卵巢和睾丸(中胚层);肝(内胚层)(图1a)。时间序列从早期器官发生到成年，再加上灵长类动物的衰老。</p>
+<p>整体：PCA分析：tissue&gt;stage&gt;species,来自不同器官的最早样本聚在一起，表明有很强的共性.</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211020100045.png" alt=""> </p>
+<p>定义动态变化基因。基因具有功能上更强的约束性，随着时间动态器官数量的增加，约束性更强。增加的限制延伸到剂量变化，而对重复和缺失变异的耐受性较差。在发育过程中，表达的器官特异性DDGs的比例增加，这与器官分化和成熟有关。转录因子则相反，其在发育早期的贡献最大。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211020102904.png" alt=""></p>
+<p>问题：如何定义组织特异性的基因，如何定义动态变化的基因</p>
+<h6 id="Developmental-correspondences-and-heterochrony-协同性和异时性"><a href="#Developmental-correspondences-and-heterochrony-协同性和异时性" class="headerlink" title="Developmental correspondences and heterochrony 协同性和异时性"></a>Developmental correspondences and heterochrony 协同性和异时性</h6><p>卡耐基时期的对应：a dynamic time warping algorithm 。</p>
+<p>在晚熟物种中，强烈的器官成熟发生在出生后，而在早熟物种中，它与出生重叠。</p>
+<p><strong>异时性</strong>是指某发育程序随时间变化而变化。总体而言，除了负鼠心脏早期发育和人、兔卵巢早期发育外，器官特异性的对应与整体的对应是一致的。在哺乳动物性腺发育过程中，异时性是丰富的，这代表了性腺形态发生极端变异性的另一种机制。</p>
+<h6 id="Relationships-between-evolution-and-development-发育和进化的关系"><a href="#Relationships-between-evolution-and-development-发育和进化的关系" class="headerlink" title="Relationships between evolution and development 发育和进化的关系"></a>Relationships between evolution and development 发育和进化的关系</h6><p>沙漏模型<br>我们对单个器官的观察进行了总结，一致发现不同物种之间的转录组相关性随着发育时间的延长而下降。<br>因此，积极选择的增加可能也有助于器官在发育过程中的分子和形态分化。</p>
+<p>综上所述，这些分析表明，物种在发育过程中所观察到的形态和分子差异的增加是由随着发育的推进而减少的功能限制(图3a, b)以及同时增加的阳性选择(图3c)和新基因的添加所驱动的</p>
+<h6 id="Pleiotropy-and-the-evolution-of-development-多向性"><a href="#Pleiotropy-and-the-evolution-of-development-多向性" class="headerlink" title="Pleiotropy and the evolution of development 多向性"></a>Pleiotropy and the evolution of development 多向性</h6><h6 id="Evolution-of-developmental-trajectories-感兴趣"><a href="#Evolution-of-developmental-trajectories-感兴趣" class="headerlink" title="Evolution of developmental trajectories 感兴趣"></a>Evolution of developmental trajectories 感兴趣</h6>
       
     </div>
     
@@ -352,6 +367,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/21/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMapping-single-cell-atlases-throughout/" rel="prev" title="文献阅读：Mapping single-cell atlases throughout">
+                文献阅读：Mapping single-cell atlases throughout <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -403,8 +422,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -419,7 +447,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -463,6 +491,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Organ-developmental-transcriptomes"><span class="nav-number">1.</span> <span class="nav-text">Organ developmental transcriptomes</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Developmental-correspondences-and-heterochrony-协同性和异时性"><span class="nav-number">2.</span> <span class="nav-text">Developmental correspondences and heterochrony 协同性和异时性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Relationships-between-evolution-and-development-发育和进化的关系"><span class="nav-number">3.</span> <span class="nav-text">Relationships between evolution and development 发育和进化的关系</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Pleiotropy-and-the-evolution-of-development-多向性"><span class="nav-number">4.</span> <span class="nav-text">Pleiotropy and the evolution of development 多向性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Evolution-of-developmental-trajectories-感兴趣"><span class="nav-number">5.</span> <span class="nav-text">Evolution of developmental trajectories 感兴趣</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

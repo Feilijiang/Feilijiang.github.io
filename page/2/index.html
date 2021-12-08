@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/04/%E7%A7%91%E7%A0%94%E5%B8%B8%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/25/motif%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -270,7 +270,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/08/04/%E7%A7%91%E7%A0%94%E5%B8%B8%E8%AF%86/" itemprop="url">科研常识</a></h1>
+                <a class="post-title-link" href="/2021/10/25/motif%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/" itemprop="url">motif富集分析</a></h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-04T10:36:44+08:00">
-                2021-08-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-25T09:45:24+08:00">
+                2021-10-25
               </time>
             
 
@@ -322,9 +322,19 @@
       
         
           
-            <h2 id="GWAS-和disease-相关"><a href="#GWAS-和disease-相关" class="headerlink" title="GWAS 和disease 相关"></a>GWAS 和disease 相关</h2><p>大部分疾病的GWAS位点位于基因组的non-coding区域，假设nocoding variants是通过在特异性细胞类型中改变转录调控元件来影响疾病的。<br>关于疾病研究的热点：Whereas innovative approaches to distinguish causal variants 69 from local variants in linkage disequilibrium (LD) using fine mapping (Wakefield, 2009), and to link 70 variants to target genes using co-accessibility of open chromatin regions in single cells (Pliner et al., 2018) or 3-dimensional chromosomal contact-based linkage scores (Nasser et al., 2020),  have made important strides toward the prioritization of causal variants and the prediction of their 73 target genes, the annotation of candidate cis-regulatory elements (cCREs) in discrete human cell 74 types has posed a longstanding technical challenge.</p>
-<p>关键词解析<br>causal variants<br>linkeage disequilibrium<br>fine mapping</p>
-<p>Stromal cells frequently amplified a region containing cell-cycle<br>inhibitors Cdkn2a, Cdkn2b, and Cdkn2c, and frequently lost a<br>region contained Cdk13, which promotes cell cycling, and<br>Mapk9, loss of which promotes apoptosis. These genomic alterations<br>may reflect and contribute to stromal cell function.</p>
+            <h3 id="HOMER-工具"><a href="#HOMER-工具" class="headerlink" title="HOMER 工具"></a>HOMER 工具</h3><h5 id="1-scanMotifGenomeWide-pl"><a href="#1-scanMotifGenomeWide-pl" class="headerlink" title="1. scanMotifGenomeWide.pl"></a>1. scanMotifGenomeWide.pl</h5><blockquote>
+<p>给定motif序列，在指定基因组上检索，并且注释所在位置。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;anaconda3&#x2F;envs&#x2F;py36&#x2F;share&#x2F;homer&#x2F;bin</span><br><span class="line">scanMotifGenomeWide.pl &#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-Genome&#x2F;custom_xbp1.motif   hg38 -bed &gt; xbp1.sites.hg388.bed</span><br><span class="line"></span><br><span class="line">awk &#39;&#123;print $4&quot;\t&quot;$1&quot;\t&quot;$2&quot;\t&quot;$3&quot;\t&quot;$6&#125;&#39; &#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;xbp1&#x2F;xbp1-Genome&#x2F;wholeGenome&#x2F;xbp1.sites.hg388.bed &gt; homer_peaks.tmp</span><br><span class="line"></span><br><span class="line">annotatePeaks.pl homer_peaks.tmp hg38 1&gt; xbp1.sites.hg388.peaksAnno.xls 2&gt; xbp1.sites.hg388.annLog.txt</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="2-findMotifsGenome-pl-findMotifs-pl"><a href="#2-findMotifsGenome-pl-findMotifs-pl" class="headerlink" title="2. findMotifsGenome.pl / findMotifs.pl"></a>2. findMotifsGenome.pl / findMotifs.pl</h5><blockquote>
+<p>There are 3 basic ways to run HOMER - with FASTA files, with Gene Identifiers, or from Genomic Positions.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 生成背景文件</span><br><span class="line">scrambleFasta.pl Erythroid_seq.fa &gt;background.fa</span><br><span class="line">## 输入fasta文件，只能包含一条序列</span><br><span class="line">homer2 denovo -i Erythroid_seq_sample.fa -b background.fa  &gt; .&#x2F;homer&#x2F;example.txt</span><br></pre></td></tr></table></figure>
+
+
+<h6 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h6><p><a href="http://embnet.ccg.unam.mx/rsat/convert-matrix_form.cgi" target="_blank" rel="noopener">http://embnet.ccg.unam.mx/rsat/convert-matrix_form.cgi</a></p>
 
           
         
@@ -373,7 +383,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/09/%E6%9C%89%E8%B6%A3%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/21/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMapping-single-cell-atlases-throughout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -392,7 +402,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/07/09/%E6%9C%89%E8%B6%A3%E7%BD%91%E7%AB%99%E5%90%88%E9%9B%86/" itemprop="url">有趣网站合集</a></h1>
+                <a class="post-title-link" href="/2021/10/21/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMapping-single-cell-atlases-throughout/" itemprop="url">文献阅读：Mapping single-cell atlases throughout</a></h1>
         
 
         <div class="post-meta">
@@ -404,8 +414,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-09T13:29:26+08:00">
-                2021-07-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-21T10:01:22+08:00">
+                2021-10-21
               </time>
             
 
@@ -444,41 +454,405 @@
       
         
           
-            <h2 id="R的community-website"><a href="#R的community-website" class="headerlink" title="R的community website"></a>R的community website</h2><blockquote>
-<p><a href="https://rweekly.org/" target="_blank" rel="noopener">https://rweekly.org/</a> # 可以获取R的一些更新信息<br><a href="https://rladies.org/" target="_blank" rel="noopener">https://rladies.org/</a>  # 使用R的女性工作者网站</p>
+            <h3 id="Cell-type-families-spanning-the-animal-tree-of-life"><a href="#Cell-type-families-spanning-the-animal-tree-of-life" class="headerlink" title="Cell type families spanning the animal tree of life"></a>Cell type families spanning the animal tree of life</h3><p>定义transitivity measure(传递性)<br>没有形成trios的为低可信度，删除。</p>
+<h3 id="python-函数"><a href="#python-函数" class="headerlink" title="python 函数"></a>python 函数</h3><blockquote>
+<p>np.nonzero函数是numpy中用于得到数组array中非零元素的位置（数组索引）的函数</p>
 </blockquote>
-<h2 id="MIT-的公开课网站以及youtube的channel"><a href="#MIT-的公开课网站以及youtube的channel" class="headerlink" title="MIT 的公开课网站以及youtube的channel"></a>MIT 的公开课网站以及youtube的channel</h2><p><a href="https://ocw.mit.edu/courses/new-courses/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/new-courses/</a><br><a href="https://www.youtube.com/channel/UCEBb1b_L6zDS3xTUrIALZOw" target="_blank" rel="noopener">https://www.youtube.com/channel/UCEBb1b_L6zDS3xTUrIALZOw</a><br><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/mathematics/</a></p>
-<h2 id="线代和概率论的学习课程"><a href="#线代和概率论的学习课程" class="headerlink" title="线代和概率论的学习课程"></a>线代和概率论的学习课程</h2><p>线代：18.06<br><a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/</a><br>线代的升级课程：18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning<br><a href="https://ocw.mit.edu/courses/mathematics/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/video-lectures/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/mathematics/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/video-lectures/</a></p>
-<p>概率论：课程6.041SC<br><a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP60A3XMwZ5sep719_nh95qOe" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLUl4u3cNGP60A3XMwZ5sep719_nh95qOe</a><br><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/</a></p>
-<h1 id="Mathematics-for-Computer-Science"><a href="#Mathematics-for-Computer-Science" class="headerlink" title="Mathematics for Computer Science"></a>Mathematics for Computer Science</h1><p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/</a></p>
-<h2 id="线性代数的教程网站，总结的很好。"><a href="#线性代数的教程网站，总结的很好。" class="headerlink" title="线性代数的教程网站，总结的很好。"></a>线性代数的教程网站，总结的很好。</h2><p><a href="https://blog.csdn.net/MyArrow/article/details/53365048" target="_blank" rel="noopener">https://blog.csdn.net/MyArrow/article/details/53365048</a></p>
-<h2 id="小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。"><a href="#小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。" class="headerlink" title="小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。"></a>小鼠发育知识的汇总网站，还有胚胎纵切横切的切片图，有结构的具体标注。</h2><p><a href="https://www.emouseatlas.org/" target="_blank" rel="noopener">https://www.emouseatlas.org/</a></p>
-<h2 id="工具网站"><a href="#工具网站" class="headerlink" title="工具网站"></a>工具网站</h2><p>查看latex公式语法&amp;图片识别公式：<a href="https://www.latexlive.com/##" target="_blank" rel="noopener">https://www.latexlive.com/##</a><br>Mathpix图片识别公式 <a href="https://mathpix.com/ocr" target="_blank" rel="noopener">https://mathpix.com/ocr</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/20/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211020%EF%BC%9AGene-expression-across-mammalian-organ-development/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/20/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211020%EF%BC%9AGene-expression-across-mammalian-organ-development/" itemprop="url">文献阅读20211020：Gene expression across mammalian organ development</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-20T09:45:34+08:00">
+                2021-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="Organ-developmental-transcriptomes"><a href="#Organ-developmental-transcriptomes" class="headerlink" title="Organ developmental transcriptomes"></a>Organ developmental transcriptomes</h6><p>先整体分析：聚类，差异性的来源。后转到动态变化的基因，研究了动态基因的种类，功能上的约束。转录因子和基因的占比等等。</p>
+<p>数据: 群体转录组，6个哺乳动物和1个鸟类(人、恒河猴、小鼠、大鼠、兔、负鼠、鸡)，7个组织，包含：三个胚层的七个器官:脑(前脑/大脑)和小脑(后脑/小脑)(外胚层);心、肾、卵巢和睾丸(中胚层);肝(内胚层)(图1a)。时间序列从早期器官发生到成年，再加上灵长类动物的衰老。</p>
+<p>整体：PCA分析：tissue&gt;stage&gt;species,来自不同器官的最早样本聚在一起，表明有很强的共性.</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211020100045.png" alt=""> </p>
+<p>定义动态变化基因。基因具有功能上更强的约束性，随着时间动态器官数量的增加，约束性更强。增加的限制延伸到剂量变化，而对重复和缺失变异的耐受性较差。在发育过程中，表达的器官特异性DDGs的比例增加，这与器官分化和成熟有关。转录因子则相反，其在发育早期的贡献最大。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211020102904.png" alt=""></p>
+<p>问题：如何定义组织特异性的基因，如何定义动态变化的基因</p>
+<h6 id="Developmental-correspondences-and-heterochrony-协同性和异时性"><a href="#Developmental-correspondences-and-heterochrony-协同性和异时性" class="headerlink" title="Developmental correspondences and heterochrony 协同性和异时性"></a>Developmental correspondences and heterochrony 协同性和异时性</h6><p>卡耐基时期的对应：a dynamic time warping algorithm 。</p>
+<p>在晚熟物种中，强烈的器官成熟发生在出生后，而在早熟物种中，它与出生重叠。</p>
+<p><strong>异时性</strong>是指某发育程序随时间变化而变化。总体而言，除了负鼠心脏早期发育和人、兔卵巢早期发育外，器官特异性的对应与整体的对应是一致的。在哺乳动物性腺发育过程中，异时性是丰富的，这代表了性腺形态发生极端变异性的另一种机制。</p>
+<h6 id="Relationships-between-evolution-and-development-发育和进化的关系"><a href="#Relationships-between-evolution-and-development-发育和进化的关系" class="headerlink" title="Relationships between evolution and development 发育和进化的关系"></a>Relationships between evolution and development 发育和进化的关系</h6><p>沙漏模型<br>我们对单个器官的观察进行了总结，一致发现不同物种之间的转录组相关性随着发育时间的延长而下降。<br>因此，积极选择的增加可能也有助于器官在发育过程中的分子和形态分化。</p>
+<p>综上所述，这些分析表明，物种在发育过程中所观察到的形态和分子差异的增加是由随着发育的推进而减少的功能限制(图3a, b)以及同时增加的阳性选择(图3c)和新基因的添加所驱动的</p>
+<h6 id="Pleiotropy-and-the-evolution-of-development-多向性"><a href="#Pleiotropy-and-the-evolution-of-development-多向性" class="headerlink" title="Pleiotropy and the evolution of development 多向性"></a>Pleiotropy and the evolution of development 多向性</h6><h6 id="Evolution-of-developmental-trajectories-感兴趣"><a href="#Evolution-of-developmental-trajectories-感兴趣" class="headerlink" title="Evolution of developmental trajectories 感兴趣"></a>Evolution of developmental trajectories 感兴趣</h6>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/19/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB20211019/" itemprop="url">文献阅读20211019</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-19T10:42:34+08:00">
+                2021-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="文献：-Genetic-and-epigenetic-coordination-of-cortical-interneuron-development"><a href="#文献：-Genetic-and-epigenetic-coordination-of-cortical-interneuron-development" class="headerlink" title="文献： Genetic and epigenetic coordination of cortical interneuron development"></a>文献： Genetic and epigenetic coordination of cortical interneuron development</h2><p>为了研究细小蛋白(PV)和生长抑素(SST)神经元间同源性的建立，我们首先试图确定它们可以与投射神经元区分的最早时间点，投射神经元是内侧神经节隆起(MGE)的另一种主要衍生物。我们之前的研究表明，在转录水平上，这种区别首次在<strong>有丝分裂后的群体</strong>中被发现，当细胞分化成三个分支，分别对应特定的命运:神经元间前体(分支1)和投射神经元前体(分支2和3)。为了探究是否有更早的染色质特征表明神经元间的一致性，我们比较了胚(E) 13，即MGE神经元间神经发生的高峰期，这些前体群体的<strong>RNA表达和染色质可及性</strong>。</p>
+<h3 id="Transcription-and-chromatin-in-the-MGE"><a href="#Transcription-and-chromatin-in-the-MGE" class="headerlink" title="Transcription and chromatin in the MGE"></a>Transcription and chromatin in the MGE</h3><p><strong>远端元件早于转录因子的表达，晚于细胞分裂的结束。</strong><br>流式方法分选MGE相关细胞，然后分出三个枝丫。<br>早期组细胞：与基因表达相比，发育相关基因的启动子可及性通常提前增加，持续时间更长来识别最早的特征。<br>分裂后期细胞：三个枝丫（两种方法），接下来，我们进行差异表达分析，以确定最早的分支基因在有丝分裂后的细胞中表达。为了识别与这些基因相关的远端染色质元件，我们整理了它们周围的ATAC-seq峰，并训练了一个分类器来识别那些对区分分支身份最有帮助的元素。<br>聚焦到转录因子：基因表达开始之前，远端位点变得可及。<br>远端元件和细胞周期的关系：未能在细胞周期结束前检测到分支1中间神经元的相关远端元件。<br>目前没有证据表明中间神经元在细胞周期结束前从投射细胞分化。</p>
+<h3 id="Remodelling-upon-cortical-settling"><a href="#Remodelling-upon-cortical-settling" class="headerlink" title="Remodelling upon cortical settling"></a>Remodelling upon cortical settling</h3><p>在成人皮质中间神经元中，scRNA-seq和scacc -seq谱密切相关。然而，我们对这些在E13位点的群体的研究显示，在发育中的细胞中，转录和染色质标记之间存在不一致。（使用CCA来说明。）</p>
+<p>通过RNA和ATAC的整合分析，发现RNA和ATAC的overlap程度随发育上升的。<br>然后看ATAC的分析，发现P2前后 jaccard分析成两个模块，同时查看元件的peak，也是P2开始和成年的类似。</p>
+<p>所以中间神经元位于皮层层的发育窗口期是染色质结构发生实质性重塑的时期。</p>
+<p>分析both migratory (E14–E18) and post-settling (P2–P28) timepoints之间的差异motif</p>
+<p>我们的scATAC-seq分析表明，某些转录因子以细胞类型特异性的方式利用，尽管不是选择性表达的。所以使用CUT&amp;RUN sequencing进行验证。</p>
+<h3 id="Divergence-of-gene-regulatory-networks"><a href="#Divergence-of-gene-regulatory-networks" class="headerlink" title="Divergence of gene regulatory networks"></a>Divergence of gene regulatory networks</h3><p>构建了调控网络，从网络的整体性和edge的方面，查看了common和specific的network的变化情况，shared network变少，specific的网络增强。</p>
+<p>这一观察表明染色质景观已经被塑造成这样，细胞类型特异性的基因表达可以被介导，而不需要选择性转录因子表达。（不懂这个结论是如何得到的？）</p>
+<h3 id="Loss-of-Mef2c-perturbs-development"><a href="#Loss-of-Mef2c-perturbs-development" class="headerlink" title="Loss of Mef2c perturbs development"></a>Loss of Mef2c perturbs development</h3><p>检测了敲除前后几个方面的变化。分析还是很有趣的，没有看分析过程。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/18/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ACell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/18/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ACell-Types-of-Origin-in-the-Cell-Free-Transcriptome-in-Human-Health-and-Disease/" itemprop="url">文献阅读：Cell Types of Origin in the Cell Free Transcriptome in Human Health and Disease</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-18T09:30:31+08:00">
+                2021-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.理解什么叫做cell-free RNA<br>目的：确定cell-free RNA的组织来源<br>方法：1.使用TM的整体转录组来做反卷积；2.使用TM的单组织转录组图谱和人类蛋白图谱RNA共识来构建cell type signature scores.<br>Cell-free RNA (cfRNA)</p>
+<p>文章思路:</p>
 <ol>
-<li><p>Artstation.com 艺术作品集网站<br>Behance.com<br>Deviantart.com<br>Dribbble.com<br>Pixiv.com<br>CGSociety.com<br>ZbrushCentral.com</p>
+<li><p>使用图谱反卷积cell-free的RNA发现来自全身各个组织<br>利用支持向量对细胞型特异RNA进行反卷积回归，一种反褶积方法，以前应用于分解大量组织转录组部分细胞类型贡献。利用基因空间定义基矩阵使细胞类型的线性独立性最大化</p>
 </li>
-<li><p>Couchsurfing.com 成年壮汉使用的国内外寄宿旅行（单身女士和未成年慎重）</p>
+<li><p>对于在TM中缺乏的细胞类型，那就是要利用HFP图谱来做一个补充</p>
 </li>
-<li><p>Meetup.com 周末拓展网站</p>
-</li>
-<li><p>Github.com/search?q=awesome 程序员网站+清单</p>
-</li>
-<li><p>Pexels.com ；Pixabay.com； Unsplash.com 免费高清下载网站</p>
-</li>
-<li><p>Colorhunt.com 寻找色彩网站</p>
-</li>
-<li><p>Pinterest.com 图片分享网站</p>
-</li>
-<li><p>中国哲学电子化计划 ctext.org 中国古典元典书籍电子化网站<br>类似网站： zdic.net 汉典</p>
-</li>
-<li><p>Sci-hub.se (域名经常变动) 数以万记论文分享网站</p>
-</li>
-<li><p>aisixiang.com 爱思想 喜欢阅读的朋友</p>
+<li><p>计算了各种细胞类型和病变细胞类型的差异基因</p>
 </li>
 </ol>
-<p>整理一下，喜欢点个赞好到前排去（ps:重新排序）​</p>
-<p>[置顶]对效率工具感兴趣的可以看一看我的往期视频~<br>10个良心网站推荐第一期 ​10个良心网站推荐<br>10个良心网站推荐第二期 av76255938<br>10个良心网站推荐第三期 ​10个良心网站推荐<br>13个逆天网站工具 av70359966<br>10个改变生活的网站 ​10个改变生活的网站<br>本期内容提纲：<br>全网商品比价+历史价格查询manmanbuy.com<br>10万恒星stars.chromeexperiments.com<br>英文智能改错 grammarly.com<br>中文智能改错+翻译 xiezuocat.com<br>160+个软件打包订阅 setapp.com<br>地图搜租房 house-map.cn<br>天空之城 skypixel.com<br>远程文件传输 wenshushu.cn<br>架空世界地图 <a href="http://www.makeamap.cn" target="_blank" rel="noopener">www.makeamap.cn</a> (一定要加www)<br>全球顶级摄影作品 500px.com<br>最优工具搜索大杀器 Slant.co<br>求点个赞就行了~ ​</p>
-
+<p>1.<br>同时检测核内的蛋白质水平和转录组水平，<br>量级：上千的核</p>
+<p>确定组织中核蛋白的基因调控靶点是一项挑战。在这里，我们描述了转录组和表位的核内细胞标度(inCITE-seq)，这是一种可扩展的方法，可在数千个细胞核平行测量<strong>多重核内蛋白水平和转录组</strong>，从而实现转录因子(TF)水平和基因表达的体内联合分析。我们应用inCITE-seq来描述小鼠大脑中神经元活性在药理学诱导下的细胞状态相关变化。将<strong>基因表达建模为定量蛋白水平的线性组合，揭示了每个TF和已知基因靶标的全基因组关联</strong>。<strong>TF相关基因作为不同的模块共同表达，每个模块都反映了TF的阳性或阴性水平</strong>，这表明我们的方法可以解开相对推定的贡献。转录因子增加基因表达，增加推断基因网络的可解释性。inCITE-seq可以阐明核蛋白组合如何在天然组织环境中塑造基因表达，直接应用于固体或冷冻组织和临床。</p>
+<p>核内检测的方式不受到细胞消化的影响。<br>使用dna偶联抗体在单细胞分辨率下联合测量表面蛋白水平和RNA的方法，如通过测序对转录组和表位进行细胞索引(CITE-seq)13和RNA表达及蛋白测序分析<br>(REAP-seq)14，最近适应细胞质蛋白靶点15 -19，已应用于循环免疫细胞20,21。然而，这些方法不太适合非免疫细胞和固体组织，因为解离破坏了细胞膜的完整性。</p>
+<p>由于无所不在的非特异性结合，dna偶联抗体在细胞核内具有“粘性”。</p>
+<p>这些研究表明，由于反应的异步性和动态穿梭，核定位在一起刺激的单个细胞之间可能会有所不同</p>
+<h3 id="inCITE-seq-detects-nuclear-translocation-of-a-TF-induced-by-an-extracellular-signal"><a href="#inCITE-seq-detects-nuclear-translocation-of-a-TF-induced-by-an-extracellular-signal" class="headerlink" title="inCITE-seq detects nuclear translocation of a TF induced by an extracellular signal."></a>inCITE-seq detects nuclear translocation of a TF induced by an extracellular signal.</h3><h3 id="Relating-genome-wide-expression-to-p65-protein-levels"><a href="#Relating-genome-wide-expression-to-p65-protein-levels" class="headerlink" title="Relating genome-wide expression to p65 protein levels."></a>Relating genome-wide expression to p65 protein levels.</h3><h3 id="inCITE-seq-profiling-of-the-mouse-brain-after-in-vivo-induction-of-seizure"><a href="#inCITE-seq-profiling-of-the-mouse-brain-after-in-vivo-induction-of-seizure" class="headerlink" title="inCITE-seq profiling of the mouse brain after in vivo induction of seizure"></a>inCITE-seq profiling of the mouse brain after in vivo induction of seizure</h3><h3 id="RNA-profiles-from-inCITE-seq-reveal-key-cell-subsets-of-the-mouse-hippocampus"><a href="#RNA-profiles-from-inCITE-seq-reveal-key-cell-subsets-of-the-mouse-hippocampus" class="headerlink" title="RNA profiles from inCITE-seq reveal key cell subsets of the mouse hippocampus."></a>RNA profiles from inCITE-seq reveal key cell subsets of the mouse hippocampus.</h3><h3 id="Protein-levels-match-cell-type-specific-and-condition-specific-expression-in-RNA-based-clusters"><a href="#Protein-levels-match-cell-type-specific-and-condition-specific-expression-in-RNA-based-clusters" class="headerlink" title="Protein levels match cell type-specific and condition-specific expression in RNA-based clusters."></a>Protein levels match cell type-specific and condition-specific expression in RNA-based clusters.</h3><h3 id="Relating-protein-and-mRNA-levels-of-inCITE-target-genes"><a href="#Relating-protein-and-mRNA-levels-of-inCITE-target-genes" class="headerlink" title="Relating protein and mRNA levels of inCITE target genes."></a>Relating protein and mRNA levels of inCITE target genes.</h3><h3 id="Modeling-genome-wide-association-with-each-protein-recovers-known-TF-targets"><a href="#Modeling-genome-wide-association-with-each-protein-recovers-known-TF-targets" class="headerlink" title="Modeling genome-wide association with each protein recovers known TF targets."></a>Modeling genome-wide association with each protein recovers known TF targets.</h3><h3 id="TF-associated-genes-are-coexpressed-as-distinct-modules-in-excitatory-neurons"><a href="#TF-associated-genes-are-coexpressed-as-distinct-modules-in-excitatory-neurons" class="headerlink" title="TF-associated genes are coexpressed as distinct modules in excitatory neurons."></a>TF-associated genes are coexpressed as distinct modules in excitatory neurons.</h3><h3 id="Inferred-TF-impact-on-genes-depends-on-treatment-context-and-cell-type"><a href="#Inferred-TF-impact-on-genes-depends-on-treatment-context-and-cell-type" class="headerlink" title="Inferred TF impact on genes depends on treatment context and cell type."></a>Inferred TF impact on genes depends on treatment context and cell type.</h3>
           
         
       
@@ -526,7 +900,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/09/advanced-R/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALineage-tracing-meets-single-cell-omics-opportunities-and-challenges/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -545,7 +919,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/07/09/advanced-R/" itemprop="url">advanced R</a></h1>
+                <a class="post-title-link" href="/2021/10/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALineage-tracing-meets-single-cell-omics-opportunities-and-challenges/" itemprop="url">文献阅读：Lineage tracing meets single- cell omics: opportunities and challenges</a></h1>
         
 
         <div class="post-meta">
@@ -557,8 +931,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-09T13:15:27+08:00">
-                2021-07-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-10T15:25:31+08:00">
+                2021-10-10
               </time>
             
 
@@ -597,39 +971,43 @@
       
         
           
-            <h3 id="names-and-values"><a href="#names-and-values" class="headerlink" title="names and values"></a>names and values</h3><p>“&lt;-“<br>a&lt;-c(1,2,3) # 建立一个value，并将name a指向它。</p>
-<h4 id="2-2-1-Non-syntactic-names"><a href="#2-2-1-Non-syntactic-names" class="headerlink" title="2.2.1 Non-syntactic names"></a>2.2.1 Non-syntactic names</h4><h3 id="2-3-Copy-on-modify"><a href="#2-3-Copy-on-modify" class="headerlink" title="2.3 Copy-on-modify"></a>2.3 Copy-on-modify</h3><h4 id="2-3-1-tracemem"><a href="#2-3-1-tracemem" class="headerlink" title="2.3.1 tracemem()"></a>2.3.1 tracemem()</h4><p>可以追踪vectors是否被复制，在循环的时候应该很好用。</p>
-<h4 id="2-3-2-Function-calls"><a href="#2-3-2-Function-calls" class="headerlink" title="2.3.2 Function calls"></a>2.3.2 Function calls</h4><p>copy与否，取决于运算前后是否改变自变量。</p>
-<h4 id="2-3-3-Lists"><a href="#2-3-3-Lists" class="headerlink" title="2.3.3 Lists"></a>2.3.3 Lists</h4><p>list只是存储索引与object的元件，改变值，局部copy</p>
-<h4 id="2-3-4-Data-frames"><a href="#2-3-4-Data-frames" class="headerlink" title="2.3.4 Data frames"></a>2.3.4 Data frames</h4><p>列：改变列值，只是部分列改变，局部copy<br>行：改变所有列值，全部copy</p>
-<h4 id="2-3-5-Character-vectors"><a href="#2-3-5-Character-vectors" class="headerlink" title="2.3.5 Character vectors"></a>2.3.5 Character vectors</h4><p>建立一个character pool，然后指向特定值。如果两个值一样，则存储位置一样。</p>
-<h3 id="2-4-Object-size"><a href="#2-4-Object-size" class="headerlink" title="2.4 Object size"></a>2.4 Object size</h3><p>使用 lobstr::obj_size() 来查看使用的memory，只看names<br>object_size也可以查看内存，values+ names</p>
-<blockquote>
-<p>list 由于只是存储reference to values, 所以大小会比预期小。</p>
-</blockquote>
-<blockquote>
-<p>对于1：10， 只存储首尾两个元素。</p>
-</blockquote>
-<h3 id="2-5-Modify-in-place"><a href="#2-5-Modify-in-place" class="headerlink" title="2.5 Modify-in-place"></a>2.5 Modify-in-place</h3><p>循环尽量使用list，避免使用dataframe，会导致每一次新复制都会复制values。</p>
-<h4 id="2-5-2-Environments"><a href="#2-5-2-Environments" class="headerlink" title="2.5.2 Environments"></a>2.5.2 Environments</h4><h3 id="2-6-Unbinding-and-the-garbage-collector"><a href="#2-6-Unbinding-and-the-garbage-collector" class="headerlink" title="2.6 Unbinding and the garbage collector"></a>2.6 Unbinding and the garbage collector</h3><p>使用gc()删除内存碎片，释放内存。</p>
-<h2 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h2><h3 id="3-2-Atomic-vectors"><a href="#3-2-Atomic-vectors" class="headerlink" title="3.2 Atomic vectors"></a>3.2 Atomic vectors</h3><p>原子向量：逻辑向量、整数向量、双精度向量和字符向量。</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/20210713102643.png" alt=""></p>
-<h4 id="3-2-1-Scalars-标量"><a href="#3-2-1-Scalars-标量" class="headerlink" title="3.2.1 Scalars 标量"></a>3.2.1 Scalars 标量</h4><h4 id="3-2-2-Making-longer-vectors-with-c"><a href="#3-2-2-Making-longer-vectors-with-c" class="headerlink" title="3.2.2 Making longer vectors with c()"></a>3.2.2 Making longer vectors with c()</h4><h4 id="3-2-3-Missing-values"><a href="#3-2-3-Missing-values" class="headerlink" title="3.2.3 Missing values"></a>3.2.3 Missing values</h4><p>使用is.na()来代替==做判断</p>
-<h4 id="3-2-4-Testing-and-coercion"><a href="#3-2-4-Testing-and-coercion" class="headerlink" title="3.2.4 Testing and coercion"></a>3.2.4 Testing and coercion</h4><blockquote>
-<p>检验手段：is.logical(), is.integer(), is.double(), and is.character()</p>
-</blockquote>
-<blockquote>
-<p>强迫顺序：character → double → integer → logical.</p>
-</blockquote>
-<p>大部分的数学运算会强制为numeric</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(FALSE, FALSE, TRUE)</span><br><span class="line">as.numeric(x)</span><br><span class="line">#&gt; [1] 0 0 1</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="3-3-Attributes"><a href="#3-3-Attributes" class="headerlink" title="3.3 Attributes"></a>3.3 Attributes</h3><h4 id="3-3-1-Getting-and-setting"><a href="#3-3-1-Getting-and-setting" class="headerlink" title="3.3.1 Getting and setting"></a>3.3.1 Getting and setting</h4><p>attr(): 单独设置meta<br>attributes() ：批量查看meta<br>structure()：批量设置meta</p>
-<h4 id="3-3-2-Names"><a href="#3-3-2-Names" class="headerlink" title="3.3.2 Names"></a>3.3.2 Names</h4><p>names(x) &lt;- c(“a”, “b”, “c”)<br>setNames(1:3, c(“a”, “b”, “c”))</p>
-<h3 id="3-4-S3-atomic-vectors"><a href="#3-4-S3-atomic-vectors" class="headerlink" title="3.4 S3 atomic vectors"></a>3.4 S3 atomic vectors</h3><h4 id="3-4-1-Factors"><a href="#3-4-1-Factors" class="headerlink" title="3.4.1 Factors"></a>3.4.1 Factors</h4><p><img src="https://gitee.com/feilijiang/img/raw/master/20210713121511.png" alt=""></p>
-<p>factor是一个integer变量，注意字符型操作的不适用</p>
-<h4 id="3-4-2-Dates"><a href="#3-4-2-Dates" class="headerlink" title="3.4.2 Dates"></a>3.4.2 Dates</h4><h4 id="3-4-3-Date-times"><a href="#3-4-3-Date-times" class="headerlink" title="3.4.3 Date-times"></a>3.4.3 Date-times</h4>
+            <h2 id="文献阅读Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges"><a href="#文献阅读Lineage-tracing-meets-single-cell-omics-opportunities-and-challenges" class="headerlink" title="文献阅读Lineage tracing meets single- cell omics: opportunities and challenges"></a>文献阅读Lineage tracing meets single- cell omics: opportunities and challenges</h2><p>以反映它们潜在的高维性质和它们的常规表示为低维欧几里得曲面或图<br>state manifolds； to reflect both their underlying high-dimensional nature and their routine representation as low- dimensional Euclidean surfaces or graphs.</p>
+<p>在细胞分化过程中，状态流形可以提供高分辨率的细胞轨迹描述。</p>
+<h3 id="1-Inferring-cell-histories-from-state-manifolds"><a href="#1-Inferring-cell-histories-from-state-manifolds" class="headerlink" title="1. Inferring cell histories from state manifolds"></a>1. Inferring cell histories from state manifolds</h3><h4 id="1-Defining-cell-states"><a href="#1-Defining-cell-states" class="headerlink" title="1. Defining cell states"></a>1. Defining cell states</h4><p>定义细胞类型的信息越来约丰富。</p>
+<h4 id="2-Mapping-state-manifolds"><a href="#2-Mapping-state-manifolds" class="headerlink" title="2. Mapping state manifolds"></a>2. Mapping state manifolds</h4><p>基于图的分析是有用的，因为它们转换了一组孤立的测量值(单细胞转录组)变成一个连接的结构(图表)，然后可以使用一套丰富的已有的数学方法进行分析。<br>任何2D和3D可视化都只能作为表示更强大的数据分析形式的结果的辅助工具。<br>另外一类方法根据manifold来推测出细胞的动力学和分化等级。<br>为了改进这些在动态推断方面的努力，最近的一些研究已经成功地推断了状态的瞬时动态，其基础是新生mRNA丰度的测量、剪接与未剪接mRNA的比率(例如，RNA速度)、蛋白质翻译或由代谢物标记的mRNA周转率。还有时序性的信息。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200136.png" alt=""></p>
+<h4 id="3-Limitations-of-state-manifolds-for-dynamic-inference"><a href="#3-Limitations-of-state-manifolds-for-dynamic-inference" class="headerlink" title="3. Limitations of state manifolds for dynamic inference"></a>3. Limitations of state manifolds for dynamic inference</h4><p>在这方面，树状细胞状态层次结构与真正的谱系分析得到的细胞状态层次结构形成了鲜明的对比。在一个状态流形上，分支点可能是假设的:细胞分裂可能发生在一个分支点上，也可能不发生在一个分支点上，来自每个分支的两种细胞都可能沿着流形的一个分支前进，而不是探索所有的分支。相反，在谱系树中，每个分支点都严格对应于一个分支事件。状态轨迹甚至不需要是严格的树状结构，而谱系层次结构总是严格的分支树。因此，尽管种群水平结构可以追踪单个细胞经历的分子状态的动态序列(图2a,b)，但一些特定的原因可能会模糊或误导研究人员对潜在的动态和/或命运关系的理解。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200220.png" alt=""></p>
+<h3 id="2-Inferring-cell-histories-in-lineage-tracing"><a href="#2-Inferring-cell-histories-in-lineage-tracing" class="headerlink" title="2. Inferring cell histories in lineage tracing"></a>2. Inferring cell histories in lineage tracing</h3><h4 id="1-Lineage-tracing-paradigms"><a href="#1-Lineage-tracing-paradigms" class="headerlink" title="1. Lineage-tracing paradigms"></a>1. Lineage-tracing paradigms</h4><h4 id="2-Clonal-versus-population-tracing"><a href="#2-Clonal-versus-population-tracing" class="headerlink" title="2. Clonal versus population tracing"></a>2. Clonal versus population tracing</h4><h4 id="3-Imaging-based-methods-for-lineage-tracing"><a href="#3-Imaging-based-methods-for-lineage-tracing" class="headerlink" title="3. Imaging-based methods for lineage tracing"></a>3. Imaging-based methods for lineage tracing</h4><h4 id="4-Lineage-tracing-by-barcode-sequencing"><a href="#4-Lineage-tracing-by-barcode-sequencing" class="headerlink" title="4. Lineage tracing by barcode-sequencing"></a>4. Lineage tracing by barcode-sequencing</h4><h4 id="5-Performance-trade-offs-and-further-innovations"><a href="#5-Performance-trade-offs-and-further-innovations" class="headerlink" title="5. Performance, trade-offs and further innovations"></a>5. Performance, trade-offs and further innovations</h4><h4 id="6-Prospective-lineage-tracing-on-state-manifolds"><a href="#6-Prospective-lineage-tracing-on-state-manifolds" class="headerlink" title="6. Prospective lineage tracing on state manifolds"></a>6. Prospective lineage tracing on state manifolds</h4><h3 id="3-Applications-of-lineage-tracing-on-state-manifolds"><a href="#3-Applications-of-lineage-tracing-on-state-manifolds" class="headerlink" title="3. Applications of lineage tracing on state manifolds"></a>3. Applications of lineage tracing on state manifolds</h3><h4 id="1-Lineage-phylogenies-on-state-manifolds"><a href="#1-Lineage-phylogenies-on-state-manifolds" class="headerlink" title="1. Lineage phylogenies on state manifolds"></a>1. Lineage phylogenies on state manifolds</h4><h4 id="2-Clonal-resampling-on-a-state-manifold"><a href="#2-Clonal-resampling-on-a-state-manifold" class="headerlink" title="2. Clonal resampling on a state manifold"></a>2. Clonal resampling on a state manifold</h4><h4 id="3-Computational-tools-for-state–lineage-mapping"><a href="#3-Computational-tools-for-state–lineage-mapping" class="headerlink" title="3. Computational tools for state–lineage mapping"></a>3. Computational tools for state–lineage mapping</h4><h4 id="4-Pitfalls-in-lineage-barcoding-on-a-state-manifold"><a href="#4-Pitfalls-in-lineage-barcoding-on-a-state-manifold" class="headerlink" title="4. Pitfalls in lineage barcoding on a state manifold"></a>4. Pitfalls in lineage barcoding on a state manifold</h4><p>阅读重点</p>
+<h3 id="4-Emerging-concepts"><a href="#4-Emerging-concepts" class="headerlink" title="4. Emerging concepts"></a>4. Emerging concepts</h3><h4 id="1-State-manifolds-as-models"><a href="#1-State-manifolds-as-models" class="headerlink" title="1. State manifolds as models"></a>1. State manifolds as models</h4><p>状态轨迹和谱系编纂了细胞发育历史中两个不同但互补的方面，每一种类型的分析都可以为个体发生和基因调控提供见解。在这篇综述中，我们概述了状态流形的一些重要局限性，并描述了将真实谱系测量与单细胞组学相结合的动机和工具。从这些方法的早期应用，我们提出了三个新兴的概念:<strong>第一，状态流形作为模型;第二，细胞状态分岔与细胞分裂的耦合模式;第三，树描述细胞分化层次的有效性</strong></p>
+<p>在这篇综述中，我们提出了lineage和state representations之间可能出现的矛盾(图2)并讨论了如何利用克隆信息来阐明这些发育关系。这些矛盾证明了<strong>状态流形(state trajectory)不是绝对可靠的。相反，它们是数据驱动的模型，遵循特定的假设集和数据处理标准。</strong></p>
+<p>目前，大多数状态流形是由原始状态测量中最主要的covariation以无偏方式构造的。在这种做法下，scRNA-seq manifold的定义特征将反映<strong>健壮的、可变的转录特征，因此不能保证强调细胞命运的决定</strong>，这可能与命运决定发生时<strong>低水平表达的调控基因相关</strong>。</p>
+<p>到目前为止，状态流形的构建都没有包含来自克隆数据的信息。然而，状态和谱系关系不需要保持冲突:一旦谱系的信息被建立，它可以用来改进我们表示状态流形的方法。例如，谱系信息的直接和简单的使用是在鉴定偏向谱系的祖细胞状态的分子标记。事实上，新的命运标记已经从结合的谱系和状态系统发育实验和克隆-重采样研究中推断出来。</p>
+<p>谱系信息也可以用来训练构建状态流形的算法，以避免如图2所示的错误。这样的行为需要一个概念上的转变，<strong>即把state manifolds作为一组特定的高维基因表达特征的模型，而不是作为覆盖细胞分化轨迹的绝对或普遍参考。</strong></p>
+<h4 id="2-Variability-of-individual-lineage-trees"><a href="#2-Variability-of-individual-lineage-trees" class="headerlink" title="2. Variability of individual lineage trees"></a>2. Variability of individual lineage trees</h4><p>state manifolds和mitotic lineage trees都可以定义层次结构。这两个等级之间关系的本质是什么?提出两种可能的关系：一种是<strong>mitotic coupling 和population coupling</strong>. mitotic coupling 是确定的，当细胞state manifolds的分支点与细胞分裂事件紧密对应时，就会发生有丝分裂偶联(图6a，左)。海鞘87和秀丽隐杆88的确定谱系树就是很好的例子。<br>相比之下，population coupling将发生在克隆和分裂历史不影响任何单个细胞的前进或其命运选择。相反，细胞行为是不确定的，可以用一组<strong>沿特定轨迹移动的转移概率</strong>来描述。<br>因此，种群耦合可能导致高度可变的谱系树，类似于那些随机分支过程，不会在生物体内部或生物体之间精确复制。在这种情况下，对命运等级结构进行高分辨率重建的努力可能无法产生一个单一的具有代表性的谱系发展树，但<strong>状态-谱系耦合在多个观察到的谱系树上的分布应该被证明具有很高的信息量</strong>。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211010200928.png" alt=""></p>
+<p>分化的层次的结构是什么?<br>这个问题的答案首先取决于一个人考虑的是state manifolds和mitotic lineage trees。</p>
+<p>在没有细胞融合的情况下，谱系通常可以看作是一个分支树，每个分支点代表一个有丝分裂事件。状态流形可以是树状的，但根据系统的生物学特性，它们不一定是树状的。因此，状态流形代表了发现细胞分化过程的结构(即拓扑)的机会。当状态流形与谱系测量相结合时，人们就有机会独立地拒绝或确认关于这些结构的特定假设。正如我们上面所描述的，几个最近的研究已经证明了<strong>状态收敛（state convergence）</strong>的证据，在状态流形上，两个或更多不同的命运轨迹收敛到相同的最终位置。因此，这种端点状态由起源不同的细胞组成，这些细胞可能保留也可能不保留不同的功能或电位。我们回顾了免疫细胞、神经嵴谱系和内胚层群体状态收敛的例子。相反的情况，<strong>状态分化（state divergence）</strong>也被观察到，有丝分裂的姐妹细胞(谱系高度相关)迅速进入不连续状态。state manifolds可以发生作为不对称细胞分裂的结果，特别是在分裂的细胞质组分只传递到两个有丝分裂子细胞之一的情况下。这种情况下可能会产生<strong>缺乏中间状态的状态转换</strong>，因此在任何采样深度上都不会以分岔事件的形式出现在状态流形上。<strong>这两种情况——收敛和发散——将导致状态流形偏离严格的树状结构</strong>，并可能由描述良好的生物情况产生。</p>
+<p>谱系和流形的关系，强调谱系的重要性，以及流形结构的局限性，需要结合两者来看。</p>
+<h2 id="文献阅读-Statistical-mechanics-meets-single-cell-biology"><a href="#文献阅读-Statistical-mechanics-meets-single-cell-biology" class="headerlink" title="文献阅读 Statistical mechanics meets single-cell biology"></a>文献阅读 Statistical mechanics meets single-cell biology</h2><p>疑问：waddington state manifolds的概念及应用</p>
+<p>统计力学来帮助我们从单细胞特性(微观状态)的角度来加深对组织功能(宏观状态)的理解。</p>
+<p>沃尔顿图谱的三个重要基本概念：</p>
+<ol>
+<li>首先,有机体的细胞可以杰出的发展可能产生广泛的不同数量的其他细胞,表明分化效力层次的存在,传统上被描绘为高度的景观,这暗示着一个势能函数的存在。</li>
+<li>第二，细胞优先占据特定的稳定区域，Waddington称之为“局部吸引子”，与观察到的细胞类型相对应。</li>
+<li>景观是“渠化”成特定的吸引盆地，定义了连接吸引子状态彼此的低能量路径。</li>
+</ol>
+<h3 id="GRN-based-Waddington-landscapes"><a href="#GRN-based-Waddington-landscapes" class="headerlink" title="GRN- based Waddington landscapes"></a>GRN- based Waddington landscapes</h3><p>从scRNA- seq数据建模的状态流形对于深入理解细胞生物学和实现分子和再生医学的目标是至关重要的。它需要对三个主要的景观特征进行推断:代表功能相关细胞类型的局部吸引子状态，它们在歧管中的海拔高度，影响它们的分化潜能，以及通常称为的低能量路径<br>“沿袭轨迹”，将这些吸引子状态连接在一起</p>
+<p>为什么随机过程是单细胞动力学的恰当描述，主要有两个原因。</p>
+<ol>
+<li>首先，在同一细胞中，在流形的的不同位置测量转录组是不可能的，因为测量的行为本身就会破坏细胞。</li>
+<li>其次，细胞内的分子经历了真正的随机变化，而不是连续变化28,31,45，这意味着在最基本的层面上，单细胞动力学是概率的。然而，值得注意的是，确定性连续型单细胞动力学可能仍然来自潜在的概率过程</li>
+</ol>
+<h3 id="State-manifolds-from-scRNA-seq-data"><a href="#State-manifolds-from-scRNA-seq-data" class="headerlink" title="State manifolds from scRNA-seq data"></a>State manifolds from scRNA-seq data</h3><h3 id="Solving-the-drift–diffusion-equations-inference-of-the-state-manifold"><a href="#Solving-the-drift–diffusion-equations-inference-of-the-state-manifold" class="headerlink" title="Solving the drift–diffusion equations: inference of the state manifold."></a>Solving the drift–diffusion equations: inference of the state manifold.</h3><h3 id="Modelling-cell-types-as-local-attractors"><a href="#Modelling-cell-types-as-local-attractors" class="headerlink" title="Modelling cell types as local attractors."></a>Modelling cell types as local attractors.</h3><h3 id="Bottom-up-modelling-of-potency"><a href="#Bottom-up-modelling-of-potency" class="headerlink" title="Bottom-up modelling of potency"></a>Bottom-up modelling of potency</h3><p>细胞多能性的预测有两种方法，一种是bottom-up，只从细胞测量数据出来，推算细胞潜能，可能受到数据噪音的影响，另一种是up-bottom,测量的是相对潜能，需要进行类比。</p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211201162603.png" alt=""></p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211201162758.png" alt=""></p>
+<p>细胞多能性相关参数<br>包括染色质的开放程度，蛋白质-蛋白质相互作用(PPIs)的频率和hubness和表达基因的总数量(基因计数)</p>
+<h3 id="Modelling-cell-fate-transitions"><a href="#Modelling-cell-fate-transitions" class="headerlink" title="Modelling cell-fate transitions"></a>Modelling cell-fate transitions</h3><h3 id="Future-outlook-and-perspectives"><a href="#Future-outlook-and-perspectives" class="headerlink" title="Future outlook and perspectives"></a>Future outlook and perspectives</h3>
           
         
       
@@ -677,7 +1055,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/03/network-parameters/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/02/%E5%90%8C%E6%BA%90%E5%9F%BA%E5%9B%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -696,7 +1074,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/06/03/network-parameters/" itemprop="url">network_parameters</a></h1>
+                <a class="post-title-link" href="/2021/10/02/%E5%90%8C%E6%BA%90%E5%9F%BA%E5%9B%A0/" itemprop="url">同源基因</a></h1>
         
 
         <div class="post-meta">
@@ -708,8 +1086,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-03T12:44:31+08:00">
-                2021-06-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-02T13:18:57+08:00">
+                2021-10-02
               </time>
             
 
@@ -748,7 +1126,13 @@
       
         
           
-            
+            <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="TransDecoder-fa"><a href="#TransDecoder-fa" class="headerlink" title="TransDecoder:fa"></a>TransDecoder:fa</h2><h3 id="作用：从FASTA序列预测编码区（cds）"><a href="#作用：从FASTA序列预测编码区（cds）" class="headerlink" title="作用：从FASTA序列预测编码区（cds）"></a>作用：从FASTA序列预测编码区（cds）</h3><h3 id="使用教程：-https-github-com-TransDecoder-TransDecoder-wiki"><a href="#使用教程：-https-github-com-TransDecoder-TransDecoder-wiki" class="headerlink" title="使用教程： https://github.com/TransDecoder/TransDecoder/wiki"></a>使用教程： <a href="https://github.com/TransDecoder/TransDecoder/wiki" target="_blank" rel="noopener">https://github.com/TransDecoder/TransDecoder/wiki</a></h3><h3 id="参考教程；-https-www-bioinfo-scrounger-com-archives-106"><a href="#参考教程；-https-www-bioinfo-scrounger-com-archives-106" class="headerlink" title="参考教程； https://www.bioinfo-scrounger.com/archives/106/"></a>参考教程； <a href="https://www.bioinfo-scrounger.com/archives/106/" target="_blank" rel="noopener">https://www.bioinfo-scrounger.com/archives/106/</a></h3><h3 id="输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件"><a href="#输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件" class="headerlink" title="输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件"></a>输入：transriptome的fasta文件，输出cds预测文件包含fasta和pep文件</h3><p>输入：<br>输出：cds的fasta文件<br><img src="https://gitee.com/feilijiang/img/raw/master/20211002133627.png" alt=""></p>
+<p>cds的pep文件：<br><img src="https://gitee.com/feilijiang/img/raw/master/20211002133530.png" alt=""></p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## transfer transcriptome to coding sequence using transdecoder</span><br><span class="line">TransDecoder.LongOrfs -t dd_Smed_v6.pcf.contigs.fasta</span><br><span class="line">TransDecoder.Predict -t dd_Smed_v6.pcf.contigs.fasta</span><br></pre></td></tr></table></figure>
+
+
+<p>orthoFinder</p>
+<h3 id="同源基因预测"><a href="#同源基因预测" class="headerlink" title="同源基因预测"></a>同源基因预测</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;Documents&#x2F;data&#x2F;fei&#x2F;Rpackage&#x2F;OrthoFinder_source&#x2F;orthofinder.py -f &#x2F;media&#x2F;ggj&#x2F;NEW&#x2F;DifferentiationForce&#x2F;orth&#x2F;human_smed&#x2F;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -796,7 +1180,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/20/%E5%A4%9A%E7%89%A9%E7%A7%8Did%E8%BD%AC%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/27/%E6%8A%A5%E9%94%99RuntimeError-Could-not-find-a-llvm-config-binary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -815,7 +1199,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/05/20/%E5%A4%9A%E7%89%A9%E7%A7%8Did%E8%BD%AC%E5%8C%96/" itemprop="url">多物种id转化</a></h1>
+                <a class="post-title-link" href="/2021/09/27/%E6%8A%A5%E9%94%99RuntimeError-Could-not-find-a-llvm-config-binary/" itemprop="url">报错RuntimeError: Could not find a llvm config binary</a></h1>
         
 
         <div class="post-meta">
@@ -827,8 +1211,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-20T14:40:55+08:00">
-                2021-05-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-27T15:58:39+08:00">
+                2021-09-27
               </time>
             
 
@@ -867,19 +1251,20 @@
       
         
           
-            <h2 id="uniprot-swiss-id-转化为同源的人的id"><a href="#uniprot-swiss-id-转化为同源的人的id" class="headerlink" title="uniprot/swiss id  转化为同源的人的id"></a>uniprot/swiss id  转化为同源的人的id</h2><h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h3><p>最后一列多物种的uniprot id</p>
-<p><img src="https://gitee.com/feilijiang/img/raw/master/img/20210520145242.png" alt=""> </p>
-<h3 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h3><ul>
+            <h4 id="安装sam-algorithm的时候报错"><a href="#安装sam-algorithm的时候报错" class="headerlink" title="安装sam-algorithm的时候报错"></a>安装sam-algorithm的时候报错</h4><blockquote>
+<p>RuntimeError: Could not find a llvm config binary</p>
+</blockquote>
+<h4 id="原因：llvmlite安装失败"><a href="#原因：llvmlite安装失败" class="headerlink" title="原因：llvmlite安装失败"></a>原因：llvmlite安装失败</h4><h4 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h4><ul>
 <li><ol>
-<li>首先利用uniprot自带的id转化工具将基因都转化成gene id得到列表1， <a href="https://www.uniprot.org/uploadlists/" target="_blank" rel="noopener">https://www.uniprot.org/uploadlists/</a></li>
+<li>参考官方教程: <a href="https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip。" target="_blank" rel="noopener">https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip。</a> </li>
 </ol>
 </li>
 <li><ol start="2">
-<li>将列表1输入网站：<a href="https://www.genenames.org/tools/multi-symbol-checker/" target="_blank" rel="noopener">https://www.genenames.org/tools/multi-symbol-checker/</a> 转化为列表2</li>
+<li>llvmlite的安装需要先行安装LLVM环境，因此先通过conda安装LLVM，再安装llvmlite，注意系统带的LLVM需要说明位置。</li>
 </ol>
 </li>
 </ul>
-<h3 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h3><p>列表2即为多物种uniport id 转为人同源id的列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install -c numba llvmdev</span><br><span class="line"></span><br><span class="line">pip install llvmlite -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
 
           
         
@@ -928,7 +1313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/30/matlab%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/22/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -947,7 +1332,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/30/matlab%E5%AE%89%E8%A3%85/" itemprop="url">matlab安装</a></h1>
+                <a class="post-title-link" href="/2021/09/22/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95/" itemprop="url">每日记录</a></h1>
         
 
         <div class="post-meta">
@@ -959,8 +1344,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-30T19:48:47+08:00">
-                2021-03-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-22T11:51:15+08:00">
+                2021-09-22
               </time>
             
 
@@ -999,22 +1384,8 @@
       
         
           
-            <p>校内下载地址<br><a href="http://ms.zju.edu.cn/matlab/download.html" target="_blank" rel="noopener">http://ms.zju.edu.cn/matlab/download.html</a></p>
-<p>校内官网认证方法<br><a href="http://itc.zju.edu.cn/14742/list.htm" target="_blank" rel="noopener">http://itc.zju.edu.cn/14742/list.htm</a></p>
-<p>官网下载地址<br><a href="https://ww2.mathworks.cn/downloads/?s_cid=doc_ftr" target="_blank" rel="noopener">https://ww2.mathworks.cn/downloads/?s_cid=doc_ftr</a></p>
-<p>不联网安装及激活matlab的方法<br><a href="https://ww2.mathworks.cn/matlabcentral/answers/309607-internet-matlab" target="_blank" rel="noopener">https://ww2.mathworks.cn/matlabcentral/answers/309607-internet-matlab</a></p>
-<p>主机号码获取<br><a href="https://ww2.mathworks.cn/matlabcentral/answers/131749-id-id-id-id" target="_blank" rel="noopener">https://ww2.mathworks.cn/matlabcentral/answers/131749-id-id-id-id</a></p>
-<p>注意：<br>学校版本20G左右，官网压缩版本226M,目前没有发现这者的差别。linux 系统容易网络连接有问题，所以建议使用不联网安装方法，登录官方账户，下载licience.loc及密钥。</p>
-<p>matlab具有比较完备的社区，大部分的问题可以在上面得到解答。</p>
-<p>修改当前目录<br>cd NEWfolder</p>
-<p>读取csv<br>csvread() csvwrite()</p>
-<p>安装gephi 方法<br><a href="https://www.jianshu.com/p/73e5d81ddee7" target="_blank" rel="noopener">https://www.jianshu.com/p/73e5d81ddee7</a></p>
-<p>matlab 添加add-on的方法</p>
-<ol>
-<li>通过软件直接搜索得到。APP- get more apps</li>
-<li>下载插件包，解压后添加路径 addpath() </li>
-</ol>
-<h2 id="gephi-使用教程"><a href="#gephi-使用教程" class="headerlink" title="gephi 使用教程"></a>gephi 使用教程</h2><p>注意导入的dot file 有多几行。</p>
+            <h2 id="Fuzzy-c-means"><a href="#Fuzzy-c-means" class="headerlink" title="Fuzzy c-means"></a>Fuzzy c-means</h2><p>c-means就是fuzzy c-means，一般简称是FCM。<br>FCM和K-means一样，在开始聚类前，要先确定cluster的个数。<br>与K-Means不同的是，FCM最后返回的是每个样本点属于某个聚类的概率。所以FCM是一种软聚类算法。有时候FCM也被叫做软K-Means。</p>
+<p>##</p>
 
           
         
@@ -1063,7 +1434,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/28/Single-Cell-Genomics-Day2021/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/ubuntu%E6%8A%A5%E9%94%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feilijiang">
@@ -1082,7 +1453,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/28/Single-Cell-Genomics-Day2021/" itemprop="url">Single Cell Genomics Day2021</a></h1>
+                <a class="post-title-link" href="/2021/09/12/ubuntu%E6%8A%A5%E9%94%99/" itemprop="url">ubuntu报错</a></h1>
         
 
         <div class="post-meta">
@@ -1094,8 +1465,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-28T20:07:31+08:00">
-                2021-03-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-12T15:19:11+08:00">
+                2021-09-12
               </time>
             
 
@@ -1134,473 +1505,10 @@
       
         
           
-            <h2 id="Rahul-satijia-single-cell-gemomics-recent-advances-and-future-directions"><a href="#Rahul-satijia-single-cell-gemomics-recent-advances-and-future-directions" class="headerlink" title="Rahul satijia single cell gemomics recent advances and future directions"></a>Rahul satijia single cell gemomics recent advances and future directions</h2><ul>
-<li><ol>
-<li>Multimodality spanning the central dogma<br>RNA+ surface protein(CITE-seq)<br>RNA+ATAC(10X multiome)<br>缺点：都是利用做单细胞核的ATAC，所以无法针对surface proteins.</li>
-</ol>
-</li>
-</ul>
-<p>mtscATAC/ICICLE/ASAP-seq: optimized permeabilization enables ATAC-seq on whole cells</p>
-<p>TEA-seq：scATAC+RNA+protein</p>
-<p>Dogma-seq:scATAC+RNA+protein: surface  protein, transcriptome, accessible chromatin, mtDNA mutations</p>
-<p>inCITE-seq: intracellualr protein + RNA</p>
-<ul>
-<li><ol start="2">
-<li>Reference mapping to single-cell atlas<br>symphony<br>scArches<br>Seurat V4<br>azimuth.hubmapconsortium.org:  a web application that uses an annotated reference dataset to automate the processing, analysis, and interpretation of a new single-cell RNA-seq experiment. </li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><ol start="3">
-<li>Comparative analysis of scRNA-seq datasets</li>
-</ol>
-</li>
-</ul>
-<ol>
-<li>changes in cell-type abundance</li>
-<li>changes in expression within a cell type</li>
-<li>how about datasets without discrete clusters</li>
-</ol>
-<p>三个方法推荐<br>MILO<br>muscat<br>Quantifying the effect of experimental perturbations at single-cell resolution</p>
-<ul>
-<li><ol start="4">
-<li>Hi-resolution spatial transcriptomics</li>
-</ol>
-</li>
-</ul>
-<ol>
-<li>10x Visium: low resolution</li>
-<li>SLIDE-seq: high resolution, low size</li>
-<li>SLIDE-seq2: higher sensitive</li>
-<li>DBit-seq(10um), seq-scope(&lt; 1um),PIXEL-SEQ(&lt; 1um), Stereo-seq( &lt;1um)</li>
-</ol>
-<ul>
-<li><ol start="5">
-<li>Spatial deconvolution based on scRNAseq<br>核心问题<br>deconvolution approaches must handle batch/platform effects</li>
-</ol>
-</li>
-</ul>
-<p>方法推荐：<br>cell2location （Visium）<br>RCDT （SLIDE-seq2）</p>
-<ul>
-<li><ol start="6">
-<li>Next-generation single cell screens (Perturb-seq+)</li>
-</ol>
-</li>
-</ul>
-<p>multimodal perturb-seq: ECCITE-seq, Perturb-CITE-seq</p>
-<ul>
-<li><ol start="7">
-<li>Understanding the cellualr origins of COVID-19<br>ACE2/TMPRSS2 expression<br>Dysfunctional myeloid cells</li>
-</ol>
-</li>
-<li><ol start="8">
-<li>总结<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20210328205300.png" alt=""></li>
-</ol>
-</li>
-</ul>
-<p>问题：<br>Can we use cellrank or rna velocity to infer directions across conditions?<br>有变化就能映射到</p>
-<h2 id="Cole-Trapnell-Studying-development-robustnewss-at-the-whole-scale-embryo-scale-and-sin"><a href="#Cole-Trapnell-Studying-development-robustnewss-at-the-whole-scale-embryo-scale-and-sin" class="headerlink" title="Cole Trapnell: Studying development robustnewss at the whole-scale embryo scale and sin"></a>Cole Trapnell: Studying development robustnewss at the whole-scale embryo scale and sin</h2><p>sci-Plex: profiles cells from thousands of specimens</p>
-<p>斑马鱼图谱： 0-96hpf， 90万细胞， 859 embryos, 85 cell types,15 time points<br>genetic perturbations during zebrafish development: 3.1 million cells, 812 embryos 5 timepoints, 22 perturbations18-72hpf<br>科学问题： how do gene circuits stabilize the developmental program?</p>
-<p>neural crest cells to divergence cell types<br>tfap2a and foxd3 敲除影响神经细胞发育</p>
-<p>用指标来衡量， % increase in CV obs/exp<br>mean and variable in count data are often correlated: a generalized linear model to captures the trend in mean vs variance改成a b-binomial distrubution models fits the recovered cell type count data(Gamma GLM fit).</p>
-<p>perturbations can change the observed variance: cell number/ cell and std.dev/mean<br>两个基因的敲除不仅影响细胞类型的细胞数，而且还影响细胞类型的variance.</p>
-<p>how temperature stress destablize embryonic development?</p>
-<p>升高温度<br>develop faster<br>staging embryo using variablity in cell type frequencies</p>
-<h2 id="exploring-variability-in-gene-regulation-across-developing-embryonic-tisstis"><a href="#exploring-variability-in-gene-regulation-across-developing-embryonic-tisstis" class="headerlink" title="exploring variability in gene regulation across developing embryonic tisstis"></a>exploring variability in gene regulation across developing embryonic tisstis</h2>
-          
-        
-      
-    </div>
-    
-    
-    
+            <h3 id="libreoffice-卡顿导致Ubuntu18桌面无响应"><a href="#libreoffice-卡顿导致Ubuntu18桌面无响应" class="headerlink" title="libreoffice 卡顿导致Ubuntu18桌面无响应"></a>libreoffice 卡顿导致Ubuntu18桌面无响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#找到相关进程并且杀死进程，桌面即能回复正常。</span><br><span class="line">ps -ef | grep libre </span><br><span class="line">kill -9 PID</span><br></pre></td></tr></table></figure>
 
-    
 
-    
 
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/" itemprop="url">R命令实录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-10T18:53:26+08:00">
-                2021-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="读取dataframe的指定行或列"><a href="#读取dataframe的指定行或列" class="headerlink" title="读取dataframe的指定行或列"></a>读取dataframe的指定行或列</h3><p><a href="http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/" target="_blank" rel="noopener">http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(!file.exists(&quot;read&quot;))&#123;</span><br><span class="line">  dir.create(&quot;read&quot;)</span><br><span class="line">&#125;# 创建工作路径文件夹</span><br><span class="line">setwd(&quot;.&#x2F;read&quot;) # 设置工作路径</span><br><span class="line">if(!file.exists(&quot;data&quot;))&#123;</span><br><span class="line">  dir.create(&quot;data&quot;)</span><br><span class="line">&#125; # 新建data文件夹</span><br></pre></td></tr></table></figure>
-
-<h3 id="命令的重复"><a href="#命令的重复" class="headerlink" title="命令的重复"></a>命令的重复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var.genes&#x3D;Reduce(intersect, var.genes1)</span><br></pre></td></tr></table></figure>
-
-<h3 id="快速计算cor"><a href="#快速计算cor" class="headerlink" title="快速计算cor"></a>快速计算cor</h3><p>library(HiClimR)<br>fastCor</p>
-<h3 id="数据框替换值"><a href="#数据框替换值" class="headerlink" title="数据框替换值"></a>数据框替换值</h3><h5 id="method1-使用封装函数"><a href="#method1-使用封装函数" class="headerlink" title="method1: 使用封装函数"></a>method1: 使用封装函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">currentid</span><br><span class="line">newid</span><br><span class="line">pbmc$ident&lt;- plyr::mapvalues(pbmc$ident，from&#x3D;currentid,to&#x3D;newid)</span><br><span class="line">##### method2: 使用gsub</span><br><span class="line">anno$celltype &lt;- anno$cluster_new</span><br><span class="line">anno$celltype &lt;- paste0(&quot;_&quot;,paste0(anno$celltype,&#39;_&#39;))</span><br><span class="line">ma$cluster &lt;- paste0(&quot;_&quot;,paste0(ma$cluster,&quot;_&quot;))</span><br><span class="line">for (i in unique(ma$cluster)) &#123;</span><br><span class="line">  anno$celltype &lt;- gsub(anno$celltype,pattern &#x3D; i,replacement &#x3D; ma$V2[i])</span><br><span class="line">  print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="method3-使用-gt"><a href="#method3-使用-gt" class="headerlink" title="method3:  使用%&gt;%"></a>method3:  使用%&gt;%</h5><h3 id="trimws"><a href="#trimws" class="headerlink" title="trimws"></a>trimws</h3><blockquote>
-<p>替换开头或结尾的空格、换行符、制表符、回车。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trimws(gene,which&#x3D;c(&quot;both&quot;), whitespace&#x3D;&quot;[ \t\r\n]&quot;)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(scales)</span><br><span class="line">rss_ct_scale&lt;-apply(rss_ct, 1, rescale,to&#x3D;c(-2,2))</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="ggplot-多个画板一个图"><a href="#ggplot-多个画板一个图" class="headerlink" title="ggplot 多个画板一个图"></a>ggplot 多个画板一个图</h3><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">######################################  same mouse</span><br><span class="line">library(gridExtra)</span><br><span class="line">library(ggplot2)</span><br><span class="line">plot_correlation &lt;- function(i)&#123;</span><br><span class="line">  name1 &lt;- paste0(&#39;T&#39;,paste0(i,&quot;human&quot;))</span><br><span class="line">  name2 &lt;- paste0(&#39;T&#39;,paste0(i+1,&quot;human&quot;))</span><br><span class="line">  p&lt;-ggplot(ave_teratoma, aes(x&#x3D;get(name1), y&#x3D;get(name2))) +</span><br><span class="line">    geom_point(alpha&#x3D;1, size&#x3D;1) +</span><br><span class="line">    geom_smooth(method&#x3D;&quot;lm&quot;) +</span><br><span class="line">    theme_bw() +</span><br><span class="line">    xlab(name1)+ylab(name2)+</span><br><span class="line">    ggtitle(paste0(&quot;Mouse&quot;,i&#x2F;2-3))+</span><br><span class="line">    theme(text &#x3D; element_text(size&#x3D;10), legend.title&#x3D;element_blank(),plot.title &#x3D; element_text(hjust &#x3D; 0.5))+</span><br><span class="line">    stat_fit_glance(method &#x3D; &#39;lm&#39;,</span><br><span class="line">                    </span><br><span class="line">                    method.args &#x3D; list(formula &#x3D; y ~ x),</span><br><span class="line">                    </span><br><span class="line">                    mapping &#x3D; aes(label &#x3D; sprintf(&#39;R^2~&quot;&#x3D;&quot;~%.3f~~italic(P)~&quot;&#x3D;&quot;~%.2g&#39;, stat(r.squared), stat(p.value))),</span><br><span class="line">                    </span><br><span class="line">                    parse &#x3D; TRUE,label.x &#x3D; 0.95,label.y &#x3D; 0.95)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">plot_list &lt;- lapply(seq(8,18,2), plot_correlation)</span><br><span class="line">n &lt;- length(plot_list)</span><br><span class="line">nCol &lt;- floor(sqrt(n))</span><br><span class="line">grid.arrange(grobs &#x3D; plot_list, ncol &#x3D; nCol) ## display plot</span><br><span class="line">ggsave(file &#x3D; &quot;same_mouse_correlation.png&quot;, arrangeGrob(grobs &#x3D; plot_list, ncol &#x3D; 2),height &#x3D; 9,width &#x3D; 6)  ## save plot</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/08/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/08/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9F%A5%E8%AF%86/" itemprop="url">基因组知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-08T15:10:59+08:00">
-                2021-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="MEME-网站使用的总结："><a href="#MEME-网站使用的总结：" class="headerlink" title="MEME 网站使用的总结："></a>MEME 网站使用的总结：</h2><p>原文链接：<a href="https://blog.csdn.net/weixin_43569478/article/details/108079461" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43569478/article/details/108079461</a></p>
-<p>适用于分析数据量较大的序列上的motif信息。首先通过MEME和DREME两款软件预测de novo motif, 然后利用CentriMo识别在序列的中心区域显著富集的motif, 同时采用Tomtom软件将预测到的de novo motif与指定数据库的已知motif进行比对，确定二者的相似度。最后利用FIMO软件预测motif在输入序列上的结合位点。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/07/python%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/07/python%E5%91%BD%E4%BB%A4/" itemprop="url">python命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-07T12:39:14+08:00">
-                2021-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h3><p>print(ss.replace(‘\n’, ‘’))</p>
-<h3 id="python-运行shell-命令"><a href="#python-运行shell-命令" class="headerlink" title="python 运行shell 命令"></a>python 运行shell 命令</h3><p>import subprocess<br>subprocess.call(command, shell=True)</p>
-<h3 id="python判断字符串（string）是否包含（contains）子字符串的方法"><a href="#python判断字符串（string）是否包含（contains）子字符串的方法" class="headerlink" title="python判断字符串（string）是否包含（contains）子字符串的方法"></a>python判断字符串（string）是否包含（contains）子字符串的方法</h3><p>string in list<br>isin()</p>
-<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>data[[x,xx,x]] # 取某几行<br>data.loc # 具体的行列名字<br>data.iloc[:,1:2]</p>
-<h3 id="python-paste-命令"><a href="#python-paste-命令" class="headerlink" title="python paste 命令"></a>python paste 命令</h3><h4 id="paste-strings"><a href="#paste-strings" class="headerlink" title="paste strings"></a>paste strings</h4><p>datause.columns=[“COL01.” + str(i) for i in datause.columns]</p>
-<p>[“s” + str(i) for i in xrange(1,11)]</p>
-<p>list(map(‘s{}’.format, range(1, 11)))</p>
-<p>map(lambda x:”s”+str(x), range(1,11))</p>
-<h2 id="paste-two-columns"><a href="#paste-two-columns" class="headerlink" title="paste two columns"></a>paste two columns</h2><p>anno[‘day’]=anno[‘day’].astype(“str”)<br>anno[‘louvain13’]=anno[‘louvain13’].astype(“str”)<br>anno[‘day_cluster’]=anno[‘day’].astype(str)+”_”<br>anno[‘day_cluster’]=anno[‘day_cluster’].astype(str)+anno[‘louvain13’]</p>
-<h2 id="paste-two-columns-1"><a href="#paste-two-columns-1" class="headerlink" title="paste two columns"></a>paste two columns</h2><p><img src="https://gitee.com/feilijiang/img/raw/master/20210811160322.png" alt=""></p>
-<h3 id="求相关性"><a href="#求相关性" class="headerlink" title="求相关性"></a>求相关性</h3><h1 id="数据库直接求皮尔斯相关性"><a href="#数据库直接求皮尔斯相关性" class="headerlink" title="数据库直接求皮尔斯相关性"></a>数据库直接求皮尔斯相关性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">datause1&#x3D;datause_gene.to_numpy()</span><br><span class="line">pcc_gene&#x3D;np.corrcoef(datause1)</span><br><span class="line">pcc_gene&#x3D;pd.DataFrame(pcc_gene)</span><br><span class="line">pcc_gene.index&#x3D;datause_gene.index.values</span><br><span class="line">pcc_gene.columns &#x3D;datause_gene.index.values</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="按组求平均"><a href="#按组求平均" class="headerlink" title="按组求平均"></a>按组求平均</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df &#x3D; pd.DataFrame([[&#39;a&#39;, &#39;man&#39;, 120, 90],</span><br><span class="line">                   [&#39;b&#39;, &#39;woman&#39;, 130, 100],</span><br><span class="line">                   [&#39;a&#39;, &#39;man&#39;, 110, 108],</span><br><span class="line">                   [&#39;a&#39;, &#39;woman&#39;, 120, 118]], columns&#x3D;[&#39;level&#39;, &#39;gender&#39;, &#39;math&#39;,&#39;chinese&#39;])</span><br><span class="line">group &#x3D; df.groupby(&#39;gender&#39;).mean()</span><br></pre></td></tr></table></figure>
-
-<h2 id="列和"><a href="#列和" class="headerlink" title="列和"></a>列和</h2><p>colsum=mtx_tf.apply(lambda x:x.sum())<br>rowsum=mtx_tf.apply(lambda x:x.sum(),axis=1)</p>
-<h2 id="unique-命令必须是pd-Series才能使用。"><a href="#unique-命令必须是pd-Series才能使用。" class="headerlink" title="unique 命令必须是pd.Series才能使用。"></a>unique 命令必须是pd.Series才能使用。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zz&#x3D;barcode_list3.values()</span><br><span class="line">zz&#x3D;list(zz)</span><br><span class="line">df &#x3D; pd.Series( (v for v in zz) )</span><br><span class="line">len(df.unique())</span><br><span class="line">uu&#x3D;df.unique()</span><br><span class="line">pd.DataFrame(uu).to_csv(&quot;barcode3_96.csv&quot;)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="read-pickle文件"><a href="#read-pickle文件" class="headerlink" title="read pickle文件"></a>read pickle文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RT_bc3 &#x3D; open(&quot;&#x2F;media&#x2F;ggj&#x2F;home&#x2F;ggj&#x2F;Documents&#x2F;data&#x2F;fei&#x2F;Rscripts&#x2F;MW_script&#x2F;barcode3_96_bc.pickle2&quot;,&quot;rb&quot;)</span><br><span class="line">barcode_list3 &#x3D; pickle.load(RT_bc3)</span><br><span class="line">RT_bc3.close()</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1640,7 +1548,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1686,7 +1594,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

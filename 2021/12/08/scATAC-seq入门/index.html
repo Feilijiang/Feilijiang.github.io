@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Introduction基本概念：nucleosomes: 由八个组蛋白构成，包裹147bp的DNA序列。 Promotor：TSS附近区域 Enhancer：promotor上游直到1MB的位置。 转座酶：搬运一段DNA序列到另外一个位置，有转座酶实现插入到DNA序列，需要插入位点染色质是开放的。如果两个相邻的Tn5转座酶切割，长度40bp。文献了解：Rapid, low-input, low-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scATAC-seq入门">
+<meta property="og:url" content="http://yoursite.com/2021/12/08/scATAC-seq%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Feilijiang">
+<meta property="og:description" content="Introduction基本概念：nucleosomes: 由八个组蛋白构成，包裹147bp的DNA序列。 Promotor：TSS附近区域 Enhancer：promotor上游直到1MB的位置。 转座酶：搬运一段DNA序列到另外一个位置，有转座酶实现插入到DNA序列，需要插入位点染色质是开放的。如果两个相邻的Tn5转座酶切割，长度40bp。文献了解：Rapid, low-input, low-">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208114701.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208212649.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208163842.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208172519.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208175230.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208175501.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208175526.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208200632.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208181000.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208105358.png">
+<meta property="article:published_time" content="2021-12-08T02:17:47.000Z">
+<meta property="article:modified_time" content="2021-12-08T13:51:55.364Z">
+<meta property="article:author" content="Feilijiang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/20211208114701.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/12/08/scATAC-seq入门/"/>
+
+
+
+
+
+  <title>scATAC-seq入门 | Feilijiang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feilijiang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">New Beginnings</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home //首页"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags //标签"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th //分类"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar //日程表"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/08/scATAC-seq%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">scATAC-seq入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-12-08T10:17:47+08:00">
+                2021-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h3><p>nucleosomes: 由八个组蛋白构成，包裹147bp的DNA序列。</p>
+<p>Promotor：TSS附近区域</p>
+<p>Enhancer：promotor上游直到1MB的位置。</p>
+<p>转座酶：搬运一段DNA序列到另外一个位置，有转座酶实现插入到DNA序列，需要插入位点染色质是开放的。如果两个相邻的Tn5转座酶切割，长度40bp。文献了解：Rapid, low-input, low-bias construction of shotgun fragment libraries by high-density in vitro transposition</p>
+<p>CTCF：由11个锌指蛋白组成，转录结合位点由锌指蛋白，CTCF与自身结合形成同源二聚体，和cohesiin一起作用，导致结合的DNA形成环状。</p>
+<blockquote>
+<p>DNA-loop：It is currently believed that the DNA loops are formed by the “loop extrusion” mechanism, whereby the cohesin ring is actively being translocated along the DNA until it meets CTCF. CTCF has to be in a proper orientation to stop cohesin. </p>
+</blockquote>
+<blockquote>
+<p>CTCF的结合可以被CpG methylation给破环，另一方面，CTCF结合可能为DNA甲基化的扩散设置边界。</p>
+</blockquote>
+<blockquote>
+<p><strong>与核小体的关系</strong>：CTCF binding sites act as nucleosome positioning anchors so that, when used to align various genomic signals, multiple flanking nucleosomes can be readily identified.所以used as a positive control for assessing if the ATAC-Seq experiment is good quality.Good ATAC-Seq data would have accessible regions both within and outside of TSS, for example, at some CTCF binding sites.</p>
+</blockquote>
+<p>异染色质：是染色质的紧密排列形式，可以沉默基因转录。 异染色质构成端粒、中心周围区域和富含重复序列的区域。 常染色质凝缩较少，含有活性最强的转录基因。active and </p>
+<h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>DNA被核小体（nucleosomes包裹）。当DNA被转录的的时候，DNA会被打开，核小体会松散。很多因子，比如染色质结构，核小体的位置，组蛋白修饰都会对DNA的organization和accessiblity其重要作用。这些因子也会对基因的激活和抑制起到重要作用。ATAC-seq能够检测染色质的开放区域，来作为研究基因调控机制的一种方法。当TF结合enhancer并且连接promoter区域的时候，基因转录或者停止转录。</p>
+<h3 id="技术历史"><a href="#技术历史" class="headerlink" title="技术历史"></a>技术历史</h3><ol>
+<li>2013年 Nature Method ATAC-seq第一篇<blockquote>
+<p>Buenrostro, Jason D., Paul G. Giresi, Lisa C. Zaba, Howard Y. Chang, and William J. Greenleaf. “Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position.” Nature methods 10, no. 12 (2013): 1213-1218.</p>
+</blockquote>
+</li>
+<li>2015年 Nature scATAC-seq第一篇<blockquote>
+<p>Buenrostro, Jason D., Beijing Wu, Ulrike M. Litzenburger, Dave Ruff, Michael L. Gonzales, Michael P. Snyder, Howard Y. Chang, and William J. Greenleaf. “Single-cell chromatin accessibility reveals principles of regulatory variation.” Nature 523, no. 7561 (2015): 486-490.</p>
+</blockquote>
+</li>
+<li></li>
+</ol>
+<h3 id="技术原理和实验过程"><a href="#技术原理和实验过程" class="headerlink" title="技术原理和实验过程"></a>技术原理和实验过程</h3><h4 id="转座酶和转座子的区别和共性-转座酶切割的原理？？"><a href="#转座酶和转座子的区别和共性-转座酶切割的原理？？" class="headerlink" title="转座酶和转座子的区别和共性,转座酶切割的原理？？"></a>转座酶和转座子的区别和共性,转座酶切割的原理？？</h4><h4 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h4><h5 id="bulk"><a href="#bulk" class="headerlink" title="bulk"></a>bulk</h5><p><img src="https://gitee.com/feilijiang/img/raw/master/20211208114701.png" alt=""></p>
+<h5 id="single-cell-greenleaf，renbin-10x"><a href="#single-cell-greenleaf，renbin-10x" class="headerlink" title="single cell: greenleaf，renbin, 10x,"></a>single cell: greenleaf，renbin, 10x,</h5><h4 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h4><p>一、提取细胞核<br>二、细胞核完整性观察及计数<br>三、开放染色质片段化后建库<br>四、片段分选去除非目的区域的DNA</p>
+<h4 id="技术要点"><a href="#技术要点" class="headerlink" title="技术要点"></a>技术要点</h4><blockquote>
+<p>双端测序的必要性：</p>
+</blockquote>
+<h4 id="技术优化"><a href="#技术优化" class="headerlink" title="技术优化"></a>技术优化</h4><h3 id="数据分析流程"><a href="#数据分析流程" class="headerlink" title="数据分析流程"></a>数据分析流程</h3><h4 id="bulk-1"><a href="#bulk-1" class="headerlink" title="bulk"></a>bulk</h4><p><img src="https://gitee.com/feilijiang/img/raw/master/20211208212649.png" alt=""></p>
+<p><strong>1. Input</strong></p>
+<ul>
+<li>fastq files(fastqsanger.gz), </li>
+<li>bed files(encodepeak) ,</li>
+<li>genome: hg38，bed files chrom, start,end, name , score </li>
+</ul>
+<blockquote>
+<p>bed格式；</p>
+</blockquote>
+<p><strong>2. Quality Control</strong></p>
+<ul>
+<li>Purpose：fastq质控</li>
+<li>Tool: fastqc</li>
+<li>Input：R1.fastq，R2.fastq</li>
+<li>注意点：<ul>
+<li>总reads数量</li>
+<li>per base sequence content: 由于转座酶的strong sequence bias，文献: “Insertion site preference of Mu, Tn5, and Tn7 transposons”</li>
+<li>sequence duplication levels：PCR duplicates，后续去除</li>
+<li>overrepresented sequences:adapter序列，需要用cutadapt移除</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Trimming Reads</strong></p>
+<ul>
+<li>Purpose：用cutadapt移除adapter序列，用fastqc再次检查序列中adapta的含量</li>
+<li>Tool: cutadapt,fastqc</li>
+<li>Input:<ul>
+<li>adapter的序列，</li>
+<li>R1.fastq，R2.fastq</li>
+</ul>
+</li>
+<li>Output:<ul>
+<li>R1_cutAda.fastq,R2_cutAda.fastq及报告</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Mapping</strong></p>
+<ul>
+<li>Purpose：Mapping Reads to Reference Genome</li>
+<li>Tool: Bowtie2</li>
+<li>Input:<ul>
+<li>R1_cutAda.fastq,R2_cutAda.fastq</li>
+<li>genome.bed</li>
+</ul>
+</li>
+<li>Output:BAM 文件<ul>
+<li>插入片段长度:POS-MPOS+CIGAR</li>
+<li>POS: leftmost position of where this alignment maps to the reference</li>
+<li>MPOS: leftmost position of where the next alignment in this group maps to the reference, MPOS or PNEXT.</li>
+<li>CICAR:string indicating alignment information that allows the storing of clipped</li>
+</ul>
+</li>
+<li>Parameters:<ul>
+<li>fragment length:500-1000</li>
+<li>end_to_end: 不需要剪掉末端</li>
+<li>mode–very_sensitive</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>注意点：<ul>
+<li>dovetailing:cutadapt识别至少三个碱基以上的短序列，因此cutadapter之后的序列可能包含 1-2 个接头碱基并超出其配对起始位点。需要加入比对中。</li>
+<li>结果参数：unique mapping rate，multi-mapping多的可能原因：1. 使用–very-sensitive的模式，即使第二次命中的质量比第一次低得多，Bowtie2 也会将读取视为多重映射。另一个原因是我们读取了线粒体基因组的映射。线粒体基因组有很多具有相似序列的区域。</li>
+</ul>
+</li>
+</ul>
+<p><strong>5. Filtering Mapped Reads</strong></p>
+<ul>
+<li><ol>
+<li>Filter Uninformative Reads<ul>
+<li>Purpose：线粒体基因组nucleosome-free，并且Tn5可及。过滤线粒体reads，低对比质量reads，not properly paired</li>
+<li>Input: aligned.bam</li>
+<li>Tool: FilterBAM</li>
+<li>Parameters: isProperPair:Yes, reference:!chrM, mapQuality:&gt;=30</li>
+<li>Output: aligned_filter.bam</li>
+<li>注意点：如果想保留比对到重复区域的reads， mapQuality可以降低</li>
+<li>线粒体reads的数量：使用Samtools idxstats对aligned.bam统计得到： chromosome name, chromosome length, number of reads mapping to the chromosome, number of unaligned mate whose mate is mapping to the chromosome<br><img src="https://gitee.com/feilijiang/img/raw/master/20211208163842.png" alt=""></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Filter Duplicate Reads<ul>
+<li>Purpose：由于Tn5的插入随机，所以两个比对序列完全一样的序列被认为是PCR duplicates</li>
+<li>Tool: Picard MarkDuplicates</li>
+<li>Parameter：默认值标记duplicates，需要设置“If true do not write duplicates to the output file instead of writing them with appropriate flags“为yes才是去除。</li>
+<li>Output：bam文件</li>
+<li>Duplicates的数量在metric的文件夹里面，UNPAIRED_READS_EXAMINED， READ_PAIR_DUPLICATES</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>Check Insert Sizes<ul>
+<li>Purpose：Paired-end histogram of insert size frequency，插入片段长度是ATAC-seq一个很重要的指标。</li>
+<li>Tools: CollectInsertSizeMetrics (picard)</li>
+<li>结果解读： The first peak (50bp) corresponds to where the Tn5 transposase inserted into nucleosome-free regions. The second peak (a bit less than 200bp) corresponds to where Tn5 inserted around a single nucleosome. The third one (around 400bp) is where Tn5 inserted around two adjacent nucleosomes and the fourth one (around 600bp) is where Tn5 inserted around three adjacent nucleosomes.<br><img src="https://gitee.com/feilijiang/img/raw/master/20211208172519.png" alt=""></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>6. Peak calling</strong></p>
+<ul>
+<li><p>Call peaks</p>
+<ul>
+<li>Purpose：将片段信息数字化</li>
+<li>Input</li>
+<li>Output</li>
+<li>Tool：MACS(使用的更加广泛)和Genrich(适用于ATAC，但是more reads，less peaks)</li>
+<li>Mode： 1.第一个是仅选择片段长度低于 100bp 对应于无核小体区域的配对，并使用峰值调用，就像您对 ChIP-seq 所做的那样，连接配偶之间的信号。 这种方法的缺点是只有在有双端数据时才能使用它，并且会错过只有一个 Tn5 绑定的小开放区域。2.第二个是使用所有读取来更加详尽。 在这种方法中，将每个读取的信号重新集中在 5’ 末端（读取起始位点）非常重要，因为这是 Tn5 切割的地方。 实际上，您希望峰位于核小体周围，而不是直接位于核小体上。</li>
+<li>Parameters：</li>
+<li>注意点：<img src="https://gitee.com/feilijiang/img/raw/master/20211208175230.png" alt=""><br><img src="https://gitee.com/feilijiang/img/raw/master/20211208175501.png" alt=""></li>
+</ul>
+</li>
+<li><p>Using MACS2</p>
+<ul>
+<li><ol>
+<li>Convert bam to bed</li>
+</ol>
+</li>
+<li><ul>
+<li>bedtools: Bam to Bed<br>Input: markdup.bam<br>Output: bed file<br><img src="https://gitee.com/feilijiang/img/raw/master/20211208175526.png" alt=""></li>
+</ul>
+</li>
+<li><ol start="2">
+<li>Call peaks with MACS2</li>
+</ol>
+</li>
+<li><ul>
+<li>单端测序需要设置偏移模型，双端测序不需要。在chip_seq等数据中科学家发现在真实的结合位点两侧，正负链的测序深度分布如下图所示，对应峰值的中心距离peak中心有一定的偏移。MACS首先通过一个模型来评估真实的peak中心和测序峰值的偏移距离，给定参数bandwidth和mfold, 采用一个大小为2倍bandwidth的滑动窗口，比较该窗口内真实测序深度的分布与随机测序的差异，如果二者的差异倍数超过了阈值mfold，则认为该窗口是一个peak区域。识别到初始的peak区域之后，随机挑选1000个高可信度的peak区域，分别计算正链和负链的测序深度分布。通过这种方式识别到正负链峰值之间的距离，定义为d。在后续peak calling时，会在初始计算结果的基础上向3’端偏移d/2的距离。</li>
+</ul>
+</li>
+<li><p>-泊松模型，landa可调<br><img src="https://gitee.com/feilijiang/img/raw/master/20211208200632.png" alt=""></p>
+</li>
+<li><ul>
+<li>Input: bed file</li>
+<li><ul>
+<li>Parameters:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>We call peaks with MACS2. In order to get the coverage centered on the 5’ extended 100bp each side we will use –shift -100 and –extend 200:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>“How many duplicate tags at the exact same location are allowed?”: all<br><img src="https://gitee.com/feilijiang/img/raw/master/20211208181000.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://blog.csdn.net/u012110870/article/details/102804191" target="_blank" rel="noopener">https://blog.csdn.net/u012110870/article/details/102804191</a><br><a href="https://zhuanlan.zhihu.com/p/90180058" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/90180058</a></p>
+<p><strong>7. Visualisation of Coverage</strong></p>
+<ul>
+<li><p>1.Prepare the Datasets</p>
+<ul>
+<li><p>Extract CTCF peaks on chr22 in intergenic regions<br>ATAC的数据期待会在TSS区域附近富集。同时只有好的ATAC的数据才会测到在intergenic CTCF区域富集。事实上，CTCF 蛋白能够定位核小体并创建一个大约 120bp 的核小体耗尽区。 这比 TSS 周围的 200bp 无核小体区域小，也可能不存在于所有细胞中。</p>
+</li>
+<li><ul>
+<li>提取chr22上面的CTCF peaks：</li>
+</ul>
+</li>
+<li><ul>
+<li>Filter data on any column using simple expressions </li>
+</ul>
+</li>
+<li><ul>
+<li>bedtools Intersect intervals find overlapping intervals in various ways</li>
+</ul>
+</li>
+<li><p>Convert bedgraph from MACS2 to bigwig</p>
+</li>
+<li><ul>
+<li>由于MACS2生成的bedgraph文件较大且难以可视化，转化为bigwig的二进制文件。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2.Create heatmap of coverage at TSS with deepTools<br>分别做TSS和CTCF附近的富集图</p>
+<ul>
+<li>Generate computeMatrix</li>
+<li><ul>
+<li>Purpose: 确认特殊区域的覆盖度</li>
+</ul>
+</li>
+<li><ul>
+<li>Tools：computeMatrix：evaluate the coverage at each locus we are interested in.</li>
+</ul>
+</li>
+<li><ul>
+<li>Input：bigwig文件</li>
+</ul>
+</li>
+<li><ul>
+<li>Output：compute的matrix</li>
+</ul>
+</li>
+<li>Plot with plotHeatmap</li>
+<li><ul>
+<li>热图解读：每一行是一条transcript（非reads），覆盖度no-max，red-blue，TSS放中间，TSS 2kb的被展示。热图上方的是TSS附近的平均信号。一个bigwi件一张热图。coverage并非对称，一般在左边高，因为左边一般是激活基因的promoter的可及。</li>
+</ul>
+</li>
+<li><ul>
+<li>如果是CTCF的区域，需要intergenic CTCF peaks chr22的reference来进行computeMatrix一步，然后再plotHeatmap。结果更加对称。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>3.Visualise Regions with pyGenomeTracks<ul>
+<li>对于一个特殊区域的可视化，比如几个基因，可以用igv，UCSCC browser或者pyGenomeTracks</li>
+<li>Tool：pyGenomeTracks</li>
+<li>结果；如果peak没有和TSS或者CTCF重合的区域，可能是enhancer，但是需要进一步确认。</li>
+</ul>
+</li>
+</ul>
+<h4 id="single-cell"><a href="#single-cell" class="headerlink" title="single-cell"></a>single-cell</h4><h3 id="技术应用"><a href="#技术应用" class="headerlink" title="技术应用"></a>技术应用</h3><h3 id="技术缺陷和展望"><a href="#技术缺陷和展望" class="headerlink" title="技术缺陷和展望"></a>技术缺陷和展望</h3><h3 id="与其他组学的关系"><a href="#与其他组学的关系" class="headerlink" title="与其他组学的关系"></a>与其他组学的关系</h3><p>H3K4me1，H3K4me2，H3K4me3和H3K27ac与染色质开放的关系：与H3K27ac相比，ATAC-Seq峰与H3K4me1的重叠具有更紧密的相关性，这表明增强子处H3K4me1的得失会影响可及染色质的形成。此外，ATAC-Seq能够识别造血过程中新的血细胞谱系调控因子。</p>
+<h3 id="比较："><a href="#比较：" class="headerlink" title="比较："></a>比较：</h3><h4 id="bulk-ATAC-seq的缺陷"><a href="#bulk-ATAC-seq的缺陷" class="headerlink" title="bulk ATAC-seq的缺陷"></a>bulk ATAC-seq的缺陷</h4><ul>
+<li><ol>
+<li>Tn5插入DNA将测序接头连接到剪断的DNA片段末端。因为两端接头连接随机， 不同接头的DNA片段才可以用于富集扩增及测序，相同接头的DNA片段无法利用。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>长片段无法PCR扩增</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>Tn5的切割活性</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>植物细胞难做</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>对细胞数量很敏感，对于转座反应和生成的DNA片段的大小分布至关重要。</li>
+</ol>
+</li>
+</ul>
+<h4 id="Chip-seq-FAIRE-Seq-and-DNase-Seq的基本原理和ATAC-seq的比较"><a href="#Chip-seq-FAIRE-Seq-and-DNase-Seq的基本原理和ATAC-seq的比较" class="headerlink" title="Chip-seq, FAIRE-Seq and DNase-Seq的基本原理和ATAC-seq的比较"></a>Chip-seq, FAIRE-Seq and DNase-Seq的基本原理和ATAC-seq的比较</h4><blockquote>
+<p>Meyer, Clifford A., and X. Shirley Liu. “Identifying and mitigating bias in next-generation sequencing methods for chromatin biology.” Nature Reviews Genetics 15, no. 11 (2014): 709-721.</p>
+</blockquote>
+<blockquote>
+<p>传统使用的的实验方法主要是有MNase-seq和DNase-seq ，这两种实验方法的主要思路是：染色质变得开放，就意味着DNA和组蛋白的聚集程度降低，就会有一部分DNA暴露出来。而一旦失去了蛋白质的保护，这部分DNA就可以被DNA酶（MNase或DNase I）所切割。然后，我们再把切割完的DNA拿来测序，和已知的全基因组序列相比较，就能发现被切割的是哪些序列，没有被切掉的基因序列又在哪里，就知道开放的染色质区域在哪里了。不过，这两个方法有明显的缺陷，即耗时费力与重复性差。虽然FAIRE-seq 不依赖酶和抗体，但其检测背景较高，测序信噪比低，甲醛交联时间不好把握等缺陷，限制其使用范围。ATAC-seq出来的结果，和传统方法出来的结果具有很强的一致性，同时也和ChIP-seq有较高的吻合程度。而相比较而言，ATAC-seq的重复性，比MNase-seq和DNase-seq的更强，操作起来也更加简便，而且只需要很少的细胞/组织量，同时测序信号更加好。<br><img src="https://gitee.com/feilijiang/img/raw/master/20211208105358.png" alt=""></p>
+</blockquote>
+<h3 id="生信分析基本流程"><a href="#生信分析基本流程" class="headerlink" title="生信分析基本流程"></a>生信分析基本流程</h3><blockquote>
+<p>生物信息学数据分析由我们内部的生物信息学专家团队进行。标准的生物信息学分析包括：</p>
+<ul>
+<li><ol>
+<li>序列分析：将测序读段比对到基因组，并删除重复的reads。<br>峰发现： </li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><ol start="2">
+<li>使用MACS 2.1.0，将双端测序中的两个reads用于peak calling。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>片段密度的确定： 为了鉴定基因组的转座事件的密度，将基因组分为32 bp的条带，并确定每个条带中的片段数。为此，将reads扩展到200 bp以使数据平滑。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>通过随机采样对所有样本的比对reads数进行归一化，以使每一个样本包含所有样本中比对reads数最少的样本相同数目的reads。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>活动区域分析： 为了比较两个或多个样本之间的峰，将重叠的峰分组为“活动区域”，这是由最上游峰的起始坐标和最下游峰的终止坐标定义的专有度量。</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>国外教程<br><a href="https://informatics.fas.harvard.edu/atac-seq-guidelines.html#design" target="_blank" rel="noopener">https://informatics.fas.harvard.edu/atac-seq-guidelines.html#design</a><br><a href="https://training.galaxyproject.org/training-material/topics/epigenetics/tutorials/atac-seq/tutorial.html#introduction" target="_blank" rel="noopener">https://training.galaxyproject.org/training-material/topics/epigenetics/tutorials/atac-seq/tutorial.html#introduction</a></p>
+</blockquote>
+<blockquote>
+<p>国内入门：</p>
+</blockquote>
+<p><a href="https://www.activemotif.com.cn/blog-atac-seq" target="_blank" rel="noopener">https://www.activemotif.com.cn/blog-atac-seq</a><br><a href="https://www.plob.org/article/13950.html" target="_blank" rel="noopener">https://www.plob.org/article/13950.html</a><br><a href="https://www.jianshu.com/p/87bc2002e82c" target="_blank" rel="noopener">https://www.jianshu.com/p/87bc2002e82c</a> 个人博客，有关于scATAC-seq的分析很多</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/12/01/accessibility/" rel="next" title="accessibility">
+                <i class="fa fa-chevron-left"></i> accessibility
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Feilijiang</p>
+              <p class="site-description motion-element" itemprop="description">生物信息 记录 分享 博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念："><span class="nav-number">1.1.</span> <span class="nav-text">基本概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本原理"><span class="nav-number">1.2.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术历史"><span class="nav-number">1.3.</span> <span class="nav-text">技术历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术原理和实验过程"><span class="nav-number">1.4.</span> <span class="nav-text">技术原理和实验过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转座酶和转座子的区别和共性-转座酶切割的原理？？"><span class="nav-number">1.4.1.</span> <span class="nav-text">转座酶和转座子的区别和共性,转座酶切割的原理？？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术原理"><span class="nav-number">1.4.2.</span> <span class="nav-text">技术原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bulk"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">bulk</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#single-cell-greenleaf，renbin-10x"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">single cell: greenleaf，renbin, 10x,</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验过程"><span class="nav-number">1.4.3.</span> <span class="nav-text">实验过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术要点"><span class="nav-number">1.4.4.</span> <span class="nav-text">技术要点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术优化"><span class="nav-number">1.4.5.</span> <span class="nav-text">技术优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分析流程"><span class="nav-number">1.5.</span> <span class="nav-text">数据分析流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bulk-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">bulk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#single-cell"><span class="nav-number">1.5.2.</span> <span class="nav-text">single-cell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术应用"><span class="nav-number">1.6.</span> <span class="nav-text">技术应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术缺陷和展望"><span class="nav-number">1.7.</span> <span class="nav-text">技术缺陷和展望</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与其他组学的关系"><span class="nav-number">1.8.</span> <span class="nav-text">与其他组学的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较："><span class="nav-number">1.9.</span> <span class="nav-text">比较：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bulk-ATAC-seq的缺陷"><span class="nav-number">1.9.1.</span> <span class="nav-text">bulk ATAC-seq的缺陷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chip-seq-FAIRE-Seq-and-DNase-Seq的基本原理和ATAC-seq的比较"><span class="nav-number">1.9.2.</span> <span class="nav-text">Chip-seq, FAIRE-Seq and DNase-Seq的基本原理和ATAC-seq的比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生信分析基本流程"><span class="nav-number">1.10.</span> <span class="nav-text">生信分析基本流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feilijiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>
