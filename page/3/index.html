@@ -251,6 +251,383 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/27/%E6%8A%A5%E9%94%99RuntimeError-Could-not-find-a-llvm-config-binary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/27/%E6%8A%A5%E9%94%99RuntimeError-Could-not-find-a-llvm-config-binary/" itemprop="url">报错RuntimeError: Could not find a llvm config binary</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-27T15:58:39+08:00">
+                2021-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装sam-algorithm的时候报错"><a href="#安装sam-algorithm的时候报错" class="headerlink" title="安装sam-algorithm的时候报错"></a>安装sam-algorithm的时候报错</h4><blockquote>
+<p>RuntimeError: Could not find a llvm config binary</p>
+</blockquote>
+<h4 id="原因：llvmlite安装失败"><a href="#原因：llvmlite安装失败" class="headerlink" title="原因：llvmlite安装失败"></a>原因：llvmlite安装失败</h4><h4 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h4><ul>
+<li><ol>
+<li>参考官方教程: <a href="https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip。" target="_blank" rel="noopener">https://llvmlite.readthedocs.io/en/latest/admin-guide/install.html#using-pip。</a> </li>
+</ol>
+</li>
+<li><ol start="2">
+<li>llvmlite的安装需要先行安装LLVM环境，因此先通过conda安装LLVM，再安装llvmlite，注意系统带的LLVM需要说明位置。</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install -c numba llvmdev</span><br><span class="line"></span><br><span class="line">pip install llvmlite -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/22/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/22/%E6%AF%8F%E6%97%A5%E8%AE%B0%E5%BD%95/" itemprop="url">每日记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-22T11:51:15+08:00">
+                2021-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Fuzzy-c-means"><a href="#Fuzzy-c-means" class="headerlink" title="Fuzzy c-means"></a>Fuzzy c-means</h2><p>c-means就是fuzzy c-means，一般简称是FCM。<br>FCM和K-means一样，在开始聚类前，要先确定cluster的个数。<br>与K-Means不同的是，FCM最后返回的是每个样本点属于某个聚类的概率。所以FCM是一种软聚类算法。有时候FCM也被叫做软K-Means。</p>
+<p>##</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/ubuntu%E6%8A%A5%E9%94%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/09/12/ubuntu%E6%8A%A5%E9%94%99/" itemprop="url">ubuntu报错</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-12T15:19:11+08:00">
+                2021-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="libreoffice-卡顿导致Ubuntu18桌面无响应"><a href="#libreoffice-卡顿导致Ubuntu18桌面无响应" class="headerlink" title="libreoffice 卡顿导致Ubuntu18桌面无响应"></a>libreoffice 卡顿导致Ubuntu18桌面无响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#找到相关进程并且杀死进程，桌面即能回复正常。</span><br><span class="line">ps -ef | grep libre </span><br><span class="line">kill -9 PID</span><br></pre></td></tr></table></figure>
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/28/seurat-command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1197,467 +1574,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/30/matlab%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/30/matlab%E5%AE%89%E8%A3%85/" itemprop="url">matlab安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-30T19:48:47+08:00">
-                2021-03-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>校内下载地址<br><a href="http://ms.zju.edu.cn/matlab/download.html" target="_blank" rel="noopener">http://ms.zju.edu.cn/matlab/download.html</a></p>
-<p>校内官网认证方法<br><a href="http://itc.zju.edu.cn/14742/list.htm" target="_blank" rel="noopener">http://itc.zju.edu.cn/14742/list.htm</a></p>
-<p>官网下载地址<br><a href="https://ww2.mathworks.cn/downloads/?s_cid=doc_ftr" target="_blank" rel="noopener">https://ww2.mathworks.cn/downloads/?s_cid=doc_ftr</a></p>
-<p>不联网安装及激活matlab的方法<br><a href="https://ww2.mathworks.cn/matlabcentral/answers/309607-internet-matlab" target="_blank" rel="noopener">https://ww2.mathworks.cn/matlabcentral/answers/309607-internet-matlab</a></p>
-<p>主机号码获取<br><a href="https://ww2.mathworks.cn/matlabcentral/answers/131749-id-id-id-id" target="_blank" rel="noopener">https://ww2.mathworks.cn/matlabcentral/answers/131749-id-id-id-id</a></p>
-<p>注意：<br>学校版本20G左右，官网压缩版本226M,目前没有发现这者的差别。linux 系统容易网络连接有问题，所以建议使用不联网安装方法，登录官方账户，下载licience.loc及密钥。</p>
-<p>matlab具有比较完备的社区，大部分的问题可以在上面得到解答。</p>
-<p>修改当前目录<br>cd NEWfolder</p>
-<p>读取csv<br>csvread() csvwrite()</p>
-<p>安装gephi 方法<br><a href="https://www.jianshu.com/p/73e5d81ddee7" target="_blank" rel="noopener">https://www.jianshu.com/p/73e5d81ddee7</a></p>
-<p>matlab 添加add-on的方法</p>
-<ol>
-<li>通过软件直接搜索得到。APP- get more apps</li>
-<li>下载插件包，解压后添加路径 addpath() </li>
-</ol>
-<h2 id="gephi-使用教程"><a href="#gephi-使用教程" class="headerlink" title="gephi 使用教程"></a>gephi 使用教程</h2><p>注意导入的dot file 有多几行。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/28/Single-Cell-Genomics-Day2021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/28/Single-Cell-Genomics-Day2021/" itemprop="url">Single Cell Genomics Day2021</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-28T20:07:31+08:00">
-                2021-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Rahul-satijia-single-cell-gemomics-recent-advances-and-future-directions"><a href="#Rahul-satijia-single-cell-gemomics-recent-advances-and-future-directions" class="headerlink" title="Rahul satijia single cell gemomics recent advances and future directions"></a>Rahul satijia single cell gemomics recent advances and future directions</h2><ul>
-<li><ol>
-<li>Multimodality spanning the central dogma<br>RNA+ surface protein(CITE-seq)<br>RNA+ATAC(10X multiome)<br>缺点：都是利用做单细胞核的ATAC，所以无法针对surface proteins.</li>
-</ol>
-</li>
-</ul>
-<p>mtscATAC/ICICLE/ASAP-seq: optimized permeabilization enables ATAC-seq on whole cells</p>
-<p>TEA-seq：scATAC+RNA+protein</p>
-<p>Dogma-seq:scATAC+RNA+protein: surface  protein, transcriptome, accessible chromatin, mtDNA mutations</p>
-<p>inCITE-seq: intracellualr protein + RNA</p>
-<ul>
-<li><ol start="2">
-<li>Reference mapping to single-cell atlas<br>symphony<br>scArches<br>Seurat V4<br>azimuth.hubmapconsortium.org:  a web application that uses an annotated reference dataset to automate the processing, analysis, and interpretation of a new single-cell RNA-seq experiment. </li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><ol start="3">
-<li>Comparative analysis of scRNA-seq datasets</li>
-</ol>
-</li>
-</ul>
-<ol>
-<li>changes in cell-type abundance</li>
-<li>changes in expression within a cell type</li>
-<li>how about datasets without discrete clusters</li>
-</ol>
-<p>三个方法推荐<br>MILO<br>muscat<br>Quantifying the effect of experimental perturbations at single-cell resolution</p>
-<ul>
-<li><ol start="4">
-<li>Hi-resolution spatial transcriptomics</li>
-</ol>
-</li>
-</ul>
-<ol>
-<li>10x Visium: low resolution</li>
-<li>SLIDE-seq: high resolution, low size</li>
-<li>SLIDE-seq2: higher sensitive</li>
-<li>DBit-seq(10um), seq-scope(&lt; 1um),PIXEL-SEQ(&lt; 1um), Stereo-seq( &lt;1um)</li>
-</ol>
-<ul>
-<li><ol start="5">
-<li>Spatial deconvolution based on scRNAseq<br>核心问题<br>deconvolution approaches must handle batch/platform effects</li>
-</ol>
-</li>
-</ul>
-<p>方法推荐：<br>cell2location （Visium）<br>RCDT （SLIDE-seq2）</p>
-<ul>
-<li><ol start="6">
-<li>Next-generation single cell screens (Perturb-seq+)</li>
-</ol>
-</li>
-</ul>
-<p>multimodal perturb-seq: ECCITE-seq, Perturb-CITE-seq</p>
-<ul>
-<li><ol start="7">
-<li>Understanding the cellualr origins of COVID-19<br>ACE2/TMPRSS2 expression<br>Dysfunctional myeloid cells</li>
-</ol>
-</li>
-<li><ol start="8">
-<li>总结<br><img src="https://gitee.com/feilijiang/img/raw/master/img/20210328205300.png" alt=""></li>
-</ol>
-</li>
-</ul>
-<p>问题：<br>Can we use cellrank or rna velocity to infer directions across conditions?<br>有变化就能映射到</p>
-<h2 id="Cole-Trapnell-Studying-development-robustnewss-at-the-whole-scale-embryo-scale-and-sin"><a href="#Cole-Trapnell-Studying-development-robustnewss-at-the-whole-scale-embryo-scale-and-sin" class="headerlink" title="Cole Trapnell: Studying development robustnewss at the whole-scale embryo scale and sin"></a>Cole Trapnell: Studying development robustnewss at the whole-scale embryo scale and sin</h2><p>sci-Plex: profiles cells from thousands of specimens</p>
-<p>斑马鱼图谱： 0-96hpf， 90万细胞， 859 embryos, 85 cell types,15 time points<br>genetic perturbations during zebrafish development: 3.1 million cells, 812 embryos 5 timepoints, 22 perturbations18-72hpf<br>科学问题： how do gene circuits stabilize the developmental program?</p>
-<p>neural crest cells to divergence cell types<br>tfap2a and foxd3 敲除影响神经细胞发育</p>
-<p>用指标来衡量， % increase in CV obs/exp<br>mean and variable in count data are often correlated: a generalized linear model to captures the trend in mean vs variance改成a b-binomial distrubution models fits the recovered cell type count data(Gamma GLM fit).</p>
-<p>perturbations can change the observed variance: cell number/ cell and std.dev/mean<br>两个基因的敲除不仅影响细胞类型的细胞数，而且还影响细胞类型的variance.</p>
-<p>how temperature stress destablize embryonic development?</p>
-<p>升高温度<br>develop faster<br>staging embryo using variablity in cell type frequencies</p>
-<h2 id="exploring-variability-in-gene-regulation-across-developing-embryonic-tisstis"><a href="#exploring-variability-in-gene-regulation-across-developing-embryonic-tisstis" class="headerlink" title="exploring variability in gene regulation across developing embryonic tisstis"></a>exploring variability in gene regulation across developing embryonic tisstis</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feilijiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feilijiang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/10/R%E5%91%BD%E4%BB%A4%E5%AE%9E%E5%BD%95/" itemprop="url">R命令实录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-10T18:53:26+08:00">
-                2021-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="读取dataframe的指定行或列"><a href="#读取dataframe的指定行或列" class="headerlink" title="读取dataframe的指定行或列"></a>读取dataframe的指定行或列</h3><p><a href="http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/" target="_blank" rel="noopener">http://shichangshun.cn/2015/11/09/%E6%8A%80%E6%9C%AF/2015-11-09-Read-rows-col/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(!file.exists(&quot;read&quot;))&#123;</span><br><span class="line">  dir.create(&quot;read&quot;)</span><br><span class="line">&#125;# 创建工作路径文件夹</span><br><span class="line">setwd(&quot;.&#x2F;read&quot;) # 设置工作路径</span><br><span class="line">if(!file.exists(&quot;data&quot;))&#123;</span><br><span class="line">  dir.create(&quot;data&quot;)</span><br><span class="line">&#125; # 新建data文件夹</span><br></pre></td></tr></table></figure>
-
-<h3 id="命令的重复"><a href="#命令的重复" class="headerlink" title="命令的重复"></a>命令的重复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var.genes&#x3D;Reduce(intersect, var.genes1)</span><br></pre></td></tr></table></figure>
-
-<h3 id="快速计算cor"><a href="#快速计算cor" class="headerlink" title="快速计算cor"></a>快速计算cor</h3><p>library(HiClimR)<br>fastCor</p>
-<h3 id="数据框替换值"><a href="#数据框替换值" class="headerlink" title="数据框替换值"></a>数据框替换值</h3><h5 id="method1-使用封装函数"><a href="#method1-使用封装函数" class="headerlink" title="method1: 使用封装函数"></a>method1: 使用封装函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">currentid</span><br><span class="line">newid</span><br><span class="line">pbmc$ident&lt;- plyr::mapvalues(pbmc$ident，from&#x3D;currentid,to&#x3D;newid)</span><br><span class="line">##### method2: 使用gsub</span><br><span class="line">anno$celltype &lt;- anno$cluster_new</span><br><span class="line">anno$celltype &lt;- paste0(&quot;_&quot;,paste0(anno$celltype,&#39;_&#39;))</span><br><span class="line">ma$cluster &lt;- paste0(&quot;_&quot;,paste0(ma$cluster,&quot;_&quot;))</span><br><span class="line">for (i in unique(ma$cluster)) &#123;</span><br><span class="line">  anno$celltype &lt;- gsub(anno$celltype,pattern &#x3D; i,replacement &#x3D; ma$V2[i])</span><br><span class="line">  print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="method3-使用-gt"><a href="#method3-使用-gt" class="headerlink" title="method3:  使用%&gt;%"></a>method3:  使用%&gt;%</h5><h3 id="trimws"><a href="#trimws" class="headerlink" title="trimws"></a>trimws</h3><blockquote>
-<p>替换开头或结尾的空格、换行符、制表符、回车。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trimws(gene,which&#x3D;c(&quot;both&quot;), whitespace&#x3D;&quot;[ \t\r\n]&quot;)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(scales)</span><br><span class="line">rss_ct_scale&lt;-apply(rss_ct, 1, rescale,to&#x3D;c(-2,2))</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="ggplot-多个画板一个图"><a href="#ggplot-多个画板一个图" class="headerlink" title="ggplot 多个画板一个图"></a>ggplot 多个画板一个图</h3><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">######################################  same mouse</span><br><span class="line">library(gridExtra)</span><br><span class="line">library(ggplot2)</span><br><span class="line">plot_correlation &lt;- function(i)&#123;</span><br><span class="line">  name1 &lt;- paste0(&#39;T&#39;,paste0(i,&quot;human&quot;))</span><br><span class="line">  name2 &lt;- paste0(&#39;T&#39;,paste0(i+1,&quot;human&quot;))</span><br><span class="line">  p&lt;-ggplot(ave_teratoma, aes(x&#x3D;get(name1), y&#x3D;get(name2))) +</span><br><span class="line">    geom_point(alpha&#x3D;1, size&#x3D;1) +</span><br><span class="line">    geom_smooth(method&#x3D;&quot;lm&quot;) +</span><br><span class="line">    theme_bw() +</span><br><span class="line">    xlab(name1)+ylab(name2)+</span><br><span class="line">    ggtitle(paste0(&quot;Mouse&quot;,i&#x2F;2-3))+</span><br><span class="line">    theme(text &#x3D; element_text(size&#x3D;10), legend.title&#x3D;element_blank(),plot.title &#x3D; element_text(hjust &#x3D; 0.5))+</span><br><span class="line">    stat_fit_glance(method &#x3D; &#39;lm&#39;,</span><br><span class="line">                    </span><br><span class="line">                    method.args &#x3D; list(formula &#x3D; y ~ x),</span><br><span class="line">                    </span><br><span class="line">                    mapping &#x3D; aes(label &#x3D; sprintf(&#39;R^2~&quot;&#x3D;&quot;~%.3f~~italic(P)~&quot;&#x3D;&quot;~%.2g&#39;, stat(r.squared), stat(p.value))),</span><br><span class="line">                    </span><br><span class="line">                    parse &#x3D; TRUE,label.x &#x3D; 0.95,label.y &#x3D; 0.95)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">plot_list &lt;- lapply(seq(8,18,2), plot_correlation)</span><br><span class="line">n &lt;- length(plot_list)</span><br><span class="line">nCol &lt;- floor(sqrt(n))</span><br><span class="line">grid.arrange(grobs &#x3D; plot_list, ncol &#x3D; nCol) ## display plot</span><br><span class="line">ggsave(file &#x3D; &quot;same_mouse_correlation.png&quot;, arrangeGrob(grobs &#x3D; plot_list, ncol &#x3D; 2),height &#x3D; 9,width &#x3D; 6)  ## save plot</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1708,7 +1624,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

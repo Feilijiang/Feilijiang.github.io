@@ -95,9 +95,10 @@
 <meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208175526.png">
 <meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208200632.png">
 <meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208181000.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211209202457.png">
 <meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211208105358.png">
 <meta property="article:published_time" content="2021-12-08T02:17:47.000Z">
-<meta property="article:modified_time" content="2021-12-08T13:51:55.364Z">
+<meta property="article:modified_time" content="2021-12-09T12:25:27.287Z">
 <meta property="article:author" content="Feilijiang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/20211208114701.png">
@@ -589,7 +590,31 @@
 </ul>
 </li>
 </ul>
-<h4 id="single-cell"><a href="#single-cell" class="headerlink" title="single-cell"></a>single-cell</h4><h3 id="技术应用"><a href="#技术应用" class="headerlink" title="技术应用"></a>技术应用</h3><h3 id="技术缺陷和展望"><a href="#技术缺陷和展望" class="headerlink" title="技术缺陷和展望"></a>技术缺陷和展望</h3><h3 id="与其他组学的关系"><a href="#与其他组学的关系" class="headerlink" title="与其他组学的关系"></a>与其他组学的关系</h3><p>H3K4me1，H3K4me2，H3K4me3和H3K27ac与染色质开放的关系：与H3K27ac相比，ATAC-Seq峰与H3K4me1的重叠具有更紧密的相关性，这表明增强子处H3K4me1的得失会影响可及染色质的形成。此外，ATAC-Seq能够识别造血过程中新的血细胞谱系调控因子。</p>
+<h4 id="single-cell"><a href="#single-cell" class="headerlink" title="single-cell"></a>single-cell</h4><p>snaptools是任斌实验室开放的scATAC-seq的工具，包含上游分析和下游分析两块。<br>网址：<a href="https://github.com/r3fang/SnapTools" target="_blank" rel="noopener">https://github.com/r3fang/SnapTools</a></p>
+<p><a href="https://github.com/r3fang/SnapATAC/wiki/FAQs" target="_blank" rel="noopener">https://github.com/r3fang/SnapATAC/wiki/FAQs</a></p>
+<ol>
+<li>Index Reference Genome<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> $ which bwa</span><br><span class="line">&#x2F;opt&#x2F;biotools&#x2F;bwa&#x2F;bin&#x2F;bwa</span><br><span class="line">$ snaptools index-genome	\</span><br><span class="line">	--input-fasta&#x3D;mm10.fa	\</span><br><span class="line">	--output-prefix&#x3D;mm10	\</span><br><span class="line">    --aligner&#x3D;bwa	\</span><br><span class="line">	--path-to-aligner&#x3D;&#x2F;opt&#x2F;biotools&#x2F;bwa&#x2F;bin&#x2F;	\</span><br><span class="line">	--num-threads&#x3D;5</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<ol start="2">
+<li>Alignment<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ snaptools align-paired-end	\</span><br><span class="line">	--input-reference&#x3D;mm10.fa	\</span><br><span class="line">	--input-fastq1&#x3D;demo.R1.fastq.gz	\</span><br><span class="line">	--input-fastq2&#x3D;demo.R2.fastq.gz	\</span><br><span class="line">	--output-bam&#x3D;demo.bam	\</span><br><span class="line">	--aligner&#x3D;bwa	\</span><br><span class="line">	--path-to-aligner&#x3D;&#x2F;opt&#x2F;biotools&#x2F;bwa&#x2F;bin&#x2F;	\</span><br><span class="line">	--read-fastq-command&#x3D;zcat	\</span><br><span class="line">	--min-cov&#x3D;0	\</span><br><span class="line">	--num-threads&#x3D;5	\</span><br><span class="line">	--if-sort&#x3D;True	\</span><br><span class="line">	--tmp-folder&#x3D;.&#x2F;	\</span><br><span class="line">	--overwrite&#x3D;TRUE</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="3">
+<li>Pre-processing.<br>a snap-format (Single-Nucleus Accessibility Profiles) file that contains meta data, cell-by-bin count matrices of a variety of resolutions, cell-by-peak count matrix.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ snaptools snap-pre  \</span><br><span class="line">	--input-file&#x3D;demo.bam  \</span><br><span class="line">	--output-snap&#x3D;demo.snap  \</span><br><span class="line">	--genome-name&#x3D;mm10  \</span><br><span class="line">	--genome-size&#x3D;mm10.chrom.size  \</span><br><span class="line">	--min-mapq&#x3D;30  \</span><br><span class="line">	--min-flen&#x3D;0  \</span><br><span class="line">	--max-flen&#x3D;1000  \</span><br><span class="line">	--keep-chrm&#x3D;TRUE  \</span><br><span class="line">	--keep-single&#x3D;TRUE  \</span><br><span class="line">	--keep-secondary&#x3D;False  \</span><br><span class="line">	--overwrite&#x3D;True  \</span><br><span class="line">	--max-num&#x3D;1000000  \</span><br><span class="line">	--min-cov&#x3D;100  \</span><br><span class="line">	--verbose&#x3D;True</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Cell-by-Bin Matrix<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ snaptools snap-add-bmat  \</span><br><span class="line">	--snap-file&#x3D;demo.snap  \</span><br><span class="line">	--bin-size-list 5000 10000  \</span><br><span class="line">	--verbose&#x3D;True</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211209202457.png" alt=""></p>
+<h3 id="技术应用"><a href="#技术应用" class="headerlink" title="技术应用"></a>技术应用</h3><h3 id="技术缺陷和展望"><a href="#技术缺陷和展望" class="headerlink" title="技术缺陷和展望"></a>技术缺陷和展望</h3><h3 id="与其他组学的关系"><a href="#与其他组学的关系" class="headerlink" title="与其他组学的关系"></a>与其他组学的关系</h3><p>H3K4me1，H3K4me2，H3K4me3和H3K27ac与染色质开放的关系：与H3K27ac相比，ATAC-Seq峰与H3K4me1的重叠具有更紧密的相关性，这表明增强子处H3K4me1的得失会影响可及染色质的形成。此外，ATAC-Seq能够识别造血过程中新的血细胞谱系调控因子。</p>
 <h3 id="比较："><a href="#比较：" class="headerlink" title="比较："></a>比较：</h3><h4 id="bulk-ATAC-seq的缺陷"><a href="#bulk-ATAC-seq的缺陷" class="headerlink" title="bulk ATAC-seq的缺陷"></a>bulk ATAC-seq的缺陷</h4><ul>
 <li><ol>
 <li>Tn5插入DNA将测序接头连接到剪断的DNA片段末端。因为两端接头连接随机， 不同接头的DNA片段才可以用于富集扩增及测序，相同接头的DNA片段无法利用。</li>
@@ -688,6 +713,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2021/12/09/sc-spatial-technology/" rel="prev" title="sc_spatial_technology">
+                sc_spatial_technology <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -763,7 +792,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

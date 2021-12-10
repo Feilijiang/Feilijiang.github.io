@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="参考https:&#x2F;&#x2F;blog.csdn.net&#x2F;dikuangzhong6068&#x2F;article&#x2F;details&#x2F;101198262?utm_medium&#x3D;distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.highlightwordscore&amp;spm&#x3D;1001.2101.30">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可变剪切">
+<meta property="og:url" content="http://yoursite.com/2021/12/10/%E5%8F%AF%E5%8F%98%E5%89%AA%E5%88%87/index.html">
+<meta property="og:site_name" content="Feilijiang">
+<meta property="og:description" content="参考https:&#x2F;&#x2F;blog.csdn.net&#x2F;dikuangzhong6068&#x2F;article&#x2F;details&#x2F;101198262?utm_medium&#x3D;distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.highlightwordscore&amp;spm&#x3D;1001.2101.30">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xOTQzMTY2OC1kN2M5MGVjNWYzYzMyNTU2LnBuZw.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211210110232.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211210110309.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211210185044.png">
+<meta property="og:image" content="https://gitee.com/feilijiang/img/raw/master/20211210164001.png">
+<meta property="article:published_time" content="2021-12-10T02:58:08.000Z">
+<meta property="article:modified_time" content="2021-12-10T14:57:17.229Z">
+<meta property="article:author" content="Feilijiang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/feilijiang/img/raw/master/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xOTQzMTY2OC1kN2M5MGVjNWYzYzMyNTU2LnBuZw.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/12/10/可变剪切/"/>
+
+
+
+
+
+  <title>可变剪切 | Feilijiang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feilijiang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">New Beginnings</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home //首页"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags //标签"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th //分类"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar //日程表"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/10/%E5%8F%AF%E5%8F%98%E5%89%AA%E5%88%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feilijiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feilijiang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">可变剪切</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-12-10T10:58:08+08:00">
+                2021-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参考<br><a href="https://blog.csdn.net/dikuangzhong6068/article/details/101198262?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.highlightwordscore&amp;spm=1001.2101.3001.4242.1" target="_blank" rel="noopener">https://blog.csdn.net/dikuangzhong6068/article/details/101198262?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.highlightwordscore&amp;spm=1001.2101.3001.4242.1</a> </p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>可变剪接（alternative splicing）,在真核生物中是一种非常基本的生物学事件。即基因转录后，先产生初始RNA或称作RNA前体，然后再通过可变剪接方式，选择性的把不同的外显子进行重连，从而产生不同的剪接异构体（isoform）。这种方式，使得一个基因可产生多个不同的转录本，这些转录本分别在细胞/个体分化发育的不同阶段，在不同的组织中有各自特异的表达和功能，从而极大地丰富了编码RNA和非编码RNA种类和数量，进而增加了转录组和蛋白质组的复杂性。</p>
+<h2 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h2><p>1、外显子跳跃，英文Exon Skipping, 或者叫做cassette exon；</p>
+<p>2、内含子保留，英文Intron Retention；</p>
+<p>3、互斥外显子，英文Mutually Exclusive Exons；</p>
+<p>4、外显子5’端的选择性剪接，Alternative 5’ splice site，A5SS</p>
+<p>5、外显子3’端的选择性剪接，Alternative 3’ splice site，A3SS<br><img src="https://gitee.com/feilijiang/img/raw/master/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xOTQzMTY2OC1kN2M5MGVjNWYzYzMyNTU2LnBuZw.png" alt=""></p>
+<h2 id="单细胞领域工具"><a href="#单细胞领域工具" class="headerlink" title="单细胞领域工具"></a>单细胞领域工具</h2><p>STARsolo: mapping, demultiplexing and gene quantification for single cell RNA-seq.</p>
+<h3 id="别人的总结"><a href="#别人的总结" class="headerlink" title="别人的总结"></a>别人的总结</h3><p><img src="https://gitee.com/feilijiang/img/raw/master/20211210110232.png" alt=""></p>
+<p><img src="https://gitee.com/feilijiang/img/raw/master/20211210110309.png" alt=""></p>
+<h3 id="自己的搜索"><a href="#自己的搜索" class="headerlink" title="自己的搜索"></a>自己的搜索</h3><ul>
+<li><p>scVelo - [Python] - scVelo is a scalable toolkit for RNA velocity analysis in single cells. It generalizes the concept of RNA velocity by relaxing previously made assumptions with a dynamical model. It allows to identify putative driver genes, infer a latent time, estimate reaction rates of transcription, splicing and degradation, and detect competing kinetics. 怎么去看呢，是否有具体的信息</p>
+</li>
+<li><p>SingleSplice - [R, perl, C++] - A tool for detecting biological variation in alternative splicing within a population of single cells. See Welch et al. 2016. 需要ERCC作为参照</p>
+</li>
+<li><p>rMATS - [Python] - RNA-Seq Multavariate Analysis of Transcript Splicing. 2014年发表的工具，后面有速度的提升版本，目测不能用于3’数据。</p>
+</li>
+<li><p>outrigger - [Python] - Outrigger is a program to calculate alternative splicing scores of RNA-Seq data based on junction reads and a de novo, custom annotation created with a graph database, especially made for single-cell analyses.作为Expedition的一个部分，专门为单细胞设计。文献里面是C1的数据来做的。</p>
+</li>
+<li><p>ICGS - [Python] - Iterative Clustering and Guide-gene Selection (Olsson et al. Nature 2016). Identify discrete, transitional and mixed-lineage states from diverse single-cell transcriptomics platforms. Integrated FASTQ pseudoalignment /quantification (Kallisto), differential expression, cell-type prediction and optional cell cycle exclusion analyses. Specialized methods for processing BAM and 10X Genomics spares matrix files. Associated single-cell splicing PSI methods (MultIPath-PSI). Apart of the AltAnalyze toolkit along with accompanying visualization methods (e.g., heatmap, t-SNE, SashimiPlots, network graphs). Easy-to-use graphical user and commandline interfaces.</p>
+</li>
+<li><p>flotilla - [Python] - Reproducible machine learning analysis of gene expression and alternative splicing data</p>
+</li>
+<li><p>Sierra: discovery of differential transcript usage from polyA-captured single-cell RNA-seq data，可以针对3’端的数据</p>
+</li>
+<li><p>BRIE:不适用于3‘端测序数据</p>
+</li>
+<li><p>LeafCutter：不是单细胞的方法</p>
+</li>
+</ul>
+<ul>
+<li>SpliZ：RNA splicing programs define tissue compartments and cell types at single-cell resolution</li>
+</ul>
+<h2 id="分析目的"><a href="#分析目的" class="headerlink" title="分析目的"></a>分析目的</h2><h3 id="xbp1两种形式的功能研究。"><a href="#xbp1两种形式的功能研究。" class="headerlink" title="xbp1两种形式的功能研究。"></a>xbp1两种形式的功能研究。</h3><h3 id="xbp1的两种剪切体的形式：Xbp1属于外显子3‘端的选择性剪切"><a href="#xbp1的两种剪切体的形式：Xbp1属于外显子3‘端的选择性剪切" class="headerlink" title="xbp1的两种剪切体的形式：Xbp1属于外显子3‘端的选择性剪切"></a>xbp1的两种剪切体的形式：Xbp1属于外显子3‘端的选择性剪切</h3><h3 id="定量两种isoform，并且得到两个group（ko和wt）中分别的表达量。"><a href="#定量两种isoform，并且得到两个group（ko和wt）中分别的表达量。" class="headerlink" title="定量两种isoform，并且得到两个group（ko和wt）中分别的表达量。"></a>定量两种isoform，并且得到两个group（ko和wt）中分别的表达量。</h3><p>问题<br>没有搞清楚scVelo得到的文件是否有两个isoform的定量信息，得到的信息为unspliced和spliced的两个矩阵。没有不同isoform的格式。<br>如果用其他方法的话，Sierra，ISOP,ICGS 哪个能用</p>
+<p>ICGS：更名为AltAnalyze，适用于单细胞数据，可以用于3’端实验的分析，似乎使用率很高。没有搞懂内容<br><a href="https://altanalyze.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://altanalyze.readthedocs.io/en/latest/</a></p>
+<p>review 里面的东西：<br>ISOP:10x数据可以用，是R包，下游处理差异表达的，输入是什么？输入就是一个isoform乘以sample的矩阵，上游是利用cufflinks对比对后的bam产生两个矩阵。需要全长序列<br><a href="https://academic.oup.com/bioinformatics/article/34/14/2392/4911530" target="_blank" rel="noopener">https://academic.oup.com/bioinformatics/article/34/14/2392/4911530</a><br><a href="https://github.com/nghiavtr/ISOP" target="_blank" rel="noopener">https://github.com/nghiavtr/ISOP</a><br><img src="https://gitee.com/feilijiang/img/raw/master/20211210185044.png" alt=""></p>
+<p>Sierra：GB的方法，discovery of differential transcript usage from polyA-captured single-cell RNA-seq data<br><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02071-7" target="_blank" rel="noopener">https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02071-7</a><br><a href="https://github.com/VCCRI/Sierra" target="_blank" rel="noopener">https://github.com/VCCRI/Sierra</a></p>
+<p>得到一个序列比对位置peak的矩阵，鉴定used polyadenylated sites in scRNA-seq data。<br><img src="https://gitee.com/feilijiang/img/raw/master/20211210164001.png" alt=""></p>
+<p>查看单个基因的isoform，需要提取从bam里面提取这个基因，进行查看。</p>
+<p>三个方法的输入输出，可以做哪些分析。</p>
+<p> The 10X data were not equipped for alternative splicing analysis due to the 3′-bias (Figure 6C, Figure S8C). Nevertheless, 10X still detected non-negligible number of junctions, even though they only accounted for approximately 50% of those junctions detected by Smart-seq2. Although Smart-seq2 data were clearly much more suitable for alternative splicing studies [41], [42], the limited number of splicing junctions detected by 10X might be suitable for certain analyses that rely on junction-based characterization, such as the RNA velocity analysis [43].</p>
+<p>有10x的isoform的鉴定<br> “Isoform specificity in the mouse primary motor cortex”<br> <a href="https://github.com/pachterlab/BYVSTZP_2020/blob/master/analysis/notebooks/10xv3/final-10x_isoform.ipynb" target="_blank" rel="noopener">https://github.com/pachterlab/BYVSTZP_2020/blob/master/analysis/notebooks/10xv3/final-10x_isoform.ipynb</a></p>
+<p>Modular, efficient and constant-memory single-cell RNA-seq preprocessing<br><a href="https://www.nature.com/articles/s41587-021-00870-2" target="_blank" rel="noopener">https://www.nature.com/articles/s41587-021-00870-2</a></p>
+<p>A discriminative learning approach to differential expression analysis for single-cell RNA-seq<br> <a href="https://github.com/pachterlab/NYMP_2018/blob/master/10x_example-logR/10x_example_logR-TCC_notebook.ipynb" target="_blank" rel="noopener">https://github.com/pachterlab/NYMP_2018/blob/master/10x_example-logR/10x_example_logR-TCC_notebook.ipynb</a><br> 产生TCC matrix:<a href="https://github.com/pachterlab/scRNA-Seq-TCC-prep" target="_blank" rel="noopener">https://github.com/pachterlab/scRNA-Seq-TCC-prep</a></p>
+<p><a href="https://www.nature.com/articles/s41592-018-0303-9#code-availability" target="_blank" rel="noopener">https://www.nature.com/articles/s41592-018-0303-9#code-availability</a></p>
+<p>kallisto<br><a href="https://www.kallistobus.tools/kb_usage/kb_usage/" target="_blank" rel="noopener">https://www.kallistobus.tools/kb_usage/kb_usage/</a><br>使用bustool可以生成TCC，但是需要bus file的输入，有fastq文件生成。</p>
+<p>AltAnalyze<br><a href="http://altanalyze.blogspot.com/2016/08/bye-bye-bed-files-welcome-bam.html" target="_blank" rel="noopener">http://altanalyze.blogspot.com/2016/08/bye-bye-bed-files-welcome-bam.html</a></p>
+<p><a href="https://altanalyze.readthedocs.io/en/latest/RunningAltAnalyze/#selecting-the-rna-seq-analysis-method" target="_blank" rel="noopener">https://altanalyze.readthedocs.io/en/latest/RunningAltAnalyze/#selecting-the-rna-seq-analysis-method</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/12/10/%E7%AA%97%E5%8F%A3/" rel="next" title="窗口">
+                <i class="fa fa-chevron-left"></i> 窗口
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Feilijiang</p>
+              <p class="site-description motion-element" itemprop="description">生物信息 记录 分享 博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#形式"><span class="nav-number">2.</span> <span class="nav-text">形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单细胞领域工具"><span class="nav-number">3.</span> <span class="nav-text">单细胞领域工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#别人的总结"><span class="nav-number">3.1.</span> <span class="nav-text">别人的总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自己的搜索"><span class="nav-number">3.2.</span> <span class="nav-text">自己的搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析目的"><span class="nav-number">4.</span> <span class="nav-text">分析目的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xbp1两种形式的功能研究。"><span class="nav-number">4.1.</span> <span class="nav-text">xbp1两种形式的功能研究。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xbp1的两种剪切体的形式：Xbp1属于外显子3‘端的选择性剪切"><span class="nav-number">4.2.</span> <span class="nav-text">xbp1的两种剪切体的形式：Xbp1属于外显子3‘端的选择性剪切</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定量两种isoform，并且得到两个group（ko和wt）中分别的表达量。"><span class="nav-number">4.3.</span> <span class="nav-text">定量两种isoform，并且得到两个group（ko和wt）中分别的表达量。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feilijiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>
